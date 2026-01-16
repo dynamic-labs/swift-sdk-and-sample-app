@@ -1,6 +1,6 @@
 import SwiftUI
 import DynamicSDKSwift
-import BigInt
+import SwiftBigInt
 
 struct EvmSendTransactionScreen: View {
   let wallet: BaseWallet

@@ -1,5 +1,4 @@
 {
-  "originHash" : "cf31a1c024237a186f96faff8dfa393e374dab8f2032c23a42d17e7c5cc416a6",
   "pins" : [
     {
       "identity" : "bigint",
@@ -13,12 +12,12 @@
     {
       "identity" : "solanaweb3",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/kantagara/SolanaWeb3.git",
+      "location" : "https://github.com/kantagara/SolanaWeb3",
       "state" : {
         "revision" : "ee5280dc1b213e4cbf8c79bb6ca2b7f8ca3322cf",
         "version" : "1.0.4"
       }
     }
   ],
-  "version" : 3
+  "version" : 2
 }

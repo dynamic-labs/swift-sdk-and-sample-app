@@ -9,13 +9,26 @@ let package = Package(
     products: [
         .library(
             name: "DynamicSDKSwift",
-            targets: ["DynamicSDKSwift"])
+            targets: ["DynamicSDKSwiftWrapper"])
+    ],
+    dependencies: [
+        // Keep these aligned with `dynamic_sdk_swift/Packages/DynamicSDKSwift/Package.swift`
+        .package(url: "https://github.com/jlalvarez18/BigInt.git", from: "6.0.0"),
+        .package(url: "https://github.com/kantagara/SolanaWeb3.git", from: "1.0.4")
     ],
     targets: [
         .binaryTarget(
             name: "DynamicSDKSwift",
-            url: "https://github.com/dynamic-labs/swift-sdk-and-sample-app/releases/download/1.0.0/DynamicSDKSwift.xcframework.zip",
-            checksum: "661a21c969cd9733b6c27fe6a9bcb40d1f94ad9cbef8a22dad5b2637d811a39e"
+            path: "Frameworks/DynamicSDKSwift.xcframework"
+        ),
+        .target(
+            name: "DynamicSDKSwiftWrapper",
+            dependencies: [
+                "DynamicSDKSwift",
+                .product(name: "SwiftBigInt", package: "BigInt"),
+                .product(name: "SolanaWeb3", package: "SolanaWeb3"),
+            ],
+            path: "Sources/DynamicSDKSwiftWrapper"
         )
     ]
 )

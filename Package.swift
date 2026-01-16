@@ -14,8 +14,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "DynamicSDKSwift",
-            url: "PASTE_URL_HERE",
-            checksum: "PASTE_CHECKSUM_HERE"
+            url: "https://github.com/dynamic-labs/swift-sdk-and-sample-app/releases/download/1.0.0/DynamicSDKSwift.xcframework.zip",
+            checksum: "661a21c969cd9733b6c27fe6a9bcb40d1f94ad9cbef8a22dad5b2637d811a39e"
         )
     ]
 )

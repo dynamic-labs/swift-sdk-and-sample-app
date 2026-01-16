@@ -1,6 +1,6 @@
 import SwiftUI
 import DynamicSDKSwift
-import BigInt
+import SwiftBigInt
 
 struct EvmSendErc20Screen: View {
   let wallet: BaseWallet

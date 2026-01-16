@@ -3,29 +3,27 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F7B0B6E9B0F4D3D9F7D0C41 /* SwitchNetworkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7B0B6D9B0F4D3D9F7D0C41 /* SwitchNetworkViewModel.swift */; };
-		9D6461CCD5A67CAB7D5799A4 /* LoginScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E1979B236B11315ADF20DA /* LoginScreenViewModel.swift */; };
-		BBF6EE2C54F3261916A52BD5 /* SplashScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA35598A278FA06EBE84A0A8 /* SplashScreenViewModel.swift */; };
 		069898F3595F822E90304493 /* AppRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DAD545716C3952260F8AC2 /* AppRootView.swift */; };
 		22D16B387EE61062CA2E9523 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DA03555BA55B97B5C0B2BD /* Route.swift */; };
-		2B307B30551580BE806D398B /* WalletDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E20DCE7D3D453D72016B4 /* WalletDetailsViewModel.swift */; };
+		0D5A3B1F7A5C4B4A00112233 /* DynamicSDKSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0D5A3B1E7A5C4B4A00112233 /* DynamicSDKSwift */; };
 		25AFB8C32EFEEDB30013666D /* DynamicSDKExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AFB8C22EFEEDB30013666D /* DynamicSDKExampleApp.swift */; };
 		25AFB8CB2F0000020013666E /* MfaDevicesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AFB8C62F0000020013666E /* MfaDevicesScreen.swift */; };
 		25AFB8CC2F0000020013666E /* MfaAddDeviceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AFB8C72F0000020013666E /* MfaAddDeviceScreen.swift */; };
 		25AFB8CD2F0000020013666E /* MfaRecoveryCodesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AFB8C82F0000020013666E /* MfaRecoveryCodesScreen.swift */; };
 		25AFB8CE2F0000020013666E /* PasskeysScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AFB8C92F0000020013666E /* PasskeysScreen.swift */; };
 		25AFB8CF2F0000020013666E /* DynamicSDKExample/Components/SecurityComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AFB8CA2F0000020013666E /* DynamicSDKExample/Components/SecurityComponents.swift */; };
+		2B307B30551580BE806D398B /* WalletDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E20DCE7D3D453D72016B4 /* WalletDetailsViewModel.swift */; };
+		2F7B0B6E9B0F4D3D9F7D0C41 /* SwitchNetworkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7B0B6D9B0F4D3D9F7D0C41 /* SwitchNetworkViewModel.swift */; };
+		404BC9C5B3FEEFF1D1A21C15 /* SwitchNetworkScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31588B8A6C4C6AA4D2E86E36 /* SwitchNetworkScreen.swift */; };
+		45D32B68DEAED49BBC8AC812 /* EvmSendErc20Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41874C723A6DE7A70EE54055 /* EvmSendErc20Screen.swift */; };
 		4CE62D012682B8019FA5004B /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB21CB71A347F6991D4ED28 /* HomeScreenViewModel.swift */; };
 		547499A0086DA622DD2132C0 /* DynamicSDKExample/Components/ValueCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503886089E26496E302940DC /* DynamicSDKExample/Components/ValueCard.swift */; };
 		6F99C6888B6E9C6FFDB06364 /* DynamicSDKExample/Components/WalletCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF61F281A294CF554BA4BFF /* DynamicSDKExample/Components/WalletCard.swift */; };
-		404BC9C5B3FEEFF1D1A21C15 /* SwitchNetworkScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31588B8A6C4C6AA4D2E86E36 /* SwitchNetworkScreen.swift */; };
-		45D32B68DEAED49BBC8AC812 /* EvmSendErc20Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41874C723A6DE7A70EE54055 /* EvmSendErc20Screen.swift */; };
 		9B2C9C7A2B00000100000001 /* (null) in Sources */ = {isa = PBXBuildFile; };
-		9B2C9C7D2B00000100000001 /* DynamicSDKSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9B2C9C7E2B00000100000001 /* DynamicSDKSwift */; };
 		9B2C9C802B00000100000002 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2C9C7F2B00000100000002 /* SplashScreen.swift */; };
 		9B2C9C812B00000100000003 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2C9C7F2B00000100000003 /* LoginScreen.swift */; };
 		9B2C9C822B00000100000004 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2C9C7F2B00000100000004 /* HomeScreen.swift */; };
@@ -39,15 +37,13 @@
 		9B2C9C8A2B00000100000012 /* EvmSendTransactionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2C9C7F2B00000100000012 /* EvmSendTransactionScreen.swift */; };
 		9B2C9C8B2B00000100000013 /* EvmWriteContractScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2C9C7F2B00000100000013 /* EvmWriteContractScreen.swift */; };
 		9B2C9C8C2B00000100000015 /* SolanaSignTransactionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2C9C7F2B00000100000015 /* SolanaSignTransactionScreen.swift */; };
+		9D6461CCD5A67CAB7D5799A4 /* LoginScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E1979B236B11315ADF20DA /* LoginScreenViewModel.swift */; };
+		BBF6EE2C54F3261916A52BD5 /* SplashScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA35598A278FA06EBE84A0A8 /* SplashScreenViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2F7B0B6D9B0F4D3D9F7D0C41 /* SwitchNetworkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchNetworkViewModel.swift; sourceTree = "<group>"; };
-		B7E1979B236B11315ADF20DA /* LoginScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenViewModel.swift; sourceTree = "<group>"; };
-		BA35598A278FA06EBE84A0A8 /* SplashScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewModel.swift; sourceTree = "<group>"; };
 		01DAD545716C3952260F8AC2 /* AppRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootView.swift; sourceTree = "<group>"; };
 		19DA03555BA55B97B5C0B2BD /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
-		279E20DCE7D3D453D72016B4 /* WalletDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletDetailsViewModel.swift; sourceTree = "<group>"; };
 		25AFB8C22EFEEDB30013666D /* DynamicSDKExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicSDKExampleApp.swift; sourceTree = "<group>"; };
 		25AFB8C62F0000020013666E /* MfaDevicesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MfaDevicesScreen.swift; sourceTree = "<group>"; };
 		25AFB8C72F0000020013666E /* MfaAddDeviceScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MfaAddDeviceScreen.swift; sourceTree = "<group>"; };
@@ -55,11 +51,13 @@
 		25AFB8C92F0000020013666E /* PasskeysScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasskeysScreen.swift; sourceTree = "<group>"; };
 		25AFB8CA2F0000020013666E /* DynamicSDKExample/Components/SecurityComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicSDKExample/Components/SecurityComponents.swift; sourceTree = "<group>"; };
 		25AFB8D02F1000000013666F /* DynamicSDKExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DynamicSDKExample.entitlements; sourceTree = "<group>"; };
+		279E20DCE7D3D453D72016B4 /* WalletDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletDetailsViewModel.swift; sourceTree = "<group>"; };
+		2F7B0B6D9B0F4D3D9F7D0C41 /* SwitchNetworkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchNetworkViewModel.swift; sourceTree = "<group>"; };
+		31588B8A6C4C6AA4D2E86E36 /* SwitchNetworkScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchNetworkScreen.swift; sourceTree = "<group>"; };
+		41874C723A6DE7A70EE54055 /* EvmSendErc20Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvmSendErc20Screen.swift; sourceTree = "<group>"; };
 		4AB21CB71A347F6991D4ED28 /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
 		503886089E26496E302940DC /* DynamicSDKExample/Components/ValueCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicSDKExample/Components/ValueCard.swift; sourceTree = "<group>"; };
 		5EF61F281A294CF554BA4BFF /* DynamicSDKExample/Components/WalletCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicSDKExample/Components/WalletCard.swift; sourceTree = "<group>"; };
-		31588B8A6C4C6AA4D2E86E36 /* SwitchNetworkScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchNetworkScreen.swift; sourceTree = "<group>"; };
-		41874C723A6DE7A70EE54055 /* EvmSendErc20Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvmSendErc20Screen.swift; sourceTree = "<group>"; };
 		9B2C9C6A2B00000100000001 /* DynamicSDKExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DynamicSDKExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B2C9C7F2B00000100000002 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		9B2C9C7F2B00000100000003 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
@@ -74,6 +72,8 @@
 		9B2C9C7F2B00000100000013 /* EvmWriteContractScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvmWriteContractScreen.swift; sourceTree = "<group>"; };
 		9B2C9C7F2B00000100000014 /* DynamicSDKExample/Components/SharedComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicSDKExample/Components/SharedComponents.swift; sourceTree = "<group>"; };
 		9B2C9C7F2B00000100000015 /* SolanaSignTransactionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolanaSignTransactionScreen.swift; sourceTree = "<group>"; };
+		B7E1979B236B11315ADF20DA /* LoginScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenViewModel.swift; sourceTree = "<group>"; };
+		BA35598A278FA06EBE84A0A8 /* SplashScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,22 +81,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B2C9C7D2B00000100000001 /* DynamicSDKSwift in Frameworks */,
+				0D5A3B1F7A5C4B4A00112233 /* DynamicSDKSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		260060A8DEFAB589B55582C6 /* App */ = {
-			isa = PBXGroup;
-			children = (
-				01DAD545716C3952260F8AC2 /* AppRootView.swift */,
-				19DA03555BA55B97B5C0B2BD /* Route.swift */,
-			);
-			path = App;
-			sourceTree = "<group>";
-		};
 		25AFB8C12EFEEC6C0013666D /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,12 +99,22 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
+		260060A8DEFAB589B55582C6 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				01DAD545716C3952260F8AC2 /* AppRootView.swift */,
+				19DA03555BA55B97B5C0B2BD /* Route.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		9B2C9C612B00000100000001 = {
 			isa = PBXGroup;
 			children = (
 				9B2C9C762B00000100000001 /* DynamicSDKExample */,
 				9B2C9C6B2B00000100000001 /* Products */,
 				25AFB8C12EFEEC6C0013666D /* Recovered References */,
+				250F4FBF2F1AAD6800C92C1F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -191,7 +192,7 @@
 			);
 			name = DynamicSDKExample;
 			packageProductDependencies = (
-				9B2C9C7E2B00000100000001 /* DynamicSDKSwift */,
+				0D5A3B1E7A5C4B4A00112233 /* DynamicSDKSwift */,
 			);
 			productName = DynamicSDKExample;
 			productReference = 9B2C9C6A2B00000100000001 /* DynamicSDKExample.app */;
@@ -221,7 +222,7 @@
 			);
 			mainGroup = 9B2C9C612B00000100000001;
 			packageReferences = (
-				9B2C9C742B00000100000001 /* XCLocalSwiftPackageReference "../Packages/DynamicSDKSwift" */,
+				0D5A3B1D7A5C4B4A00112233 /* XCLocalSwiftPackageReference "../../" */,
 			);
 			productRefGroup = 9B2C9C6B2B00000100000001 /* Products */;
 			projectDirPath = "";
@@ -409,16 +410,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		9B2C9C742B00000100000001 /* XCLocalSwiftPackageReference "../Packages/DynamicSDKSwift" */ = {
+		0D5A3B1D7A5C4B4A00112233 /* XCLocalSwiftPackageReference "../../" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = ../Packages/DynamicSDKSwift;
+			relativePath = ..;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		9B2C9C7E2B00000100000001 /* DynamicSDKSwift */ = {
+		0D5A3B1E7A5C4B4A00112233 /* DynamicSDKSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9B2C9C742B00000100000001 /* XCLocalSwiftPackageReference "../Packages/DynamicSDKSwift" */;
+			package = 0D5A3B1D7A5C4B4A00112233 /* XCLocalSwiftPackageReference "../../" */;
 			productName = DynamicSDKSwift;
 		};
 /* End XCSwiftPackageProductDependency section */

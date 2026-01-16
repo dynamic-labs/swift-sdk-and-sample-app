@@ -1,0 +1,977 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
+// swift-module-flags: -target x86_64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -module-name DynamicSDKSwift -package-name dynamicsdkswift
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
+import AuthenticationServices
+import Combine
+import Foundation
+import SolanaWeb3
+import Swift
+import SwiftBigInt
+import SwiftUI
+import UIKit
+import WebKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+import _WebKit_SwiftUI
+public enum Erc20 {
+  public static let abi: Swift.String
+}
+final public class EvmModule {
+  public init(transport: DynamicSDKSwift.MessageTransport)
+  final public func getGasPrice(wallet: DynamicSDKSwift.BaseWallet) async throws -> SwiftBigInt.BigUInt
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func estimateFeesPerGas(wallet: DynamicSDKSwift.BaseWallet, options: [Swift.String : Any]? = nil) async throws -> DynamicSDKSwift.EstimatedFeesPerGas
+  #endif
+  final public func estimateFeesPerGas(wallet: DynamicSDKSwift.BaseWallet) async throws -> DynamicSDKSwift.EstimatedFeesPerGas
+  final public func createPublicClient(chainId: Swift.Int) -> DynamicSDKSwift.EvmClient
+  final public func sendTransaction(transaction: DynamicSDKSwift.EthereumTransaction, wallet: DynamicSDKSwift.BaseWallet) async throws -> Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func request(method: Swift.String, params: [Any], wallet: DynamicSDKSwift.BaseWallet? = nil, chainId: Swift.Int? = nil) async throws -> Swift.String
+  #endif
+  final public func writeContract(wallet: DynamicSDKSwift.BaseWallet, input: DynamicSDKSwift.WriteContractInput) async throws -> Swift.String
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers final public class EvmClient {
+  final public func getGasPrice() async throws -> SwiftBigInt.BigUInt
+  final public func getTransactionCount(address: Swift.String) async throws -> Swift.Int
+  final public func getBalance(address: Swift.String) async throws -> SwiftBigInt.BigUInt
+  @objc deinit
+}
+public struct EthereumTransaction {
+  public let from: Swift.String
+  public let to: Swift.String?
+  public let value: SwiftBigInt.BigUInt?
+  public let data: Swift.String?
+  public let gas: SwiftBigInt.BigUInt?
+  public let gasPrice: SwiftBigInt.BigUInt?
+  public let maxFeePerGas: SwiftBigInt.BigUInt?
+  public let maxPriorityFeePerGas: SwiftBigInt.BigUInt?
+  public let nonce: Swift.Int?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(from: Swift.String, to: Swift.String? = nil, value: SwiftBigInt.BigUInt? = nil, data: Swift.String? = nil, gas: SwiftBigInt.BigUInt? = nil, gasPrice: SwiftBigInt.BigUInt? = nil, maxFeePerGas: SwiftBigInt.BigUInt? = nil, maxPriorityFeePerGas: SwiftBigInt.BigUInt? = nil, nonce: Swift.Int? = nil)
+  #endif
+  public func toJsonRpc() -> [Swift.String : Any]
+}
+public struct WriteContractInput {
+  public let address: Swift.String
+  public let abi: [[Swift.String : Any]]
+  public let functionName: Swift.String
+  public let args: [Any]
+  public let gas: SwiftBigInt.BigUInt?
+  public let maxFeePerBlobGas: SwiftBigInt.BigUInt?
+  public let gasPrice: SwiftBigInt.BigUInt?
+  public let maxPriorityFeePerGas: SwiftBigInt.BigUInt?
+  public let maxFeePerGas: SwiftBigInt.BigUInt?
+  public let nonce: Swift.Int?
+  public let value: SwiftBigInt.BigUInt?
+  public let type: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(address: Swift.String, abi: [[Swift.String : Any]], functionName: Swift.String, args: [Any] = [], gas: SwiftBigInt.BigUInt? = nil, maxFeePerBlobGas: SwiftBigInt.BigUInt? = nil, gasPrice: SwiftBigInt.BigUInt? = nil, maxPriorityFeePerGas: SwiftBigInt.BigUInt? = nil, maxFeePerGas: SwiftBigInt.BigUInt? = nil, nonce: Swift.Int? = nil, value: SwiftBigInt.BigUInt? = nil, type: Swift.String? = nil)
+  #endif
+  public func toJson() -> [Swift.String : Any]
+}
+public struct EstimatedFeesPerGas : Swift.Equatable {
+  public let maxFeePerGas: SwiftBigInt.BigUInt?
+  public let maxPriorityFeePerGas: SwiftBigInt.BigUInt?
+  public let gasPrice: SwiftBigInt.BigUInt?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(maxFeePerGas: SwiftBigInt.BigUInt?, maxPriorityFeePerGas: SwiftBigInt.BigUInt?, gasPrice: SwiftBigInt.BigUInt?)
+  #endif
+  public static func == (a: DynamicSDKSwift.EstimatedFeesPerGas, b: DynamicSDKSwift.EstimatedFeesPerGas) -> Swift.Bool
+}
+extension DynamicSDKSwift.WalletsModule {
+  final public func signEthereumTransaction(walletId: Swift.String, transaction: DynamicSDKSwift.EthereumTransaction) async throws -> Swift.String
+  final public func signEthereumTransaction(wallet: DynamicSDKSwift.BaseWallet, to: Swift.String, value: Swift.String, gasLimit: Swift.String, maxPriorityFeePerGas: Swift.String, maxFeePerGas: Swift.String) async throws -> Swift.String
+  final public func signTypedData(walletId: Swift.String, typedData: DynamicSDKSwift.TypedData) async throws -> Swift.String
+  final public func signTypedData(wallet: DynamicSDKSwift.BaseWallet, typedDataJson: Swift.String) async throws -> Swift.String
+}
+public struct TypedData {
+  public let types: [Swift.String : [DynamicSDKSwift.TypedDataField]]
+  public let primaryType: Swift.String
+  public let domain: DynamicSDKSwift.TypedDataDomain
+  public let message: [Swift.String : Any]
+  public init(types: [Swift.String : [DynamicSDKSwift.TypedDataField]], primaryType: Swift.String, domain: DynamicSDKSwift.TypedDataDomain, message: [Swift.String : Any])
+  public func toJson() -> [Swift.String : Any]
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func fromJson(_ json: [Swift.String : Any]) -> DynamicSDKSwift.TypedData?
+  #endif
+}
+public struct TypedDataField {
+  public let name: Swift.String
+  public let type: Swift.String
+  public init(name: Swift.String, type: Swift.String)
+}
+public struct TypedDataDomain {
+  public let name: Swift.String?
+  public let version: Swift.String?
+  public let chainId: Swift.Int?
+  public let verifyingContract: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(name: Swift.String? = nil, version: Swift.String? = nil, chainId: Swift.Int? = nil, verifyingContract: Swift.String? = nil)
+  #endif
+  public func toJson() -> [Swift.String : Any]
+}
+final public class DynamicSolanaSigner {
+  public init(requestChannel: DynamicSDKSwift.RequestChannel, wallet: DynamicSDKSwift.BaseWallet)
+  final public func signMessage(message: Swift.String) async throws -> Swift.String
+  final public func signAndSendEncodedTransaction(base64Transaction: Swift.String) async throws -> Swift.String
+  final public func signAndSendTransaction(serializedTransaction: Foundation.Data) async throws -> Swift.String
+  final public func signEncodedTransaction(base64Transaction: Swift.String) async throws -> Swift.String
+  final public func signTransaction(serializedTransaction: SolanaWeb3.Transaction) async throws -> Swift.String
+  @objc deinit
+}
+final public class SolanaModule {
+  public init(_ transport: DynamicSDKSwift.MessageTransport)
+  final public func createConnection() throws -> SolanaWeb3.Connection
+  final public func createSigner(wallet: DynamicSDKSwift.BaseWallet) -> DynamicSDKSwift.DynamicSolanaSigner
+  @objc deinit
+}
+public struct BlockhashWithExpiryBlockHeight {
+  public let blockhash: Swift.String
+  public let lastValidBlockHeight: Swift.UInt64
+}
+@_hasMissingDesignatedInitializers public class SolanaTransactionBuilder {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func createVersionedTransferTransaction(from: Swift.String, to: Swift.String, lamports: Swift.UInt64, recentBlockhash: SolanaWeb3.Blockhash, addressLookupTableAccounts: [SolanaWeb3.AddressLookupTableAccount]? = nil) throws -> SolanaWeb3.Transaction
+  #endif
+  @objc deinit
+}
+public enum WebViewVersion {
+  public static let current: Swift.String
+}
+public struct AnyCodable : Swift.Codable, Swift.Equatable {
+  public var value: Any {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(_ value: Any?)
+  #endif
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public static func == (a: DynamicSDKSwift.AnyCodable, b: DynamicSDKSwift.AnyCodable) -> Swift.Bool
+}
+public struct ClientProps : Swift.Equatable {
+  public var environmentId: Swift.String
+  public var apiBaseUrl: Swift.String?
+  public var appLogoUrl: Swift.String?
+  public var appName: Swift.String
+  public var redirectUrl: Swift.String?
+  public var appOrigin: Swift.String?
+  public var cssOverrides: Swift.String?
+  public var debugWebview: Swift.Bool
+  public var logLevel: DynamicSDKSwift.LoggerLevel
+  public var debug: DynamicSDKSwift.ClientDebugProps?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(environmentId: Swift.String, apiBaseUrl: Swift.String? = nil, appLogoUrl: Swift.String? = nil, appName: Swift.String = "Dynamic", redirectUrl: Swift.String? = nil, appOrigin: Swift.String? = nil, cssOverrides: Swift.String? = nil, debugWebview: Swift.Bool = false, logLevel: DynamicSDKSwift.LoggerLevel = .info, debug: DynamicSDKSwift.ClientDebugProps? = nil)
+  #endif
+  public static func == (a: DynamicSDKSwift.ClientProps, b: DynamicSDKSwift.ClientProps) -> Swift.Bool
+}
+public struct ClientDebugProps : Swift.Equatable, Swift.Codable {
+  public var webview: Swift.Bool
+  public var messageTransport: Swift.Bool
+  public var loggerLevel: Swift.Int?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(webview: Swift.Bool = false, messageTransport: Swift.Bool = false, loggerLevel: Swift.Int? = nil)
+  #endif
+  public static func == (a: DynamicSDKSwift.ClientDebugProps, b: DynamicSDKSwift.ClientDebugProps) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum DynamicSDKError : Swift.Error, Foundation.LocalizedError {
+  case invalidResponse(Swift.String)
+  case networkError(Swift.String)
+  case encodingError(Swift.String)
+  case decodingError(Swift.String)
+  case missingParameter(Swift.String)
+  case custom(Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var errorDescription: Swift.String? {
+    get
+  }
+  #endif
+}
+public enum LoggerLevel : Swift.Int, Swift.Codable {
+  case debug
+  case info
+  case warn
+  case error
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum Logger {
+  public static var level: DynamicSDKSwift.LoggerLevel
+  public static func debug(_ message: @autoclosure () -> Swift.String)
+  public static func info(_ message: @autoclosure () -> Swift.String)
+  public static func warn(_ message: @autoclosure () -> Swift.String)
+  public static func error(_ message: @autoclosure () -> Swift.String)
+}
+public struct Message : Swift.Codable, Swift.Equatable {
+  public var messageSessionId: Swift.String
+  public var origin: Swift.String
+  public var type: Swift.String
+  public var args: [DynamicSDKSwift.AnyCodable]?
+  public var doNotAck: Swift.Bool?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(messageSessionId: Swift.String, origin: Swift.String, type: Swift.String, args: [DynamicSDKSwift.AnyCodable]? = nil, doNotAck: Swift.Bool? = nil)
+  #endif
+  public static func == (a: DynamicSDKSwift.Message, b: DynamicSDKSwift.Message) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension DynamicSDKSwift.Message {
+  public func getResolveType() -> Swift.String
+  public func getRejectType() -> Swift.String
+  public func getAckType() -> Swift.String
+  public func ack() -> DynamicSDKSwift.Message
+  public func resolve(_ args: [DynamicSDKSwift.AnyCodable] = []) -> DynamicSDKSwift.Message
+  public func reject(_ args: [DynamicSDKSwift.AnyCodable] = []) -> DynamicSDKSwift.Message
+  public func toJsonString() -> Swift.String
+}
+final public class BroadcastMessageTransport {
+  public init()
+  final public var observable: Combine.AnyPublisher<DynamicSDKSwift.Message, Swift.Never> {
+    get
+  }
+  final public func add(_ message: DynamicSDKSwift.Message)
+  final public func subscribe(_ handler: @escaping (DynamicSDKSwift.Message) -> Swift.Void) -> Foundation.UUID
+  final public func unsubscribe(_ id: Foundation.UUID)
+  @objc deinit
+}
+public typealias MessageTransport = DynamicSDKSwift.BroadcastMessageTransport
+public func createBroadcastMessageTransport() -> DynamicSDKSwift.MessageTransport
+final public class RequestChannel {
+  final public let idPrefix: Swift.String
+  public init(_ transport: DynamicSDKSwift.MessageTransport)
+  final public func getUniqueId() -> Swift.String
+  final public func emit(_ type: Swift.String, args: [DynamicSDKSwift.AnyCodable] = [])
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func request<T>(_ requestType: Swift.String, args: [DynamicSDKSwift.AnyCodable] = [], builder: ((Any?) throws -> T)? = nil) async throws -> T
+  #endif
+  @discardableResult
+  final public func handle<T>(type: Swift.String, builder: @escaping ([DynamicSDKSwift.AnyCodable]) throws -> T, handler: @escaping (T, DynamicSDKSwift.Message) async throws -> DynamicSDKSwift.Message) -> Foundation.UUID
+  @discardableResult
+  final public func handleEmit<T>(type: Swift.String, builder: @escaping ([DynamicSDKSwift.AnyCodable]) throws -> T, handler: @escaping (T, DynamicSDKSwift.Message) -> Swift.Void) -> Foundation.UUID
+  @objc deinit
+}
+public enum RequestChannelError : Swift.Error, Swift.Equatable {
+  case rejected([DynamicSDKSwift.AnyCodable]?)
+  public static func == (a: DynamicSDKSwift.RequestChannelError, b: DynamicSDKSwift.RequestChannelError) -> Swift.Bool
+}
+final public class SdkModule {
+  public static let messageType: Swift.String
+  public static let typePrefix: Swift.String
+  public static let fullType: Swift.String
+  public init(_ transport: DynamicSDKSwift.MessageTransport)
+  final public var ready: Swift.Bool {
+    get
+  }
+  final public var readyChanges: Combine.AnyPublisher<Swift.Bool, Swift.Never> {
+    get
+  }
+  @objc deinit
+}
+final public class Store<T> {
+  final public var value: T {
+    get
+  }
+  final public var stream: Combine.AnyPublisher<T, Swift.Never> {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(_ transport: DynamicSDKSwift.MessageTransport, messageType: Swift.String, initialValue: T, builder: ((Any?) -> T?)? = nil)
+  #endif
+  @objc deinit
+}
+final public class VisibilityModule {
+  public static let type: Swift.String
+  public init(_ transport: DynamicSDKSwift.MessageTransport)
+  final public var isVisible: Swift.Bool {
+    get
+  }
+  final public var visibilityChanges: Combine.AnyPublisher<Swift.Bool, Swift.Never> {
+    get
+  }
+  final public func setOverrideVisible(_ value: Swift.Bool)
+  final public func clearOverride()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers final public class DynamicSDK {
+  public static var shared: DynamicSDKSwift.DynamicSDK?
+  final public let transport: DynamicSDKSwift.MessageTransport
+  final public let sdk: DynamicSDKSwift.SdkModule
+  final public let ui: DynamicSDKSwift.UserInterfaceModule
+  final public let auth: DynamicSDKSwift.AuthModule
+  final public let wallets: DynamicSDKSwift.WalletsModule
+  final public let networks: DynamicSDKSwift.NetworksModule
+  final public let mfa: DynamicSDKSwift.MfaModule
+  final public let passkeys: DynamicSDKSwift.PasskeyModule
+  final public let solana: DynamicSDKSwift.SolanaModule
+  final public let evm: DynamicSDKSwift.EvmModule
+  final public let webViewController: DynamicSDKSwift.DynamicWebViewController
+  final public let overlayWindow: DynamicSDKSwift.DynamicOverlayWindowManager
+  final public let props: DynamicSDKSwift.ClientProps
+  @_Concurrency.MainActor public static func initialize(props: DynamicSDKSwift.ClientProps) -> DynamicSDKSwift.DynamicSDK
+  public static func instance() -> DynamicSDKSwift.DynamicSDK
+  @objc deinit
+}
+public enum Handlers {
+  public static func setupManifestHandler(transport: DynamicSDKSwift.MessageTransport, props: DynamicSDKSwift.ClientProps)
+  public static func setupFetcherHandler(transport: DynamicSDKSwift.MessageTransport)
+  public static func setupUrlHandler(transport: DynamicSDKSwift.MessageTransport)
+  public static func setupLogHandler(transport: DynamicSDKSwift.MessageTransport, logLevel: DynamicSDKSwift.LoggerLevel)
+  public static func setupStorageHandler(transport: DynamicSDKSwift.MessageTransport)
+  public static func setupDownloadFileHandler(transport: DynamicSDKSwift.MessageTransport)
+  public static func setupWalletConnectedHandler(transport: DynamicSDKSwift.MessageTransport)
+  public static func setupPlatformHandler(transport: DynamicSDKSwift.MessageTransport)
+}
+public struct DeletePasskeyRequest : Swift.Codable, Swift.Equatable {
+  public let passkeyId: Swift.String
+  public init(passkeyId: Swift.String)
+  public static func == (a: DynamicSDKSwift.DeletePasskeyRequest, b: DynamicSDKSwift.DeletePasskeyRequest) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct DeleteStorageItemArgs : Swift.Codable {
+  public let source: DynamicSDKSwift.StorageMessageSource
+  public let key: Swift.String
+  public init(source: DynamicSDKSwift.StorageMessageSource, key: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct DownloadFileArgs : Swift.Codable {
+  public let base64Content: Swift.String
+  public let fileName: Swift.String
+  public let mimeType: Swift.String
+  public init(base64Content: Swift.String, fileName: Swift.String, mimeType: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct FetchArg : Swift.Codable {
+  public let method: Swift.String
+  public let headers: [Swift.String : Swift.String]?
+  public let body: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(method: Swift.String, headers: [Swift.String : Swift.String]?, body: Swift.String?)
+  #endif
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct FetchResponse : Swift.Codable {
+  public let body: Swift.String
+  public let status: Swift.Int
+  public let headers: [Swift.String : Swift.String]
+  public let statusText: Swift.String
+  public init(body: Swift.String, status: Swift.Int, headers: [Swift.String : Swift.String], statusText: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GetStorageItemArgs : Swift.Codable {
+  public let source: DynamicSDKSwift.StorageMessageSource
+  public let key: Swift.String
+  public init(source: DynamicSDKSwift.StorageMessageSource, key: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct MfaAddDevice : Swift.Codable, Swift.Equatable {
+  public let id: Swift.String
+  public let secret: Swift.String
+  public let uri: Swift.String
+  public init(id: Swift.String, secret: Swift.String, uri: Swift.String)
+  public static func == (a: DynamicSDKSwift.MfaAddDevice, b: DynamicSDKSwift.MfaAddDevice) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct MfaAuthenticateDevice : Swift.Codable, Swift.Equatable {
+  public let code: Swift.String
+  public let type: Swift.String?
+  public let deviceId: Swift.String?
+  public let createMfaToken: DynamicSDKSwift.MfaCreateToken?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(code: Swift.String, type: Swift.String? = nil, deviceId: Swift.String? = nil, createMfaToken: DynamicSDKSwift.MfaCreateToken? = nil)
+  #endif
+  public static func == (a: DynamicSDKSwift.MfaAuthenticateDevice, b: DynamicSDKSwift.MfaAuthenticateDevice) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct MfaAuthenticateRecoveryCode : Swift.Codable, Swift.Equatable {
+  public let code: Swift.String
+  public let createMfaToken: DynamicSDKSwift.MfaCreateToken?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(code: Swift.String, createMfaToken: DynamicSDKSwift.MfaCreateToken? = nil)
+  #endif
+  public static func == (a: DynamicSDKSwift.MfaAuthenticateRecoveryCode, b: DynamicSDKSwift.MfaAuthenticateRecoveryCode) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct MfaCompletionFailure : Swift.Codable, Swift.Equatable {
+  public let error: DynamicSDKSwift.AnyCodable
+  public init(error: DynamicSDKSwift.AnyCodable)
+  public static func == (a: DynamicSDKSwift.MfaCompletionFailure, b: DynamicSDKSwift.MfaCompletionFailure) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct MfaCreateToken : Swift.Codable, Swift.Equatable {
+  public let singleUse: Swift.Bool?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(singleUse: Swift.Bool? = nil)
+  #endif
+  public static func == (a: DynamicSDKSwift.MfaCreateToken, b: DynamicSDKSwift.MfaCreateToken) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum MfaDeviceType : Swift.String, Swift.Codable {
+  case totp
+  case passkey
+  case email
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct MfaDevice : Swift.Codable {
+  public let type: DynamicSDKSwift.MfaDeviceType?
+  public let verified: Swift.Bool?
+  public let id: Swift.String?
+  public let createdAt: Foundation.Date?
+  public let verifiedAt: Foundation.Date?
+  public let isDefault: Swift.Bool?
+  public let alias: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(type: DynamicSDKSwift.MfaDeviceType? = nil, verified: Swift.Bool? = nil, id: Swift.String? = nil, createdAt: Foundation.Date? = nil, verifiedAt: Foundation.Date? = nil, isDefault: Swift.Bool? = nil, alias: Swift.String? = nil)
+  #endif
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct OpenAuthenticationWindowArgs : Swift.Codable {
+  public let url: Swift.String
+  public let redirectUrl: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(url: Swift.String, redirectUrl: Swift.String?)
+  #endif
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct PasskeyAuthenticateMfaRequest : Swift.Codable, Swift.Equatable {
+  public let createMfaToken: DynamicSDKSwift.MfaCreateToken?
+  public let relatedOriginRpId: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(createMfaToken: DynamicSDKSwift.MfaCreateToken? = nil, relatedOriginRpId: Swift.String? = nil)
+  #endif
+  public static func == (a: DynamicSDKSwift.PasskeyAuthenticateMfaRequest, b: DynamicSDKSwift.PasskeyAuthenticateMfaRequest) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct PasskeyAuthenticateRequest : Swift.Codable {
+  public let rpId: Swift.String
+  public let challenge: Swift.String
+  public let allowCredentials: [DynamicSDKSwift.PasskeyCredential]?
+  public let timeout: Swift.Int?
+  public let userVerification: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(rpId: Swift.String, challenge: Swift.String, allowCredentials: [DynamicSDKSwift.PasskeyCredential]? = nil, timeout: Swift.Int? = nil, userVerification: Swift.String? = nil)
+  #endif
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct PasskeyRegisterRequest : Swift.Codable {
+  public let rp: DynamicSDKSwift.PasskeyRelyingParty
+  public let user: DynamicSDKSwift.PasskeyUser
+  public let challenge: Swift.String
+  public let excludeCredentials: [DynamicSDKSwift.PasskeyCredential]?
+  public let authenticatorSelection: DynamicSDKSwift.PasskeyAuthenticatorSelection?
+  public let pubKeyCredParams: [DynamicSDKSwift.PasskeyPubKeyCredParam]?
+  public let timeout: Swift.Int?
+  public let attestation: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(rp: DynamicSDKSwift.PasskeyRelyingParty, user: DynamicSDKSwift.PasskeyUser, challenge: Swift.String, excludeCredentials: [DynamicSDKSwift.PasskeyCredential]? = nil, authenticatorSelection: DynamicSDKSwift.PasskeyAuthenticatorSelection? = nil, pubKeyCredParams: [DynamicSDKSwift.PasskeyPubKeyCredParam]? = nil, timeout: Swift.Int? = nil, attestation: Swift.String? = nil)
+  #endif
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct PasskeyRelyingParty : Swift.Codable {
+  public let id: Swift.String
+  public let name: Swift.String
+  public init(id: Swift.String, name: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct PasskeyUser : Swift.Codable {
+  public let id: Swift.String
+  public let name: Swift.String
+  public let displayName: Swift.String
+  public init(id: Swift.String, name: Swift.String, displayName: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct PasskeyCredential : Swift.Codable {
+  public let id: Swift.String
+  public let type: Swift.String
+  public let transports: [Swift.String]?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(id: Swift.String, type: Swift.String, transports: [Swift.String]? = nil)
+  #endif
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct PasskeyAuthenticatorSelection : Swift.Codable {
+  public let authenticatorAttachment: Swift.String?
+  public let userVerification: Swift.String
+  public let requireResidentKey: Swift.Bool
+  public let residentKey: Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(authenticatorAttachment: Swift.String? = nil, userVerification: Swift.String = "preferred", requireResidentKey: Swift.Bool = false, residentKey: Swift.String = "discouraged")
+  #endif
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct PasskeyPubKeyCredParam : Swift.Codable {
+  public let type: Swift.String
+  public let alg: Swift.Int
+  public init(type: Swift.String, alg: Swift.Int)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SerializedErrorArgs : Swift.Codable {
+  public let message: Swift.String?
+  public let name: Swift.String?
+  public let stack: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(message: Swift.String?, name: Swift.String?, stack: Swift.String?)
+  #endif
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SetStorageItemArgs : Swift.Codable {
+  public let source: DynamicSDKSwift.StorageMessageSource
+  public let key: Swift.String
+  public let data: Swift.String
+  public init(source: DynamicSDKSwift.StorageMessageSource, key: Swift.String, data: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum StorageMessageSource : Swift.String, Swift.Codable {
+  case localStorage
+  case sessionStorage
+  case secureStorage
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct UserPasskey : Swift.Codable {
+  public let id: Swift.String
+  public let createdAt: Foundation.Date
+  public let lastUsedAt: Foundation.Date?
+  public let deviceInfo: [Swift.String : DynamicSDKSwift.AnyCodable]?
+  public let isDefault: Swift.Bool?
+  public let alias: Swift.String?
+  public let credentialId: Swift.String?
+  public let deviceType: Swift.String?
+  public let isBackedUp: Swift.Bool?
+  public let origin: Swift.String?
+  public let signInEnabled: Swift.Bool?
+  public let storage: [Swift.String : DynamicSDKSwift.AnyCodable]?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(id: Swift.String, createdAt: Foundation.Date, lastUsedAt: Foundation.Date? = nil, deviceInfo: [Swift.String : DynamicSDKSwift.AnyCodable]? = nil, isDefault: Swift.Bool? = nil, alias: Swift.String? = nil, credentialId: Swift.String? = nil, deviceType: Swift.String? = nil, isBackedUp: Swift.Bool? = nil, origin: Swift.String? = nil, signInEnabled: Swift.Bool? = nil, storage: [Swift.String : DynamicSDKSwift.AnyCodable]? = nil)
+  #endif
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+final public class EmailAuthModule {
+  public init(_ transport: DynamicSDKSwift.MessageTransport)
+  final public func resendOTP() async throws
+  final public func sendOTP(email: Swift.String) async throws
+  final public func verifyOTP(token: Swift.String) async throws
+  @objc deinit
+}
+final public class ExternalAuthModule {
+  public init(_ transport: DynamicSDKSwift.MessageTransport)
+  final public func signInWithExternalJwt(props: DynamicSDKSwift.SignInWithExternalJwtParams) async throws
+  final public func verifyWithExternalJwt(props: DynamicSDKSwift.VerifyWithExternalJwtParams) async throws
+  @objc deinit
+}
+public struct SignInWithExternalJwtParams : Swift.Codable {
+  public let jwt: Swift.String
+  public init(jwt: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct VerifyWithExternalJwtParams : Swift.Codable {
+  public let jwt: Swift.String
+  public init(jwt: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+final public class PasskeyAuthModule {
+  public init(_ transport: DynamicSDKSwift.MessageTransport)
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func signIn(relatedOriginRpId: Swift.String? = nil) async throws -> DynamicSDKSwift.VerifyResponse
+  #endif
+  @objc deinit
+}
+public struct VerifyResponse : Swift.Codable {
+  public let jwt: Swift.String?
+  public let user: DynamicSDKSwift.UserProfile?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+final public class SmsAuthModule {
+  public init(_ transport: DynamicSDKSwift.MessageTransport)
+  final public func resendOTP() async throws
+  final public func sendOTP(phoneData: DynamicSDKSwift.PhoneData) async throws
+  final public func verifyOTP(token: Swift.String) async throws
+  @objc deinit
+}
+public struct PhoneData : Swift.Codable {
+  public let countryCode: Swift.String
+  public let phoneNumber: Swift.String
+  public init(countryCode: Swift.String, phoneNumber: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+final public class SocialAuthModule {
+  public init(_ transport: DynamicSDKSwift.MessageTransport)
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func connect(provider: DynamicSDKSwift.SocialProvider, redirectPathname: Swift.String? = nil) async throws
+  #endif
+  @objc deinit
+}
+public enum SocialProvider {
+  case apple
+  case coinbaseSocial
+  case discord
+  case facebook
+  case farcaster
+  case github
+  case google
+  case telegram
+  case twitch
+  case twitter
+  public var stringValue: Swift.String {
+    get
+  }
+  public static func == (a: DynamicSDKSwift.SocialProvider, b: DynamicSDKSwift.SocialProvider) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+final public class AuthModule {
+  public static let messageType: Swift.String
+  public static let userPrefix: Swift.String
+  public static let tokenPrefix: Swift.String
+  final public let sms: DynamicSDKSwift.SmsAuthModule
+  final public let email: DynamicSDKSwift.EmailAuthModule
+  final public let externalAuth: DynamicSDKSwift.ExternalAuthModule
+  final public let social: DynamicSDKSwift.SocialAuthModule
+  final public let passkey: DynamicSDKSwift.PasskeyAuthModule
+  public init(_ transport: DynamicSDKSwift.MessageTransport)
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public var token: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public var tokenChanges: Combine.AnyPublisher<Swift.String?, Swift.Never> {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public var authenticatedUser: DynamicSDKSwift.UserProfile? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public var authenticatedUserChanges: Combine.AnyPublisher<DynamicSDKSwift.UserProfile?, Swift.Never> {
+    get
+  }
+  #endif
+  final public func logout() async throws
+  @objc deinit
+}
+public struct UserProfile : Swift.Codable, Swift.Equatable {
+  public let email: Swift.String?
+  public let firstName: Swift.String?
+  public let lastName: Swift.String?
+  public let userId: Swift.String?
+  public let createdAt: Swift.String?
+  public let lastLoginAt: Swift.String?
+  public let metadata: [Swift.String : DynamicSDKSwift.AnyCodable]?
+  public func toJsonString() -> Swift.String
+  public static func == (a: DynamicSDKSwift.UserProfile, b: DynamicSDKSwift.UserProfile) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+final public class EmbeddedWalletsModule {
+  public static let messageType: Swift.String
+  public static let prefix: Swift.String
+  public init(_ transport: DynamicSDKSwift.MessageTransport)
+  final public func createWallet() async throws -> DynamicSDKSwift.BaseWallet
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func getWallet() async throws -> DynamicSDKSwift.BaseWallet?
+  #endif
+  final public var hasWallet: Swift.Bool {
+    get
+  }
+  final public var hasWalletChanges: Combine.AnyPublisher<Swift.Bool, Swift.Never> {
+    get
+  }
+  @objc deinit
+}
+final public class MfaModule {
+  public init(_ transport: DynamicSDKSwift.MessageTransport)
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func addDevice(type: Swift.String? = nil) async throws -> DynamicSDKSwift.MfaAddDevice
+  #endif
+  @available(*, deprecated, message: "Use authenticateDevice instead")
+  final public func authDevice(_ params: DynamicSDKSwift.MfaAuthenticateDevice) async throws -> Swift.Bool
+  @available(*, deprecated, message: "Use authenticateRecoveryCode instead")
+  final public func authRecoveryCode(_ code: Swift.String) async throws -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func authenticateDevice(params: DynamicSDKSwift.MfaAuthenticateDevice) async throws -> Swift.String?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func authenticateRecoveryCode(code: DynamicSDKSwift.MfaAuthenticateRecoveryCode) async throws -> Swift.String?
+  #endif
+  final public func completeAcknowledgement() async throws
+  final public func deleteUserDevice(deviceId: Swift.String, mfaAuthToken: Swift.String) async throws
+  final public func getNewRecoveryCodes() async throws -> [Swift.String]
+  final public func getRecoveryCodes(generateNewCodes: Swift.Bool = false) async throws -> [Swift.String]
+  final public func getUserDevices() async throws -> [DynamicSDKSwift.MfaDevice]
+  final public func isPendingRecoveryCodesAcknowledgment() async throws -> Swift.Bool
+  final public func isMfaRequiredForAction(_ mfaAction: Swift.String) async throws -> Swift.Bool
+  final public func updateUserDevice(_ deviceId: Swift.String) async throws
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func verifyDevice(_ code: Swift.String, type: Swift.String? = nil) async throws -> DynamicSDKSwift.MfaDevice
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func mfaCompletionSuccess(mfaToken: Swift.String? = nil)
+  #endif
+  final public func mfaCompletionFailure(_ error: Any)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @discardableResult
+  final public func onMfaCompletionSuccess(_ handler: @escaping (_ mfaToken: Swift.String?) -> Swift.Void) -> Foundation.UUID
+  #endif
+  @discardableResult
+  final public func onMfaCompletionFailure(_ handler: @escaping (_ payload: DynamicSDKSwift.MfaCompletionFailure) -> Swift.Void) -> Foundation.UUID
+  @objc deinit
+}
+final public class NetworksModule {
+  public static let messageType: Swift.String
+  public static let evmPrefix: Swift.String
+  public static let solanaPrefix: Swift.String
+  public init(_ transport: DynamicSDKSwift.MessageTransport)
+  final public var evm: [DynamicSDKSwift.GenericNetwork] {
+    get
+  }
+  final public var solana: [DynamicSDKSwift.GenericNetwork] {
+    get
+  }
+  final public var evmChanges: Combine.AnyPublisher<[DynamicSDKSwift.GenericNetwork], Swift.Never> {
+    get
+  }
+  final public var solanaChanges: Combine.AnyPublisher<[DynamicSDKSwift.GenericNetwork], Swift.Never> {
+    get
+  }
+  @objc deinit
+}
+public struct GenericNetwork : Swift.Equatable {
+  public let blockExplorerUrls: [Swift.String]
+  public let chainId: DynamicSDKSwift.AnyCodable
+  public let chainName: Swift.String?
+  public let iconUrls: [Swift.String]
+  public let lcdUrl: Swift.String?
+  public let name: Swift.String
+  public let nameService: DynamicSDKSwift.NameService?
+  public let nativeCurrency: DynamicSDKSwift.NativeCurrency
+  public let networkId: DynamicSDKSwift.AnyCodable
+  public let privateCustomerRpcUrls: [Swift.String]?
+  public let rpcUrls: [Swift.String]
+  public let vanityName: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.GenericNetwork?
+  #endif
+  public static func == (a: DynamicSDKSwift.GenericNetwork, b: DynamicSDKSwift.GenericNetwork) -> Swift.Bool
+}
+public struct NativeCurrency : Swift.Equatable {
+  public let decimals: Swift.Int
+  public let name: Swift.String
+  public let symbol: Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.NativeCurrency?
+  #endif
+  public static func == (a: DynamicSDKSwift.NativeCurrency, b: DynamicSDKSwift.NativeCurrency) -> Swift.Bool
+}
+public struct NameService : Swift.Equatable {
+  public let name: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.NameService?
+  #endif
+  public static func == (a: DynamicSDKSwift.NameService, b: DynamicSDKSwift.NameService) -> Swift.Bool
+}
+final public class PasskeyModule {
+  public init(_ transport: DynamicSDKSwift.MessageTransport)
+  final public func registerPasskey() async throws -> DynamicSDKSwift.VerifyResponse
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func authenticatePasskeyMFA(createMfaToken: DynamicSDKSwift.MfaCreateToken? = nil, relatedOriginRpId: Swift.String? = nil) async throws -> DynamicSDKSwift.VerifyResponse
+  #endif
+  final public func deletePasskey(_ request: DynamicSDKSwift.DeletePasskeyRequest) async throws
+  final public func getPasskeys() async throws -> [DynamicSDKSwift.UserPasskey]
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func signInWithPasskey(relatedOriginRpId: Swift.String? = nil) async throws -> DynamicSDKSwift.VerifyResponse
+  #endif
+  @objc deinit
+}
+final public class UserInterfaceModule {
+  public init(_ transport: DynamicSDKSwift.MessageTransport)
+  final public func setOnShowAuth(_ callback: @escaping () -> Swift.Void)
+  final public func showAuth()
+  final public func showUserProfile()
+  @objc deinit
+}
+final public class WalletsModule {
+  final public let requestChannel: DynamicSDKSwift.RequestChannel
+  final public let embedded: DynamicSDKSwift.EmbeddedWalletsModule
+  public init(_ transport: DynamicSDKSwift.MessageTransport)
+  final public var userWallets: [DynamicSDKSwift.BaseWallet] {
+    get
+  }
+  final public var userWalletsChanges: Combine.AnyPublisher<[DynamicSDKSwift.BaseWallet], Swift.Never> {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public var primary: DynamicSDKSwift.BaseWallet? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public var primaryChanges: Combine.AnyPublisher<DynamicSDKSwift.BaseWallet?, Swift.Never> {
+    get
+  }
+  #endif
+  final public func signMessage(wallet: DynamicSDKSwift.BaseWallet, message: Swift.String) async throws -> Swift.String
+  final public func getBalance(wallet: DynamicSDKSwift.BaseWallet) async throws -> Swift.String
+  final public func getNetwork(wallet: DynamicSDKSwift.BaseWallet) async throws -> DynamicSDKSwift.Network
+  final public func setPrimary(walletId: Swift.String) async throws
+  final public func switchNetwork(wallet: DynamicSDKSwift.BaseWallet, network: DynamicSDKSwift.Network) async throws
+  @objc deinit
+}
+public struct Network : Swift.Equatable, Swift.Codable {
+  public let value: DynamicSDKSwift.AnyCodable
+  public init(_ value: DynamicSDKSwift.AnyCodable)
+  public static func evm(_ chainId: Swift.Int) -> DynamicSDKSwift.Network
+  public static func solana(_ networkId: Swift.String) -> DynamicSDKSwift.Network
+  public static func == (a: DynamicSDKSwift.Network, b: DynamicSDKSwift.Network) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct BaseWallet : Swift.Equatable {
+  public let id: Swift.String?
+  public let address: Swift.String
+  public let chain: Swift.String
+  public let publicKey: Swift.String?
+  public let walletName: Swift.String?
+  public let walletProvider: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(id: Swift.String? = nil, address: Swift.String, chain: Swift.String, publicKey: Swift.String? = nil, walletName: Swift.String? = nil, walletProvider: Swift.String? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.BaseWallet?
+  #endif
+  public func toDict() -> [Swift.String : Any]
+  public static func == (a: DynamicSDKSwift.BaseWallet, b: DynamicSDKSwift.BaseWallet) -> Swift.Bool
+}
+@_Concurrency.MainActor @preconcurrency public struct DynamicSDKOverlayContainer<Content> : SwiftUICore.View where Content : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(sdk: DynamicSDKSwift.DynamicSDK = .instance(), @SwiftUICore.ViewBuilder content: () -> Content)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s15DynamicSDKSwift0A19SDKOverlayContainerV4bodyQrvp", 0) __<Content>
+}
+@_Concurrency.MainActor public struct DynamicUI : SwiftUICore.View {
+  @_Concurrency.MainActor public init(sdk: DynamicSDKSwift.DynamicSDK = .instance())
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s15DynamicSDKSwift0A2UIV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct DynamicWebViewContainer : SwiftUI.UIViewControllerRepresentable {
+  @_Concurrency.MainActor @preconcurrency public let sdk: DynamicSDKSwift.DynamicSDK
+  @_Concurrency.MainActor @preconcurrency public init(sdk: DynamicSDKSwift.DynamicSDK = .instance())
+  @_Concurrency.MainActor @preconcurrency public func makeUIViewController(context: DynamicSDKSwift.DynamicWebViewContainer.Context) -> DynamicSDKSwift.WebViewHostController
+  @_Concurrency.MainActor @preconcurrency public func updateUIViewController(_ uiViewController: DynamicSDKSwift.WebViewHostController, context: DynamicSDKSwift.DynamicWebViewContainer.Context)
+  @_Concurrency.MainActor @preconcurrency public static func dismantleUIViewController(_ uiViewController: DynamicSDKSwift.WebViewHostController, coordinator: ())
+  public typealias Body = Swift.Never
+  public typealias Coordinator = ()
+  public typealias UIViewControllerType = DynamicSDKSwift.WebViewHostController
+}
+@objc @_Concurrency.MainActor @preconcurrency final public class WebViewHostController : UIKit.UIViewController {
+  @_Concurrency.MainActor @preconcurrency public init(sdk: DynamicSDKSwift.DynamicSDK)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @available(*, unavailable)
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  #endif
+  @_Concurrency.MainActor @preconcurrency @objc override final public func viewDidLoad()
+  @_Concurrency.MainActor @preconcurrency @objc override final public func viewDidLayoutSubviews()
+  @objc deinit
+}
+@_Concurrency.MainActor final public class DynamicOverlayWindowManager {
+  @_Concurrency.MainActor public init(webView: WebKit.WKWebView, visibility: DynamicSDKSwift.VisibilityModule)
+  @_Concurrency.MainActor final public func show()
+  @_Concurrency.MainActor final public func hide()
+  @objc deinit
+}
+@objc @_Concurrency.MainActor final public class DynamicWebViewController : ObjectiveC.NSObject {
+  @_Concurrency.MainActor public static let jsChannelName: Swift.String
+  @_Concurrency.MainActor final public let webView: WebKit.WKWebView
+  @_Concurrency.MainActor final public let visibility: DynamicSDKSwift.VisibilityModule
+  @_Concurrency.MainActor public init(transport: DynamicSDKSwift.MessageTransport, props: DynamicSDKSwift.ClientProps)
+  @_Concurrency.MainActor final public func setOnLoaded(_ onLoaded: @escaping () -> Swift.Void)
+  @objc deinit
+}
+extension DynamicSDKSwift.DynamicWebViewController : WebKit.WKScriptMessageHandler {
+  @_Concurrency.MainActor @preconcurrency @objc final public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
+}
+extension DynamicSDKSwift.DynamicWebViewController : WebKit.WKNavigationDelegate {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor @preconcurrency @objc final public func webView(_ webView: WebKit.WKWebView, didStartProvisionalNavigation navigation: WebKit.WKNavigation!)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor @preconcurrency @objc final public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor @preconcurrency @objc final public func webView(_ webView: WebKit.WKWebView, didFail navigation: WebKit.WKNavigation!, withError error: any Swift.Error)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor @preconcurrency @objc final public func webView(_ webView: WebKit.WKWebView, didFailProvisionalNavigation navigation: WebKit.WKNavigation!, withError error: any Swift.Error)
+  #endif
+}
+extension DynamicSDKSwift.LoggerLevel : Swift.Equatable {}
+extension DynamicSDKSwift.LoggerLevel : Swift.Hashable {}
+extension DynamicSDKSwift.LoggerLevel : Swift.RawRepresentable {}
+extension DynamicSDKSwift.MfaDeviceType : Swift.Equatable {}
+extension DynamicSDKSwift.MfaDeviceType : Swift.Hashable {}
+extension DynamicSDKSwift.MfaDeviceType : Swift.RawRepresentable {}
+extension DynamicSDKSwift.StorageMessageSource : Swift.Equatable {}
+extension DynamicSDKSwift.StorageMessageSource : Swift.Hashable {}
+extension DynamicSDKSwift.StorageMessageSource : Swift.RawRepresentable {}
+extension DynamicSDKSwift.SocialProvider : Swift.Equatable {}
+extension DynamicSDKSwift.SocialProvider : Swift.Hashable {}
+extension DynamicSDKSwift.DynamicSDKOverlayContainer : Swift.Sendable {}
+extension DynamicSDKSwift.DynamicUI : Swift.Sendable {}
+extension DynamicSDKSwift.DynamicWebViewContainer : Swift.Sendable {}
+extension DynamicSDKSwift.DynamicOverlayWindowManager : Swift.Sendable {}
+extension DynamicSDKSwift.DynamicWebViewController : Swift.Sendable {}

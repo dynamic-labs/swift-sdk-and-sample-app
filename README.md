@@ -20,7 +20,7 @@ iOS SDK for Dynamic's authentication and Web3 wallet infrastructure.
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/dynamic-labs/swift-sdk-and-sample-app.git", from: "1.0.0")
+    .package(url: "https://github.com/dynamic-labs/swift-sdk-and-sample-app.git", from: "1.0.1")
 ]
 ```
 

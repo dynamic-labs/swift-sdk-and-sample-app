@@ -2,6 +2,7 @@
 // swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
 // swift-module-flags: -target arm64-apple-ios15.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -module-name DynamicSDKSwift -package-name dynamicsdkswift
 // swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
+import AnyCodableSwift
 import AuthenticationServices
 import Combine
 import Foundation
@@ -141,17 +142,6 @@ public struct BlockhashWithExpiryBlockHeight {
 public enum WebViewVersion {
   public static let current: Swift.String
 }
-public struct AnyCodable : Swift.Codable, Swift.Equatable {
-  public var value: Any {
-    get
-  }
-  #if compiler(>=5.3) && $NonescapableTypes
-  public init(_ value: Any?)
-  #endif
-  public init(from decoder: any Swift.Decoder) throws
-  public func encode(to encoder: any Swift.Encoder) throws
-  public static func == (a: DynamicSDKSwift.AnyCodable, b: DynamicSDKSwift.AnyCodable) -> Swift.Bool
-}
 public struct ClientProps : Swift.Equatable {
   public var environmentId: Swift.String
   public var apiBaseUrl: Swift.String?
@@ -216,10 +206,10 @@ public struct Message : Swift.Codable, Swift.Equatable {
   public var messageSessionId: Swift.String
   public var origin: Swift.String
   public var type: Swift.String
-  public var args: [DynamicSDKSwift.AnyCodable]?
+  public var args: [AnyCodableSwift.AnyCodable]?
   public var doNotAck: Swift.Bool?
   #if compiler(>=5.3) && $NonescapableTypes
-  public init(messageSessionId: Swift.String, origin: Swift.String, type: Swift.String, args: [DynamicSDKSwift.AnyCodable]? = nil, doNotAck: Swift.Bool? = nil)
+  public init(messageSessionId: Swift.String, origin: Swift.String, type: Swift.String, args: [AnyCodableSwift.AnyCodable]? = nil, doNotAck: Swift.Bool? = nil)
   #endif
   public static func == (a: DynamicSDKSwift.Message, b: DynamicSDKSwift.Message) -> Swift.Bool
   public func encode(to encoder: any Swift.Encoder) throws
@@ -230,8 +220,8 @@ extension DynamicSDKSwift.Message {
   public func getRejectType() -> Swift.String
   public func getAckType() -> Swift.String
   public func ack() -> DynamicSDKSwift.Message
-  public func resolve(_ args: [DynamicSDKSwift.AnyCodable] = []) -> DynamicSDKSwift.Message
-  public func reject(_ args: [DynamicSDKSwift.AnyCodable] = []) -> DynamicSDKSwift.Message
+  public func resolve(_ args: [AnyCodableSwift.AnyCodable] = []) -> DynamicSDKSwift.Message
+  public func reject(_ args: [AnyCodableSwift.AnyCodable] = []) -> DynamicSDKSwift.Message
   public func toJsonString() -> Swift.String
 }
 final public class BroadcastMessageTransport {
@@ -250,18 +240,18 @@ final public class RequestChannel {
   final public let idPrefix: Swift.String
   public init(_ transport: DynamicSDKSwift.MessageTransport)
   final public func getUniqueId() -> Swift.String
-  final public func emit(_ type: Swift.String, args: [DynamicSDKSwift.AnyCodable] = [])
+  final public func emit(_ type: Swift.String, args: [AnyCodableSwift.AnyCodable] = [])
   #if compiler(>=5.3) && $NonescapableTypes
-  final public func request<T>(_ requestType: Swift.String, args: [DynamicSDKSwift.AnyCodable] = [], builder: ((Any?) throws -> T)? = nil) async throws -> T
+  final public func request<T>(_ requestType: Swift.String, args: [AnyCodableSwift.AnyCodable] = [], builder: ((Any?) throws -> T)? = nil) async throws -> T
   #endif
   @discardableResult
-  final public func handle<T>(type: Swift.String, builder: @escaping ([DynamicSDKSwift.AnyCodable]) throws -> T, handler: @escaping (T, DynamicSDKSwift.Message) async throws -> DynamicSDKSwift.Message) -> Foundation.UUID
+  final public func handle<T>(type: Swift.String, builder: @escaping ([AnyCodableSwift.AnyCodable]) throws -> T, handler: @escaping (T, DynamicSDKSwift.Message) async throws -> DynamicSDKSwift.Message) -> Foundation.UUID
   @discardableResult
-  final public func handleEmit<T>(type: Swift.String, builder: @escaping ([DynamicSDKSwift.AnyCodable]) throws -> T, handler: @escaping (T, DynamicSDKSwift.Message) -> Swift.Void) -> Foundation.UUID
+  final public func handleEmit<T>(type: Swift.String, builder: @escaping ([AnyCodableSwift.AnyCodable]) throws -> T, handler: @escaping (T, DynamicSDKSwift.Message) -> Swift.Void) -> Foundation.UUID
   @objc deinit
 }
 public enum RequestChannelError : Swift.Error, Swift.Equatable {
-  case rejected([DynamicSDKSwift.AnyCodable]?)
+  case rejected([AnyCodableSwift.AnyCodable]?)
   public static func == (a: DynamicSDKSwift.RequestChannelError, b: DynamicSDKSwift.RequestChannelError) -> Swift.Bool
 }
 final public class SdkModule {
@@ -411,8 +401,8 @@ public struct MfaAuthenticateRecoveryCode : Swift.Codable, Swift.Equatable {
   public init(from decoder: any Swift.Decoder) throws
 }
 public struct MfaCompletionFailure : Swift.Codable, Swift.Equatable {
-  public let error: DynamicSDKSwift.AnyCodable
-  public init(error: DynamicSDKSwift.AnyCodable)
+  public let error: AnyCodableSwift.AnyCodable
+  public init(error: AnyCodableSwift.AnyCodable)
   public static func == (a: DynamicSDKSwift.MfaCompletionFailure, b: DynamicSDKSwift.MfaCompletionFailure) -> Swift.Bool
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
@@ -575,7 +565,7 @@ public struct UserPasskey : Swift.Codable {
   public let id: Swift.String
   public let createdAt: Foundation.Date
   public let lastUsedAt: Foundation.Date?
-  public let deviceInfo: [Swift.String : DynamicSDKSwift.AnyCodable]?
+  public let deviceInfo: [Swift.String : AnyCodableSwift.AnyCodable]?
   public let isDefault: Swift.Bool?
   public let alias: Swift.String?
   public let credentialId: Swift.String?
@@ -583,9 +573,9 @@ public struct UserPasskey : Swift.Codable {
   public let isBackedUp: Swift.Bool?
   public let origin: Swift.String?
   public let signInEnabled: Swift.Bool?
-  public let storage: [Swift.String : DynamicSDKSwift.AnyCodable]?
+  public let storage: [Swift.String : AnyCodableSwift.AnyCodable]?
   #if compiler(>=5.3) && $NonescapableTypes
-  public init(id: Swift.String, createdAt: Foundation.Date, lastUsedAt: Foundation.Date? = nil, deviceInfo: [Swift.String : DynamicSDKSwift.AnyCodable]? = nil, isDefault: Swift.Bool? = nil, alias: Swift.String? = nil, credentialId: Swift.String? = nil, deviceType: Swift.String? = nil, isBackedUp: Swift.Bool? = nil, origin: Swift.String? = nil, signInEnabled: Swift.Bool? = nil, storage: [Swift.String : DynamicSDKSwift.AnyCodable]? = nil)
+  public init(id: Swift.String, createdAt: Foundation.Date, lastUsedAt: Foundation.Date? = nil, deviceInfo: [Swift.String : AnyCodableSwift.AnyCodable]? = nil, isDefault: Swift.Bool? = nil, alias: Swift.String? = nil, credentialId: Swift.String? = nil, deviceType: Swift.String? = nil, isBackedUp: Swift.Bool? = nil, origin: Swift.String? = nil, signInEnabled: Swift.Bool? = nil, storage: [Swift.String : AnyCodableSwift.AnyCodable]? = nil)
   #endif
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
@@ -636,9 +626,10 @@ final public class SmsAuthModule {
   @objc deinit
 }
 public struct PhoneData : Swift.Codable {
-  public let countryCode: Swift.String
-  public let phoneNumber: Swift.String
-  public init(countryCode: Swift.String, phoneNumber: Swift.String)
+  public let dialCode: Swift.String
+  public let iso2: Swift.String
+  public let phone: Swift.String
+  public init(dialCode: Swift.String, iso2: Swift.String, phone: Swift.String)
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -709,7 +700,7 @@ public struct UserProfile : Swift.Codable, Swift.Equatable {
   public let userId: Swift.String?
   public let createdAt: Swift.String?
   public let lastLoginAt: Swift.String?
-  public let metadata: [Swift.String : DynamicSDKSwift.AnyCodable]?
+  public let metadata: [Swift.String : AnyCodableSwift.AnyCodable]?
   public func toJsonString() -> Swift.String
   public static func == (a: DynamicSDKSwift.UserProfile, b: DynamicSDKSwift.UserProfile) -> Swift.Bool
   public func encode(to encoder: any Swift.Encoder) throws
@@ -790,14 +781,14 @@ final public class NetworksModule {
 }
 public struct GenericNetwork : Swift.Equatable {
   public let blockExplorerUrls: [Swift.String]
-  public let chainId: DynamicSDKSwift.AnyCodable
+  public let chainId: AnyCodableSwift.AnyCodable
   public let chainName: Swift.String?
   public let iconUrls: [Swift.String]
   public let lcdUrl: Swift.String?
   public let name: Swift.String
   public let nameService: DynamicSDKSwift.NameService?
   public let nativeCurrency: DynamicSDKSwift.NativeCurrency
-  public let networkId: DynamicSDKSwift.AnyCodable
+  public let networkId: AnyCodableSwift.AnyCodable
   public let privateCustomerRpcUrls: [Swift.String]?
   public let rpcUrls: [Swift.String]
   public let vanityName: Swift.String?
@@ -870,8 +861,8 @@ final public class WalletsModule {
   @objc deinit
 }
 public struct Network : Swift.Equatable, Swift.Codable {
-  public let value: DynamicSDKSwift.AnyCodable
-  public init(_ value: DynamicSDKSwift.AnyCodable)
+  public let value: AnyCodableSwift.AnyCodable
+  public init(_ value: AnyCodableSwift.AnyCodable)
   public static func evm(_ chainId: Swift.Int) -> DynamicSDKSwift.Network
   public static func solana(_ networkId: Swift.String) -> DynamicSDKSwift.Network
   public static func == (a: DynamicSDKSwift.Network, b: DynamicSDKSwift.Network) -> Swift.Bool

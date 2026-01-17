@@ -96,6 +96,13 @@
         "moduleName": "DynamicSDKSwift"
       },
       {
+        "kind": "Import",
+        "name": "AnyCodableSwift",
+        "printedName": "AnyCodableSwift",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
         "kind": "TypeDecl",
         "name": "EvmModule",
         "printedName": "EvmModule",
@@ -2598,6 +2605,13 @@
         "moduleName": "DynamicSDKSwift"
       },
       {
+        "kind": "Import",
+        "name": "AnyCodableSwift",
+        "printedName": "AnyCodableSwift",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
         "kind": "TypeDecl",
         "name": "TypedData",
         "printedName": "TypedData",
@@ -3588,6 +3602,13 @@
         "moduleName": "DynamicSDKSwift"
       },
       {
+        "kind": "Import",
+        "name": "AnyCodableSwift",
+        "printedName": "AnyCodableSwift",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
         "kind": "TypeDecl",
         "name": "DynamicSolanaSigner",
         "printedName": "DynamicSolanaSigner",
@@ -4250,228 +4271,16 @@
         "moduleName": "DynamicSDKSwift"
       },
       {
-        "kind": "TypeDecl",
-        "name": "AnyCodable",
-        "printedName": "AnyCodable",
-        "children": [
-          {
-            "kind": "Var",
-            "name": "value",
-            "printedName": "value",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "ProtocolComposition",
-                "printedName": "Any"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:15DynamicSDKSwift10AnyCodableV5valueypvp",
-            "mangledName": "$s15DynamicSDKSwift10AnyCodableV5valueypvp",
-            "moduleName": "DynamicSDKSwift",
-            "declAttributes": [
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ProtocolComposition",
-                    "printedName": "Any"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:15DynamicSDKSwift10AnyCodableV5valueypvg",
-                "mangledName": "$s15DynamicSDKSwift10AnyCodableV5valueypvg",
-                "moduleName": "DynamicSDKSwift",
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "AnyCodable",
-                "printedName": "DynamicSDKSwift.AnyCodable",
-                "usr": "s:15DynamicSDKSwift10AnyCodableV"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Any?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ProtocolComposition",
-                    "printedName": "Any"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:15DynamicSDKSwift10AnyCodableVyACypSgcfc",
-            "mangledName": "$s15DynamicSDKSwift10AnyCodableVyACypSgcfc",
-            "moduleName": "DynamicSDKSwift",
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(from:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "AnyCodable",
-                "printedName": "DynamicSDKSwift.AnyCodable",
-                "usr": "s:15DynamicSDKSwift10AnyCodableV"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Decoder",
-                "printedName": "any Swift.Decoder",
-                "usr": "s:s7DecoderP"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:15DynamicSDKSwift10AnyCodableV4fromACs7Decoder_p_tKcfc",
-            "mangledName": "$s15DynamicSDKSwift10AnyCodableV4fromACs7Decoder_p_tKcfc",
-            "moduleName": "DynamicSDKSwift",
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "throwing": true,
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Function",
-            "name": "encode",
-            "printedName": "encode(to:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Encoder",
-                "printedName": "any Swift.Encoder",
-                "usr": "s:s7EncoderP"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:15DynamicSDKSwift10AnyCodableV6encode2toys7Encoder_p_tKF",
-            "mangledName": "$s15DynamicSDKSwift10AnyCodableV6encode2toys7Encoder_p_tKF",
-            "moduleName": "DynamicSDKSwift",
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "throwing": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "==",
-            "printedName": "==(_:_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "AnyCodable",
-                "printedName": "DynamicSDKSwift.AnyCodable",
-                "usr": "s:15DynamicSDKSwift10AnyCodableV"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "AnyCodable",
-                "printedName": "DynamicSDKSwift.AnyCodable",
-                "usr": "s:15DynamicSDKSwift10AnyCodableV"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:15DynamicSDKSwift10AnyCodableV2eeoiySbAC_ACtFZ",
-            "mangledName": "$s15DynamicSDKSwift10AnyCodableV2eeoiySbAC_ACtFZ",
-            "moduleName": "DynamicSDKSwift",
-            "static": true,
-            "implicit": true,
-            "funcSelfKind": "NonMutating"
-          }
-        ],
-        "declKind": "Struct",
-        "usr": "s:15DynamicSDKSwift10AnyCodableV",
-        "mangledName": "$s15DynamicSDKSwift10AnyCodableV",
-        "moduleName": "DynamicSDKSwift",
-        "declAttributes": [
-          "AccessControl",
-          "RawDocComment"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Decodable",
-            "printedName": "Decodable",
-            "usr": "s:Se",
-            "mangledName": "$sSe"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Encodable",
-            "printedName": "Encodable",
-            "usr": "s:SE",
-            "mangledName": "$sSE"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          }
-        ]
-      },
-      {
         "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
+        "name": "SwiftBigInt",
+        "printedName": "SwiftBigInt",
         "declKind": "Import",
         "moduleName": "DynamicSDKSwift"
       },
       {
         "kind": "Import",
-        "name": "SwiftBigInt",
-        "printedName": "SwiftBigInt",
+        "name": "AnyCodableSwift",
+        "printedName": "AnyCodableSwift",
         "declKind": "Import",
         "moduleName": "DynamicSDKSwift"
       },
@@ -7181,6 +6990,13 @@
         "moduleName": "DynamicSDKSwift"
       },
       {
+        "kind": "Import",
+        "name": "AnyCodableSwift",
+        "printedName": "AnyCodableSwift",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
         "kind": "TypeDecl",
         "name": "Message",
         "printedName": "Message",
@@ -7448,18 +7264,18 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "[DynamicSDKSwift.AnyCodable]?",
+                "printedName": "[AnyCodableSwift.AnyCodable]?",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "Array",
-                    "printedName": "[DynamicSDKSwift.AnyCodable]",
+                    "printedName": "[AnyCodableSwift.AnyCodable]",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "AnyCodable",
-                        "printedName": "DynamicSDKSwift.AnyCodable",
-                        "usr": "s:15DynamicSDKSwift10AnyCodableV"
+                        "printedName": "AnyCodableSwift.AnyCodable",
+                        "usr": "s:15AnyCodableSwift0aB0V"
                       }
                     ],
                     "usr": "s:Sa"
@@ -7469,8 +7285,8 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:15DynamicSDKSwift7MessageV4argsSayAA10AnyCodableVGSgvp",
-            "mangledName": "$s15DynamicSDKSwift7MessageV4argsSayAA10AnyCodableVGSgvp",
+            "usr": "s:15DynamicSDKSwift7MessageV4argsSay15AnyCodableSwift0eF0VGSgvp",
+            "mangledName": "$s15DynamicSDKSwift7MessageV4argsSay15AnyCodableSwift0eF0VGSgvp",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "HasInitialValue",
@@ -7487,18 +7303,18 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "[DynamicSDKSwift.AnyCodable]?",
+                    "printedName": "[AnyCodableSwift.AnyCodable]?",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "Array",
-                        "printedName": "[DynamicSDKSwift.AnyCodable]",
+                        "printedName": "[AnyCodableSwift.AnyCodable]",
                         "children": [
                           {
                             "kind": "TypeNominal",
                             "name": "AnyCodable",
-                            "printedName": "DynamicSDKSwift.AnyCodable",
-                            "usr": "s:15DynamicSDKSwift10AnyCodableV"
+                            "printedName": "AnyCodableSwift.AnyCodable",
+                            "usr": "s:15AnyCodableSwift0aB0V"
                           }
                         ],
                         "usr": "s:Sa"
@@ -7508,8 +7324,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:15DynamicSDKSwift7MessageV4argsSayAA10AnyCodableVGSgvg",
-                "mangledName": "$s15DynamicSDKSwift7MessageV4argsSayAA10AnyCodableVGSgvg",
+                "usr": "s:15DynamicSDKSwift7MessageV4argsSay15AnyCodableSwift0eF0VGSgvg",
+                "mangledName": "$s15DynamicSDKSwift7MessageV4argsSay15AnyCodableSwift0eF0VGSgvg",
                 "moduleName": "DynamicSDKSwift",
                 "implicit": true,
                 "accessorKind": "get"
@@ -7527,18 +7343,18 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "[DynamicSDKSwift.AnyCodable]?",
+                    "printedName": "[AnyCodableSwift.AnyCodable]?",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "Array",
-                        "printedName": "[DynamicSDKSwift.AnyCodable]",
+                        "printedName": "[AnyCodableSwift.AnyCodable]",
                         "children": [
                           {
                             "kind": "TypeNominal",
                             "name": "AnyCodable",
-                            "printedName": "DynamicSDKSwift.AnyCodable",
-                            "usr": "s:15DynamicSDKSwift10AnyCodableV"
+                            "printedName": "AnyCodableSwift.AnyCodable",
+                            "usr": "s:15AnyCodableSwift0aB0V"
                           }
                         ],
                         "usr": "s:Sa"
@@ -7548,8 +7364,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:15DynamicSDKSwift7MessageV4argsSayAA10AnyCodableVGSgvs",
-                "mangledName": "$s15DynamicSDKSwift7MessageV4argsSayAA10AnyCodableVGSgvs",
+                "usr": "s:15DynamicSDKSwift7MessageV4argsSay15AnyCodableSwift0eF0VGSgvs",
+                "mangledName": "$s15DynamicSDKSwift7MessageV4argsSay15AnyCodableSwift0eF0VGSgvs",
                 "moduleName": "DynamicSDKSwift",
                 "implicit": true,
                 "accessorKind": "set"
@@ -7566,8 +7382,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:15DynamicSDKSwift7MessageV4argsSayAA10AnyCodableVGSgvM",
-                "mangledName": "$s15DynamicSDKSwift7MessageV4argsSayAA10AnyCodableVGSgvM",
+                "usr": "s:15DynamicSDKSwift7MessageV4argsSay15AnyCodableSwift0eF0VGSgvM",
+                "mangledName": "$s15DynamicSDKSwift7MessageV4argsSay15AnyCodableSwift0eF0VGSgvM",
                 "moduleName": "DynamicSDKSwift",
                 "implicit": true,
                 "accessorKind": "_modify"
@@ -7716,18 +7532,18 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "[DynamicSDKSwift.AnyCodable]?",
+                "printedName": "[AnyCodableSwift.AnyCodable]?",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "Array",
-                    "printedName": "[DynamicSDKSwift.AnyCodable]",
+                    "printedName": "[AnyCodableSwift.AnyCodable]",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "AnyCodable",
-                        "printedName": "DynamicSDKSwift.AnyCodable",
-                        "usr": "s:15DynamicSDKSwift10AnyCodableV"
+                        "printedName": "AnyCodableSwift.AnyCodable",
+                        "usr": "s:15AnyCodableSwift0aB0V"
                       }
                     ],
                     "usr": "s:Sa"
@@ -7753,8 +7569,8 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:15DynamicSDKSwift7MessageV16messageSessionId6origin4type4args8doNotAckACSS_S2SSayAA10AnyCodableVGSgSbSgtcfc",
-            "mangledName": "$s15DynamicSDKSwift7MessageV16messageSessionId6origin4type4args8doNotAckACSS_S2SSayAA10AnyCodableVGSgSbSgtcfc",
+            "usr": "s:15DynamicSDKSwift7MessageV16messageSessionId6origin4type4args8doNotAckACSS_S2SSay15AnyCodableSwift0mN0VGSgSbSgtcfc",
+            "mangledName": "$s15DynamicSDKSwift7MessageV16messageSessionId6origin4type4args8doNotAckACSS_S2SSay15AnyCodableSwift0mN0VGSgSbSgtcfc",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "AccessControl"
@@ -7934,13 +7750,13 @@
               {
                 "kind": "TypeNominal",
                 "name": "Array",
-                "printedName": "[DynamicSDKSwift.AnyCodable]",
+                "printedName": "[AnyCodableSwift.AnyCodable]",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "AnyCodable",
-                    "printedName": "DynamicSDKSwift.AnyCodable",
-                    "usr": "s:15DynamicSDKSwift10AnyCodableV"
+                    "printedName": "AnyCodableSwift.AnyCodable",
+                    "usr": "s:15AnyCodableSwift0aB0V"
                   }
                 ],
                 "hasDefaultArg": true,
@@ -7948,8 +7764,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:15DynamicSDKSwift7MessageV7resolveyACSayAA10AnyCodableVGF",
-            "mangledName": "$s15DynamicSDKSwift7MessageV7resolveyACSayAA10AnyCodableVGF",
+            "usr": "s:15DynamicSDKSwift7MessageV7resolveyACSay15AnyCodableSwift0eF0VGF",
+            "mangledName": "$s15DynamicSDKSwift7MessageV7resolveyACSay15AnyCodableSwift0eF0VGF",
             "moduleName": "DynamicSDKSwift",
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
@@ -7968,13 +7784,13 @@
               {
                 "kind": "TypeNominal",
                 "name": "Array",
-                "printedName": "[DynamicSDKSwift.AnyCodable]",
+                "printedName": "[AnyCodableSwift.AnyCodable]",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "AnyCodable",
-                    "printedName": "DynamicSDKSwift.AnyCodable",
-                    "usr": "s:15DynamicSDKSwift10AnyCodableV"
+                    "printedName": "AnyCodableSwift.AnyCodable",
+                    "usr": "s:15AnyCodableSwift0aB0V"
                   }
                 ],
                 "hasDefaultArg": true,
@@ -7982,8 +7798,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:15DynamicSDKSwift7MessageV6rejectyACSayAA10AnyCodableVGF",
-            "mangledName": "$s15DynamicSDKSwift7MessageV6rejectyACSayAA10AnyCodableVGF",
+            "usr": "s:15DynamicSDKSwift7MessageV6rejectyACSay15AnyCodableSwift0eF0VGF",
+            "mangledName": "$s15DynamicSDKSwift7MessageV6rejectyACSay15AnyCodableSwift0eF0VGF",
             "moduleName": "DynamicSDKSwift",
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
@@ -8318,6 +8134,13 @@
         "moduleName": "DynamicSDKSwift"
       },
       {
+        "kind": "Import",
+        "name": "AnyCodableSwift",
+        "printedName": "AnyCodableSwift",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
         "kind": "TypeDecl",
         "name": "RequestChannel",
         "printedName": "RequestChannel",
@@ -8438,13 +8261,13 @@
               {
                 "kind": "TypeNominal",
                 "name": "Array",
-                "printedName": "[DynamicSDKSwift.AnyCodable]",
+                "printedName": "[AnyCodableSwift.AnyCodable]",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "AnyCodable",
-                    "printedName": "DynamicSDKSwift.AnyCodable",
-                    "usr": "s:15DynamicSDKSwift10AnyCodableV"
+                    "printedName": "AnyCodableSwift.AnyCodable",
+                    "usr": "s:15AnyCodableSwift0aB0V"
                   }
                 ],
                 "hasDefaultArg": true,
@@ -8452,8 +8275,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:15DynamicSDKSwift14RequestChannelC4emit_4argsySS_SayAA10AnyCodableVGtF",
-            "mangledName": "$s15DynamicSDKSwift14RequestChannelC4emit_4argsySS_SayAA10AnyCodableVGtF",
+            "usr": "s:15DynamicSDKSwift14RequestChannelC4emit_4argsySS_Say15AnyCodableSwift0gH0VGtF",
+            "mangledName": "$s15DynamicSDKSwift14RequestChannelC4emit_4argsySS_Say15AnyCodableSwift0gH0VGtF",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "Final",
@@ -8481,13 +8304,13 @@
               {
                 "kind": "TypeNominal",
                 "name": "Array",
-                "printedName": "[DynamicSDKSwift.AnyCodable]",
+                "printedName": "[AnyCodableSwift.AnyCodable]",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "AnyCodable",
-                    "printedName": "DynamicSDKSwift.AnyCodable",
-                    "usr": "s:15DynamicSDKSwift10AnyCodableV"
+                    "printedName": "AnyCodableSwift.AnyCodable",
+                    "usr": "s:15AnyCodableSwift0aB0V"
                   }
                 ],
                 "hasDefaultArg": true,
@@ -8529,8 +8352,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:15DynamicSDKSwift14RequestChannelC7request_4args7builderxSS_SayAA10AnyCodableVGxypSgKcSgtYaKlF",
-            "mangledName": "$s15DynamicSDKSwift14RequestChannelC7request_4args7builderxSS_SayAA10AnyCodableVGxypSgKcSgtYaKlF",
+            "usr": "s:15DynamicSDKSwift14RequestChannelC7request_4args7builderxSS_Say15AnyCodableSwift0hI0VGxypSgKcSgtYaKlF",
+            "mangledName": "$s15DynamicSDKSwift14RequestChannelC7request_4args7builderxSS_Say15AnyCodableSwift0hI0VGxypSgKcSgtYaKlF",
             "moduleName": "DynamicSDKSwift",
             "genericSig": "<τ_0_0>",
             "sugared_genericSig": "<T>",
@@ -8562,7 +8385,7 @@
               {
                 "kind": "TypeFunc",
                 "name": "Function",
-                "printedName": "([DynamicSDKSwift.AnyCodable]) throws -> τ_0_0",
+                "printedName": "([AnyCodableSwift.AnyCodable]) throws -> τ_0_0",
                 "children": [
                   {
                     "kind": "TypeNominal",
@@ -8572,13 +8395,13 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Array",
-                    "printedName": "[DynamicSDKSwift.AnyCodable]",
+                    "printedName": "[AnyCodableSwift.AnyCodable]",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "AnyCodable",
-                        "printedName": "DynamicSDKSwift.AnyCodable",
-                        "usr": "s:15DynamicSDKSwift10AnyCodableV"
+                        "printedName": "AnyCodableSwift.AnyCodable",
+                        "usr": "s:15AnyCodableSwift0aB0V"
                       }
                     ],
                     "usr": "s:Sa"
@@ -8618,8 +8441,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:15DynamicSDKSwift14RequestChannelC6handle4type7builder7handler10Foundation4UUIDVSS_xSayAA10AnyCodableVGKcAA7MessageVx_AOtYaKctlF",
-            "mangledName": "$s15DynamicSDKSwift14RequestChannelC6handle4type7builder7handler10Foundation4UUIDVSS_xSayAA10AnyCodableVGKcAA7MessageVx_AOtYaKctlF",
+            "usr": "s:15DynamicSDKSwift14RequestChannelC6handle4type7builder7handler10Foundation4UUIDVSS_xSay15AnyCodableSwift0kL0VGKcAA7MessageVx_APtYaKctlF",
+            "mangledName": "$s15DynamicSDKSwift14RequestChannelC6handle4type7builder7handler10Foundation4UUIDVSS_xSay15AnyCodableSwift0kL0VGKcAA7MessageVx_APtYaKctlF",
             "moduleName": "DynamicSDKSwift",
             "genericSig": "<τ_0_0>",
             "sugared_genericSig": "<T>",
@@ -8651,7 +8474,7 @@
               {
                 "kind": "TypeFunc",
                 "name": "Function",
-                "printedName": "([DynamicSDKSwift.AnyCodable]) throws -> τ_0_0",
+                "printedName": "([AnyCodableSwift.AnyCodable]) throws -> τ_0_0",
                 "children": [
                   {
                     "kind": "TypeNominal",
@@ -8661,13 +8484,13 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Array",
-                    "printedName": "[DynamicSDKSwift.AnyCodable]",
+                    "printedName": "[AnyCodableSwift.AnyCodable]",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "AnyCodable",
-                        "printedName": "DynamicSDKSwift.AnyCodable",
-                        "usr": "s:15DynamicSDKSwift10AnyCodableV"
+                        "printedName": "AnyCodableSwift.AnyCodable",
+                        "usr": "s:15AnyCodableSwift0aB0V"
                       }
                     ],
                     "usr": "s:Sa"
@@ -8706,8 +8529,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:15DynamicSDKSwift14RequestChannelC10handleEmit4type7builder7handler10Foundation4UUIDVSS_xSayAA10AnyCodableVGKcyx_AA7MessageVtctlF",
-            "mangledName": "$s15DynamicSDKSwift14RequestChannelC10handleEmit4type7builder7handler10Foundation4UUIDVSS_xSayAA10AnyCodableVGKcyx_AA7MessageVtctlF",
+            "usr": "s:15DynamicSDKSwift14RequestChannelC10handleEmit4type7builder7handler10Foundation4UUIDVSS_xSay15AnyCodableSwift0lM0VGKcyx_AA7MessageVtctlF",
+            "mangledName": "$s15DynamicSDKSwift14RequestChannelC10handleEmit4type7builder7handler10Foundation4UUIDVSS_xSay15AnyCodableSwift0lM0VGKcyx_AA7MessageVtctlF",
             "moduleName": "DynamicSDKSwift",
             "genericSig": "<τ_0_0>",
             "sugared_genericSig": "<T>",
@@ -8759,12 +8582,12 @@
               {
                 "kind": "TypeFunc",
                 "name": "Function",
-                "printedName": "(DynamicSDKSwift.RequestChannelError.Type) -> ([DynamicSDKSwift.AnyCodable]?) -> DynamicSDKSwift.RequestChannelError",
+                "printedName": "(DynamicSDKSwift.RequestChannelError.Type) -> ([AnyCodableSwift.AnyCodable]?) -> DynamicSDKSwift.RequestChannelError",
                 "children": [
                   {
                     "kind": "TypeFunc",
                     "name": "Function",
-                    "printedName": "([DynamicSDKSwift.AnyCodable]?) -> DynamicSDKSwift.RequestChannelError",
+                    "printedName": "([AnyCodableSwift.AnyCodable]?) -> DynamicSDKSwift.RequestChannelError",
                     "children": [
                       {
                         "kind": "TypeNominal",
@@ -8775,18 +8598,18 @@
                       {
                         "kind": "TypeNominal",
                         "name": "Optional",
-                        "printedName": "[DynamicSDKSwift.AnyCodable]?",
+                        "printedName": "[AnyCodableSwift.AnyCodable]?",
                         "children": [
                           {
                             "kind": "TypeNominal",
                             "name": "Array",
-                            "printedName": "[DynamicSDKSwift.AnyCodable]",
+                            "printedName": "[AnyCodableSwift.AnyCodable]",
                             "children": [
                               {
                                 "kind": "TypeNominal",
                                 "name": "AnyCodable",
-                                "printedName": "DynamicSDKSwift.AnyCodable",
-                                "usr": "s:15DynamicSDKSwift10AnyCodableV"
+                                "printedName": "AnyCodableSwift.AnyCodable",
+                                "usr": "s:15AnyCodableSwift0aB0V"
                               }
                             ],
                             "usr": "s:Sa"
@@ -8813,8 +8636,8 @@
               }
             ],
             "declKind": "EnumElement",
-            "usr": "s:15DynamicSDKSwift19RequestChannelErrorO8rejectedyACSayAA10AnyCodableVGSgcACmF",
-            "mangledName": "$s15DynamicSDKSwift19RequestChannelErrorO8rejectedyACSayAA10AnyCodableVGSgcACmF",
+            "usr": "s:15DynamicSDKSwift19RequestChannelErrorO8rejectedyACSay15AnyCodableSwift0gH0VGSgcACmF",
+            "mangledName": "$s15DynamicSDKSwift19RequestChannelErrorO8rejectedyACSay15AnyCodableSwift0gH0VGSgcACmF",
             "moduleName": "DynamicSDKSwift"
           },
           {
@@ -8913,6 +8736,13 @@
         "kind": "Import",
         "name": "Combine",
         "printedName": "Combine",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
+        "kind": "Import",
+        "name": "AnyCodableSwift",
+        "printedName": "AnyCodableSwift",
         "declKind": "Import",
         "moduleName": "DynamicSDKSwift"
       },
@@ -10919,8 +10749,8 @@
       },
       {
         "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
+        "name": "AnyCodableSwift",
+        "printedName": "AnyCodableSwift",
         "declKind": "Import",
         "moduleName": "DynamicSDKSwift"
       },
@@ -10928,6 +10758,27 @@
         "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
+        "kind": "Import",
+        "name": "AnyCodableSwift",
+        "printedName": "AnyCodableSwift",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
+        "kind": "Import",
+        "name": "AnyCodableSwift",
+        "printedName": "AnyCodableSwift",
         "declKind": "Import",
         "moduleName": "DynamicSDKSwift"
       },
@@ -10947,6 +10798,13 @@
       },
       {
         "kind": "Import",
+        "name": "AnyCodableSwift",
+        "printedName": "AnyCodableSwift",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -10961,22 +10819,8 @@
       },
       {
         "kind": "Import",
-        "name": "UIKit",
-        "printedName": "UIKit",
-        "declKind": "Import",
-        "moduleName": "DynamicSDKSwift"
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "DynamicSDKSwift"
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
+        "name": "AnyCodableSwift",
+        "printedName": "AnyCodableSwift",
         "declKind": "Import",
         "moduleName": "DynamicSDKSwift"
       },
@@ -10991,6 +10835,48 @@
         "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
+        "kind": "Import",
+        "name": "AnyCodableSwift",
+        "printedName": "AnyCodableSwift",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
+        "kind": "Import",
+        "name": "AnyCodableSwift",
+        "printedName": "AnyCodableSwift",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
+        "kind": "Import",
+        "name": "AnyCodableSwift",
+        "printedName": "AnyCodableSwift",
         "declKind": "Import",
         "moduleName": "DynamicSDKSwift"
       },
@@ -13706,6 +13592,13 @@
         "moduleName": "DynamicSDKSwift"
       },
       {
+        "kind": "Import",
+        "name": "AnyCodableSwift",
+        "printedName": "AnyCodableSwift",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
         "kind": "TypeDecl",
         "name": "MfaCompletionFailure",
         "printedName": "MfaCompletionFailure",
@@ -13718,13 +13611,13 @@
               {
                 "kind": "TypeNominal",
                 "name": "AnyCodable",
-                "printedName": "DynamicSDKSwift.AnyCodable",
-                "usr": "s:15DynamicSDKSwift10AnyCodableV"
+                "printedName": "AnyCodableSwift.AnyCodable",
+                "usr": "s:15AnyCodableSwift0aB0V"
               }
             ],
             "declKind": "Var",
-            "usr": "s:15DynamicSDKSwift20MfaCompletionFailureV5errorAA10AnyCodableVvp",
-            "mangledName": "$s15DynamicSDKSwift20MfaCompletionFailureV5errorAA10AnyCodableVvp",
+            "usr": "s:15DynamicSDKSwift20MfaCompletionFailureV5error15AnyCodableSwift0gH0Vvp",
+            "mangledName": "$s15DynamicSDKSwift20MfaCompletionFailureV5error15AnyCodableSwift0gH0Vvp",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "HasStorage",
@@ -13741,13 +13634,13 @@
                   {
                     "kind": "TypeNominal",
                     "name": "AnyCodable",
-                    "printedName": "DynamicSDKSwift.AnyCodable",
-                    "usr": "s:15DynamicSDKSwift10AnyCodableV"
+                    "printedName": "AnyCodableSwift.AnyCodable",
+                    "usr": "s:15AnyCodableSwift0aB0V"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:15DynamicSDKSwift20MfaCompletionFailureV5errorAA10AnyCodableVvg",
-                "mangledName": "$s15DynamicSDKSwift20MfaCompletionFailureV5errorAA10AnyCodableVvg",
+                "usr": "s:15DynamicSDKSwift20MfaCompletionFailureV5error15AnyCodableSwift0gH0Vvg",
+                "mangledName": "$s15DynamicSDKSwift20MfaCompletionFailureV5error15AnyCodableSwift0gH0Vvg",
                 "moduleName": "DynamicSDKSwift",
                 "implicit": true,
                 "accessorKind": "get"
@@ -13768,13 +13661,13 @@
               {
                 "kind": "TypeNominal",
                 "name": "AnyCodable",
-                "printedName": "DynamicSDKSwift.AnyCodable",
-                "usr": "s:15DynamicSDKSwift10AnyCodableV"
+                "printedName": "AnyCodableSwift.AnyCodable",
+                "usr": "s:15AnyCodableSwift0aB0V"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:15DynamicSDKSwift20MfaCompletionFailureV5errorAcA10AnyCodableV_tcfc",
-            "mangledName": "$s15DynamicSDKSwift20MfaCompletionFailureV5errorAcA10AnyCodableV_tcfc",
+            "usr": "s:15DynamicSDKSwift20MfaCompletionFailureV5errorAC15AnyCodableSwift0gH0V_tcfc",
+            "mangledName": "$s15DynamicSDKSwift20MfaCompletionFailureV5errorAC15AnyCodableSwift0gH0V_tcfc",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "AccessControl"
@@ -19056,6 +18949,13 @@
         "moduleName": "DynamicSDKSwift"
       },
       {
+        "kind": "Import",
+        "name": "AnyCodableSwift",
+        "printedName": "AnyCodableSwift",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
         "kind": "TypeDecl",
         "name": "UserPasskey",
         "printedName": "UserPasskey",
@@ -19216,12 +19116,12 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "[Swift.String : DynamicSDKSwift.AnyCodable]?",
+                "printedName": "[Swift.String : AnyCodableSwift.AnyCodable]?",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "Dictionary",
-                    "printedName": "[Swift.String : DynamicSDKSwift.AnyCodable]",
+                    "printedName": "[Swift.String : AnyCodableSwift.AnyCodable]",
                     "children": [
                       {
                         "kind": "TypeNominal",
@@ -19232,8 +19132,8 @@
                       {
                         "kind": "TypeNominal",
                         "name": "AnyCodable",
-                        "printedName": "DynamicSDKSwift.AnyCodable",
-                        "usr": "s:15DynamicSDKSwift10AnyCodableV"
+                        "printedName": "AnyCodableSwift.AnyCodable",
+                        "usr": "s:15AnyCodableSwift0aB0V"
                       }
                     ],
                     "usr": "s:SD"
@@ -19243,8 +19143,8 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:15DynamicSDKSwift11UserPasskeyV10deviceInfoSDySSAA10AnyCodableVGSgvp",
-            "mangledName": "$s15DynamicSDKSwift11UserPasskeyV10deviceInfoSDySSAA10AnyCodableVGSgvp",
+            "usr": "s:15DynamicSDKSwift11UserPasskeyV10deviceInfoSDySS15AnyCodableSwift0gH0VGSgvp",
+            "mangledName": "$s15DynamicSDKSwift11UserPasskeyV10deviceInfoSDySS15AnyCodableSwift0gH0VGSgvp",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "HasStorage",
@@ -19261,12 +19161,12 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "[Swift.String : DynamicSDKSwift.AnyCodable]?",
+                    "printedName": "[Swift.String : AnyCodableSwift.AnyCodable]?",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "Dictionary",
-                        "printedName": "[Swift.String : DynamicSDKSwift.AnyCodable]",
+                        "printedName": "[Swift.String : AnyCodableSwift.AnyCodable]",
                         "children": [
                           {
                             "kind": "TypeNominal",
@@ -19277,8 +19177,8 @@
                           {
                             "kind": "TypeNominal",
                             "name": "AnyCodable",
-                            "printedName": "DynamicSDKSwift.AnyCodable",
-                            "usr": "s:15DynamicSDKSwift10AnyCodableV"
+                            "printedName": "AnyCodableSwift.AnyCodable",
+                            "usr": "s:15AnyCodableSwift0aB0V"
                           }
                         ],
                         "usr": "s:SD"
@@ -19288,8 +19188,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:15DynamicSDKSwift11UserPasskeyV10deviceInfoSDySSAA10AnyCodableVGSgvg",
-                "mangledName": "$s15DynamicSDKSwift11UserPasskeyV10deviceInfoSDySSAA10AnyCodableVGSgvg",
+                "usr": "s:15DynamicSDKSwift11UserPasskeyV10deviceInfoSDySS15AnyCodableSwift0gH0VGSgvg",
+                "mangledName": "$s15DynamicSDKSwift11UserPasskeyV10deviceInfoSDySS15AnyCodableSwift0gH0VGSgvg",
                 "moduleName": "DynamicSDKSwift",
                 "implicit": true,
                 "accessorKind": "get"
@@ -19724,12 +19624,12 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "[Swift.String : DynamicSDKSwift.AnyCodable]?",
+                "printedName": "[Swift.String : AnyCodableSwift.AnyCodable]?",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "Dictionary",
-                    "printedName": "[Swift.String : DynamicSDKSwift.AnyCodable]",
+                    "printedName": "[Swift.String : AnyCodableSwift.AnyCodable]",
                     "children": [
                       {
                         "kind": "TypeNominal",
@@ -19740,8 +19640,8 @@
                       {
                         "kind": "TypeNominal",
                         "name": "AnyCodable",
-                        "printedName": "DynamicSDKSwift.AnyCodable",
-                        "usr": "s:15DynamicSDKSwift10AnyCodableV"
+                        "printedName": "AnyCodableSwift.AnyCodable",
+                        "usr": "s:15AnyCodableSwift0aB0V"
                       }
                     ],
                     "usr": "s:SD"
@@ -19751,8 +19651,8 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:15DynamicSDKSwift11UserPasskeyV7storageSDySSAA10AnyCodableVGSgvp",
-            "mangledName": "$s15DynamicSDKSwift11UserPasskeyV7storageSDySSAA10AnyCodableVGSgvp",
+            "usr": "s:15DynamicSDKSwift11UserPasskeyV7storageSDySS15AnyCodableSwift0fG0VGSgvp",
+            "mangledName": "$s15DynamicSDKSwift11UserPasskeyV7storageSDySS15AnyCodableSwift0fG0VGSgvp",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "HasStorage",
@@ -19769,12 +19669,12 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "[Swift.String : DynamicSDKSwift.AnyCodable]?",
+                    "printedName": "[Swift.String : AnyCodableSwift.AnyCodable]?",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "Dictionary",
-                        "printedName": "[Swift.String : DynamicSDKSwift.AnyCodable]",
+                        "printedName": "[Swift.String : AnyCodableSwift.AnyCodable]",
                         "children": [
                           {
                             "kind": "TypeNominal",
@@ -19785,8 +19685,8 @@
                           {
                             "kind": "TypeNominal",
                             "name": "AnyCodable",
-                            "printedName": "DynamicSDKSwift.AnyCodable",
-                            "usr": "s:15DynamicSDKSwift10AnyCodableV"
+                            "printedName": "AnyCodableSwift.AnyCodable",
+                            "usr": "s:15AnyCodableSwift0aB0V"
                           }
                         ],
                         "usr": "s:SD"
@@ -19796,8 +19696,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:15DynamicSDKSwift11UserPasskeyV7storageSDySSAA10AnyCodableVGSgvg",
-                "mangledName": "$s15DynamicSDKSwift11UserPasskeyV7storageSDySSAA10AnyCodableVGSgvg",
+                "usr": "s:15DynamicSDKSwift11UserPasskeyV7storageSDySS15AnyCodableSwift0fG0VGSgvg",
+                "mangledName": "$s15DynamicSDKSwift11UserPasskeyV7storageSDySS15AnyCodableSwift0fG0VGSgvg",
                 "moduleName": "DynamicSDKSwift",
                 "implicit": true,
                 "accessorKind": "get"
@@ -19845,12 +19745,12 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "[Swift.String : DynamicSDKSwift.AnyCodable]?",
+                "printedName": "[Swift.String : AnyCodableSwift.AnyCodable]?",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "Dictionary",
-                    "printedName": "[Swift.String : DynamicSDKSwift.AnyCodable]",
+                    "printedName": "[Swift.String : AnyCodableSwift.AnyCodable]",
                     "children": [
                       {
                         "kind": "TypeNominal",
@@ -19861,8 +19761,8 @@
                       {
                         "kind": "TypeNominal",
                         "name": "AnyCodable",
-                        "printedName": "DynamicSDKSwift.AnyCodable",
-                        "usr": "s:15DynamicSDKSwift10AnyCodableV"
+                        "printedName": "AnyCodableSwift.AnyCodable",
+                        "usr": "s:15AnyCodableSwift0aB0V"
                       }
                     ],
                     "usr": "s:SD"
@@ -19979,12 +19879,12 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "[Swift.String : DynamicSDKSwift.AnyCodable]?",
+                "printedName": "[Swift.String : AnyCodableSwift.AnyCodable]?",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "Dictionary",
-                    "printedName": "[Swift.String : DynamicSDKSwift.AnyCodable]",
+                    "printedName": "[Swift.String : AnyCodableSwift.AnyCodable]",
                     "children": [
                       {
                         "kind": "TypeNominal",
@@ -19995,8 +19895,8 @@
                       {
                         "kind": "TypeNominal",
                         "name": "AnyCodable",
-                        "printedName": "DynamicSDKSwift.AnyCodable",
-                        "usr": "s:15DynamicSDKSwift10AnyCodableV"
+                        "printedName": "AnyCodableSwift.AnyCodable",
+                        "usr": "s:15AnyCodableSwift0aB0V"
                       }
                     ],
                     "usr": "s:SD"
@@ -20007,8 +19907,8 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:15DynamicSDKSwift11UserPasskeyV2id9createdAt08lastUsedG010deviceInfo9isDefault5alias12credentialId0J4Type0L8BackedUp6origin13signInEnabled7storageACSS_10Foundation4DateVARSgSDySSAA10AnyCodableVGSgSbSgSSSgA2yxyxWtcfc",
-            "mangledName": "$s15DynamicSDKSwift11UserPasskeyV2id9createdAt08lastUsedG010deviceInfo9isDefault5alias12credentialId0J4Type0L8BackedUp6origin13signInEnabled7storageACSS_10Foundation4DateVARSgSDySSAA10AnyCodableVGSgSbSgSSSgA2yxyxWtcfc",
+            "usr": "s:15DynamicSDKSwift11UserPasskeyV2id9createdAt08lastUsedG010deviceInfo9isDefault5alias12credentialId0J4Type0L8BackedUp6origin13signInEnabled7storageACSS_10Foundation4DateVARSgSDySS15AnyCodableSwift10AnyCodableVGSgSbSgSSSgA2zyzyXtcfc",
+            "mangledName": "$s15DynamicSDKSwift11UserPasskeyV2id9createdAt08lastUsedG010deviceInfo9isDefault5alias12credentialId0J4Type0L8BackedUp6origin13signInEnabled7storageACSS_10Foundation4DateVARSgSDySS15AnyCodableSwift10AnyCodableVGSgSbSgSSSgA2zyzyXtcfc",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "AccessControl"
@@ -20110,6 +20010,13 @@
         "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
+        "kind": "Import",
+        "name": "AnyCodableSwift",
+        "printedName": "AnyCodableSwift",
         "declKind": "Import",
         "moduleName": "DynamicSDKSwift"
       },
@@ -20257,6 +20164,13 @@
         "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
+        "kind": "Import",
+        "name": "AnyCodableSwift",
+        "printedName": "AnyCodableSwift",
         "declKind": "Import",
         "moduleName": "DynamicSDKSwift"
       },
@@ -20721,6 +20635,13 @@
         "moduleName": "DynamicSDKSwift"
       },
       {
+        "kind": "Import",
+        "name": "AnyCodableSwift",
+        "printedName": "AnyCodableSwift",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
         "kind": "TypeDecl",
         "name": "PasskeyAuthModule",
         "printedName": "PasskeyAuthModule",
@@ -21042,6 +20963,13 @@
         "moduleName": "DynamicSDKSwift"
       },
       {
+        "kind": "Import",
+        "name": "AnyCodableSwift",
+        "printedName": "AnyCodableSwift",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
         "kind": "TypeDecl",
         "name": "SmsAuthModule",
         "printedName": "SmsAuthModule",
@@ -21188,8 +21116,8 @@
         "children": [
           {
             "kind": "Var",
-            "name": "countryCode",
-            "printedName": "countryCode",
+            "name": "dialCode",
+            "printedName": "dialCode",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -21199,12 +21127,13 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:15DynamicSDKSwift9PhoneDataV11countryCodeSSvp",
-            "mangledName": "$s15DynamicSDKSwift9PhoneDataV11countryCodeSSvp",
+            "usr": "s:15DynamicSDKSwift9PhoneDataV8dialCodeSSvp",
+            "mangledName": "$s15DynamicSDKSwift9PhoneDataV8dialCodeSSvp",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "HasStorage",
-              "AccessControl"
+              "AccessControl",
+              "RawDocComment"
             ],
             "isLet": true,
             "hasStorage": true,
@@ -21222,8 +21151,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:15DynamicSDKSwift9PhoneDataV11countryCodeSSvg",
-                "mangledName": "$s15DynamicSDKSwift9PhoneDataV11countryCodeSSvg",
+                "usr": "s:15DynamicSDKSwift9PhoneDataV8dialCodeSSvg",
+                "mangledName": "$s15DynamicSDKSwift9PhoneDataV8dialCodeSSvg",
                 "moduleName": "DynamicSDKSwift",
                 "implicit": true,
                 "accessorKind": "get"
@@ -21232,8 +21161,8 @@
           },
           {
             "kind": "Var",
-            "name": "phoneNumber",
-            "printedName": "phoneNumber",
+            "name": "iso2",
+            "printedName": "iso2",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -21243,12 +21172,13 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:15DynamicSDKSwift9PhoneDataV11phoneNumberSSvp",
-            "mangledName": "$s15DynamicSDKSwift9PhoneDataV11phoneNumberSSvp",
+            "usr": "s:15DynamicSDKSwift9PhoneDataV4iso2SSvp",
+            "mangledName": "$s15DynamicSDKSwift9PhoneDataV4iso2SSvp",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "HasStorage",
-              "AccessControl"
+              "AccessControl",
+              "RawDocComment"
             ],
             "isLet": true,
             "hasStorage": true,
@@ -21266,8 +21196,53 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:15DynamicSDKSwift9PhoneDataV11phoneNumberSSvg",
-                "mangledName": "$s15DynamicSDKSwift9PhoneDataV11phoneNumberSSvg",
+                "usr": "s:15DynamicSDKSwift9PhoneDataV4iso2SSvg",
+                "mangledName": "$s15DynamicSDKSwift9PhoneDataV4iso2SSvg",
+                "moduleName": "DynamicSDKSwift",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "phone",
+            "printedName": "phone",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15DynamicSDKSwift9PhoneDataV5phoneSSvp",
+            "mangledName": "$s15DynamicSDKSwift9PhoneDataV5phoneSSvp",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15DynamicSDKSwift9PhoneDataV5phoneSSvg",
+                "mangledName": "$s15DynamicSDKSwift9PhoneDataV5phoneSSvg",
                 "moduleName": "DynamicSDKSwift",
                 "implicit": true,
                 "accessorKind": "get"
@@ -21277,7 +21252,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(countryCode:phoneNumber:)",
+            "printedName": "init(dialCode:iso2:phone:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -21296,11 +21271,17 @@
                 "name": "String",
                 "printedName": "Swift.String",
                 "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:15DynamicSDKSwift9PhoneDataV11countryCode11phoneNumberACSS_SStcfc",
-            "mangledName": "$s15DynamicSDKSwift9PhoneDataV11countryCode11phoneNumberACSS_SStcfc",
+            "usr": "s:15DynamicSDKSwift9PhoneDataV8dialCode4iso25phoneACSS_S2Stcfc",
+            "mangledName": "$s15DynamicSDKSwift9PhoneDataV8dialCode4iso25phoneACSS_S2Stcfc",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "AccessControl"
@@ -21402,6 +21383,13 @@
         "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
+        "kind": "Import",
+        "name": "AnyCodableSwift",
+        "printedName": "AnyCodableSwift",
         "declKind": "Import",
         "moduleName": "DynamicSDKSwift"
       },
@@ -22071,6 +22059,13 @@
         "kind": "Import",
         "name": "Combine",
         "printedName": "Combine",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
+        "kind": "Import",
+        "name": "AnyCodableSwift",
+        "printedName": "AnyCodableSwift",
         "declKind": "Import",
         "moduleName": "DynamicSDKSwift"
       },
@@ -23227,12 +23222,12 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "[Swift.String : DynamicSDKSwift.AnyCodable]?",
+                "printedName": "[Swift.String : AnyCodableSwift.AnyCodable]?",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "Dictionary",
-                    "printedName": "[Swift.String : DynamicSDKSwift.AnyCodable]",
+                    "printedName": "[Swift.String : AnyCodableSwift.AnyCodable]",
                     "children": [
                       {
                         "kind": "TypeNominal",
@@ -23243,8 +23238,8 @@
                       {
                         "kind": "TypeNominal",
                         "name": "AnyCodable",
-                        "printedName": "DynamicSDKSwift.AnyCodable",
-                        "usr": "s:15DynamicSDKSwift10AnyCodableV"
+                        "printedName": "AnyCodableSwift.AnyCodable",
+                        "usr": "s:15AnyCodableSwift0aB0V"
                       }
                     ],
                     "usr": "s:SD"
@@ -23254,8 +23249,8 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:15DynamicSDKSwift11UserProfileV8metadataSDySSAA10AnyCodableVGSgvp",
-            "mangledName": "$s15DynamicSDKSwift11UserProfileV8metadataSDySSAA10AnyCodableVGSgvp",
+            "usr": "s:15DynamicSDKSwift11UserProfileV8metadataSDySS15AnyCodableSwift0fG0VGSgvp",
+            "mangledName": "$s15DynamicSDKSwift11UserProfileV8metadataSDySS15AnyCodableSwift0fG0VGSgvp",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "HasStorage",
@@ -23272,12 +23267,12 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "[Swift.String : DynamicSDKSwift.AnyCodable]?",
+                    "printedName": "[Swift.String : AnyCodableSwift.AnyCodable]?",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "Dictionary",
-                        "printedName": "[Swift.String : DynamicSDKSwift.AnyCodable]",
+                        "printedName": "[Swift.String : AnyCodableSwift.AnyCodable]",
                         "children": [
                           {
                             "kind": "TypeNominal",
@@ -23288,8 +23283,8 @@
                           {
                             "kind": "TypeNominal",
                             "name": "AnyCodable",
-                            "printedName": "DynamicSDKSwift.AnyCodable",
-                            "usr": "s:15DynamicSDKSwift10AnyCodableV"
+                            "printedName": "AnyCodableSwift.AnyCodable",
+                            "usr": "s:15AnyCodableSwift0aB0V"
                           }
                         ],
                         "usr": "s:SD"
@@ -23299,8 +23294,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:15DynamicSDKSwift11UserProfileV8metadataSDySSAA10AnyCodableVGSgvg",
-                "mangledName": "$s15DynamicSDKSwift11UserProfileV8metadataSDySSAA10AnyCodableVGSgvg",
+                "usr": "s:15DynamicSDKSwift11UserProfileV8metadataSDySS15AnyCodableSwift0fG0VGSgvg",
+                "mangledName": "$s15DynamicSDKSwift11UserProfileV8metadataSDySS15AnyCodableSwift0fG0VGSgvg",
                 "moduleName": "DynamicSDKSwift",
                 "implicit": true,
                 "accessorKind": "get"
@@ -23811,6 +23806,13 @@
         "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
+        "kind": "Import",
+        "name": "AnyCodableSwift",
+        "printedName": "AnyCodableSwift",
         "declKind": "Import",
         "moduleName": "DynamicSDKSwift"
       },
@@ -24512,6 +24514,13 @@
         "moduleName": "DynamicSDKSwift"
       },
       {
+        "kind": "Import",
+        "name": "AnyCodableSwift",
+        "printedName": "AnyCodableSwift",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
         "kind": "TypeDecl",
         "name": "NetworksModule",
         "printedName": "NetworksModule",
@@ -25096,13 +25105,13 @@
               {
                 "kind": "TypeNominal",
                 "name": "AnyCodable",
-                "printedName": "DynamicSDKSwift.AnyCodable",
-                "usr": "s:15DynamicSDKSwift10AnyCodableV"
+                "printedName": "AnyCodableSwift.AnyCodable",
+                "usr": "s:15AnyCodableSwift0aB0V"
               }
             ],
             "declKind": "Var",
-            "usr": "s:15DynamicSDKSwift14GenericNetworkV7chainIdAA10AnyCodableVvp",
-            "mangledName": "$s15DynamicSDKSwift14GenericNetworkV7chainIdAA10AnyCodableVvp",
+            "usr": "s:15DynamicSDKSwift14GenericNetworkV7chainId15AnyCodableSwift0gH0Vvp",
+            "mangledName": "$s15DynamicSDKSwift14GenericNetworkV7chainId15AnyCodableSwift0gH0Vvp",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "HasStorage",
@@ -25119,13 +25128,13 @@
                   {
                     "kind": "TypeNominal",
                     "name": "AnyCodable",
-                    "printedName": "DynamicSDKSwift.AnyCodable",
-                    "usr": "s:15DynamicSDKSwift10AnyCodableV"
+                    "printedName": "AnyCodableSwift.AnyCodable",
+                    "usr": "s:15AnyCodableSwift0aB0V"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:15DynamicSDKSwift14GenericNetworkV7chainIdAA10AnyCodableVvg",
-                "mangledName": "$s15DynamicSDKSwift14GenericNetworkV7chainIdAA10AnyCodableVvg",
+                "usr": "s:15DynamicSDKSwift14GenericNetworkV7chainId15AnyCodableSwift0gH0Vvg",
+                "mangledName": "$s15DynamicSDKSwift14GenericNetworkV7chainId15AnyCodableSwift0gH0Vvg",
                 "moduleName": "DynamicSDKSwift",
                 "implicit": true,
                 "accessorKind": "get"
@@ -25471,13 +25480,13 @@
               {
                 "kind": "TypeNominal",
                 "name": "AnyCodable",
-                "printedName": "DynamicSDKSwift.AnyCodable",
-                "usr": "s:15DynamicSDKSwift10AnyCodableV"
+                "printedName": "AnyCodableSwift.AnyCodable",
+                "usr": "s:15AnyCodableSwift0aB0V"
               }
             ],
             "declKind": "Var",
-            "usr": "s:15DynamicSDKSwift14GenericNetworkV9networkIdAA10AnyCodableVvp",
-            "mangledName": "$s15DynamicSDKSwift14GenericNetworkV9networkIdAA10AnyCodableVvp",
+            "usr": "s:15DynamicSDKSwift14GenericNetworkV9networkId15AnyCodableSwift0gH0Vvp",
+            "mangledName": "$s15DynamicSDKSwift14GenericNetworkV9networkId15AnyCodableSwift0gH0Vvp",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "HasStorage",
@@ -25494,13 +25503,13 @@
                   {
                     "kind": "TypeNominal",
                     "name": "AnyCodable",
-                    "printedName": "DynamicSDKSwift.AnyCodable",
-                    "usr": "s:15DynamicSDKSwift10AnyCodableV"
+                    "printedName": "AnyCodableSwift.AnyCodable",
+                    "usr": "s:15AnyCodableSwift0aB0V"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:15DynamicSDKSwift14GenericNetworkV9networkIdAA10AnyCodableVvg",
-                "mangledName": "$s15DynamicSDKSwift14GenericNetworkV9networkIdAA10AnyCodableVvg",
+                "usr": "s:15DynamicSDKSwift14GenericNetworkV9networkId15AnyCodableSwift0gH0Vvg",
+                "mangledName": "$s15DynamicSDKSwift14GenericNetworkV9networkId15AnyCodableSwift0gH0Vvg",
                 "moduleName": "DynamicSDKSwift",
                 "implicit": true,
                 "accessorKind": "get"
@@ -26256,6 +26265,13 @@
         "moduleName": "DynamicSDKSwift"
       },
       {
+        "kind": "Import",
+        "name": "AnyCodableSwift",
+        "printedName": "AnyCodableSwift",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
         "kind": "TypeDecl",
         "name": "PasskeyModule",
         "printedName": "PasskeyModule",
@@ -26646,6 +26662,13 @@
         "kind": "Import",
         "name": "Combine",
         "printedName": "Combine",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
+        "kind": "Import",
+        "name": "AnyCodableSwift",
+        "printedName": "AnyCodableSwift",
         "declKind": "Import",
         "moduleName": "DynamicSDKSwift"
       },
@@ -27446,13 +27469,13 @@
               {
                 "kind": "TypeNominal",
                 "name": "AnyCodable",
-                "printedName": "DynamicSDKSwift.AnyCodable",
-                "usr": "s:15DynamicSDKSwift10AnyCodableV"
+                "printedName": "AnyCodableSwift.AnyCodable",
+                "usr": "s:15AnyCodableSwift0aB0V"
               }
             ],
             "declKind": "Var",
-            "usr": "s:15DynamicSDKSwift7NetworkV5valueAA10AnyCodableVvp",
-            "mangledName": "$s15DynamicSDKSwift7NetworkV5valueAA10AnyCodableVvp",
+            "usr": "s:15DynamicSDKSwift7NetworkV5value15AnyCodableSwift0eF0Vvp",
+            "mangledName": "$s15DynamicSDKSwift7NetworkV5value15AnyCodableSwift0eF0Vvp",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "HasStorage",
@@ -27469,13 +27492,13 @@
                   {
                     "kind": "TypeNominal",
                     "name": "AnyCodable",
-                    "printedName": "DynamicSDKSwift.AnyCodable",
-                    "usr": "s:15DynamicSDKSwift10AnyCodableV"
+                    "printedName": "AnyCodableSwift.AnyCodable",
+                    "usr": "s:15AnyCodableSwift0aB0V"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:15DynamicSDKSwift7NetworkV5valueAA10AnyCodableVvg",
-                "mangledName": "$s15DynamicSDKSwift7NetworkV5valueAA10AnyCodableVvg",
+                "usr": "s:15DynamicSDKSwift7NetworkV5value15AnyCodableSwift0eF0Vvg",
+                "mangledName": "$s15DynamicSDKSwift7NetworkV5value15AnyCodableSwift0eF0Vvg",
                 "moduleName": "DynamicSDKSwift",
                 "implicit": true,
                 "accessorKind": "get"
@@ -27496,13 +27519,13 @@
               {
                 "kind": "TypeNominal",
                 "name": "AnyCodable",
-                "printedName": "DynamicSDKSwift.AnyCodable",
-                "usr": "s:15DynamicSDKSwift10AnyCodableV"
+                "printedName": "AnyCodableSwift.AnyCodable",
+                "usr": "s:15AnyCodableSwift0aB0V"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:15DynamicSDKSwift7NetworkVyAcA10AnyCodableVcfc",
-            "mangledName": "$s15DynamicSDKSwift7NetworkVyAcA10AnyCodableVcfc",
+            "usr": "s:15DynamicSDKSwift7NetworkVyAC15AnyCodableSwift0dE0Vcfc",
+            "mangledName": "$s15DynamicSDKSwift7NetworkVyAC15AnyCodableSwift0dE0Vcfc",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "AccessControl"
@@ -29933,7 +29956,7 @@
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Chains\/EVM\/EvmModule.swift",
       "kind": "Array",
-      "offset": 10925,
+      "offset": 10948,
       "length": 2,
       "value": "[]"
     },
@@ -30003,14 +30026,14 @@
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/Message.swift",
       "kind": "Array",
-      "offset": 940,
+      "offset": 963,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/Message.swift",
       "kind": "Array",
-      "offset": 1129,
+      "offset": 1152,
       "length": 2,
       "value": "[]"
     },
@@ -30031,49 +30054,49 @@
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/RequestChannel.swift",
       "kind": "IntegerLiteral",
-      "offset": 326,
+      "offset": 349,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/RequestChannel.swift",
       "kind": "Array",
-      "offset": 839,
+      "offset": 862,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/RequestChannel.swift",
       "kind": "Array",
-      "offset": 1247,
+      "offset": 1270,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/RequestChannel.swift",
       "kind": "Array",
-      "offset": 4004,
+      "offset": 4027,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/SdkModule.swift",
       "kind": "StringLiteral",
-      "offset": 150,
+      "offset": 173,
       "length": 5,
       "value": "\"sdk\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/SdkModule.swift",
       "kind": "StringLiteral",
-      "offset": 189,
+      "offset": 212,
       "length": 15,
       "value": "\"loadedChanged\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/SdkModule.swift",
       "kind": "StringLiteral",
-      "offset": 236,
+      "offset": 259,
       "length": 20,
       "value": "\"sdk__loadedChanged\""
     },
@@ -30087,7 +30110,7 @@
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Handlers\/SetupPasskeyPlatformHandler.swift",
       "kind": "BooleanLiteral",
-      "offset": 305,
+      "offset": 328,
       "length": 5,
       "value": "false"
     },
@@ -30157,21 +30180,21 @@
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Module\/AuthModule.swift",
       "kind": "StringLiteral",
-      "offset": 388,
+      "offset": 411,
       "length": 6,
       "value": "\"auth\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Module\/AuthModule.swift",
       "kind": "StringLiteral",
-      "offset": 428,
+      "offset": 451,
       "length": 26,
       "value": "\"authenticatedUserChanged\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Module\/AuthModule.swift",
       "kind": "StringLiteral",
-      "offset": 489,
+      "offset": 512,
       "length": 14,
       "value": "\"tokenChanged\""
     },
@@ -30192,28 +30215,28 @@
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Module\/MfaModule.swift",
       "kind": "BooleanLiteral",
-      "offset": 3939,
+      "offset": 3962,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Module\/NetworksModule.swift",
       "kind": "StringLiteral",
-      "offset": 285,
+      "offset": 308,
       "length": 10,
       "value": "\"networks\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Module\/NetworksModule.swift",
       "kind": "StringLiteral",
-      "offset": 328,
+      "offset": 351,
       "length": 12,
       "value": "\"evmChanged\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Module\/NetworksModule.swift",
       "kind": "StringLiteral",
-      "offset": 376,
+      "offset": 399,
       "length": 15,
       "value": "\"solanaChanged\""
     },

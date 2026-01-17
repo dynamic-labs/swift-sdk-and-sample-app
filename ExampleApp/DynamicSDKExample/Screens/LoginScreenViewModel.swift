@@ -79,9 +79,22 @@ final class LoginScreenViewModel: ObservableObject {
     isSendingSmsOTP = true
     Task { @MainActor in
       do {
-        // Flutter demo is US/CA oriented; keep it simple here.
-        let digits = trimmed.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
-        let phoneData = PhoneData(countryCode: "1", phoneNumber: digits)
+        let phoneData: PhoneData
+        
+        if trimmed.hasPrefix("+1") {
+          // Case 1: Has "+1" prefix -> remove it and send the rest
+          let phoneNumber = String(trimmed.dropFirst(2))
+          phoneData = PhoneData(dialCode: "+1", iso2: "US", phone: phoneNumber)
+        } else if trimmed.hasPrefix("+") {
+          // Case 2: Has "+" but not "+1" -> error (only US/CA supported)
+          errorMessage = "Only United States/Canada phone numbers are supported"
+          isSendingSmsOTP = false
+          return
+        } else {
+          // Case 3: No "+" prefix -> send as-is (assume US/CA)
+          phoneData = PhoneData(dialCode: "+1", iso2: "US", phone: trimmed)
+        }
+        
         try await sdk.auth.sms.sendOTP(phoneData: phoneData)
         isSmsOtpSheetPresented = true
       } catch {

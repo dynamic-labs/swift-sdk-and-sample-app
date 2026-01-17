@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "anycodableswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kantagara/AnyCodableSwift.git",
+      "state" : {
+        "revision" : "9c3b9a88ef24cd37580c1249a30df5940e16d164",
+        "version" : "0.7.0"
+      }
+    },
+    {
       "identity" : "bigint",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/jlalvarez18/BigInt.git",

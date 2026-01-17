@@ -29,7 +29,15 @@ struct HomeScreenView: View {
               .foregroundColor(colorScheme == .dark ? .white : .black)
               .padding(.horizontal)
 
-            if vm.wallets.isEmpty {
+            if vm.isCreatingWallets {
+              HStack {
+                ProgressView()
+                  .progressViewStyle(CircularProgressViewStyle())
+                Text("Creating wallets...")
+                  .foregroundColor(.secondary)
+              }
+              .padding(.horizontal)
+            } else if vm.wallets.isEmpty {
               Text("No wallets connected.")
                 .foregroundColor(.secondary)
                 .padding(.horizontal)

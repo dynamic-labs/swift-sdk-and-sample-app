@@ -1,5 +1,6 @@
 import Foundation
 import DynamicSDKSwift
+// (no Combine needed here)
 
 @MainActor
 final class SplashScreenViewModel: ObservableObject {
@@ -12,7 +13,7 @@ final class SplashScreenViewModel: ObservableObject {
   ) {
     guard !didRoute else { return }
 
-   
+    // Always show Splash for a minimum duration, then decide Home/Login.
     // We also wait a bit longer for SDK/webview hydration (token/user might arrive async).
     let minSplashNs: UInt64 = 650_000_000  // 0.65s (prevents flash)
     let maxWaitNs: UInt64 = 3_000_000_000  // 3s timeout (then default to login)

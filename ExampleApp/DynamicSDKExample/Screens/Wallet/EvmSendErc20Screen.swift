@@ -29,6 +29,7 @@ struct EvmSendErc20Screen: View {
         )
 
         TextFieldWithLabel(
+            
           label: "Recipient",
           placeholder: "0x...",
           text: $recipient

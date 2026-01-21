@@ -96,7 +96,7 @@ class SolanaSendTransactionViewModel: ObservableObject {
       // Convert SOL to lamports (1 SOL = 1,000,000,000 lamports)
       let lamports = UInt64(amountValue * 1_000_000_000)
       
-      // Create signer and connection (prefer SDK-configured network, like Flutter)
+      // Create signer and connection (prefer SDK-configured network)
       let signer = sdk.solana.createSigner(wallet: wallet)
       let connection = try sdk.solana.createConnection()
       

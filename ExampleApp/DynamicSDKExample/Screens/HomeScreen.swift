@@ -21,7 +21,7 @@ struct HomeScreenView: View {
             .padding(.horizontal, 16)
             .padding(.top, 20)
 
-            // Flutter parity order:
+            // Menu order:
             // 1) Wallets
             Text("Wallets")
               .font(.title2)
@@ -122,7 +122,7 @@ struct HomeScreenView: View {
               )
             }
 
-            // 7) Logout (must be last, Flutter parity)
+            // 7) Logout (must be last)
             Button(action: { vm.logout() }) {
               HStack {
                 Image(systemName: "arrow.left.circle.fill")

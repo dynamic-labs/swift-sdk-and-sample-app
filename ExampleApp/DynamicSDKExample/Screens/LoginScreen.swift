@@ -130,7 +130,7 @@ struct LoginScreenView: View {
           }
           .padding(.horizontal, 20)
 
-          // External JWT (mirrors Flutter demo's "External Auth" dev hook)
+          // External JWT (
           VStack(alignment: .leading, spacing: 8) {
             Text("External JWT (dev)")
               .font(.caption)

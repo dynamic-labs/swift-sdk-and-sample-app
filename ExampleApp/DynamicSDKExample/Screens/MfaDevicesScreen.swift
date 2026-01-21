@@ -1,7 +1,7 @@
 import SwiftUI
 import DynamicSDKSwift
 
-// MFA Devices screen (Flutter example parity).
+// MFA Devices screen.
 struct MfaDevicesScreen: View {
   @StateObject private var vm = MfaDevicesViewModel()
 

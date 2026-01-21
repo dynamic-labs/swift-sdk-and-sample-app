@@ -6394,6 +6394,20 @@
         "moduleName": "DynamicSDKSwift"
       },
       {
+        "kind": "Import",
+        "name": "Security",
+        "printedName": "Security",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
         "kind": "TypeDecl",
         "name": "LoggerLevel",
         "printedName": "LoggerLevel",
@@ -29956,7 +29970,7 @@
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Chains\/EVM\/EvmModule.swift",
       "kind": "Array",
-      "offset": 10948,
+      "offset": 10880,
       "length": 2,
       "value": "[]"
     },
@@ -29994,6 +30008,13 @@
       "offset": 1395,
       "length": 5,
       "value": "false"
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/KeychainHelper.swift",
+      "kind": "StringLiteral",
+      "offset": 267,
+      "length": 17,
+      "value": "\"xyz.dynamic.sdk\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/Logger.swift",
@@ -30075,7 +30096,7 @@
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/RequestChannel.swift",
       "kind": "Array",
-      "offset": 4027,
+      "offset": 3951,
       "length": 2,
       "value": "[]"
     },
@@ -30110,7 +30131,7 @@
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Handlers\/SetupPasskeyPlatformHandler.swift",
       "kind": "BooleanLiteral",
-      "offset": 328,
+      "offset": 280,
       "length": 5,
       "value": "false"
     },

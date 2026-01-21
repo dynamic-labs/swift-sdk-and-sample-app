@@ -1,7 +1,7 @@
 import SwiftUI
 import DynamicSDKSwift
 
-// Passkeys screen (Flutter example parity).
+// Passkeys screen.
 struct PasskeysScreen: View {
   @StateObject private var vm = PasskeysViewModel()
 

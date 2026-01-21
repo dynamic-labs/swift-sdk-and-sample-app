@@ -6,6 +6,7 @@ import AnyCodableSwift
 import AuthenticationServices
 import Combine
 import Foundation
+import Security
 import SolanaWeb3
 import Swift
 import SwiftBigInt

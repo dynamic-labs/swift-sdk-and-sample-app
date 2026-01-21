@@ -5,7 +5,7 @@ import CoreImage.CIFilterBuiltins
 import UIKit
 #endif
 
-// Add MFA Device screen (Flutter example parity: setup -> generate secret -> verify).
+// Add MFA Device screen (setup -> generate secret -> verify).
 struct MfaAddDeviceScreen: View {
   enum Step { case setup, verify }
 

@@ -134,7 +134,7 @@ struct SuccessMessageView: View {
   }
 }
 
-/// Simple OTP sheet used for Email/SMS OTP flows (mirrors Flutter example UX).
+/// Simple OTP sheet used for Email/SMS OTP flows (
 struct OtpVerificationSheet: View {
   let title: String
   let subtitle: String?

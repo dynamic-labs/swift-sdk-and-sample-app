@@ -1,7 +1,7 @@
 import SwiftUI
 import DynamicSDKSwift
 
-// Recovery Codes screen (Flutter example parity).
+// Recovery Codes screen.
 struct MfaRecoveryCodesScreen: View {
   @StateObject private var vm = MfaRecoveryCodesViewModel()
 

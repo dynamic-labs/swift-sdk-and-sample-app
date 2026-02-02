@@ -17,6 +17,8 @@ import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 import _WebKit_SwiftUI
+import os.log
+import os
 public enum Erc20 {
   public static let abi: Swift.String
 }
@@ -176,6 +178,7 @@ public enum DynamicSDKError : Swift.Error, Foundation.LocalizedError {
   case encodingError(Swift.String)
   case decodingError(Swift.String)
   case missingParameter(Swift.String)
+  case notInitialized
   case custom(Swift.String)
   #if compiler(>=5.3) && $NonescapableTypes
   public var errorDescription: Swift.String? {
@@ -309,6 +312,8 @@ final public class VisibilityModule {
   final public let overlayWindow: DynamicSDKSwift.DynamicOverlayWindowManager
   final public let props: DynamicSDKSwift.ClientProps
   @_Concurrency.MainActor public static func initialize(props: DynamicSDKSwift.ClientProps) -> DynamicSDKSwift.DynamicSDK
+  public static func getInstance() throws -> DynamicSDKSwift.DynamicSDK
+  @available(*, deprecated, message: "Use getInstance() which throws instead of crashing")
   public static func instance() -> DynamicSDKSwift.DynamicSDK
   @objc deinit
 }
@@ -832,6 +837,7 @@ final public class UserInterfaceModule {
   final public func setOnShowAuth(_ callback: @escaping () -> Swift.Void)
   final public func showAuth()
   final public func showUserProfile()
+  final public func revealEmbeddedWalletPrivateKey() async throws
   @objc deinit
 }
 final public class WalletsModule {
@@ -859,6 +865,7 @@ final public class WalletsModule {
   final public func getNetwork(wallet: DynamicSDKSwift.BaseWallet) async throws -> DynamicSDKSwift.Network
   final public func setPrimary(walletId: Swift.String) async throws
   final public func switchNetwork(wallet: DynamicSDKSwift.BaseWallet, network: DynamicSDKSwift.Network) async throws
+  final public func getMultichainBalances(balanceRequest: DynamicSDKSwift.MultichainBalanceRequest) async throws -> DynamicSDKSwift.MultichainBalancesResponse
   @objc deinit
 }
 public struct Network : Swift.Equatable, Swift.Codable {
@@ -885,6 +892,81 @@ public struct BaseWallet : Swift.Equatable {
   #endif
   public func toDict() -> [Swift.String : Any]
   public static func == (a: DynamicSDKSwift.BaseWallet, b: DynamicSDKSwift.BaseWallet) -> Swift.Bool
+}
+public enum ChainEnum : Swift.String, Swift.CaseIterable {
+  case evm
+  case sol
+  case sui
+  case btc
+  case cosmos
+  case flow
+  case stark
+  case algo
+  case eth
+  case eclipse
+  case spark
+  case tron
+  case aptos
+  case ton
+  case stellar
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(fromString value: Swift.String)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias AllCases = [DynamicSDKSwift.ChainEnum]
+  public typealias RawValue = Swift.String
+  nonisolated public static var allCases: [DynamicSDKSwift.ChainEnum] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct BalanceRequestItem {
+  public let address: Swift.String
+  public let chain: DynamicSDKSwift.ChainEnum
+  public let networkIds: [Swift.Int]
+  public let whitelistedContracts: [Swift.String]?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(address: Swift.String, chain: DynamicSDKSwift.ChainEnum, networkIds: [Swift.Int], whitelistedContracts: [Swift.String]? = nil)
+  #endif
+  public func toDict() -> [Swift.String : Any]
+}
+public struct MultichainBalanceRequest {
+  public let balanceRequests: [DynamicSDKSwift.BalanceRequestItem]
+  public let filterSpamTokens: Swift.Bool?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(balanceRequests: [DynamicSDKSwift.BalanceRequestItem], filterSpamTokens: Swift.Bool? = nil)
+  #endif
+  public func toDict() -> [Swift.String : Any]
+}
+public struct MultichainBalancesResponse {
+  public let balances: [DynamicSDKSwift.TokenBalance]
+  public init(balances: [DynamicSDKSwift.TokenBalance])
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func fromDict(_ arg: Any?) -> DynamicSDKSwift.MultichainBalancesResponse
+  #endif
+}
+public struct TokenBalance {
+  public let contractAddress: Swift.String?
+  public let balance: Swift.String
+  public let balanceDecimal: Swift.String?
+  public let symbol: Swift.String?
+  public let name: Swift.String?
+  public let decimals: Swift.Int?
+  public let networkId: Swift.Int?
+  public let chain: Swift.String?
+  public let logoUrl: Swift.String?
+  public let isNative: Swift.Bool?
+  public let isSpam: Swift.Bool?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(contractAddress: Swift.String? = nil, balance: Swift.String, balanceDecimal: Swift.String? = nil, symbol: Swift.String? = nil, name: Swift.String? = nil, decimals: Swift.Int? = nil, networkId: Swift.Int? = nil, chain: Swift.String? = nil, logoUrl: Swift.String? = nil, isNative: Swift.Bool? = nil, isSpam: Swift.Bool? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func fromDict(_ json: [Swift.String : Any], parentChain: Swift.String?, parentNetworkId: Swift.Int?) -> DynamicSDKSwift.TokenBalance
+  #endif
 }
 @_Concurrency.MainActor @preconcurrency public struct DynamicSDKOverlayContainer<Content> : SwiftUICore.View where Content : SwiftUICore.View {
   @_Concurrency.MainActor @preconcurrency public init(sdk: DynamicSDKSwift.DynamicSDK = .instance(), @SwiftUICore.ViewBuilder content: () -> Content)
@@ -938,6 +1020,7 @@ extension DynamicSDKSwift.DynamicWebViewController : WebKit.WKScriptMessageHandl
   @_Concurrency.MainActor @preconcurrency @objc final public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
 }
 extension DynamicSDKSwift.DynamicWebViewController : WebKit.WKNavigationDelegate {
+  @_Concurrency.MainActor @preconcurrency @objc final public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, decisionHandler: @escaping (WebKit.WKNavigationActionPolicy) -> Swift.Void)
   #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc final public func webView(_ webView: WebKit.WKWebView, didStartProvisionalNavigation navigation: WebKit.WKNavigation!)
   #endif
@@ -962,6 +1045,9 @@ extension DynamicSDKSwift.StorageMessageSource : Swift.Hashable {}
 extension DynamicSDKSwift.StorageMessageSource : Swift.RawRepresentable {}
 extension DynamicSDKSwift.SocialProvider : Swift.Equatable {}
 extension DynamicSDKSwift.SocialProvider : Swift.Hashable {}
+extension DynamicSDKSwift.ChainEnum : Swift.Equatable {}
+extension DynamicSDKSwift.ChainEnum : Swift.Hashable {}
+extension DynamicSDKSwift.ChainEnum : Swift.RawRepresentable {}
 extension DynamicSDKSwift.DynamicSDKOverlayContainer : Swift.Sendable {}
 extension DynamicSDKSwift.DynamicUI : Swift.Sendable {}
 extension DynamicSDKSwift.DynamicWebViewContainer : Swift.Sendable {}

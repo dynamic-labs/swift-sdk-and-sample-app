@@ -86,6 +86,20 @@ struct WalletDetailsScreen: View {
             .cornerRadius(8)
           }
           .padding(.horizontal)
+
+          Button(action: { vm.revealPrivateKey() }) {
+            HStack {
+              Image(systemName: "key.fill")
+              Text("Reveal Private Key")
+              Spacer()
+            }
+            .padding()
+            .frame(maxWidth: .infinity)
+            .background(Color.orange.opacity(0.1))
+            .foregroundColor(.orange)
+            .cornerRadius(8)
+          }
+          .padding(.horizontal)
         }
 
         NavigationLink(destination: SwitchNetworkScreen(wallet: wallet)) {
@@ -99,6 +113,21 @@ struct WalletDetailsScreen: View {
           .frame(maxWidth: .infinity)
           .background(Color.blue.opacity(0.1))
           .foregroundColor(.blue)
+          .cornerRadius(8)
+        }
+        .padding(.horizontal)
+
+        NavigationLink(destination: CustomBalanceScreen(wallet: wallet)) {
+          HStack {
+            Image(systemName: "chart.bar.fill")
+            Text("Custom Token Balances")
+            Spacer()
+            Image(systemName: "chevron.right")
+          }
+          .padding()
+          .frame(maxWidth: .infinity)
+          .background(Color.green.opacity(0.1))
+          .foregroundColor(.green)
           .cornerRadius(8)
         }
         .padding(.horizontal)

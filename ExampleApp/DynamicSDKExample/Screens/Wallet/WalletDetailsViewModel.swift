@@ -59,6 +59,17 @@ final class WalletDetailsViewModel: ObservableObject {
     }
   }
 
+  func revealPrivateKey() {
+    errorMessage = nil
+    Task { @MainActor in
+      do {
+        try await sdk.ui.revealEmbeddedWalletPrivateKey()
+      } catch {
+        errorMessage = "Failed to reveal private key: \(error)"
+      }
+    }
+  }
+
   private static func normalizeAny(_ value: Any) -> String {
     if let s = value as? String { return s }
     if let i = value as? Int { return String(i) }

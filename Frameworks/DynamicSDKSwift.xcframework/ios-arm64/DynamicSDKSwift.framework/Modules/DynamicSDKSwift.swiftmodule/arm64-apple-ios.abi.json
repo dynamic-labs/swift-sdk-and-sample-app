@@ -6228,6 +6228,43 @@
           },
           {
             "kind": "Var",
+            "name": "notInitialized",
+            "printedName": "notInitialized",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicSDKSwift.DynamicSDKError.Type) -> DynamicSDKSwift.DynamicSDKError",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DynamicSDKError",
+                    "printedName": "DynamicSDKSwift.DynamicSDKError",
+                    "usr": "s:15DynamicSDKSwift0A8SDKErrorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicSDKSwift.DynamicSDKError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DynamicSDKError",
+                        "printedName": "DynamicSDKSwift.DynamicSDKError",
+                        "usr": "s:15DynamicSDKSwift0A8SDKErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15DynamicSDKSwift0A8SDKErrorO14notInitializedyA2CmF",
+            "mangledName": "$s15DynamicSDKSwift0A8SDKErrorO14notInitializedyA2CmF",
+            "moduleName": "DynamicSDKSwift"
+          },
+          {
+            "kind": "Var",
             "name": "custom",
             "printedName": "custom",
             "children": [
@@ -6301,7 +6338,8 @@
             "mangledName": "$s15DynamicSDKSwift0A8SDKErrorO16errorDescriptionSSSgvp",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
-              "AccessControl"
+              "AccessControl",
+              "RawDocComment"
             ],
             "accessors": [
               {
@@ -6404,6 +6442,13 @@
         "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
+        "kind": "Import",
+        "name": "os.log",
+        "printedName": "os.log",
         "declKind": "Import",
         "moduleName": "DynamicSDKSwift"
       },
@@ -10433,6 +10478,31 @@
           },
           {
             "kind": "Function",
+            "name": "getInstance",
+            "printedName": "getInstance()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DynamicSDK",
+                "printedName": "DynamicSDKSwift.DynamicSDK",
+                "usr": "s:15DynamicSDKSwift0A3SDKC"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15DynamicSDKSwift0A3SDKC11getInstanceACyKFZ",
+            "mangledName": "$s15DynamicSDKSwift0A3SDKC11getInstanceACyKFZ",
+            "moduleName": "DynamicSDKSwift",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "instance",
             "printedName": "instance()",
             "children": [
@@ -10448,9 +10518,12 @@
             "mangledName": "$s15DynamicSDKSwift0A3SDKC8instanceACyFZ",
             "moduleName": "DynamicSDKSwift",
             "static": true,
+            "deprecated": true,
             "declAttributes": [
               "Final",
-              "AccessControl"
+              "AccessControl",
+              "Available",
+              "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
           }
@@ -26526,6 +26599,13 @@
         "moduleName": "DynamicSDKSwift"
       },
       {
+        "kind": "Import",
+        "name": "AnyCodableSwift",
+        "printedName": "AnyCodableSwift",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
         "kind": "TypeDecl",
         "name": "UserInterfaceModule",
         "printedName": "UserInterfaceModule",
@@ -26636,6 +26716,29 @@
               "Final",
               "AccessControl"
             ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "revealEmbeddedWalletPrivateKey",
+            "printedName": "revealEmbeddedWalletPrivateKey()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15DynamicSDKSwift19UserInterfaceModuleC30revealEmbeddedWalletPrivateKeyyyYaKF",
+            "mangledName": "$s15DynamicSDKSwift19UserInterfaceModuleC30revealEmbeddedWalletPrivateKeyyyYaKF",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "throwing": true,
             "funcSelfKind": "NonMutating"
           }
         ],
@@ -27266,6 +27369,36 @@
             "declKind": "Func",
             "usr": "s:15DynamicSDKSwift13WalletsModuleC13switchNetwork6wallet7networkyAA10BaseWalletV_AA0F0VtYaKF",
             "mangledName": "$s15DynamicSDKSwift13WalletsModuleC13switchNetwork6wallet7networkyAA10BaseWalletV_AA0F0VtYaKF",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getMultichainBalances",
+            "printedName": "getMultichainBalances(balanceRequest:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MultichainBalancesResponse",
+                "printedName": "DynamicSDKSwift.MultichainBalancesResponse",
+                "usr": "s:15DynamicSDKSwift26MultichainBalancesResponseV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MultichainBalanceRequest",
+                "printedName": "DynamicSDKSwift.MultichainBalanceRequest",
+                "usr": "s:15DynamicSDKSwift24MultichainBalanceRequestV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15DynamicSDKSwift13WalletsModuleC21getMultichainBalances14balanceRequestAA0fG8ResponseVAA0f7BalanceI0V_tYaKF",
+            "mangledName": "$s15DynamicSDKSwift13WalletsModuleC21getMultichainBalances14balanceRequestAA0fG8ResponseVAA0f7BalanceI0V_tYaKF",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "Final",
@@ -28303,6 +28436,2520 @@
             "printedName": "Equatable",
             "usr": "s:SQ",
             "mangledName": "$sSQ"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ChainEnum",
+        "printedName": "ChainEnum",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "evm",
+            "printedName": "evm",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicSDKSwift.ChainEnum.Type) -> DynamicSDKSwift.ChainEnum",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ChainEnum",
+                    "printedName": "DynamicSDKSwift.ChainEnum",
+                    "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicSDKSwift.ChainEnum.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ChainEnum",
+                        "printedName": "DynamicSDKSwift.ChainEnum",
+                        "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15DynamicSDKSwift9ChainEnumO3evmyA2CmF",
+            "mangledName": "$s15DynamicSDKSwift9ChainEnumO3evmyA2CmF",
+            "moduleName": "DynamicSDKSwift"
+          },
+          {
+            "kind": "Var",
+            "name": "sol",
+            "printedName": "sol",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicSDKSwift.ChainEnum.Type) -> DynamicSDKSwift.ChainEnum",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ChainEnum",
+                    "printedName": "DynamicSDKSwift.ChainEnum",
+                    "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicSDKSwift.ChainEnum.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ChainEnum",
+                        "printedName": "DynamicSDKSwift.ChainEnum",
+                        "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15DynamicSDKSwift9ChainEnumO3solyA2CmF",
+            "mangledName": "$s15DynamicSDKSwift9ChainEnumO3solyA2CmF",
+            "moduleName": "DynamicSDKSwift"
+          },
+          {
+            "kind": "Var",
+            "name": "sui",
+            "printedName": "sui",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicSDKSwift.ChainEnum.Type) -> DynamicSDKSwift.ChainEnum",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ChainEnum",
+                    "printedName": "DynamicSDKSwift.ChainEnum",
+                    "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicSDKSwift.ChainEnum.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ChainEnum",
+                        "printedName": "DynamicSDKSwift.ChainEnum",
+                        "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15DynamicSDKSwift9ChainEnumO3suiyA2CmF",
+            "mangledName": "$s15DynamicSDKSwift9ChainEnumO3suiyA2CmF",
+            "moduleName": "DynamicSDKSwift"
+          },
+          {
+            "kind": "Var",
+            "name": "btc",
+            "printedName": "btc",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicSDKSwift.ChainEnum.Type) -> DynamicSDKSwift.ChainEnum",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ChainEnum",
+                    "printedName": "DynamicSDKSwift.ChainEnum",
+                    "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicSDKSwift.ChainEnum.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ChainEnum",
+                        "printedName": "DynamicSDKSwift.ChainEnum",
+                        "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15DynamicSDKSwift9ChainEnumO3btcyA2CmF",
+            "mangledName": "$s15DynamicSDKSwift9ChainEnumO3btcyA2CmF",
+            "moduleName": "DynamicSDKSwift"
+          },
+          {
+            "kind": "Var",
+            "name": "cosmos",
+            "printedName": "cosmos",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicSDKSwift.ChainEnum.Type) -> DynamicSDKSwift.ChainEnum",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ChainEnum",
+                    "printedName": "DynamicSDKSwift.ChainEnum",
+                    "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicSDKSwift.ChainEnum.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ChainEnum",
+                        "printedName": "DynamicSDKSwift.ChainEnum",
+                        "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15DynamicSDKSwift9ChainEnumO6cosmosyA2CmF",
+            "mangledName": "$s15DynamicSDKSwift9ChainEnumO6cosmosyA2CmF",
+            "moduleName": "DynamicSDKSwift"
+          },
+          {
+            "kind": "Var",
+            "name": "flow",
+            "printedName": "flow",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicSDKSwift.ChainEnum.Type) -> DynamicSDKSwift.ChainEnum",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ChainEnum",
+                    "printedName": "DynamicSDKSwift.ChainEnum",
+                    "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicSDKSwift.ChainEnum.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ChainEnum",
+                        "printedName": "DynamicSDKSwift.ChainEnum",
+                        "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15DynamicSDKSwift9ChainEnumO4flowyA2CmF",
+            "mangledName": "$s15DynamicSDKSwift9ChainEnumO4flowyA2CmF",
+            "moduleName": "DynamicSDKSwift"
+          },
+          {
+            "kind": "Var",
+            "name": "stark",
+            "printedName": "stark",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicSDKSwift.ChainEnum.Type) -> DynamicSDKSwift.ChainEnum",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ChainEnum",
+                    "printedName": "DynamicSDKSwift.ChainEnum",
+                    "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicSDKSwift.ChainEnum.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ChainEnum",
+                        "printedName": "DynamicSDKSwift.ChainEnum",
+                        "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15DynamicSDKSwift9ChainEnumO5starkyA2CmF",
+            "mangledName": "$s15DynamicSDKSwift9ChainEnumO5starkyA2CmF",
+            "moduleName": "DynamicSDKSwift"
+          },
+          {
+            "kind": "Var",
+            "name": "algo",
+            "printedName": "algo",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicSDKSwift.ChainEnum.Type) -> DynamicSDKSwift.ChainEnum",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ChainEnum",
+                    "printedName": "DynamicSDKSwift.ChainEnum",
+                    "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicSDKSwift.ChainEnum.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ChainEnum",
+                        "printedName": "DynamicSDKSwift.ChainEnum",
+                        "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15DynamicSDKSwift9ChainEnumO4algoyA2CmF",
+            "mangledName": "$s15DynamicSDKSwift9ChainEnumO4algoyA2CmF",
+            "moduleName": "DynamicSDKSwift"
+          },
+          {
+            "kind": "Var",
+            "name": "eth",
+            "printedName": "eth",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicSDKSwift.ChainEnum.Type) -> DynamicSDKSwift.ChainEnum",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ChainEnum",
+                    "printedName": "DynamicSDKSwift.ChainEnum",
+                    "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicSDKSwift.ChainEnum.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ChainEnum",
+                        "printedName": "DynamicSDKSwift.ChainEnum",
+                        "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15DynamicSDKSwift9ChainEnumO3ethyA2CmF",
+            "mangledName": "$s15DynamicSDKSwift9ChainEnumO3ethyA2CmF",
+            "moduleName": "DynamicSDKSwift"
+          },
+          {
+            "kind": "Var",
+            "name": "eclipse",
+            "printedName": "eclipse",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicSDKSwift.ChainEnum.Type) -> DynamicSDKSwift.ChainEnum",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ChainEnum",
+                    "printedName": "DynamicSDKSwift.ChainEnum",
+                    "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicSDKSwift.ChainEnum.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ChainEnum",
+                        "printedName": "DynamicSDKSwift.ChainEnum",
+                        "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15DynamicSDKSwift9ChainEnumO7eclipseyA2CmF",
+            "mangledName": "$s15DynamicSDKSwift9ChainEnumO7eclipseyA2CmF",
+            "moduleName": "DynamicSDKSwift"
+          },
+          {
+            "kind": "Var",
+            "name": "spark",
+            "printedName": "spark",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicSDKSwift.ChainEnum.Type) -> DynamicSDKSwift.ChainEnum",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ChainEnum",
+                    "printedName": "DynamicSDKSwift.ChainEnum",
+                    "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicSDKSwift.ChainEnum.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ChainEnum",
+                        "printedName": "DynamicSDKSwift.ChainEnum",
+                        "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15DynamicSDKSwift9ChainEnumO5sparkyA2CmF",
+            "mangledName": "$s15DynamicSDKSwift9ChainEnumO5sparkyA2CmF",
+            "moduleName": "DynamicSDKSwift"
+          },
+          {
+            "kind": "Var",
+            "name": "tron",
+            "printedName": "tron",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicSDKSwift.ChainEnum.Type) -> DynamicSDKSwift.ChainEnum",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ChainEnum",
+                    "printedName": "DynamicSDKSwift.ChainEnum",
+                    "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicSDKSwift.ChainEnum.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ChainEnum",
+                        "printedName": "DynamicSDKSwift.ChainEnum",
+                        "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15DynamicSDKSwift9ChainEnumO4tronyA2CmF",
+            "mangledName": "$s15DynamicSDKSwift9ChainEnumO4tronyA2CmF",
+            "moduleName": "DynamicSDKSwift"
+          },
+          {
+            "kind": "Var",
+            "name": "aptos",
+            "printedName": "aptos",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicSDKSwift.ChainEnum.Type) -> DynamicSDKSwift.ChainEnum",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ChainEnum",
+                    "printedName": "DynamicSDKSwift.ChainEnum",
+                    "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicSDKSwift.ChainEnum.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ChainEnum",
+                        "printedName": "DynamicSDKSwift.ChainEnum",
+                        "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15DynamicSDKSwift9ChainEnumO5aptosyA2CmF",
+            "mangledName": "$s15DynamicSDKSwift9ChainEnumO5aptosyA2CmF",
+            "moduleName": "DynamicSDKSwift"
+          },
+          {
+            "kind": "Var",
+            "name": "ton",
+            "printedName": "ton",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicSDKSwift.ChainEnum.Type) -> DynamicSDKSwift.ChainEnum",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ChainEnum",
+                    "printedName": "DynamicSDKSwift.ChainEnum",
+                    "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicSDKSwift.ChainEnum.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ChainEnum",
+                        "printedName": "DynamicSDKSwift.ChainEnum",
+                        "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15DynamicSDKSwift9ChainEnumO3tonyA2CmF",
+            "mangledName": "$s15DynamicSDKSwift9ChainEnumO3tonyA2CmF",
+            "moduleName": "DynamicSDKSwift"
+          },
+          {
+            "kind": "Var",
+            "name": "stellar",
+            "printedName": "stellar",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicSDKSwift.ChainEnum.Type) -> DynamicSDKSwift.ChainEnum",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ChainEnum",
+                    "printedName": "DynamicSDKSwift.ChainEnum",
+                    "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicSDKSwift.ChainEnum.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ChainEnum",
+                        "printedName": "DynamicSDKSwift.ChainEnum",
+                        "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15DynamicSDKSwift9ChainEnumO7stellaryA2CmF",
+            "mangledName": "$s15DynamicSDKSwift9ChainEnumO7stellaryA2CmF",
+            "moduleName": "DynamicSDKSwift"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(fromString:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "DynamicSDKSwift.ChainEnum?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ChainEnum",
+                    "printedName": "DynamicSDKSwift.ChainEnum",
+                    "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:15DynamicSDKSwift9ChainEnumO10fromStringACSgSS_tcfc",
+            "mangledName": "$s15DynamicSDKSwift9ChainEnumO10fromStringACSgSS_tcfc",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "DynamicSDKSwift.ChainEnum?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ChainEnum",
+                    "printedName": "DynamicSDKSwift.ChainEnum",
+                    "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:15DynamicSDKSwift9ChainEnumO8rawValueACSgSS_tcfc",
+            "mangledName": "$s15DynamicSDKSwift9ChainEnumO8rawValueACSgSS_tcfc",
+            "moduleName": "DynamicSDKSwift",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15DynamicSDKSwift9ChainEnumO8rawValueSSvp",
+            "mangledName": "$s15DynamicSDKSwift9ChainEnumO8rawValueSSvp",
+            "moduleName": "DynamicSDKSwift",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15DynamicSDKSwift9ChainEnumO8rawValueSSvg",
+                "mangledName": "$s15DynamicSDKSwift9ChainEnumO8rawValueSSvg",
+                "moduleName": "DynamicSDKSwift",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "allCases",
+            "printedName": "allCases",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[DynamicSDKSwift.ChainEnum]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ChainEnum",
+                    "printedName": "DynamicSDKSwift.ChainEnum",
+                    "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15DynamicSDKSwift9ChainEnumO8allCasesSayACGvpZ",
+            "mangledName": "$s15DynamicSDKSwift9ChainEnumO8allCasesSayACGvpZ",
+            "moduleName": "DynamicSDKSwift",
+            "static": true,
+            "implicit": true,
+            "declAttributes": [
+              "Nonisolated"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[DynamicSDKSwift.ChainEnum]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ChainEnum",
+                        "printedName": "DynamicSDKSwift.ChainEnum",
+                        "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15DynamicSDKSwift9ChainEnumO8allCasesSayACGvgZ",
+                "mangledName": "$s15DynamicSDKSwift9ChainEnumO8allCasesSayACGvgZ",
+                "moduleName": "DynamicSDKSwift",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:15DynamicSDKSwift9ChainEnumO",
+        "mangledName": "$s15DynamicSDKSwift9ChainEnumO",
+        "moduleName": "DynamicSDKSwift",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "enumRawTypeName": "String",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CaseIterable",
+            "printedName": "CaseIterable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "AllCases",
+                "printedName": "AllCases",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[DynamicSDKSwift.ChainEnum]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ChainEnum",
+                        "printedName": "DynamicSDKSwift.ChainEnum",
+                        "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12CaseIterableP",
+            "mangledName": "$ss12CaseIterableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "BalanceRequestItem",
+        "printedName": "BalanceRequestItem",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "address",
+            "printedName": "address",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15DynamicSDKSwift18BalanceRequestItemV7addressSSvp",
+            "mangledName": "$s15DynamicSDKSwift18BalanceRequestItemV7addressSSvp",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15DynamicSDKSwift18BalanceRequestItemV7addressSSvg",
+                "mangledName": "$s15DynamicSDKSwift18BalanceRequestItemV7addressSSvg",
+                "moduleName": "DynamicSDKSwift",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "chain",
+            "printedName": "chain",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ChainEnum",
+                "printedName": "DynamicSDKSwift.ChainEnum",
+                "usr": "s:15DynamicSDKSwift9ChainEnumO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15DynamicSDKSwift18BalanceRequestItemV5chainAA9ChainEnumOvp",
+            "mangledName": "$s15DynamicSDKSwift18BalanceRequestItemV5chainAA9ChainEnumOvp",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ChainEnum",
+                    "printedName": "DynamicSDKSwift.ChainEnum",
+                    "usr": "s:15DynamicSDKSwift9ChainEnumO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15DynamicSDKSwift18BalanceRequestItemV5chainAA9ChainEnumOvg",
+                "mangledName": "$s15DynamicSDKSwift18BalanceRequestItemV5chainAA9ChainEnumOvg",
+                "moduleName": "DynamicSDKSwift",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "networkIds",
+            "printedName": "networkIds",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.Int]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15DynamicSDKSwift18BalanceRequestItemV10networkIdsSaySiGvp",
+            "mangledName": "$s15DynamicSDKSwift18BalanceRequestItemV10networkIdsSaySiGvp",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.Int]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15DynamicSDKSwift18BalanceRequestItemV10networkIdsSaySiGvg",
+                "mangledName": "$s15DynamicSDKSwift18BalanceRequestItemV10networkIdsSaySiGvg",
+                "moduleName": "DynamicSDKSwift",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "whitelistedContracts",
+            "printedName": "whitelistedContracts",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15DynamicSDKSwift18BalanceRequestItemV20whitelistedContractsSaySSGSgvp",
+            "mangledName": "$s15DynamicSDKSwift18BalanceRequestItemV20whitelistedContractsSaySSGSgvp",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.String]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[Swift.String]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15DynamicSDKSwift18BalanceRequestItemV20whitelistedContractsSaySSGSgvg",
+                "mangledName": "$s15DynamicSDKSwift18BalanceRequestItemV20whitelistedContractsSaySSGSgvg",
+                "moduleName": "DynamicSDKSwift",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(address:chain:networkIds:whitelistedContracts:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "BalanceRequestItem",
+                "printedName": "DynamicSDKSwift.BalanceRequestItem",
+                "usr": "s:15DynamicSDKSwift18BalanceRequestItemV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ChainEnum",
+                "printedName": "DynamicSDKSwift.ChainEnum",
+                "usr": "s:15DynamicSDKSwift9ChainEnumO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.Int]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:15DynamicSDKSwift18BalanceRequestItemV7address5chain10networkIds20whitelistedContractsACSS_AA9ChainEnumOSaySiGSaySSGSgtcfc",
+            "mangledName": "$s15DynamicSDKSwift18BalanceRequestItemV7address5chain10networkIds20whitelistedContractsACSS_AA9ChainEnumOSaySiGSaySSGSgtcfc",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "toDict",
+            "printedName": "toDict()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15DynamicSDKSwift18BalanceRequestItemV6toDictSDySSypGyF",
+            "mangledName": "$s15DynamicSDKSwift18BalanceRequestItemV6toDictSDySSypGyF",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:15DynamicSDKSwift18BalanceRequestItemV",
+        "mangledName": "$s15DynamicSDKSwift18BalanceRequestItemV",
+        "moduleName": "DynamicSDKSwift",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MultichainBalanceRequest",
+        "printedName": "MultichainBalanceRequest",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "balanceRequests",
+            "printedName": "balanceRequests",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[DynamicSDKSwift.BalanceRequestItem]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "BalanceRequestItem",
+                    "printedName": "DynamicSDKSwift.BalanceRequestItem",
+                    "usr": "s:15DynamicSDKSwift18BalanceRequestItemV"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15DynamicSDKSwift24MultichainBalanceRequestV15balanceRequestsSayAA0dE4ItemVGvp",
+            "mangledName": "$s15DynamicSDKSwift24MultichainBalanceRequestV15balanceRequestsSayAA0dE4ItemVGvp",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[DynamicSDKSwift.BalanceRequestItem]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BalanceRequestItem",
+                        "printedName": "DynamicSDKSwift.BalanceRequestItem",
+                        "usr": "s:15DynamicSDKSwift18BalanceRequestItemV"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15DynamicSDKSwift24MultichainBalanceRequestV15balanceRequestsSayAA0dE4ItemVGvg",
+                "mangledName": "$s15DynamicSDKSwift24MultichainBalanceRequestV15balanceRequestsSayAA0dE4ItemVGvg",
+                "moduleName": "DynamicSDKSwift",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "filterSpamTokens",
+            "printedName": "filterSpamTokens",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Bool?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15DynamicSDKSwift24MultichainBalanceRequestV16filterSpamTokensSbSgvp",
+            "mangledName": "$s15DynamicSDKSwift24MultichainBalanceRequestV16filterSpamTokensSbSgvp",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Bool?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15DynamicSDKSwift24MultichainBalanceRequestV16filterSpamTokensSbSgvg",
+                "mangledName": "$s15DynamicSDKSwift24MultichainBalanceRequestV16filterSpamTokensSbSgvg",
+                "moduleName": "DynamicSDKSwift",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(balanceRequests:filterSpamTokens:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MultichainBalanceRequest",
+                "printedName": "DynamicSDKSwift.MultichainBalanceRequest",
+                "usr": "s:15DynamicSDKSwift24MultichainBalanceRequestV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[DynamicSDKSwift.BalanceRequestItem]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "BalanceRequestItem",
+                    "printedName": "DynamicSDKSwift.BalanceRequestItem",
+                    "usr": "s:15DynamicSDKSwift18BalanceRequestItemV"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Bool?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:15DynamicSDKSwift24MultichainBalanceRequestV15balanceRequests16filterSpamTokensACSayAA0dE4ItemVG_SbSgtcfc",
+            "mangledName": "$s15DynamicSDKSwift24MultichainBalanceRequestV15balanceRequests16filterSpamTokensACSayAA0dE4ItemVG_SbSgtcfc",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "toDict",
+            "printedName": "toDict()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15DynamicSDKSwift24MultichainBalanceRequestV6toDictSDySSypGyF",
+            "mangledName": "$s15DynamicSDKSwift24MultichainBalanceRequestV6toDictSDySSypGyF",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:15DynamicSDKSwift24MultichainBalanceRequestV",
+        "mangledName": "$s15DynamicSDKSwift24MultichainBalanceRequestV",
+        "moduleName": "DynamicSDKSwift",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MultichainBalancesResponse",
+        "printedName": "MultichainBalancesResponse",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "balances",
+            "printedName": "balances",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[DynamicSDKSwift.TokenBalance]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TokenBalance",
+                    "printedName": "DynamicSDKSwift.TokenBalance",
+                    "usr": "s:15DynamicSDKSwift12TokenBalanceV"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15DynamicSDKSwift26MultichainBalancesResponseV8balancesSayAA12TokenBalanceVGvp",
+            "mangledName": "$s15DynamicSDKSwift26MultichainBalancesResponseV8balancesSayAA12TokenBalanceVGvp",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[DynamicSDKSwift.TokenBalance]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TokenBalance",
+                        "printedName": "DynamicSDKSwift.TokenBalance",
+                        "usr": "s:15DynamicSDKSwift12TokenBalanceV"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15DynamicSDKSwift26MultichainBalancesResponseV8balancesSayAA12TokenBalanceVGvg",
+                "mangledName": "$s15DynamicSDKSwift26MultichainBalancesResponseV8balancesSayAA12TokenBalanceVGvg",
+                "moduleName": "DynamicSDKSwift",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(balances:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MultichainBalancesResponse",
+                "printedName": "DynamicSDKSwift.MultichainBalancesResponse",
+                "usr": "s:15DynamicSDKSwift26MultichainBalancesResponseV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[DynamicSDKSwift.TokenBalance]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TokenBalance",
+                    "printedName": "DynamicSDKSwift.TokenBalance",
+                    "usr": "s:15DynamicSDKSwift12TokenBalanceV"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:15DynamicSDKSwift26MultichainBalancesResponseV8balancesACSayAA12TokenBalanceVG_tcfc",
+            "mangledName": "$s15DynamicSDKSwift26MultichainBalancesResponseV8balancesACSayAA12TokenBalanceVG_tcfc",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "fromDict",
+            "printedName": "fromDict(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MultichainBalancesResponse",
+                "printedName": "DynamicSDKSwift.MultichainBalancesResponse",
+                "usr": "s:15DynamicSDKSwift26MultichainBalancesResponseV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Any?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15DynamicSDKSwift26MultichainBalancesResponseV8fromDictyACypSgFZ",
+            "mangledName": "$s15DynamicSDKSwift26MultichainBalancesResponseV8fromDictyACypSgFZ",
+            "moduleName": "DynamicSDKSwift",
+            "static": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:15DynamicSDKSwift26MultichainBalancesResponseV",
+        "mangledName": "$s15DynamicSDKSwift26MultichainBalancesResponseV",
+        "moduleName": "DynamicSDKSwift",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "TokenBalance",
+        "printedName": "TokenBalance",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "contractAddress",
+            "printedName": "contractAddress",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15DynamicSDKSwift12TokenBalanceV15contractAddressSSSgvp",
+            "mangledName": "$s15DynamicSDKSwift12TokenBalanceV15contractAddressSSSgvp",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15DynamicSDKSwift12TokenBalanceV15contractAddressSSSgvg",
+                "mangledName": "$s15DynamicSDKSwift12TokenBalanceV15contractAddressSSSgvg",
+                "moduleName": "DynamicSDKSwift",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "balance",
+            "printedName": "balance",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15DynamicSDKSwift12TokenBalanceV7balanceSSvp",
+            "mangledName": "$s15DynamicSDKSwift12TokenBalanceV7balanceSSvp",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15DynamicSDKSwift12TokenBalanceV7balanceSSvg",
+                "mangledName": "$s15DynamicSDKSwift12TokenBalanceV7balanceSSvg",
+                "moduleName": "DynamicSDKSwift",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "balanceDecimal",
+            "printedName": "balanceDecimal",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15DynamicSDKSwift12TokenBalanceV14balanceDecimalSSSgvp",
+            "mangledName": "$s15DynamicSDKSwift12TokenBalanceV14balanceDecimalSSSgvp",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15DynamicSDKSwift12TokenBalanceV14balanceDecimalSSSgvg",
+                "mangledName": "$s15DynamicSDKSwift12TokenBalanceV14balanceDecimalSSSgvg",
+                "moduleName": "DynamicSDKSwift",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "symbol",
+            "printedName": "symbol",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15DynamicSDKSwift12TokenBalanceV6symbolSSSgvp",
+            "mangledName": "$s15DynamicSDKSwift12TokenBalanceV6symbolSSSgvp",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15DynamicSDKSwift12TokenBalanceV6symbolSSSgvg",
+                "mangledName": "$s15DynamicSDKSwift12TokenBalanceV6symbolSSSgvg",
+                "moduleName": "DynamicSDKSwift",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "name",
+            "printedName": "name",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15DynamicSDKSwift12TokenBalanceV4nameSSSgvp",
+            "mangledName": "$s15DynamicSDKSwift12TokenBalanceV4nameSSSgvp",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15DynamicSDKSwift12TokenBalanceV4nameSSSgvg",
+                "mangledName": "$s15DynamicSDKSwift12TokenBalanceV4nameSSSgvg",
+                "moduleName": "DynamicSDKSwift",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "decimals",
+            "printedName": "decimals",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15DynamicSDKSwift12TokenBalanceV8decimalsSiSgvp",
+            "mangledName": "$s15DynamicSDKSwift12TokenBalanceV8decimalsSiSgvp",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Int?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15DynamicSDKSwift12TokenBalanceV8decimalsSiSgvg",
+                "mangledName": "$s15DynamicSDKSwift12TokenBalanceV8decimalsSiSgvg",
+                "moduleName": "DynamicSDKSwift",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "networkId",
+            "printedName": "networkId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15DynamicSDKSwift12TokenBalanceV9networkIdSiSgvp",
+            "mangledName": "$s15DynamicSDKSwift12TokenBalanceV9networkIdSiSgvp",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Int?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15DynamicSDKSwift12TokenBalanceV9networkIdSiSgvg",
+                "mangledName": "$s15DynamicSDKSwift12TokenBalanceV9networkIdSiSgvg",
+                "moduleName": "DynamicSDKSwift",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "chain",
+            "printedName": "chain",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15DynamicSDKSwift12TokenBalanceV5chainSSSgvp",
+            "mangledName": "$s15DynamicSDKSwift12TokenBalanceV5chainSSSgvp",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15DynamicSDKSwift12TokenBalanceV5chainSSSgvg",
+                "mangledName": "$s15DynamicSDKSwift12TokenBalanceV5chainSSSgvg",
+                "moduleName": "DynamicSDKSwift",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "logoUrl",
+            "printedName": "logoUrl",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15DynamicSDKSwift12TokenBalanceV7logoUrlSSSgvp",
+            "mangledName": "$s15DynamicSDKSwift12TokenBalanceV7logoUrlSSSgvp",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15DynamicSDKSwift12TokenBalanceV7logoUrlSSSgvg",
+                "mangledName": "$s15DynamicSDKSwift12TokenBalanceV7logoUrlSSSgvg",
+                "moduleName": "DynamicSDKSwift",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isNative",
+            "printedName": "isNative",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Bool?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15DynamicSDKSwift12TokenBalanceV8isNativeSbSgvp",
+            "mangledName": "$s15DynamicSDKSwift12TokenBalanceV8isNativeSbSgvp",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Bool?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15DynamicSDKSwift12TokenBalanceV8isNativeSbSgvg",
+                "mangledName": "$s15DynamicSDKSwift12TokenBalanceV8isNativeSbSgvg",
+                "moduleName": "DynamicSDKSwift",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isSpam",
+            "printedName": "isSpam",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Bool?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15DynamicSDKSwift12TokenBalanceV6isSpamSbSgvp",
+            "mangledName": "$s15DynamicSDKSwift12TokenBalanceV6isSpamSbSgvp",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Bool?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15DynamicSDKSwift12TokenBalanceV6isSpamSbSgvg",
+                "mangledName": "$s15DynamicSDKSwift12TokenBalanceV6isSpamSbSgvg",
+                "moduleName": "DynamicSDKSwift",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(contractAddress:balance:balanceDecimal:symbol:name:decimals:networkId:chain:logoUrl:isNative:isSpam:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "TokenBalance",
+                "printedName": "DynamicSDKSwift.TokenBalance",
+                "usr": "s:15DynamicSDKSwift12TokenBalanceV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Bool?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Bool?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:15DynamicSDKSwift12TokenBalanceV15contractAddress7balance0G7Decimal6symbol4name8decimals9networkId5chain7logoUrl8isNative0Q4SpamACSSSg_SSA3OSiSgAp2OSbSgAQtcfc",
+            "mangledName": "$s15DynamicSDKSwift12TokenBalanceV15contractAddress7balance0G7Decimal6symbol4name8decimals9networkId5chain7logoUrl8isNative0Q4SpamACSSSg_SSA3OSiSgAp2OSbSgAQtcfc",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "fromDict",
+            "printedName": "fromDict(_:parentChain:parentNetworkId:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "TokenBalance",
+                "printedName": "DynamicSDKSwift.TokenBalance",
+                "usr": "s:15DynamicSDKSwift12TokenBalanceV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15DynamicSDKSwift12TokenBalanceV8fromDict_11parentChain0G9NetworkIdACSDySSypG_SSSgSiSgtFZ",
+            "mangledName": "$s15DynamicSDKSwift12TokenBalanceV8fromDict_11parentChain0G9NetworkIdACSDySSypG_SSSgSiSgtFZ",
+            "moduleName": "DynamicSDKSwift",
+            "static": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:15DynamicSDKSwift12TokenBalanceV",
+        "mangledName": "$s15DynamicSDKSwift12TokenBalanceV",
+        "moduleName": "DynamicSDKSwift",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           }
         ]
       },
@@ -29675,6 +32322,63 @@
           {
             "kind": "Function",
             "name": "webView",
+            "printedName": "webView(_:decidePolicyFor:decisionHandler:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "WKWebView",
+                "printedName": "WebKit.WKWebView",
+                "usr": "c:objc(cs)WKWebView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "WKNavigationAction",
+                "printedName": "WebKit.WKNavigationAction",
+                "usr": "c:objc(cs)WKNavigationAction"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(WebKit.WKNavigationActionPolicy) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "WKNavigationActionPolicy",
+                    "printedName": "WebKit.WKNavigationActionPolicy",
+                    "usr": "c:@E@WKNavigationActionPolicy"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@DynamicSDKSwift@objc(cs)DynamicWebViewController(im)webView:decidePolicyForNavigationAction:decisionHandler:",
+            "mangledName": "$s15DynamicSDKSwift0A17WebViewControllerC03webD0_15decidePolicyFor15decisionHandlerySo05WKWebD0C_So18WKNavigationActionCySo0mnH0VctF",
+            "moduleName": "DynamicSDKSwift",
+            "objc_name": "webView:decidePolicyForNavigationAction:decisionHandler:",
+            "declAttributes": [
+              "Final",
+              "ObjC",
+              "Preconcurrency",
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "webView",
             "printedName": "webView(_:didStartProvisionalNavigation:)",
             "children": [
               {
@@ -29998,14 +32702,14 @@
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/ClientProps.swift",
       "kind": "BooleanLiteral",
-      "offset": 1363,
+      "offset": 1393,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/ClientProps.swift",
       "kind": "BooleanLiteral",
-      "offset": 1395,
+      "offset": 1425,
       "length": 5,
       "value": "false"
     },
@@ -30019,30 +32723,44 @@
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 74,
+      "offset": 88,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 90,
+      "offset": 104,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 106,
+      "offset": 120,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 123,
+      "offset": 137,
       "length": 1,
       "value": "3"
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/Logger.swift",
+      "kind": "StringLiteral",
+      "offset": 393,
+      "length": 17,
+      "value": "\"xyz.dynamic.sdk\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/Logger.swift",
+      "kind": "StringLiteral",
+      "offset": 422,
+      "length": 5,
+      "value": "\"SDK\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/Message.swift",
@@ -30082,21 +32800,21 @@
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/RequestChannel.swift",
       "kind": "Array",
-      "offset": 862,
+      "offset": 952,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/RequestChannel.swift",
       "kind": "Array",
-      "offset": 1270,
+      "offset": 1360,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/RequestChannel.swift",
       "kind": "Array",
-      "offset": 3951,
+      "offset": 4041,
       "length": 2,
       "value": "[]"
     },
@@ -30260,6 +32978,111 @@
       "offset": 399,
       "length": 15,
       "value": "\"solanaChanged\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Module\/WalletsModule.swift",
+      "kind": "StringLiteral",
+      "offset": 8001,
+      "length": 5,
+      "value": "\"EVM\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Module\/WalletsModule.swift",
+      "kind": "StringLiteral",
+      "offset": 8020,
+      "length": 5,
+      "value": "\"SOL\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Module\/WalletsModule.swift",
+      "kind": "StringLiteral",
+      "offset": 8039,
+      "length": 5,
+      "value": "\"SUI\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Module\/WalletsModule.swift",
+      "kind": "StringLiteral",
+      "offset": 8058,
+      "length": 5,
+      "value": "\"BTC\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Module\/WalletsModule.swift",
+      "kind": "StringLiteral",
+      "offset": 8080,
+      "length": 8,
+      "value": "\"COSMOS\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Module\/WalletsModule.swift",
+      "kind": "StringLiteral",
+      "offset": 8103,
+      "length": 6,
+      "value": "\"FLOW\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Module\/WalletsModule.swift",
+      "kind": "StringLiteral",
+      "offset": 8125,
+      "length": 7,
+      "value": "\"STARK\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Module\/WalletsModule.swift",
+      "kind": "StringLiteral",
+      "offset": 8147,
+      "length": 6,
+      "value": "\"ALGO\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Module\/WalletsModule.swift",
+      "kind": "StringLiteral",
+      "offset": 8167,
+      "length": 5,
+      "value": "\"ETH\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Module\/WalletsModule.swift",
+      "kind": "StringLiteral",
+      "offset": 8190,
+      "length": 9,
+      "value": "\"ECLIPSE\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Module\/WalletsModule.swift",
+      "kind": "StringLiteral",
+      "offset": 8215,
+      "length": 7,
+      "value": "\"SPARK\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Module\/WalletsModule.swift",
+      "kind": "StringLiteral",
+      "offset": 8237,
+      "length": 6,
+      "value": "\"TRON\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Module\/WalletsModule.swift",
+      "kind": "StringLiteral",
+      "offset": 8259,
+      "length": 7,
+      "value": "\"APTOS\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Module\/WalletsModule.swift",
+      "kind": "StringLiteral",
+      "offset": 8280,
+      "length": 5,
+      "value": "\"TON\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Module\/WalletsModule.swift",
+      "kind": "StringLiteral",
+      "offset": 8303,
+      "length": 9,
+      "value": "\"STELLAR\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/SwiftUI\/DynamicUI.swift",

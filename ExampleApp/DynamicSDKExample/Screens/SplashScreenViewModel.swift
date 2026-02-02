@@ -4,7 +4,7 @@ import DynamicSDKSwift
 
 @MainActor
 final class SplashScreenViewModel: ObservableObject {
-  private let sdk = DynamicSDK.instance()
+  private let sdk = DynamicSDK.shared!
   private var didRoute = false
 
   func start(

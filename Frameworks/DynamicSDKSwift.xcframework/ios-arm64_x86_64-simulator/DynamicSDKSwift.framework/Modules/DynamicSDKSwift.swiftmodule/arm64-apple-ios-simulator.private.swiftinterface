@@ -327,6 +327,105 @@ public enum Handlers {
   public static func setupWalletConnectedHandler(transport: DynamicSDKSwift.MessageTransport)
   public static func setupPlatformHandler(transport: DynamicSDKSwift.MessageTransport)
 }
+public struct BaseWallet : Swift.Equatable {
+  public let id: Swift.String?
+  public let address: Swift.String
+  public let chain: Swift.String
+  public let publicKey: Swift.String?
+  public let walletName: Swift.String?
+  public let walletProvider: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(id: Swift.String? = nil, address: Swift.String, chain: Swift.String, publicKey: Swift.String? = nil, walletName: Swift.String? = nil, walletProvider: Swift.String? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.BaseWallet?
+  #endif
+  public func toDict() -> [Swift.String : Any]
+  public static func == (a: DynamicSDKSwift.BaseWallet, b: DynamicSDKSwift.BaseWallet) -> Swift.Bool
+}
+public enum ChainEnum : Swift.String, Swift.CaseIterable, Swift.Codable {
+  case evm
+  case sol
+  case sui
+  case btc
+  case cosmos
+  case flow
+  case stark
+  case algo
+  case eth
+  case eclipse
+  case spark
+  case tron
+  case aptos
+  case ton
+  case stellar
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func fromString(_ value: Swift.String) -> DynamicSDKSwift.ChainEnum?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias AllCases = [DynamicSDKSwift.ChainEnum]
+  public typealias RawValue = Swift.String
+  nonisolated public static var allCases: [DynamicSDKSwift.ChainEnum] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum DelegationStatus : Swift.String, Swift.Codable {
+  case delegated
+  case denied
+  case pending
+  public static func fromString(_ value: Swift.String) -> DynamicSDKSwift.DelegationStatus
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct WalletDelegatedStatus : Swift.Codable {
+  public let id: Swift.String
+  public let address: Swift.String
+  public let chain: Swift.String
+  public let status: DynamicSDKSwift.DelegationStatus
+  public let isDismissedThisSession: Swift.Bool?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(id: Swift.String, address: Swift.String, chain: Swift.String, status: DynamicSDKSwift.DelegationStatus, isDismissedThisSession: Swift.Bool? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func fromDict(_ json: [Swift.String : Any]) -> DynamicSDKSwift.WalletDelegatedStatus?
+  #endif
+  public func toDict() -> [Swift.String : Any]
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct DelegatedAccessState : Swift.Codable {
+  public let delegatedAccessEnabled: Swift.Bool?
+  public let requiresDelegation: Swift.Bool?
+  public let walletsDelegatedStatus: [DynamicSDKSwift.WalletDelegatedStatus]
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(delegatedAccessEnabled: Swift.Bool?, requiresDelegation: Swift.Bool?, walletsDelegatedStatus: [DynamicSDKSwift.WalletDelegatedStatus])
+  #endif
+  public static func fromDict(_ json: [Swift.String : Any]) -> DynamicSDKSwift.DelegatedAccessState
+  public func toDict() -> [Swift.String : Any]
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct DelegationWalletIdentifier : Swift.Codable {
+  public let chainName: DynamicSDKSwift.ChainEnum
+  public let accountAddress: Swift.String
+  public init(chainName: DynamicSDKSwift.ChainEnum, accountAddress: Swift.String)
+  public func toDict() -> [Swift.String : Any]
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func fromDict(_ json: [Swift.String : Any]) -> DynamicSDKSwift.DelegationWalletIdentifier?
+  #endif
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
 public struct DeletePasskeyRequest : Swift.Codable, Swift.Equatable {
   public let passkeyId: Swift.String
   public init(passkeyId: Swift.String)
@@ -445,6 +544,59 @@ public struct MfaDevice : Swift.Codable {
   #if compiler(>=5.3) && $NonescapableTypes
   public init(type: DynamicSDKSwift.MfaDeviceType? = nil, verified: Swift.Bool? = nil, id: Swift.String? = nil, createdAt: Foundation.Date? = nil, verifiedAt: Foundation.Date? = nil, isDefault: Swift.Bool? = nil, alias: Swift.String? = nil)
   #endif
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct BalanceRequestItem {
+  public let address: Swift.String
+  public let chain: DynamicSDKSwift.ChainEnum
+  public let networkIds: [Swift.Int]
+  public let whitelistedContracts: [Swift.String]?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(address: Swift.String, chain: DynamicSDKSwift.ChainEnum, networkIds: [Swift.Int], whitelistedContracts: [Swift.String]? = nil)
+  #endif
+  public func toDict() -> [Swift.String : Any]
+}
+public struct MultichainBalanceRequest {
+  public let balanceRequests: [DynamicSDKSwift.BalanceRequestItem]
+  public let filterSpamTokens: Swift.Bool?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(balanceRequests: [DynamicSDKSwift.BalanceRequestItem], filterSpamTokens: Swift.Bool? = nil)
+  #endif
+  public func toDict() -> [Swift.String : Any]
+}
+public struct MultichainBalancesResponse {
+  public let balances: [DynamicSDKSwift.TokenBalance]
+  public init(balances: [DynamicSDKSwift.TokenBalance])
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func fromDict(_ arg: Any?) -> DynamicSDKSwift.MultichainBalancesResponse
+  #endif
+}
+public struct TokenBalance {
+  public let contractAddress: Swift.String?
+  public let balance: Swift.String
+  public let balanceDecimal: Swift.String?
+  public let symbol: Swift.String?
+  public let name: Swift.String?
+  public let decimals: Swift.Int?
+  public let networkId: Swift.Int?
+  public let chain: Swift.String?
+  public let logoUrl: Swift.String?
+  public let isNative: Swift.Bool?
+  public let isSpam: Swift.Bool?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(contractAddress: Swift.String? = nil, balance: Swift.String, balanceDecimal: Swift.String? = nil, symbol: Swift.String? = nil, name: Swift.String? = nil, decimals: Swift.Int? = nil, networkId: Swift.Int? = nil, chain: Swift.String? = nil, logoUrl: Swift.String? = nil, isNative: Swift.Bool? = nil, isSpam: Swift.Bool? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func fromDict(_ json: [Swift.String : Any], parentChain: Swift.String?, parentNetworkId: Swift.Int?) -> DynamicSDKSwift.TokenBalance
+  #endif
+}
+public struct Network : Swift.Equatable, Swift.Codable {
+  public let value: AnyCodableSwift.AnyCodable
+  public init(_ value: AnyCodableSwift.AnyCodable)
+  public static func evm(_ chainId: Swift.Int) -> DynamicSDKSwift.Network
+  public static func solana(_ networkId: Swift.String) -> DynamicSDKSwift.Network
+  public static func == (a: DynamicSDKSwift.Network, b: DynamicSDKSwift.Network) -> Swift.Bool
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -860,113 +1012,37 @@ final public class WalletsModule {
     get
   }
   #endif
+  final public var delegatedAccessState: DynamicSDKSwift.DelegatedAccessState {
+    get
+  }
+  final public var delegatedAccessChanges: Combine.AnyPublisher<DynamicSDKSwift.DelegatedAccessState, Swift.Never> {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func getDelegationStatusForWallet(_ walletId: Swift.String) -> DynamicSDKSwift.WalletDelegatedStatus?
+  #endif
+  final public func isWalletEligibleForDelegation(_ wallet: DynamicSDKSwift.BaseWallet) -> Swift.Bool
   final public func signMessage(wallet: DynamicSDKSwift.BaseWallet, message: Swift.String) async throws -> Swift.String
   final public func getBalance(wallet: DynamicSDKSwift.BaseWallet) async throws -> Swift.String
   final public func getNetwork(wallet: DynamicSDKSwift.BaseWallet) async throws -> DynamicSDKSwift.Network
   final public func setPrimary(walletId: Swift.String) async throws
   final public func switchNetwork(wallet: DynamicSDKSwift.BaseWallet, network: DynamicSDKSwift.Network) async throws
   final public func getMultichainBalances(balanceRequest: DynamicSDKSwift.MultichainBalanceRequest) async throws -> DynamicSDKSwift.MultichainBalancesResponse
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func initDelegationProcess(walletIds: [Swift.String]? = nil) async throws
+  #endif
+  final public func shouldPromptWalletDelegation() async throws -> Swift.Bool
+  final public func getWalletsDelegatedStatus() async throws -> [DynamicSDKSwift.WalletDelegatedStatus]
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func delegateKeyShares(wallets: [DynamicSDKSwift.DelegationWalletIdentifier]? = nil) async throws
+  #endif
+  final public func revokeDelegation(wallets: [DynamicSDKSwift.DelegationWalletIdentifier]) async throws
+  final public func denyWalletDelegation(walletId: Swift.String) async throws
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func dismissDelegationPrompt(walletId: Swift.String? = nil) async throws
+  #endif
+  final public func clearDelegationSessionState() async throws
   @objc deinit
-}
-public struct Network : Swift.Equatable, Swift.Codable {
-  public let value: AnyCodableSwift.AnyCodable
-  public init(_ value: AnyCodableSwift.AnyCodable)
-  public static func evm(_ chainId: Swift.Int) -> DynamicSDKSwift.Network
-  public static func solana(_ networkId: Swift.String) -> DynamicSDKSwift.Network
-  public static func == (a: DynamicSDKSwift.Network, b: DynamicSDKSwift.Network) -> Swift.Bool
-  public func encode(to encoder: any Swift.Encoder) throws
-  public init(from decoder: any Swift.Decoder) throws
-}
-public struct BaseWallet : Swift.Equatable {
-  public let id: Swift.String?
-  public let address: Swift.String
-  public let chain: Swift.String
-  public let publicKey: Swift.String?
-  public let walletName: Swift.String?
-  public let walletProvider: Swift.String?
-  #if compiler(>=5.3) && $NonescapableTypes
-  public init(id: Swift.String? = nil, address: Swift.String, chain: Swift.String, publicKey: Swift.String? = nil, walletName: Swift.String? = nil, walletProvider: Swift.String? = nil)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.BaseWallet?
-  #endif
-  public func toDict() -> [Swift.String : Any]
-  public static func == (a: DynamicSDKSwift.BaseWallet, b: DynamicSDKSwift.BaseWallet) -> Swift.Bool
-}
-public enum ChainEnum : Swift.String, Swift.CaseIterable {
-  case evm
-  case sol
-  case sui
-  case btc
-  case cosmos
-  case flow
-  case stark
-  case algo
-  case eth
-  case eclipse
-  case spark
-  case tron
-  case aptos
-  case ton
-  case stellar
-  #if compiler(>=5.3) && $NonescapableTypes
-  public init?(fromString value: Swift.String)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  public init?(rawValue: Swift.String)
-  #endif
-  public typealias AllCases = [DynamicSDKSwift.ChainEnum]
-  public typealias RawValue = Swift.String
-  nonisolated public static var allCases: [DynamicSDKSwift.ChainEnum] {
-    get
-  }
-  public var rawValue: Swift.String {
-    get
-  }
-}
-public struct BalanceRequestItem {
-  public let address: Swift.String
-  public let chain: DynamicSDKSwift.ChainEnum
-  public let networkIds: [Swift.Int]
-  public let whitelistedContracts: [Swift.String]?
-  #if compiler(>=5.3) && $NonescapableTypes
-  public init(address: Swift.String, chain: DynamicSDKSwift.ChainEnum, networkIds: [Swift.Int], whitelistedContracts: [Swift.String]? = nil)
-  #endif
-  public func toDict() -> [Swift.String : Any]
-}
-public struct MultichainBalanceRequest {
-  public let balanceRequests: [DynamicSDKSwift.BalanceRequestItem]
-  public let filterSpamTokens: Swift.Bool?
-  #if compiler(>=5.3) && $NonescapableTypes
-  public init(balanceRequests: [DynamicSDKSwift.BalanceRequestItem], filterSpamTokens: Swift.Bool? = nil)
-  #endif
-  public func toDict() -> [Swift.String : Any]
-}
-public struct MultichainBalancesResponse {
-  public let balances: [DynamicSDKSwift.TokenBalance]
-  public init(balances: [DynamicSDKSwift.TokenBalance])
-  #if compiler(>=5.3) && $NonescapableTypes
-  public static func fromDict(_ arg: Any?) -> DynamicSDKSwift.MultichainBalancesResponse
-  #endif
-}
-public struct TokenBalance {
-  public let contractAddress: Swift.String?
-  public let balance: Swift.String
-  public let balanceDecimal: Swift.String?
-  public let symbol: Swift.String?
-  public let name: Swift.String?
-  public let decimals: Swift.Int?
-  public let networkId: Swift.Int?
-  public let chain: Swift.String?
-  public let logoUrl: Swift.String?
-  public let isNative: Swift.Bool?
-  public let isSpam: Swift.Bool?
-  #if compiler(>=5.3) && $NonescapableTypes
-  public init(contractAddress: Swift.String? = nil, balance: Swift.String, balanceDecimal: Swift.String? = nil, symbol: Swift.String? = nil, name: Swift.String? = nil, decimals: Swift.Int? = nil, networkId: Swift.Int? = nil, chain: Swift.String? = nil, logoUrl: Swift.String? = nil, isNative: Swift.Bool? = nil, isSpam: Swift.Bool? = nil)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  public static func fromDict(_ json: [Swift.String : Any], parentChain: Swift.String?, parentNetworkId: Swift.Int?) -> DynamicSDKSwift.TokenBalance
-  #endif
 }
 @_Concurrency.MainActor @preconcurrency public struct DynamicSDKOverlayContainer<Content> : SwiftUICore.View where Content : SwiftUICore.View {
   @_Concurrency.MainActor @preconcurrency public init(sdk: DynamicSDKSwift.DynamicSDK = .instance(), @SwiftUICore.ViewBuilder content: () -> Content)
@@ -1037,6 +1113,12 @@ extension DynamicSDKSwift.DynamicWebViewController : WebKit.WKNavigationDelegate
 extension DynamicSDKSwift.LoggerLevel : Swift.Equatable {}
 extension DynamicSDKSwift.LoggerLevel : Swift.Hashable {}
 extension DynamicSDKSwift.LoggerLevel : Swift.RawRepresentable {}
+extension DynamicSDKSwift.ChainEnum : Swift.Equatable {}
+extension DynamicSDKSwift.ChainEnum : Swift.Hashable {}
+extension DynamicSDKSwift.ChainEnum : Swift.RawRepresentable {}
+extension DynamicSDKSwift.DelegationStatus : Swift.Equatable {}
+extension DynamicSDKSwift.DelegationStatus : Swift.Hashable {}
+extension DynamicSDKSwift.DelegationStatus : Swift.RawRepresentable {}
 extension DynamicSDKSwift.MfaDeviceType : Swift.Equatable {}
 extension DynamicSDKSwift.MfaDeviceType : Swift.Hashable {}
 extension DynamicSDKSwift.MfaDeviceType : Swift.RawRepresentable {}
@@ -1045,9 +1127,6 @@ extension DynamicSDKSwift.StorageMessageSource : Swift.Hashable {}
 extension DynamicSDKSwift.StorageMessageSource : Swift.RawRepresentable {}
 extension DynamicSDKSwift.SocialProvider : Swift.Equatable {}
 extension DynamicSDKSwift.SocialProvider : Swift.Hashable {}
-extension DynamicSDKSwift.ChainEnum : Swift.Equatable {}
-extension DynamicSDKSwift.ChainEnum : Swift.Hashable {}
-extension DynamicSDKSwift.ChainEnum : Swift.RawRepresentable {}
 extension DynamicSDKSwift.DynamicSDKOverlayContainer : Swift.Sendable {}
 extension DynamicSDKSwift.DynamicUI : Swift.Sendable {}
 extension DynamicSDKSwift.DynamicWebViewContainer : Swift.Sendable {}

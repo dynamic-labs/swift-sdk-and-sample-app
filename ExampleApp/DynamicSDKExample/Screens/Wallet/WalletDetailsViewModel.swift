@@ -1,4 +1,5 @@
 import Foundation
+import Combine
 import DynamicSDKSwift
 
 @MainActor
@@ -8,18 +9,38 @@ final class WalletDetailsViewModel: ObservableObject {
   @Published var isLoadingBalance: Bool = false
   @Published var isLoadingNetwork: Bool = false
   @Published var errorMessage: String?
+  @Published var delegationStatus: WalletDelegatedStatus?
+  @Published var isDelegationLoading: Bool = false
+  @Published var feedbackMessage: String?
 
   private let sdk = DynamicSDK.instance()
   private let wallet: BaseWallet
+  private var cancellables = Set<AnyCancellable>()
 
   init(wallet: BaseWallet) {
     self.wallet = wallet
+    setupDelegationObserver()
+  }
+
+  private func setupDelegationObserver() {
+    sdk.wallets.delegatedAccessChanges
+      .receive(on: DispatchQueue.main)
+      .sink { [weak self] _ in
+        self?.updateDelegationStatus()
+      }
+      .store(in: &cancellables)
+  }
+
+  private func updateDelegationStatus() {
+    guard let walletId = wallet.id else { return }
+    delegationStatus = sdk.wallets.getDelegationStatusForWallet(walletId)
   }
 
   func refresh() {
     errorMessage = nil
     isLoadingBalance = true
     isLoadingNetwork = true
+    updateDelegationStatus()
 
     Task { @MainActor in
       // Balance
@@ -67,6 +88,50 @@ final class WalletDetailsViewModel: ObservableObject {
       } catch {
         errorMessage = "Failed to reveal private key: \(error)"
       }
+    }
+  }
+
+  func enableDelegation() {
+    errorMessage = nil
+    isDelegationLoading = true
+    Task { @MainActor in
+      do {
+        let chainEnum: ChainEnum = wallet.chain.uppercased() == "EVM" ? .evm : .sol
+        try await sdk.wallets.delegateKeyShares(
+          wallets: [
+            DelegationWalletIdentifier(
+              chainName: chainEnum,
+              accountAddress: wallet.address
+            )
+          ]
+        )
+        feedbackMessage = "Delegated access enabled successfully"
+      } catch {
+        errorMessage = "Failed to enable delegation: \(error)"
+      }
+      isDelegationLoading = false
+    }
+  }
+
+  func revokeDelegation() {
+    errorMessage = nil
+    isDelegationLoading = true
+    Task { @MainActor in
+      do {
+        let chainEnum: ChainEnum = wallet.chain.uppercased() == "EVM" ? .evm : .sol
+        try await sdk.wallets.revokeDelegation(
+          wallets: [
+            DelegationWalletIdentifier(
+              chainName: chainEnum,
+              accountAddress: wallet.address
+            )
+          ]
+        )
+        feedbackMessage = "Delegated access revoked successfully"
+      } catch {
+        errorMessage = "Failed to revoke delegation: \(error)"
+      }
+      isDelegationLoading = false
     }
   }
 

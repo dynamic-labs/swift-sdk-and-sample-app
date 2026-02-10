@@ -3,13 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		069898F3595F822E90304493 /* AppRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DAD545716C3952260F8AC2 /* AppRootView.swift */; };
 		22D16B387EE61062CA2E9523 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DA03555BA55B97B5C0B2BD /* Route.swift */; };
-		0D5A3B1F7A5C4B4A00112233 /* DynamicSDKSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0D5A3B1E7A5C4B4A00112233 /* DynamicSDKSwift */; };
+		25206D5C2F3B3A5D007740AA /* DelegationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25206D5B2F3B3A5D007740AA /* DelegationScreen.swift */; };
+		25625FCC2F3B3EAD007F063D /* DynamicSDKSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 25625FCB2F3B3EAD007F063D /* DynamicSDKSwift */; };
 		25AFB8C32EFEEDB30013666D /* DynamicSDKExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AFB8C22EFEEDB30013666D /* DynamicSDKExampleApp.swift */; };
 		25AFB8CB2F0000020013666E /* MfaDevicesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AFB8C62F0000020013666E /* MfaDevicesScreen.swift */; };
 		25AFB8CC2F0000020013666E /* MfaAddDeviceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AFB8C72F0000020013666E /* MfaAddDeviceScreen.swift */; };
@@ -39,11 +40,27 @@
 		9B2C9C8C2B00000100000015 /* SolanaSignTransactionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2C9C7F2B00000100000015 /* SolanaSignTransactionScreen.swift */; };
 		9D6461CCD5A67CAB7D5799A4 /* LoginScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E1979B236B11315ADF20DA /* LoginScreenViewModel.swift */; };
 		BBF6EE2C54F3261916A52BD5 /* SplashScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA35598A278FA06EBE84A0A8 /* SplashScreenViewModel.swift */; };
+		CUST0001000000000001 /* CustomBalanceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CUST0002000000000001 /* CustomBalanceScreen.swift */; };
+		CUST0001000000000002 /* CustomBalanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CUST0002000000000002 /* CustomBalanceViewModel.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		251444B32F1ABDCC00BED54E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		01DAD545716C3952260F8AC2 /* AppRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootView.swift; sourceTree = "<group>"; };
 		19DA03555BA55B97B5C0B2BD /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		25206D5B2F3B3A5D007740AA /* DelegationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegationScreen.swift; sourceTree = "<group>"; };
 		25AFB8C22EFEEDB30013666D /* DynamicSDKExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicSDKExampleApp.swift; sourceTree = "<group>"; };
 		25AFB8C62F0000020013666E /* MfaDevicesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MfaDevicesScreen.swift; sourceTree = "<group>"; };
 		25AFB8C72F0000020013666E /* MfaAddDeviceScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MfaAddDeviceScreen.swift; sourceTree = "<group>"; };
@@ -74,6 +91,8 @@
 		9B2C9C7F2B00000100000015 /* SolanaSignTransactionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolanaSignTransactionScreen.swift; sourceTree = "<group>"; };
 		B7E1979B236B11315ADF20DA /* LoginScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenViewModel.swift; sourceTree = "<group>"; };
 		BA35598A278FA06EBE84A0A8 /* SplashScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewModel.swift; sourceTree = "<group>"; };
+		CUST0002000000000001 /* CustomBalanceScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBalanceScreen.swift; sourceTree = "<group>"; };
+		CUST0002000000000002 /* CustomBalanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBalanceViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,13 +100,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D5A3B1F7A5C4B4A00112233 /* DynamicSDKSwift in Frameworks */,
+				25625FCC2F3B3EAD007F063D /* DynamicSDKSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		251444AF2F1ABDCC00BED54E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		25AFB8C12EFEEC6C0013666D /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,7 +140,7 @@
 				9B2C9C762B00000100000001 /* DynamicSDKExample */,
 				9B2C9C6B2B00000100000001 /* Products */,
 				25AFB8C12EFEEC6C0013666D /* Recovered References */,
-				250F4FBF2F1AAD6800C92C1F /* Frameworks */,
+				251444AF2F1ABDCC00BED54E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -149,6 +175,7 @@
 				25AFB8C62F0000020013666E /* MfaDevicesScreen.swift */,
 				25AFB8C72F0000020013666E /* MfaAddDeviceScreen.swift */,
 				25AFB8C82F0000020013666E /* MfaRecoveryCodesScreen.swift */,
+				25206D5B2F3B3A5D007740AA /* DelegationScreen.swift */,
 				25AFB8C92F0000020013666E /* PasskeysScreen.swift */,
 				9B2C9C792B00000100000020 /* Wallet */,
 			);
@@ -162,6 +189,8 @@
 				279E20DCE7D3D453D72016B4 /* WalletDetailsViewModel.swift */,
 				31588B8A6C4C6AA4D2E86E36 /* SwitchNetworkScreen.swift */,
 				2F7B0B6D9B0F4D3D9F7D0C41 /* SwitchNetworkViewModel.swift */,
+				CUST0002000000000001 /* CustomBalanceScreen.swift */,
+				CUST0002000000000002 /* CustomBalanceViewModel.swift */,
 				9B2C9C7F2B00000100000007 /* SignMessageScreen.swift */,
 				9B2C9C7F2B00000100000008 /* SolanaSignMessageScreen.swift */,
 				9B2C9C7F2B00000100000015 /* SolanaSignTransactionScreen.swift */,
@@ -185,6 +214,7 @@
 				9B2C9C6E2B00000100000001 /* Sources */,
 				9B2C9C6F2B00000100000001 /* Frameworks */,
 				9B2C9C702B00000100000001 /* Resources */,
+				251444B32F1ABDCC00BED54E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -192,7 +222,7 @@
 			);
 			name = DynamicSDKExample;
 			packageProductDependencies = (
-				0D5A3B1E7A5C4B4A00112233 /* DynamicSDKSwift */,
+				25625FCB2F3B3EAD007F063D /* DynamicSDKSwift */,
 			);
 			productName = DynamicSDKExample;
 			productReference = 9B2C9C6A2B00000100000001 /* DynamicSDKExample.app */;
@@ -222,7 +252,7 @@
 			);
 			mainGroup = 9B2C9C612B00000100000001;
 			packageReferences = (
-				0D5A3B1D7A5C4B4A00112233 /* XCLocalSwiftPackageReference "../../" */,
+				25625FCA2F3B3EAD007F063D /* XCLocalSwiftPackageReference "../../dynamic_sdk_swift_with_sample_app" */,
 			);
 			productRefGroup = 9B2C9C6B2B00000100000001 /* Products */;
 			projectDirPath = "";
@@ -273,12 +303,15 @@
 				9B2C9C852B00000100000007 /* SignMessageScreen.swift in Sources */,
 				9B2C9C862B00000100000008 /* SolanaSignMessageScreen.swift in Sources */,
 				9B2C9C8C2B00000100000015 /* SolanaSignTransactionScreen.swift in Sources */,
+				25206D5C2F3B3A5D007740AA /* DelegationScreen.swift in Sources */,
 				9B2C9C872B00000100000009 /* SolanaSendTransactionScreen.swift in Sources */,
 				9B2C9C882B00000100000010 /* EvmSignTransactionScreen.swift in Sources */,
 				9B2C9C892B00000100000011 /* EvmSignTypedDataScreen.swift in Sources */,
 				9B2C9C8A2B00000100000012 /* EvmSendTransactionScreen.swift in Sources */,
 				9B2C9C8B2B00000100000013 /* EvmWriteContractScreen.swift in Sources */,
 				45D32B68DEAED49BBC8AC812 /* EvmSendErc20Screen.swift in Sources */,
+				CUST0001000000000001 /* CustomBalanceScreen.swift in Sources */,
+				CUST0001000000000002 /* CustomBalanceViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,16 +443,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		0D5A3B1D7A5C4B4A00112233 /* XCLocalSwiftPackageReference "../../" */ = {
+		25625FCA2F3B3EAD007F063D /* XCLocalSwiftPackageReference "../../dynamic_sdk_swift_with_sample_app" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = ..;
+			relativePath = ../../dynamic_sdk_swift_with_sample_app;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0D5A3B1E7A5C4B4A00112233 /* DynamicSDKSwift */ = {
+		25625FCB2F3B3EAD007F063D /* DynamicSDKSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0D5A3B1D7A5C4B4A00112233 /* XCLocalSwiftPackageReference "../../" */;
 			productName = DynamicSDKSwift;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -1,6 +1,5 @@
 import SwiftUI
 import DynamicSDKSwift
-import SwiftBigInt
 
 struct EvmSendTransactionScreen: View {
   let wallet: BaseWallet
@@ -113,17 +112,21 @@ class EvmSendTransactionViewModel: ObservableObject {
       let maxFeePerGas = gasPrice * 2
       let maxPriorityFeePerGas = gasPrice
       
-      // Convert amount to wei (1 ETH = 10^18 wei)
-      let weiAmount = BigUInt(amountValue * pow(10.0, 18.0))
+      // Convert amount to wei (1 ETH = 10^18 wei) as String
+      let weiAmount = String(format: "%.0f", amountValue * pow(10.0, 18.0))
       
-      // Create transaction
+      // Convert BigUInt fees to String
+      let maxFeeString = String(maxFeePerGas, radix: 10)
+      let maxPriorityFeeString = String(maxPriorityFeePerGas, radix: 10)
+      
+      // Create transaction with String parameters
       let transaction = EthereumTransaction(
         from: wallet.address,
         to: recipientAddress,
         value: weiAmount,
-        gas: BigUInt(21000), // Standard gas limit for ETH transfer
-        maxFeePerGas: maxFeePerGas,
-        maxPriorityFeePerGas: maxPriorityFeePerGas
+        gas: "21000", // Standard gas limit for ETH transfer
+        maxFeePerGas: maxFeeString,
+        maxPriorityFeePerGas: maxPriorityFeeString
       )
       
       // Send transaction

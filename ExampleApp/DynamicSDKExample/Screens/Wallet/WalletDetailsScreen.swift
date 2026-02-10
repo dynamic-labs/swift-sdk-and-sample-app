@@ -270,7 +270,7 @@ struct EVMActionsView: View {
       
       // Sign Transaction
       NavigationLink(destination: EvmSignTransactionScreen(wallet: wallet)) {
-        ActionButton(
+              WalletActionButton(
           icon: "signature",
           title: "Sign Transaction"
         )
@@ -279,7 +279,7 @@ struct EVMActionsView: View {
       
       // Sign Typed Data
       NavigationLink(destination: EvmSignTypedDataScreen(wallet: wallet)) {
-        ActionButton(
+              WalletActionButton(
           icon: "doc.text",
           title: "Sign Typed Data"
         )
@@ -288,7 +288,7 @@ struct EVMActionsView: View {
       
       // Send Transaction
       NavigationLink(destination: EvmSendTransactionScreen(wallet: wallet)) {
-        ActionButton(
+              WalletActionButton(
           icon: "paperplane.fill",
           title: "Send Transaction"
         )
@@ -297,7 +297,7 @@ struct EVMActionsView: View {
 
       // Send ERC20
       NavigationLink(destination: EvmSendErc20Screen(wallet: wallet)) {
-        ActionButton(
+              WalletActionButton(
           icon: "arrow.right.arrow.left",
           title: "Send ERC20"
         )
@@ -306,7 +306,7 @@ struct EVMActionsView: View {
       
       // Write Contract
       NavigationLink(destination: EvmWriteContractScreen(wallet: wallet)) {
-        ActionButton(
+              WalletActionButton(
           icon: "doc.plaintext",
           title: "Write Contract"
         )
@@ -329,7 +329,7 @@ struct SolanaActionsView: View {
       
       // Sign Message (Solana specific)
       NavigationLink(destination: SolanaSignMessageScreen(wallet: wallet)) {
-        ActionButton(
+              WalletActionButton(
           icon: "pencil.circle",
           title: "Sign Message (Solana)"
         )
@@ -338,7 +338,7 @@ struct SolanaActionsView: View {
       
       // Sign Transaction
       NavigationLink(destination: SolanaSignTransactionScreen(wallet: wallet)) {
-        ActionButton(
+              WalletActionButton(
           icon: "signature",
           title: "Sign Transaction"
         )
@@ -347,7 +347,7 @@ struct SolanaActionsView: View {
       
       // Send Transaction
       NavigationLink(destination: SolanaSendTransactionScreen(wallet: wallet)) {
-        ActionButton(
+              WalletActionButton(
           icon: "paperplane.fill",
           title: "Send Transaction"
         )
@@ -358,7 +358,7 @@ struct SolanaActionsView: View {
   }
 }
 
-struct ActionButton: View {
+private struct WalletActionButton: View {
   let icon: String
   let title: String
 
@@ -403,7 +403,7 @@ struct DelegationSectionView: View {
       return "PENDING"
     }
   }
-
+  
   var body: some View {
     VStack(alignment: .leading, spacing: 12) {
       HStack {

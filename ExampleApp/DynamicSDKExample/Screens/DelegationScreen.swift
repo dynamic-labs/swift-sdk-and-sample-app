@@ -282,10 +282,12 @@ class DelegationViewModel: ObservableObject {
     }
     
     func loadDelegationState() {
+        guard let sdk = sdk else { return }
         delegationState = sdk.wallets.delegatedAccessState
     }
     
     private func observeDelegationChanges() {
+        guard let sdk = sdk else { return }
         sdk.wallets.delegatedAccessChanges
             .receive(on: DispatchQueue.main)
             .sink { [weak self] state in
@@ -298,6 +300,13 @@ class DelegationViewModel: ObservableObject {
         isLoading = true
         Task {
             do {
+                guard let sdk = sdk else { 
+                    await MainActor.run {
+                        feedbackMessage = "SDK not initialized"
+                        isLoading = false
+                    }
+                    return
+                }
                 try await sdk.wallets.initDelegationProcess()
                 await MainActor.run {
                     feedbackMessage = "Delegation modal opened"
@@ -316,6 +325,13 @@ class DelegationViewModel: ObservableObject {
         isLoading = true
         Task {
             do {
+                guard let sdk = sdk else {
+                    await MainActor.run {
+                        feedbackMessage = "SDK not initialized"
+                        isLoading = false
+                    }
+                    return
+                }
                 let shouldPrompt = try await sdk.wallets.shouldPromptWalletDelegation()
                 await MainActor.run {
                     feedbackMessage = "Should prompt: \(shouldPrompt)"
@@ -334,6 +350,13 @@ class DelegationViewModel: ObservableObject {
         isLoading = true
         Task {
             do {
+                guard let sdk = sdk else {
+                    await MainActor.run {
+                        feedbackMessage = "SDK not initialized"
+                        isLoading = false
+                    }
+                    return
+                }
                 let statuses = try await sdk.wallets.getWalletsDelegatedStatus()
                 await MainActor.run {
                     feedbackMessage = "Found \(statuses.count) wallets"
@@ -353,6 +376,13 @@ class DelegationViewModel: ObservableObject {
         isLoading = true
         Task {
             do {
+                guard let sdk = sdk else {
+                    await MainActor.run {
+                        feedbackMessage = "SDK not initialized"
+                        isLoading = false
+                    }
+                    return
+                }
                 try await sdk.wallets.delegateKeyShares()
                 await MainActor.run {
                     feedbackMessage = "Delegation started for all wallets"
@@ -371,6 +401,13 @@ class DelegationViewModel: ObservableObject {
         isLoading = true
         Task {
             do {
+                guard let sdk = sdk else {
+                    await MainActor.run {
+                        feedbackMessage = "SDK not initialized"
+                        isLoading = false
+                    }
+                    return
+                }
                 guard let chainEnum = ChainEnum.fromString(wallet.chain) else {
                     throw NSError(domain: "Invalid chain", code: -1)
                 }
@@ -401,6 +438,13 @@ class DelegationViewModel: ObservableObject {
         isLoading = true
         Task {
             do {
+                guard let sdk = sdk else {
+                    await MainActor.run {
+                        feedbackMessage = "SDK not initialized"
+                        isLoading = false
+                    }
+                    return
+                }
                 try await sdk.wallets.denyWalletDelegation(walletId: wallet.id)
                 await MainActor.run {
                     feedbackMessage = "Denied delegation for \(wallet.address)"
@@ -420,6 +464,13 @@ class DelegationViewModel: ObservableObject {
         isLoading = true
         Task {
             do {
+                guard let sdk = sdk else {
+                    await MainActor.run {
+                        feedbackMessage = "SDK not initialized"
+                        isLoading = false
+                    }
+                    return
+                }
                 try await sdk.wallets.dismissDelegationPrompt(walletId: walletId)
                 await MainActor.run {
                     feedbackMessage = "Dismissed prompt for wallet"
@@ -438,6 +489,13 @@ class DelegationViewModel: ObservableObject {
         isLoading = true
         Task {
             do {
+                guard let sdk = sdk else {
+                    await MainActor.run {
+                        feedbackMessage = "SDK not initialized"
+                        isLoading = false
+                    }
+                    return
+                }
                 try await sdk.wallets.dismissDelegationPrompt()
                 await MainActor.run {
                     feedbackMessage = "Dismissed all prompts"
@@ -456,6 +514,13 @@ class DelegationViewModel: ObservableObject {
         isLoading = true
         Task {
             do {
+                guard let sdk = sdk else {
+                    await MainActor.run {
+                        feedbackMessage = "SDK not initialized"
+                        isLoading = false
+                    }
+                    return
+                }
                 try await sdk.wallets.clearDelegationSessionState()
                 await MainActor.run {
                     feedbackMessage = "Session state cleared"

@@ -1,6 +1,5 @@
 import SwiftUI
 import DynamicSDKSwift
-import SwiftBigInt
 
 struct EvmSendErc20Screen: View {
   let wallet: BaseWallet
@@ -116,7 +115,7 @@ struct EvmSendErc20Screen: View {
     }
   }
 
-  private func parseDecimalToBaseUnits(_ value: String, decimals: Int) throws -> BigUInt {
+  private func parseDecimalToBaseUnits(_ value: String, decimals: Int) throws -> String {
     let cleaned = value.trimmingCharacters(in: .whitespacesAndNewlines)
     guard !cleaned.isEmpty else { throw DynamicSDKError.custom("Amount is empty") }
 
@@ -133,8 +132,7 @@ struct EvmSendErc20Screen: View {
       throw DynamicSDKError.custom("Invalid amount")
     }
 
-    let whole = BigUInt(wholePart) ?? 0
-
+    // Pad fractional part to match decimals
     let fracPadded: String
     if decimals == 0 {
       fracPadded = ""
@@ -143,9 +141,9 @@ struct EvmSendErc20Screen: View {
       fracPadded = trimmedFrac.padding(toLength: decimals, withPad: "0", startingAt: 0)
     }
 
-    let frac = fracPadded.isEmpty ? 0 : (BigUInt(fracPadded) ?? 0)
-    let factor = BigUInt(10).power(decimals)
-    return whole * factor + frac
+    // Combine whole and fractional parts
+    let combined = wholePart + fracPadded
+    return combined
   }
 }
 

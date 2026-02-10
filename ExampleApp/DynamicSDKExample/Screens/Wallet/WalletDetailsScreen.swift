@@ -24,9 +24,20 @@ struct WalletDetailsScreen: View {
           isLoadingBalance: vm.isLoadingBalance,
           isLoadingNetwork: vm.isLoadingNetwork
         )
-        
+
+        // Delegation Section
+        if let status = vm.delegationStatus {
+          DelegationSectionView(
+            status: status,
+            isLoading: vm.isDelegationLoading,
+            onEnable: { vm.enableDelegation() },
+            onRevoke: { vm.revokeDelegation() }
+          )
+          .padding(.horizontal)
+        }
+
         // Feedback message
-        if let feedback = feedbackLabel {
+        if let feedback = vm.feedbackMessage ?? feedbackLabel {
           Text(feedback)
             .font(.caption)
             .foregroundColor(.orange)
@@ -259,7 +270,7 @@ struct EVMActionsView: View {
       
       // Sign Transaction
       NavigationLink(destination: EvmSignTransactionScreen(wallet: wallet)) {
-        ActionButton(
+              WalletActionButton(
           icon: "signature",
           title: "Sign Transaction"
         )
@@ -268,7 +279,7 @@ struct EVMActionsView: View {
       
       // Sign Typed Data
       NavigationLink(destination: EvmSignTypedDataScreen(wallet: wallet)) {
-        ActionButton(
+              WalletActionButton(
           icon: "doc.text",
           title: "Sign Typed Data"
         )
@@ -277,7 +288,7 @@ struct EVMActionsView: View {
       
       // Send Transaction
       NavigationLink(destination: EvmSendTransactionScreen(wallet: wallet)) {
-        ActionButton(
+              WalletActionButton(
           icon: "paperplane.fill",
           title: "Send Transaction"
         )
@@ -286,7 +297,7 @@ struct EVMActionsView: View {
 
       // Send ERC20
       NavigationLink(destination: EvmSendErc20Screen(wallet: wallet)) {
-        ActionButton(
+              WalletActionButton(
           icon: "arrow.right.arrow.left",
           title: "Send ERC20"
         )
@@ -295,7 +306,7 @@ struct EVMActionsView: View {
       
       // Write Contract
       NavigationLink(destination: EvmWriteContractScreen(wallet: wallet)) {
-        ActionButton(
+              WalletActionButton(
           icon: "doc.plaintext",
           title: "Write Contract"
         )
@@ -318,7 +329,7 @@ struct SolanaActionsView: View {
       
       // Sign Message (Solana specific)
       NavigationLink(destination: SolanaSignMessageScreen(wallet: wallet)) {
-        ActionButton(
+              WalletActionButton(
           icon: "pencil.circle",
           title: "Sign Message (Solana)"
         )
@@ -327,7 +338,7 @@ struct SolanaActionsView: View {
       
       // Sign Transaction
       NavigationLink(destination: SolanaSignTransactionScreen(wallet: wallet)) {
-        ActionButton(
+              WalletActionButton(
           icon: "signature",
           title: "Sign Transaction"
         )
@@ -336,7 +347,7 @@ struct SolanaActionsView: View {
       
       // Send Transaction
       NavigationLink(destination: SolanaSendTransactionScreen(wallet: wallet)) {
-        ActionButton(
+              WalletActionButton(
           icon: "paperplane.fill",
           title: "Send Transaction"
         )
@@ -347,10 +358,10 @@ struct SolanaActionsView: View {
   }
 }
 
-struct ActionButton: View {
+private struct WalletActionButton: View {
   let icon: String
   let title: String
-  
+
   var body: some View {
     HStack {
       Image(systemName: icon)
@@ -366,3 +377,97 @@ struct ActionButton: View {
   }
 }
 
+struct DelegationSectionView: View {
+  let status: WalletDelegatedStatus
+  let isLoading: Bool
+  let onEnable: () -> Void
+  let onRevoke: () -> Void
+    private var statusColor: Color {
+    switch status.status {
+    case .delegated:
+      return .green
+    case .denied:
+      return .red
+    case .pending:
+      return .orange
+    }
+  }
+
+  private var statusText: String {
+    switch status.status {
+    case .delegated:
+      return "DELEGATED"
+    case .denied:
+      return "DENIED"
+    case .pending:
+      return "PENDING"
+    }
+  }
+  
+  var body: some View {
+    VStack(alignment: .leading, spacing: 12) {
+      HStack {
+        Image(systemName: "lock.shield")
+          .font(.system(size: 16))
+        Text("Delegated Access")
+          .font(.headline)
+        Spacer()
+        Text(statusText)
+          .font(.caption)
+          .fontWeight(.bold)
+          .padding(.horizontal, 8)
+          .padding(.vertical, 4)
+          .background(statusColor.opacity(0.2))
+          .foregroundColor(statusColor)
+          .cornerRadius(4)
+      }
+
+      if isLoading {
+        HStack {
+          Spacer()
+          ProgressView()
+          Spacer()
+        }
+        .padding(.vertical, 8)
+      } else {
+        switch status.status {
+        case .delegated:
+          Button(action: onRevoke) {
+            HStack {
+              Image(systemName: "minus.circle")
+              Text("Revoke Delegated Access")
+              Spacer()
+            }
+            .padding()
+            .frame(maxWidth: .infinity)
+            .background(Color.red.opacity(0.1))
+            .foregroundColor(.red)
+            .cornerRadius(8)
+          }
+        case .pending:
+          Button(action: onEnable) {
+            HStack {
+              Image(systemName: "checkmark.circle")
+              Text("Enable Delegated Access")
+              Spacer()
+            }
+            .padding()
+            .frame(maxWidth: .infinity)
+            .background(Color.green.opacity(0.1))
+            .foregroundColor(.green)
+            .cornerRadius(8)
+          }
+        case .denied:
+          EmptyView()
+        }
+      }
+    }
+    .padding()
+    .background(Color(.systemBackground).opacity(0.8))
+    .cornerRadius(12)
+    .overlay(
+      RoundedRectangle(cornerRadius: 12)
+        .stroke(statusColor.opacity(0.3), lineWidth: 1)
+    )
+  }
+}

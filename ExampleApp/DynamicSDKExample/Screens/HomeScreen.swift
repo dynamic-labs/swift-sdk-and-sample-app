@@ -6,6 +6,7 @@ struct HomeScreenView: View {
   
   @StateObject private var vm = HomeScreenViewModel()
   @Environment(\.colorScheme) var colorScheme
+  @State private var selectedChain: EmbeddedWalletChain = .evm
   
   var body: some View {
     ZStack {
@@ -38,9 +39,41 @@ struct HomeScreenView: View {
               }
               .padding(.horizontal)
             } else if vm.wallets.isEmpty {
-              Text("No wallets connected.")
-                .foregroundColor(.secondary)
-                .padding(.horizontal)
+              HStack(spacing: 12) {
+                Menu {
+                  ForEach(EmbeddedWalletChain.allCases, id: \.rawValue) { chain in
+                    Button(chain.rawValue) {
+                      selectedChain = chain
+                    }
+                  }
+                } label: {
+                  HStack {
+                    Text(selectedChain.rawValue)
+                    Image(systemName: "chevron.down")
+                  }
+                  .padding(.horizontal, 12)
+                  .padding(.vertical, 10)
+                  .background(Color.blue.opacity(0.15))
+                  .cornerRadius(8)
+                }
+                Button(action: {
+                  Task {
+                    await vm.createWallet(chain: selectedChain)
+                  }
+                }) {
+                  HStack {
+                    Image(systemName: "plus.circle.fill")
+                    Text("Create wallet")
+                  }
+                  .padding(.horizontal, 12)
+                  .padding(.vertical, 10)
+                  .background(Color.blue)
+                  .foregroundColor(.white)
+                  .cornerRadius(8)
+                }
+                .disabled(vm.isCreatingWallets)
+              }
+              .padding(.horizontal)
             } else {
               ForEach(vm.wallets, id: \.address) { wallet in
                 NavigationLink(destination: WalletDetailsScreen(wallet: wallet)) {

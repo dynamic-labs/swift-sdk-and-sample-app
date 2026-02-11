@@ -8,7 +8,7 @@ struct DynamicSDKExampleApp: App {
     // Note: UIWindow overlay creation may be deferred if scene is not ready yet
     _ = DynamicSDK.initialize(
       props: ClientProps(
-        environmentId: "3e219b76-dcf1-40ab-aad6-652c4dfab4cc",
+        environmentId: "a5c204fe-749e-466b-a584-8da2fb570ec1",
         appLogoUrl: "https://demo.dynamic.xyz/favicon-32x32.png",
         appName: "Dynamic Swift Demo",
         redirectUrl: "flutterdemo://",

@@ -374,6 +374,24 @@ public struct DownloadFileArgs : Swift.Codable {
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
+public enum EmbeddedWalletChain : Swift.String, Swift.CaseIterable, Swift.Codable {
+  case evm
+  case sol
+  case sui
+  case ton
+  case btc
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias AllCases = [DynamicSDKSwift.EmbeddedWalletChain]
+  public typealias RawValue = Swift.String
+  nonisolated public static var allCases: [DynamicSDKSwift.EmbeddedWalletChain] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
 public struct EstimatedFeesPerGas : Swift.Equatable {
   public let maxFeePerGas: SwiftBigInt.BigUInt?
   public let maxPriorityFeePerGas: SwiftBigInt.BigUInt?
@@ -752,14 +770,16 @@ final public class ExternalAuthModule {
   @objc deinit
 }
 public struct SignInWithExternalJwtParams : Swift.Codable {
-  public let jwt: Swift.String
-  public init(jwt: Swift.String)
+  public let externalJwt: Swift.String
+  public let externalUserId: Swift.String
+  public init(jwt: Swift.String, externalUserId: Swift.String)
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
 public struct VerifyWithExternalJwtParams : Swift.Codable {
-  public let jwt: Swift.String
-  public init(jwt: Swift.String)
+  public let externalJwt: Swift.String
+  public let externalUserId: Swift.String
+  public init(jwt: Swift.String, externalUserId: Swift.String)
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -868,7 +888,9 @@ final public class EmbeddedWalletsModule {
   public static let messageType: Swift.String
   public static let prefix: Swift.String
   public init(_ transport: DynamicSDKSwift.MessageTransport)
-  final public func createWallet() async throws -> DynamicSDKSwift.BaseWallet
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func createWallet(chain: DynamicSDKSwift.EmbeddedWalletChain, password: Swift.String? = nil) async throws -> DynamicSDKSwift.BaseWallet
+  #endif
   #if compiler(>=5.3) && $NonescapableTypes
   final public func getWallet() async throws -> DynamicSDKSwift.BaseWallet?
   #endif
@@ -1119,6 +1141,9 @@ extension DynamicSDKSwift.ChainEnum : Swift.RawRepresentable {}
 extension DynamicSDKSwift.DelegationStatus : Swift.Equatable {}
 extension DynamicSDKSwift.DelegationStatus : Swift.Hashable {}
 extension DynamicSDKSwift.DelegationStatus : Swift.RawRepresentable {}
+extension DynamicSDKSwift.EmbeddedWalletChain : Swift.Equatable {}
+extension DynamicSDKSwift.EmbeddedWalletChain : Swift.Hashable {}
+extension DynamicSDKSwift.EmbeddedWalletChain : Swift.RawRepresentable {}
 extension DynamicSDKSwift.MfaDeviceType : Swift.Equatable {}
 extension DynamicSDKSwift.MfaDeviceType : Swift.Hashable {}
 extension DynamicSDKSwift.MfaDeviceType : Swift.RawRepresentable {}

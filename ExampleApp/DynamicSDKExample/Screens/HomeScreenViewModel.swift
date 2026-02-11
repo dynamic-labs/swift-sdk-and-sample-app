@@ -85,6 +85,21 @@ final class HomeScreenViewModel: ObservableObject {
       }
     }
   }
+
+  /// Creates an embedded wallet for the given chain. Sets isCreatingWallets while in progress.
+  func createWallet(chain: EmbeddedWalletChain) async {
+    errorMessage = nil
+    isCreatingWallets = true
+    walletCreationTimer?.invalidate()
+    walletCreationTimer = nil
+    do {
+      _ = try await sdk.wallets.embedded.createWallet(chain: chain)
+      // Wallets list will update via userWalletsChanges; isCreatingWallets cleared when !wallets.isEmpty
+    } catch {
+      isCreatingWallets = false
+      errorMessage = "Create wallet failed: \(error.localizedDescription)"
+    }
+  }
   
   private func checkIfCreatingWallets() {
     // If user is authenticated but has no wallets, show "Creating wallets" spinner

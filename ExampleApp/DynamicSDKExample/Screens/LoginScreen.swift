@@ -130,12 +130,19 @@ struct LoginScreenView: View {
           }
           .padding(.horizontal, 20)
 
-          // External JWT (
+          // External JWT
           VStack(alignment: .leading, spacing: 8) {
-            Text("External JWT (dev)")
-              .font(.caption)
-              .foregroundColor(.secondary)
-            TextField("Paste JWT", text: $vm.externalJwt)
+            Text("Sign in with external JWT")
+              .font(.subheadline)
+              .fontWeight(.medium)
+            TextField("Paste JWT token...", text: $vm.externalJwt, axis: .vertical)
+              .lineLimit(2...4)
+              .padding()
+              .background(Color(.systemGray6))
+              .cornerRadius(12)
+              .autocapitalization(.none)
+              .textInputAutocapitalization(.never)
+            TextField("External User ID", text: $vm.externalUserId)
               .padding()
               .background(Color(.systemGray6))
               .cornerRadius(12)
@@ -148,7 +155,7 @@ struct LoginScreenView: View {
             title: "Sign in with External JWT",
             action: { vm.signInWithExternalJwt() },
             isLoading: vm.isSigningInWithExternalJwt,
-            isDisabled: vm.externalJwt.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+            isDisabled: vm.externalJwt.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || vm.externalUserId.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
           )
           .padding(.horizontal, 20)
 

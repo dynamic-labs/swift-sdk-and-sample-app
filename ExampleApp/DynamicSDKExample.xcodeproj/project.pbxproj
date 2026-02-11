@@ -10,13 +10,13 @@
 		069898F3595F822E90304493 /* AppRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DAD545716C3952260F8AC2 /* AppRootView.swift */; };
 		22D16B387EE61062CA2E9523 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DA03555BA55B97B5C0B2BD /* Route.swift */; };
 		25206D5C2F3B3A5D007740AA /* DelegationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25206D5B2F3B3A5D007740AA /* DelegationScreen.swift */; };
-		25625FCC2F3B3EAD007F063D /* DynamicSDKSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 25625FCB2F3B3EAD007F063D /* DynamicSDKSwift */; };
 		25AFB8C32EFEEDB30013666D /* DynamicSDKExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AFB8C22EFEEDB30013666D /* DynamicSDKExampleApp.swift */; };
 		25AFB8CB2F0000020013666E /* MfaDevicesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AFB8C62F0000020013666E /* MfaDevicesScreen.swift */; };
 		25AFB8CC2F0000020013666E /* MfaAddDeviceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AFB8C72F0000020013666E /* MfaAddDeviceScreen.swift */; };
 		25AFB8CD2F0000020013666E /* MfaRecoveryCodesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AFB8C82F0000020013666E /* MfaRecoveryCodesScreen.swift */; };
 		25AFB8CE2F0000020013666E /* PasskeysScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AFB8C92F0000020013666E /* PasskeysScreen.swift */; };
 		25AFB8CF2F0000020013666E /* DynamicSDKExample/Components/SecurityComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AFB8CA2F0000020013666E /* DynamicSDKExample/Components/SecurityComponents.swift */; };
+		25CEAA262F3D01FC00B4ACBF /* DynamicSDKSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 25CEAA252F3D01FC00B4ACBF /* DynamicSDKSwift */; };
 		2B307B30551580BE806D398B /* WalletDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E20DCE7D3D453D72016B4 /* WalletDetailsViewModel.swift */; };
 		2F7B0B6E9B0F4D3D9F7D0C41 /* SwitchNetworkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7B0B6D9B0F4D3D9F7D0C41 /* SwitchNetworkViewModel.swift */; };
 		404BC9C5B3FEEFF1D1A21C15 /* SwitchNetworkScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31588B8A6C4C6AA4D2E86E36 /* SwitchNetworkScreen.swift */; };
@@ -100,7 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25625FCC2F3B3EAD007F063D /* DynamicSDKSwift in Frameworks */,
+				25CEAA262F3D01FC00B4ACBF /* DynamicSDKSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,7 +222,7 @@
 			);
 			name = DynamicSDKExample;
 			packageProductDependencies = (
-				25625FCB2F3B3EAD007F063D /* DynamicSDKSwift */,
+				25CEAA252F3D01FC00B4ACBF /* DynamicSDKSwift */,
 			);
 			productName = DynamicSDKExample;
 			productReference = 9B2C9C6A2B00000100000001 /* DynamicSDKExample.app */;
@@ -252,7 +252,7 @@
 			);
 			mainGroup = 9B2C9C612B00000100000001;
 			packageReferences = (
-				25625FCA2F3B3EAD007F063D /* XCLocalSwiftPackageReference "../../dynamic_sdk_swift_with_sample_app" */,
+				25CEAA242F3D01FC00B4ACBF /* XCLocalSwiftPackageReference "../../dynamic_sdk_swift_with_sample_app" */,
 			);
 			productRefGroup = 9B2C9C6B2B00000100000001 /* Products */;
 			projectDirPath = "";
@@ -443,14 +443,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		25625FCA2F3B3EAD007F063D /* XCLocalSwiftPackageReference "../../dynamic_sdk_swift_with_sample_app" */ = {
+		25CEAA242F3D01FC00B4ACBF /* XCLocalSwiftPackageReference "../../dynamic_sdk_swift_with_sample_app" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../../dynamic_sdk_swift_with_sample_app;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		25625FCB2F3B3EAD007F063D /* DynamicSDKSwift */ = {
+		25CEAA252F3D01FC00B4ACBF /* DynamicSDKSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DynamicSDKSwift;
 		};

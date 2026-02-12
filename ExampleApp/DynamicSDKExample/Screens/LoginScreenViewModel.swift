@@ -7,6 +7,7 @@ final class LoginScreenViewModel: ObservableObject {
   @Published var email: String = ""
   @Published var phone: String = ""
   @Published var externalJwt: String = ""
+  @Published var externalUserId: String = ""
 
   @Published var isSendingEmailOTP: Bool = false
   @Published var isSendingSmsOTP: Bool = false
@@ -159,15 +160,16 @@ final class LoginScreenViewModel: ObservableObject {
   }
 
   func signInWithExternalJwt() {
-    let trimmed = externalJwt.trimmingCharacters(in: .whitespacesAndNewlines)
-    guard !trimmed.isEmpty else { return }
+    let jwtTrimmed = externalJwt.trimmingCharacters(in: .whitespacesAndNewlines)
+    let userIdTrimmed = externalUserId.trimmingCharacters(in: .whitespacesAndNewlines)
+    guard !jwtTrimmed.isEmpty, !userIdTrimmed.isEmpty else { return }
 
     errorMessage = nil
     isSigningInWithExternalJwt = true
     Task { @MainActor in
       defer { isSigningInWithExternalJwt = false }
       do {
-        try await sdk.auth.externalAuth.signInWithExternalJwt(props: SignInWithExternalJwtParams(jwt: trimmed))
+        try await sdk.auth.externalAuth.signInWithExternalJwt(props: SignInWithExternalJwtParams(jwt: jwtTrimmed, externalUserId: userIdTrimmed))
       } catch {
         errorMessage = "External JWT sign-in failed: \(error)"
       }

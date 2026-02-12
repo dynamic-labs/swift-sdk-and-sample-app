@@ -88,8 +88,9 @@ public struct ClientProps : Swift.Equatable {
   public var debugWebview: Swift.Bool
   public var logLevel: DynamicSDKSwift.LoggerLevel
   public var debug: DynamicSDKSwift.ClientDebugProps?
+  public var evmNetworks: [DynamicSDKSwift.GenericNetwork]?
   #if compiler(>=5.3) && $NonescapableTypes
-  public init(environmentId: Swift.String, apiBaseUrl: Swift.String? = nil, appLogoUrl: Swift.String? = nil, appName: Swift.String = "Dynamic", redirectUrl: Swift.String? = nil, appOrigin: Swift.String? = nil, cssOverrides: Swift.String? = nil, debugWebview: Swift.Bool = false, logLevel: DynamicSDKSwift.LoggerLevel = .info, debug: DynamicSDKSwift.ClientDebugProps? = nil)
+  public init(environmentId: Swift.String, apiBaseUrl: Swift.String? = nil, appLogoUrl: Swift.String? = nil, appName: Swift.String = "Dynamic", redirectUrl: Swift.String? = nil, appOrigin: Swift.String? = nil, cssOverrides: Swift.String? = nil, debugWebview: Swift.Bool = false, logLevel: DynamicSDKSwift.LoggerLevel = .info, debug: DynamicSDKSwift.ClientDebugProps? = nil, evmNetworks: [DynamicSDKSwift.GenericNetwork]? = nil)
   #endif
   public static func == (a: DynamicSDKSwift.ClientProps, b: DynamicSDKSwift.ClientProps) -> Swift.Bool
 }
@@ -373,6 +374,24 @@ public struct DownloadFileArgs : Swift.Codable {
   public init(base64Content: Swift.String, fileName: Swift.String, mimeType: Swift.String)
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
+}
+public enum EmbeddedWalletChain : Swift.String, Swift.CaseIterable, Swift.Codable {
+  case evm
+  case sol
+  case sui
+  case ton
+  case btc
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias AllCases = [DynamicSDKSwift.EmbeddedWalletChain]
+  public typealias RawValue = Swift.String
+  nonisolated public static var allCases: [DynamicSDKSwift.EmbeddedWalletChain] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
 }
 public struct EstimatedFeesPerGas : Swift.Equatable {
   public let maxFeePerGas: SwiftBigInt.BigUInt?
@@ -752,14 +771,16 @@ final public class ExternalAuthModule {
   @objc deinit
 }
 public struct SignInWithExternalJwtParams : Swift.Codable {
-  public let jwt: Swift.String
-  public init(jwt: Swift.String)
+  public let externalJwt: Swift.String
+  public let externalUserId: Swift.String
+  public init(jwt: Swift.String, externalUserId: Swift.String)
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
 public struct VerifyWithExternalJwtParams : Swift.Codable {
-  public let jwt: Swift.String
-  public init(jwt: Swift.String)
+  public let externalJwt: Swift.String
+  public let externalUserId: Swift.String
+  public init(jwt: Swift.String, externalUserId: Swift.String)
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -868,7 +889,9 @@ final public class EmbeddedWalletsModule {
   public static let messageType: Swift.String
   public static let prefix: Swift.String
   public init(_ transport: DynamicSDKSwift.MessageTransport)
-  final public func createWallet() async throws -> DynamicSDKSwift.BaseWallet
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func createWallet(chain: DynamicSDKSwift.EmbeddedWalletChain, password: Swift.String? = nil) async throws -> DynamicSDKSwift.BaseWallet
+  #endif
   #if compiler(>=5.3) && $NonescapableTypes
   final public func getWallet() async throws -> DynamicSDKSwift.BaseWallet?
   #endif
@@ -937,7 +960,15 @@ final public class NetworksModule {
   }
   @objc deinit
 }
-public struct GenericNetwork : Swift.Equatable {
+public protocol ChainOrNetworkIdValue : Swift.Encodable, Swift.Equatable {
+}
+extension Swift.Int : DynamicSDKSwift.ChainOrNetworkIdValue {
+}
+extension Swift.Int64 : DynamicSDKSwift.ChainOrNetworkIdValue {
+}
+extension Swift.String : DynamicSDKSwift.ChainOrNetworkIdValue {
+}
+public struct GenericNetwork : Swift.Equatable, Swift.Encodable {
   public let blockExplorerUrls: [Swift.String]
   public let chainId: AnyCodableSwift.AnyCodable
   public let chainName: Swift.String?
@@ -951,21 +982,31 @@ public struct GenericNetwork : Swift.Equatable {
   public let rpcUrls: [Swift.String]
   public let vanityName: Swift.String?
   #if compiler(>=5.3) && $NonescapableTypes
+  public init<C, N>(blockExplorerUrls: [Swift.String], chainId: C, chainName: Swift.String? = nil, iconUrls: [Swift.String], lcdUrl: Swift.String? = nil, name: Swift.String, nameService: DynamicSDKSwift.NameService? = nil, nativeCurrency: DynamicSDKSwift.NativeCurrency, networkId: N, privateCustomerRpcUrls: [Swift.String]? = nil, rpcUrls: [Swift.String], vanityName: Swift.String? = nil) where C : DynamicSDKSwift.ChainOrNetworkIdValue, N : DynamicSDKSwift.ChainOrNetworkIdValue
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(blockExplorerUrls: [Swift.String], chainId: AnyCodableSwift.AnyCodable, chainName: Swift.String? = nil, iconUrls: [Swift.String], lcdUrl: Swift.String? = nil, name: Swift.String, nameService: DynamicSDKSwift.NameService? = nil, nativeCurrency: DynamicSDKSwift.NativeCurrency, networkId: AnyCodableSwift.AnyCodable, privateCustomerRpcUrls: [Swift.String]? = nil, rpcUrls: [Swift.String], vanityName: Swift.String? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.GenericNetwork?
   #endif
   public static func == (a: DynamicSDKSwift.GenericNetwork, b: DynamicSDKSwift.GenericNetwork) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
 }
-public struct NativeCurrency : Swift.Equatable {
+public struct NativeCurrency : Swift.Equatable, Swift.Encodable {
   public let decimals: Swift.Int
   public let name: Swift.String
   public let symbol: Swift.String
+  public init(decimals: Swift.Int, name: Swift.String, symbol: Swift.String)
   #if compiler(>=5.3) && $NonescapableTypes
   public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.NativeCurrency?
   #endif
   public static func == (a: DynamicSDKSwift.NativeCurrency, b: DynamicSDKSwift.NativeCurrency) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
 }
-public struct NameService : Swift.Equatable {
+public struct NameService : Swift.Equatable, Swift.Encodable {
   public let name: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
   #if compiler(>=5.3) && $NonescapableTypes
   public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.NameService?
   #endif
@@ -1119,6 +1160,9 @@ extension DynamicSDKSwift.ChainEnum : Swift.RawRepresentable {}
 extension DynamicSDKSwift.DelegationStatus : Swift.Equatable {}
 extension DynamicSDKSwift.DelegationStatus : Swift.Hashable {}
 extension DynamicSDKSwift.DelegationStatus : Swift.RawRepresentable {}
+extension DynamicSDKSwift.EmbeddedWalletChain : Swift.Equatable {}
+extension DynamicSDKSwift.EmbeddedWalletChain : Swift.Hashable {}
+extension DynamicSDKSwift.EmbeddedWalletChain : Swift.RawRepresentable {}
 extension DynamicSDKSwift.MfaDeviceType : Swift.Equatable {}
 extension DynamicSDKSwift.MfaDeviceType : Swift.Hashable {}
 extension DynamicSDKSwift.MfaDeviceType : Swift.RawRepresentable {}

@@ -12,11 +12,31 @@ iOS SDK for Dynamic's authentication and Web3 wallet infrastructure.
 
 ## Requirements
 
-- iOS 15.0+ / Xcode 14.0+ / Swift 5.9+
+- iOS 15.0+
+- Xcode 16.0+
+- Swift 5.9+
 
 ## Installation
 
 ### Swift Package Manager
+
+Add the SDK to your project using one of the following methods:
+
+#### Option 1: Xcode UI
+
+1. Open your project in Xcode
+2. Go to **File > Add Package Dependencies...**
+3. Enter the repository URL:
+   ```
+   https://github.com/dynamic-labs/swift-sdk-and-sample-app
+   ```
+4. Select the version rule (e.g., **Up to Next Major Version** from `1.0.2`)
+5. Click **Add Package**
+6. Select `DynamicSDKSwift` library and add it to your target
+
+#### Option 2: Package.swift
+
+Add the dependency to your `Package.swift`:
 
 ```swift
 dependencies: [
@@ -24,7 +44,24 @@ dependencies: [
 ]
 ```
 
-Or via Xcode: **File → Add Package Dependencies** → Enter repository URL
+Then add `DynamicSDKSwift` to your target's dependencies:
+
+```swift
+.target(
+    name: "YourApp",
+    dependencies: [
+        .product(name: "DynamicSDKSwift", package: "DynamicSDKSwift")
+    ]
+)
+```
+
+### Framework Embedding
+
+The SDK includes a dynamic framework (`DynamicSDKSwift.xcframework`) that must be embedded in your app. If you're using SPM, Xcode handles this automatically. If you're integrating manually:
+
+1. Drag `DynamicSDKSwift.xcframework` into your project's **Frameworks, Libraries, and Embedded Content** section
+2. Set **DynamicSDKSwift.xcframework** to **Embed & Sign**
+3. Set the stub frameworks (SwiftBigInt, SolanaWeb3, AnyCodableSwift) to **Do Not Embed**
 
 ## Quick Start
 
@@ -57,7 +94,7 @@ struct YourApp: App {
 ### Access SDK
 
 ```swift
-let sdk = DynamicSDK.instance()
+let sdk = try DynamicSDK.getInstance()
 ```
 
 ## Authentication
@@ -149,11 +186,12 @@ let client = try await sdk.evm.createPublicClient(chainId: chainId)
 let gasPrice = try await client.getGasPrice()
 
 let transaction = EthereumTransaction(
+    from: wallet.address,
     to: recipientAddress,
-    value: amountInWei,
-    gasLimit: 21000,
-    maxFeePerGas: Int(gasPrice.value * 2),
-    maxPriorityFeePerGas: Int(gasPrice.value * 2)
+    value: BigUInt("1000000000000000000"),  // 1 ETH in Wei
+    gas: BigUInt(21000),
+    maxFeePerGas: gasPrice * 2,
+    maxPriorityFeePerGas: gasPrice * 2
 )
 
 let txHash = try await sdk.evm.sendTransaction(transaction: transaction, wallet: wallet)

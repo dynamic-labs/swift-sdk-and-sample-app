@@ -9,7 +9,7 @@ import Foundation
 import Security
 import SolanaWeb3
 import Swift
-import SwiftBigInt
+@_exported import SwiftBigInt
 import SwiftUI
 import UIKit
 import WebKit
@@ -175,11 +175,38 @@ public typealias MessageTransport = DynamicSDKSwift.BroadcastMessageTransport
 public func createBroadcastMessageTransport() -> DynamicSDKSwift.MessageTransport
 final public class RequestChannel {
   final public let idPrefix: Swift.String
+  @usableFromInline
+  final internal let transport: DynamicSDKSwift.MessageTransport
   public init(_ transport: DynamicSDKSwift.MessageTransport)
   final public func getUniqueId() -> Swift.String
   final public func emit(_ type: Swift.String, args: [AnyCodableSwift.AnyCodable] = [])
   #if compiler(>=5.3) && $NonescapableTypes
-  final public func request<T>(_ requestType: Swift.String, args: [AnyCodableSwift.AnyCodable] = [], builder: ((Any?) throws -> T)? = nil) async throws -> T
+  @usableFromInline
+  final internal func requestArgs(_ requestType: Swift.String, args: [AnyCodableSwift.AnyCodable] = []) async throws -> [AnyCodableSwift.AnyCodable]?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @inlinable final public func request<T>(_ requestType: Swift.String, args: [AnyCodableSwift.AnyCodable] = [], builder: ((Any?) throws -> T)? = nil) async throws -> T {
+    let result = try await requestArgs(requestType, args: args)
+    let firstArg: Any? = result?.first?.value
+
+    if let builder {
+      return try builder(firstArg)
+    }
+
+    if let typed = firstArg as? T {
+      return typed
+    }
+
+     
+    if firstArg == nil {
+      let boxedNil: Any = Optional<Any>.none as Any
+      if let typedNil = boxedNil as? T {
+        return typedNil
+      }
+    }
+
+    throw DynamicSDKError.invalidResponse("Invalid response for \(requestType)")
+  }
   #endif
   @discardableResult
   final public func handle<T>(type: Swift.String, builder: @escaping ([AnyCodableSwift.AnyCodable]) throws -> T, handler: @escaping (T, DynamicSDKSwift.Message) async throws -> DynamicSDKSwift.Message) -> Foundation.UUID
@@ -405,15 +432,15 @@ public struct EstimatedFeesPerGas : Swift.Equatable {
 public struct EthereumTransaction {
   public let from: Swift.String
   public let to: Swift.String?
-  public let value: Swift.String?
+  public let value: SwiftBigInt.BigUInt?
   public let data: Swift.String?
-  public let gas: Swift.String?
-  public let gasPrice: Swift.String?
-  public let maxFeePerGas: Swift.String?
-  public let maxPriorityFeePerGas: Swift.String?
+  public let gas: SwiftBigInt.BigUInt?
+  public let gasPrice: SwiftBigInt.BigUInt?
+  public let maxFeePerGas: SwiftBigInt.BigUInt?
+  public let maxPriorityFeePerGas: SwiftBigInt.BigUInt?
   public let nonce: Swift.Int?
   #if compiler(>=5.3) && $NonescapableTypes
-  public init(from: Swift.String, to: Swift.String? = nil, value: Swift.String? = nil, data: Swift.String? = nil, gas: Swift.String? = nil, gasPrice: Swift.String? = nil, maxFeePerGas: Swift.String? = nil, maxPriorityFeePerGas: Swift.String? = nil, nonce: Swift.Int? = nil)
+  public init(from: Swift.String, to: Swift.String? = nil, value: SwiftBigInt.BigUInt? = nil, data: Swift.String? = nil, gas: SwiftBigInt.BigUInt? = nil, gasPrice: SwiftBigInt.BigUInt? = nil, maxFeePerGas: SwiftBigInt.BigUInt? = nil, maxPriorityFeePerGas: SwiftBigInt.BigUInt? = nil, nonce: Swift.Int? = nil)
   #endif
   public func toJsonRpc() -> [Swift.String : Any]
 }

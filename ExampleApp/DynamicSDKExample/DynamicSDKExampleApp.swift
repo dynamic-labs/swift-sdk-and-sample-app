@@ -31,6 +31,7 @@ struct DynamicSDKExampleApp: App {
       )
       
       
+      
     _ = DynamicSDK.initialize(
       props: ClientProps(
         environmentId: "3e219b76-dcf1-40ab-aad6-652c4dfab4cc",
@@ -43,6 +44,7 @@ struct DynamicSDKExampleApp: App {
         evmNetworks: [b3SepoliaNetwork]
       )
     )
+      
   }
 
   var body: some Scene {

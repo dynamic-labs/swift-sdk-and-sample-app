@@ -11,24 +11,30 @@ let package = Package(
             name: "DynamicSDKSwift",
             targets: ["DynamicSDKSwiftWrapper"])
     ],
-    dependencies: [
-        // Keep these aligned with `dynamic_sdk_swift/Packages/DynamicSDKSwift/Package.swift`
-        .package(url: "https://github.com/jlalvarez18/BigInt.git", from: "6.0.0"),
-        .package(url: "https://github.com/kantagara/SolanaWeb3.git", from: "1.0.4"),
-        .package(url: "https://github.com/kantagara/AnyCodableSwift.git", from: "0.7.0")
-    ],
     targets: [
         .binaryTarget(
-            name: "DynamicSDKSwift",
+            name: "DynamicSDKSwiftBinary",
             path: "Frameworks/DynamicSDKSwift.xcframework"
+        ),
+        .binaryTarget(
+            name: "SwiftBigInt",
+            path: "Frameworks/SwiftBigInt.xcframework"
+        ),
+        .binaryTarget(
+            name: "SolanaWeb3",
+            path: "Frameworks/SolanaWeb3.xcframework"
+        ),
+        .binaryTarget(
+            name: "AnyCodableSwift",
+            path: "Frameworks/AnyCodableSwift.xcframework"
         ),
         .target(
             name: "DynamicSDKSwiftWrapper",
             dependencies: [
-                "DynamicSDKSwift",
-                .product(name: "SwiftBigInt", package: "BigInt"),
-                .product(name: "SolanaWeb3", package: "SolanaWeb3"),
-                .product(name: "AnyCodableSwift", package: "AnyCodableSwift"),
+                "DynamicSDKSwiftBinary",
+                "SwiftBigInt",
+                "SolanaWeb3",
+                "AnyCodableSwift",
             ],
             path: "Sources/DynamicSDKSwiftWrapper"
         )

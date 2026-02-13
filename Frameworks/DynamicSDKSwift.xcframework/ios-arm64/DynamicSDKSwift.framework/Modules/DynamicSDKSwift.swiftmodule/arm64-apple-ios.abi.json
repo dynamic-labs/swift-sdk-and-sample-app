@@ -2336,7 +2336,8 @@
             "declAttributes": [
               "HasInitialValue",
               "HasStorage",
-              "AccessControl"
+              "AccessControl",
+              "RawDocComment"
             ],
             "hasStorage": true,
             "accessors": [
@@ -5414,55 +5415,6 @@
             ]
           },
           {
-            "kind": "Var",
-            "name": "transport",
-            "printedName": "transport",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "BroadcastMessageTransport",
-                "printedName": "DynamicSDKSwift.BroadcastMessageTransport",
-                "usr": "s:15DynamicSDKSwift25BroadcastMessageTransportC"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:15DynamicSDKSwift14RequestChannelC9transportAA25BroadcastMessageTransportCvp",
-            "mangledName": "$s15DynamicSDKSwift14RequestChannelC9transportAA25BroadcastMessageTransportCvp",
-            "moduleName": "DynamicSDKSwift",
-            "declAttributes": [
-              "Final",
-              "HasStorage",
-              "AccessControl",
-              "UsableFromInline"
-            ],
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "BroadcastMessageTransport",
-                    "printedName": "DynamicSDKSwift.BroadcastMessageTransport",
-                    "usr": "s:15DynamicSDKSwift25BroadcastMessageTransportC"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:15DynamicSDKSwift14RequestChannelC9transportAA25BroadcastMessageTransportCvg",
-                "mangledName": "$s15DynamicSDKSwift14RequestChannelC9transportAA25BroadcastMessageTransportCvg",
-                "moduleName": "DynamicSDKSwift",
-                "implicit": true,
-                "declAttributes": [
-                  "Final"
-                ],
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init(_:)",
@@ -5556,68 +5508,6 @@
           },
           {
             "kind": "Function",
-            "name": "requestArgs",
-            "printedName": "requestArgs(_:args:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "[AnyCodableSwift.AnyCodable]?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Array",
-                    "printedName": "[AnyCodableSwift.AnyCodable]",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "AnyCodable",
-                        "printedName": "AnyCodableSwift.AnyCodable",
-                        "usr": "s:15AnyCodableSwift0aB0V"
-                      }
-                    ],
-                    "usr": "s:Sa"
-                  }
-                ],
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Array",
-                "printedName": "[AnyCodableSwift.AnyCodable]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "AnyCodable",
-                    "printedName": "AnyCodableSwift.AnyCodable",
-                    "usr": "s:15AnyCodableSwift0aB0V"
-                  }
-                ],
-                "hasDefaultArg": true,
-                "usr": "s:Sa"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:15DynamicSDKSwift14RequestChannelC11requestArgs_4argsSay15AnyCodableSwift0hI0VGSgSS_AItYaKF",
-            "mangledName": "$s15DynamicSDKSwift14RequestChannelC11requestArgs_4argsSay15AnyCodableSwift0hI0VGSgSS_AItYaKF",
-            "moduleName": "DynamicSDKSwift",
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "UsableFromInline",
-              "RawDocComment"
-            ],
-            "throwing": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
             "name": "request",
             "printedName": "request(_:args:builder:)",
             "children": [
@@ -5691,7 +5581,6 @@
             "declAttributes": [
               "Final",
               "AccessControl",
-              "Inlinable",
               "RawDocComment"
             ],
             "throwing": true,
@@ -6965,16 +6854,6 @@
         "printedName": "Combine",
         "declKind": "Import",
         "moduleName": "DynamicSDKSwift"
-      },
-      {
-        "kind": "Import",
-        "name": "SwiftBigInt",
-        "printedName": "SwiftBigInt",
-        "declKind": "Import",
-        "moduleName": "DynamicSDKSwift",
-        "declAttributes": [
-          "Exported"
-        ]
       },
       {
         "kind": "TypeDecl",
@@ -12693,21 +12572,21 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "SwiftBigInt.BigUInt?",
+                "printedName": "Swift.String?",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "BigUInt",
-                    "printedName": "SwiftBigInt.BigUInt",
-                    "usr": "s:11SwiftBigInt0B4UIntV"
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
                   }
                 ],
                 "usr": "s:Sq"
               }
             ],
             "declKind": "Var",
-            "usr": "s:15DynamicSDKSwift19EthereumTransactionV5value11SwiftBigInt0G4UIntVSgvp",
-            "mangledName": "$s15DynamicSDKSwift19EthereumTransactionV5value11SwiftBigInt0G4UIntVSgvp",
+            "usr": "s:15DynamicSDKSwift19EthereumTransactionV5valueSSSgvp",
+            "mangledName": "$s15DynamicSDKSwift19EthereumTransactionV5valueSSSgvp",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "HasStorage",
@@ -12725,21 +12604,21 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "SwiftBigInt.BigUInt?",
+                    "printedName": "Swift.String?",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "BigUInt",
-                        "printedName": "SwiftBigInt.BigUInt",
-                        "usr": "s:11SwiftBigInt0B4UIntV"
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
                       }
                     ],
                     "usr": "s:Sq"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:15DynamicSDKSwift19EthereumTransactionV5value11SwiftBigInt0G4UIntVSgvg",
-                "mangledName": "$s15DynamicSDKSwift19EthereumTransactionV5value11SwiftBigInt0G4UIntVSgvg",
+                "usr": "s:15DynamicSDKSwift19EthereumTransactionV5valueSSSgvg",
+                "mangledName": "$s15DynamicSDKSwift19EthereumTransactionV5valueSSSgvg",
                 "moduleName": "DynamicSDKSwift",
                 "implicit": true,
                 "accessorKind": "get"
@@ -12814,21 +12693,21 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "SwiftBigInt.BigUInt?",
+                "printedName": "Swift.String?",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "BigUInt",
-                    "printedName": "SwiftBigInt.BigUInt",
-                    "usr": "s:11SwiftBigInt0B4UIntV"
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
                   }
                 ],
                 "usr": "s:Sq"
               }
             ],
             "declKind": "Var",
-            "usr": "s:15DynamicSDKSwift19EthereumTransactionV3gas11SwiftBigInt0G4UIntVSgvp",
-            "mangledName": "$s15DynamicSDKSwift19EthereumTransactionV3gas11SwiftBigInt0G4UIntVSgvp",
+            "usr": "s:15DynamicSDKSwift19EthereumTransactionV3gasSSSgvp",
+            "mangledName": "$s15DynamicSDKSwift19EthereumTransactionV3gasSSSgvp",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "HasStorage",
@@ -12846,21 +12725,21 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "SwiftBigInt.BigUInt?",
+                    "printedName": "Swift.String?",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "BigUInt",
-                        "printedName": "SwiftBigInt.BigUInt",
-                        "usr": "s:11SwiftBigInt0B4UIntV"
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
                       }
                     ],
                     "usr": "s:Sq"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:15DynamicSDKSwift19EthereumTransactionV3gas11SwiftBigInt0G4UIntVSgvg",
-                "mangledName": "$s15DynamicSDKSwift19EthereumTransactionV3gas11SwiftBigInt0G4UIntVSgvg",
+                "usr": "s:15DynamicSDKSwift19EthereumTransactionV3gasSSSgvg",
+                "mangledName": "$s15DynamicSDKSwift19EthereumTransactionV3gasSSSgvg",
                 "moduleName": "DynamicSDKSwift",
                 "implicit": true,
                 "accessorKind": "get"
@@ -12875,21 +12754,21 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "SwiftBigInt.BigUInt?",
+                "printedName": "Swift.String?",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "BigUInt",
-                    "printedName": "SwiftBigInt.BigUInt",
-                    "usr": "s:11SwiftBigInt0B4UIntV"
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
                   }
                 ],
                 "usr": "s:Sq"
               }
             ],
             "declKind": "Var",
-            "usr": "s:15DynamicSDKSwift19EthereumTransactionV8gasPrice11SwiftBigInt0H4UIntVSgvp",
-            "mangledName": "$s15DynamicSDKSwift19EthereumTransactionV8gasPrice11SwiftBigInt0H4UIntVSgvp",
+            "usr": "s:15DynamicSDKSwift19EthereumTransactionV8gasPriceSSSgvp",
+            "mangledName": "$s15DynamicSDKSwift19EthereumTransactionV8gasPriceSSSgvp",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "HasStorage",
@@ -12907,21 +12786,21 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "SwiftBigInt.BigUInt?",
+                    "printedName": "Swift.String?",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "BigUInt",
-                        "printedName": "SwiftBigInt.BigUInt",
-                        "usr": "s:11SwiftBigInt0B4UIntV"
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
                       }
                     ],
                     "usr": "s:Sq"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:15DynamicSDKSwift19EthereumTransactionV8gasPrice11SwiftBigInt0H4UIntVSgvg",
-                "mangledName": "$s15DynamicSDKSwift19EthereumTransactionV8gasPrice11SwiftBigInt0H4UIntVSgvg",
+                "usr": "s:15DynamicSDKSwift19EthereumTransactionV8gasPriceSSSgvg",
+                "mangledName": "$s15DynamicSDKSwift19EthereumTransactionV8gasPriceSSSgvg",
                 "moduleName": "DynamicSDKSwift",
                 "implicit": true,
                 "accessorKind": "get"
@@ -12936,21 +12815,21 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "SwiftBigInt.BigUInt?",
+                "printedName": "Swift.String?",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "BigUInt",
-                    "printedName": "SwiftBigInt.BigUInt",
-                    "usr": "s:11SwiftBigInt0B4UIntV"
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
                   }
                 ],
                 "usr": "s:Sq"
               }
             ],
             "declKind": "Var",
-            "usr": "s:15DynamicSDKSwift19EthereumTransactionV12maxFeePerGas11SwiftBigInt0J4UIntVSgvp",
-            "mangledName": "$s15DynamicSDKSwift19EthereumTransactionV12maxFeePerGas11SwiftBigInt0J4UIntVSgvp",
+            "usr": "s:15DynamicSDKSwift19EthereumTransactionV12maxFeePerGasSSSgvp",
+            "mangledName": "$s15DynamicSDKSwift19EthereumTransactionV12maxFeePerGasSSSgvp",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "HasStorage",
@@ -12968,21 +12847,21 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "SwiftBigInt.BigUInt?",
+                    "printedName": "Swift.String?",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "BigUInt",
-                        "printedName": "SwiftBigInt.BigUInt",
-                        "usr": "s:11SwiftBigInt0B4UIntV"
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
                       }
                     ],
                     "usr": "s:Sq"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:15DynamicSDKSwift19EthereumTransactionV12maxFeePerGas11SwiftBigInt0J4UIntVSgvg",
-                "mangledName": "$s15DynamicSDKSwift19EthereumTransactionV12maxFeePerGas11SwiftBigInt0J4UIntVSgvg",
+                "usr": "s:15DynamicSDKSwift19EthereumTransactionV12maxFeePerGasSSSgvg",
+                "mangledName": "$s15DynamicSDKSwift19EthereumTransactionV12maxFeePerGasSSSgvg",
                 "moduleName": "DynamicSDKSwift",
                 "implicit": true,
                 "accessorKind": "get"
@@ -12997,21 +12876,21 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "SwiftBigInt.BigUInt?",
+                "printedName": "Swift.String?",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "BigUInt",
-                    "printedName": "SwiftBigInt.BigUInt",
-                    "usr": "s:11SwiftBigInt0B4UIntV"
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
                   }
                 ],
                 "usr": "s:Sq"
               }
             ],
             "declKind": "Var",
-            "usr": "s:15DynamicSDKSwift19EthereumTransactionV20maxPriorityFeePerGas11SwiftBigInt0K4UIntVSgvp",
-            "mangledName": "$s15DynamicSDKSwift19EthereumTransactionV20maxPriorityFeePerGas11SwiftBigInt0K4UIntVSgvp",
+            "usr": "s:15DynamicSDKSwift19EthereumTransactionV20maxPriorityFeePerGasSSSgvp",
+            "mangledName": "$s15DynamicSDKSwift19EthereumTransactionV20maxPriorityFeePerGasSSSgvp",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "HasStorage",
@@ -13029,21 +12908,21 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "SwiftBigInt.BigUInt?",
+                    "printedName": "Swift.String?",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "BigUInt",
-                        "printedName": "SwiftBigInt.BigUInt",
-                        "usr": "s:11SwiftBigInt0B4UIntV"
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
                       }
                     ],
                     "usr": "s:Sq"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:15DynamicSDKSwift19EthereumTransactionV20maxPriorityFeePerGas11SwiftBigInt0K4UIntVSgvg",
-                "mangledName": "$s15DynamicSDKSwift19EthereumTransactionV20maxPriorityFeePerGas11SwiftBigInt0K4UIntVSgvg",
+                "usr": "s:15DynamicSDKSwift19EthereumTransactionV20maxPriorityFeePerGasSSSgvg",
+                "mangledName": "$s15DynamicSDKSwift19EthereumTransactionV20maxPriorityFeePerGasSSSgvg",
                 "moduleName": "DynamicSDKSwift",
                 "implicit": true,
                 "accessorKind": "get"
@@ -13145,13 +13024,13 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "SwiftBigInt.BigUInt?",
+                "printedName": "Swift.String?",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "BigUInt",
-                    "printedName": "SwiftBigInt.BigUInt",
-                    "usr": "s:11SwiftBigInt0B4UIntV"
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
                   }
                 ],
                 "hasDefaultArg": true,
@@ -13175,13 +13054,13 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "SwiftBigInt.BigUInt?",
+                "printedName": "Swift.String?",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "BigUInt",
-                    "printedName": "SwiftBigInt.BigUInt",
-                    "usr": "s:11SwiftBigInt0B4UIntV"
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
                   }
                 ],
                 "hasDefaultArg": true,
@@ -13190,13 +13069,13 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "SwiftBigInt.BigUInt?",
+                "printedName": "Swift.String?",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "BigUInt",
-                    "printedName": "SwiftBigInt.BigUInt",
-                    "usr": "s:11SwiftBigInt0B4UIntV"
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
                   }
                 ],
                 "hasDefaultArg": true,
@@ -13205,13 +13084,13 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "SwiftBigInt.BigUInt?",
+                "printedName": "Swift.String?",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "BigUInt",
-                    "printedName": "SwiftBigInt.BigUInt",
-                    "usr": "s:11SwiftBigInt0B4UIntV"
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
                   }
                 ],
                 "hasDefaultArg": true,
@@ -13220,13 +13099,13 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "SwiftBigInt.BigUInt?",
+                "printedName": "Swift.String?",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "BigUInt",
-                    "printedName": "SwiftBigInt.BigUInt",
-                    "usr": "s:11SwiftBigInt0B4UIntV"
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
                   }
                 ],
                 "hasDefaultArg": true,
@@ -13249,8 +13128,8 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:15DynamicSDKSwift19EthereumTransactionV4from2to5value4data3gas0I5Price12maxFeePerGas0k8PrioritylmN05nonceACSS_SSSg11SwiftBigInt0R4UIntVSgAm4QSiSgtcfc",
-            "mangledName": "$s15DynamicSDKSwift19EthereumTransactionV4from2to5value4data3gas0I5Price12maxFeePerGas0k8PrioritylmN05nonceACSS_SSSg11SwiftBigInt0R4UIntVSgAm4QSiSgtcfc",
+            "usr": "s:15DynamicSDKSwift19EthereumTransactionV4from2to5value4data3gas0I5Price12maxFeePerGas0k8PrioritylmN05nonceACSS_SSSgA6MSiSgtcfc",
+            "mangledName": "$s15DynamicSDKSwift19EthereumTransactionV4from2to5value4data3gas0I5Price12maxFeePerGas0k8PrioritylmN05nonceACSS_SSSgA6MSiSgtcfc",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "AccessControl"
@@ -37720,28 +37599,28 @@
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/ClientProps.swift",
       "kind": "StringLiteral",
-      "offset": 684,
+      "offset": 807,
       "length": 9,
       "value": "\"Dynamic\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/ClientProps.swift",
       "kind": "BooleanLiteral",
-      "offset": 815,
+      "offset": 938,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/ClientProps.swift",
       "kind": "BooleanLiteral",
-      "offset": 1514,
+      "offset": 1637,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/ClientProps.swift",
       "kind": "BooleanLiteral",
-      "offset": 1546,
+      "offset": 1669,
       "length": 5,
       "value": "false"
     },
@@ -37832,37 +37711,23 @@
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/RequestChannel.swift",
       "kind": "Array",
-      "offset": 971,
+      "offset": 952,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/RequestChannel.swift",
       "kind": "Array",
-      "offset": 1400,
+      "offset": 1360,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/RequestChannel.swift",
       "kind": "Array",
-      "offset": 4094,
+      "offset": 4041,
       "length": 2,
       "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/RequestChannel.swift",
-      "kind": "StringLiteral",
-      "offset": 4669,
-      "length": 37,
-      "value": "\"Invalid response for \""
-    },
-    {
-      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/RequestChannel.swift",
-      "kind": "StringLiteral",
-      "offset": 4705,
-      "length": 2,
-      "value": "\"\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/SdkModule.swift",

@@ -67915,28 +67915,35 @@
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/ClientProps.swift",
       "kind": "StringLiteral",
-      "offset": 684,
+      "offset": 626,
+      "length": 36,
+      "value": "\"https:\/\/app.dynamicauth.com\/api\/v0\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/ClientProps.swift",
+      "kind": "StringLiteral",
+      "offset": 717,
       "length": 9,
       "value": "\"Dynamic\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/ClientProps.swift",
       "kind": "BooleanLiteral",
-      "offset": 815,
+      "offset": 848,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/ClientProps.swift",
       "kind": "BooleanLiteral",
-      "offset": 1514,
+      "offset": 1547,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Core\/ClientProps.swift",
       "kind": "BooleanLiteral",
-      "offset": 1546,
+      "offset": 1579,
       "length": 5,
       "value": "false"
     },

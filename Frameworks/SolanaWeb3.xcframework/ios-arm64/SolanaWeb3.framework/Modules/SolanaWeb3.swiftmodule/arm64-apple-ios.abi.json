@@ -19629,9 +19629,16 @@
       "value": "\"ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL\""
     },
     {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/build\/derivedData-ios\/SourcePackages\/checkouts\/SolanaWeb3\/Sources\/SolanaWeb3\/Programs\/AssociatedToken\/AssociatedTokenProgram.swift",
+      "kind": "Array",
+      "offset": 983,
+      "length": 2,
+      "value": "[]"
+    },
+    {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/build\/derivedData-ios\/SourcePackages\/checkouts\/SolanaWeb3\/Sources\/SolanaWeb3\/Programs\/Program.swift",
       "kind": "Array",
-      "offset": 912,
+      "offset": 908,
       "length": 2,
       "value": "[]"
     },
@@ -19925,28 +19932,35 @@
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/build\/derivedData-ios\/SourcePackages\/checkouts\/SolanaWeb3\/Sources\/SolanaWeb3\/Programs\/Token\/TokenProgram.swift",
       "kind": "Array",
-      "offset": 3803,
+      "offset": 1108,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/build\/derivedData-ios\/SourcePackages\/checkouts\/SolanaWeb3\/Sources\/SolanaWeb3\/Programs\/Token\/TokenProgram.swift",
       "kind": "Array",
-      "offset": 5247,
+      "offset": 4382,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/build\/derivedData-ios\/SourcePackages\/checkouts\/SolanaWeb3\/Sources\/SolanaWeb3\/Programs\/Token\/TokenProgram.swift",
       "kind": "Array",
-      "offset": 6693,
+      "offset": 5826,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/build\/derivedData-ios\/SourcePackages\/checkouts\/SolanaWeb3\/Sources\/SolanaWeb3\/Programs\/Token\/TokenProgram.swift",
       "kind": "Array",
-      "offset": 8084,
+      "offset": 7272,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/build\/derivedData-ios\/SourcePackages\/checkouts\/SolanaWeb3\/Sources\/SolanaWeb3\/Programs\/Token\/TokenProgram.swift",
+      "kind": "Array",
+      "offset": 8663,
       "length": 2,
       "value": "[]"
     },

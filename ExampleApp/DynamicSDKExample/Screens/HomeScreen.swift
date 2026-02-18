@@ -135,6 +135,22 @@ struct HomeScreenView: View {
             }
             .padding(.horizontal)
 
+            // 5) Project Settings (separate screen)
+            NavigationLink(destination: ProjectSettingsScreen()) {
+              HStack {
+                Image(systemName: "gearshape.fill")
+                Text("Project Settings")
+                Spacer()
+                Image(systemName: "chevron.right")
+              }
+              .foregroundColor(colorScheme == .dark ? .white : .blue)
+              .padding()
+              .frame(maxWidth: .infinity)
+              .background(Color.blue.opacity(0.1))
+              .cornerRadius(8)
+            }
+            .padding(.horizontal)
+
             // 5) User JSON
             if let user = vm.user {
               let json = user.toJsonString()

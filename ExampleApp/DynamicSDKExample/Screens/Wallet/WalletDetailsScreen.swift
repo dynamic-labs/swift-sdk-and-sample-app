@@ -353,6 +353,15 @@ struct SolanaActionsView: View {
         )
       }
       .padding(.horizontal)
+
+      // Send SPL Token
+      NavigationLink(destination: SolanaSendSplTokenScreen(wallet: wallet)) {
+              WalletActionButton(
+          icon: "arrow.right.arrow.left",
+          title: "Send SPL Token"
+        )
+      }
+      .padding(.horizontal)
     }
     .padding(.vertical)
   }
@@ -392,8 +401,8 @@ struct DelegationSectionView: View {
       return .orange
     }
   }
-
-  private var statusText: String {
+    
+ private var statusText: String {
     switch status.status {
     case .delegated:
       return "DELEGATED"

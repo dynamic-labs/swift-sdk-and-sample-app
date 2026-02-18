@@ -113,20 +113,20 @@ class EvmSendTransactionViewModel: ObservableObject {
       let maxPriorityFeePerGas = gasPrice
       
       // Convert amount to wei (1 ETH = 10^18 wei) as String
-      let weiAmount = BigUInt(amountValue * pow(10.0, 18.0))
+      let weiAmount = String(format: "%.0f", amountValue * pow(10.0, 18.0))
       
       // Convert BigUInt fees to String
-      let maxFeeString = BigUInt(maxFeePerGas)
-      let maxPriorityFeeString = BigUInt(maxPriorityFeePerGas)
+      let maxFeeString = String(maxFeePerGas, radix: 10)
+      let maxPriorityFeeString = String(maxPriorityFeePerGas, radix: 10)
       
       // Create transaction with String parameters
       let transaction = EthereumTransaction(
         from: wallet.address,
         to: recipientAddress,
-        value: weiAmount,
-        gas: "21000",
-        maxFeePerGas: maxFeeString,
-        maxPriorityFeePerGas: maxPriorityFeeString
+        value: BigUInt(weiAmount),
+        gas: "21000", // Standard gas limit for ETH transfer
+        maxFeePerGas: BigUInt(maxFeeString),
+        maxPriorityFeePerGas: BigUInt(maxPriorityFeeString)
       )
       
       // Send transaction

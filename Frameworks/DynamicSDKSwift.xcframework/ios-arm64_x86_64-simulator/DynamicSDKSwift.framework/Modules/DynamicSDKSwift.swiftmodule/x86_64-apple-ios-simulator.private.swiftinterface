@@ -656,6 +656,842 @@ public struct PasskeyPubKeyCredParam : Swift.Codable {
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
+public struct ProjectSettings : Swift.Codable {
+  public let environmentName: DynamicSDKSwift.EnvironmentEnum?
+  public let chains: [DynamicSDKSwift.ProjectSettingsChains]
+  public let customFields: [DynamicSDKSwift.ProjectSettingsKyc]?
+  public let kyc: [DynamicSDKSwift.ProjectSettingsKyc]
+  public let design: DynamicSDKSwift.ProjectSettingsDesign
+  public let general: DynamicSDKSwift.ProjectSettingsGeneral
+  public let privacy: DynamicSDKSwift.ProjectSettingsPrivacy
+  public let providers: [DynamicSDKSwift.Provider]?
+  public let exchanges: [DynamicSDKSwift.Exchange]?
+  public let sdk: DynamicSDKSwift.ProjectSettingsSdk
+  public let security: DynamicSDKSwift.ProjectSettingsSecurity
+  public let networks: [DynamicSDKSwift.NetworkConfigurationResponse]?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum EnvironmentEnum : Swift.String, Swift.Codable {
+  case sandbox
+  case live
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct ProjectSettingsChains : Swift.Codable {
+  public let name: Swift.String
+  public let enabled: Swift.Bool
+  public let networks: [DynamicSDKSwift.ChainNetwork]?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ChainNetwork : Swift.Codable {
+  public let networkId: Swift.Int
+  public let chainName: Swift.String
+  public let enabled: Swift.Bool
+  public let rpcUrl: Swift.String?
+  public let iconUrl: Swift.String?
+  public let type: DynamicSDKSwift.NetworkTypeEnum?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum NetworkTypeEnum : Swift.String, Swift.Codable {
+  case custom
+  case `default`
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct ProjectSettingsKyc : Swift.Codable {
+  public let name: Swift.String
+  public let required: Swift.Bool
+  public let enabled: Swift.Bool
+  public let unique: Swift.Bool
+  public let verify: Swift.Bool
+  public let type: DynamicSDKSwift.KycFieldType?
+  public let validationRules: DynamicSDKSwift.CustomFieldValidationRules?
+  public let validationType: DynamicSDKSwift.CustomFieldType?
+  public let label: Swift.String?
+  public let position: Swift.Int?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum KycFieldType : Swift.String, Swift.Codable {
+  case standard
+  case custom
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum CustomFieldType : Swift.String, Swift.Codable {
+  case text
+  case checkbox
+  case select
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct CustomFieldValidationRules : Swift.Codable {
+  public let unique: Swift.Bool?
+  public let regex: Swift.String?
+  public let validOptions: [DynamicSDKSwift.CustomFieldValidValue]?
+  public let checkboxText: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct CustomFieldValidValue : Swift.Codable {
+  public let label: Swift.String
+  public let key: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ProjectSettingsDesign : Swift.Codable {
+  public let modal: DynamicSDKSwift.ProjectSettingsDesignModal?
+  public let button: DynamicSDKSwift.ProjectSettingsDesignButton?
+  public let widget: DynamicSDKSwift.ProjectSettingsDesignWidget?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ProjectSettingsDesignModal : Swift.Codable {
+  public let border: Swift.String?
+  public let brand: Swift.String?
+  public let primaryColor: Swift.String?
+  public let radius: Swift.Double?
+  public let theme: Swift.String?
+  public let view: Swift.String?
+  public let template: Swift.String?
+  public let displayOrder: [Swift.String]?
+  public let emailOnly: Swift.Bool?
+  public let showWalletsButton: Swift.Bool?
+  public let emailSubmitButtonInsideInput: Swift.Bool?
+  public let splitEmailAndSocial: Swift.Bool?
+  public let socialAboveEmail: Swift.Bool?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ProjectSettingsDesignButton : Swift.Codable {
+  public let background: Swift.String?
+  public let fontColor: Swift.String?
+  public let paddingHeight: Swift.Double?
+  public let paddingWidth: Swift.Double?
+  public let radius: Swift.Double?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ProjectSettingsDesignWidget : Swift.Codable {
+  public let backgroundColor: Swift.String?
+  public let border: Swift.String?
+  public let radius: Swift.Double?
+  public let textColor: Swift.String?
+  public let theme: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ProjectSettingsGeneral : Swift.Codable {
+  public let displayName: Swift.String?
+  public let supportEmail: Swift.String?
+  public let supportText: Swift.String?
+  public let appLogo: Swift.String?
+  public let imageUserNotInAccessList: Swift.String?
+  public let imageUserInAccessList: Swift.String?
+  public let supportUrls: [Swift.String : Swift.String]?
+  public let collectUserDataWelcomeHeader: Swift.String?
+  public let collectUserDataWelcomeMessage: Swift.String?
+  public let skipOptionalKYCFieldDuringOnboarding: Swift.Bool?
+  public let emailCompanyName: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ProjectSettingsPrivacy : Swift.Codable {
+  public let collectIp: Swift.Bool?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct Provider : Swift.Codable {
+  public let id: Swift.String?
+  public let provider: DynamicSDKSwift.ProviderEnum
+  public let enabledAt: Swift.String?
+  public let clientId: Swift.String?
+  public let clientSecret: Swift.String?
+  public let providerProjectId: Swift.String?
+  public let authorizationUrl: Swift.String?
+  public let redirectUrl: Swift.String?
+  public let defaultChainId: Swift.Int?
+  public let defaultChain: Swift.String?
+  public let keyExportUrl: Swift.String?
+  public let termsAcceptedByUser: DynamicSDKSwift.ProviderAgreement?
+  public let scopes: Swift.String?
+  public let baseAuthUrl: Swift.String?
+  public let appleKeyId: Swift.String?
+  public let appleTeamId: Swift.String?
+  public let shopifyStore: Swift.String?
+  public let domain: Swift.String?
+  public let accountSid: Swift.String?
+  public let twilioNumber: Swift.String?
+  public let twilioVerifyServiceSid: Swift.String?
+  public let enabledCountries: [DynamicSDKSwift.SmsCountryCode]?
+  public let sendgridIpPoolName: Swift.String?
+  public let entryPointVersion: DynamicSDKSwift.ProviderEntryPointVersionEnum?
+  public let kernelVersion: DynamicSDKSwift.ProviderKernelVersionEnum?
+  public let factoryAddress: Swift.String?
+  public let paymasterAddress: Swift.String?
+  public let passkeyAddress: Swift.String?
+  public let sessionAddress: Swift.String?
+  public let salt: Swift.String?
+  public let multichainAccountAbstractionProviders: [DynamicSDKSwift.ProviderMultichainAccountAbstractionProviders]?
+  public let ecdsaProviderType: DynamicSDKSwift.EcdsaValidatorOptions?
+  public let createNewAccounts: Swift.Bool?
+  public let enableKernelV3Migration: Swift.Bool?
+  public let enableEIP7702: Swift.Bool?
+  public let zerodevBundlerProvider: DynamicSDKSwift.ZerodevBundlerProvider?
+  public let zerodevBundlerRpcUrl: Swift.String?
+  public let zerodevPaymasterRpcUrl: Swift.String?
+  public let zerodevKernelDelegationAddress: Swift.String?
+  public let returnUrl: Swift.String?
+  public let cancelUrl: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum ProviderEnum : Swift.String, Swift.Codable {
+  case emailOnly
+  case magicLink
+  case apple
+  case bitbucket
+  case coinbasesocial
+  case discord
+  case epicgames
+  case facebook
+  case farcaster
+  case github
+  case gitlab
+  case google
+  case instagram
+  case linkedin
+  case microsoft
+  case twitch
+  case twitter
+  case blocto
+  case banxa
+  case coinbaseOnramp
+  case cryptoDotCom
+  case dynamic
+  case alchemy
+  case zerodev
+  case telegram
+  case turnkey
+  case coinbaseWaas
+  case sms
+  case spotify
+  case tiktok
+  case line
+  case steam
+  case shopify
+  case zksync
+  case kraken
+  case blockaid
+  case passkey
+  case okta
+  case sendgrid
+  case resend
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct ProviderAgreement : Swift.Codable {
+  public let termsUrl: Swift.String
+  public let email: Swift.String
+  public let userId: Swift.String
+  public let createdAt: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum ProviderEntryPointVersionEnum : Swift.String, Swift.Codable {
+  case v6
+  case v7
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum ProviderKernelVersionEnum : Swift.String, Swift.Codable {
+  case v24
+  case v30
+  case v31
+  case v32
+  case v33
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct ProviderMultichainAccountAbstractionProviders : Swift.Codable {
+  public let clientId: Swift.String
+  public let chain: Swift.String
+  public let `default`: Swift.Bool?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SmsCountryCode : Swift.Codable {
+  public let isoCountryCode: Swift.String
+  public let phoneCountryCode: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum EcdsaValidatorOptions : Swift.String, Swift.Codable {
+  case signerToEcdsa
+  case multiChain
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum ZerodevBundlerProvider : Swift.String, Swift.Codable {
+  case stackup
+  case pimlico
+  case alchemy
+  case gelato
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct Exchange : Swift.Codable {
+  public let id: Swift.String?
+  public let exchange: DynamicSDKSwift.ExchangeKeyEnum
+  public let enabledAt: Swift.String?
+  public let socialProvider: DynamicSDKSwift.ProviderEnum?
+  public let onRampProvider: DynamicSDKSwift.ProviderEnum?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum ExchangeKeyEnum : Swift.String, Swift.Codable {
+  case coinbase
+  case kraken
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct ProjectSettingsSdk : Swift.Codable {
+  public let nameService: DynamicSDKSwift.NameServiceSdkSettings?
+  public let featureFlags: DynamicSDKSwift.FeatureFlags?
+  public let emailSignIn: DynamicSDKSwift.ProjectSettingsSdkEmailSignIn?
+  public let socialSignIn: DynamicSDKSwift.ProjectSettingsSdkSocialSignIn?
+  public let exchangeOptions: [DynamicSDKSwift.ExchangeOption]?
+  public let multiWallet: Swift.Bool?
+  public let multiWalletUnlinkDisabled: Swift.Bool?
+  public let mobile: DynamicSDKSwift.MobileSettings?
+  public let confirmWalletTransfers: Swift.Bool?
+  public let onrampFunding: Swift.Bool?
+  public let passkeyEmbeddedWalletEnabled: Swift.Bool?
+  public let automaticEmbeddedWalletCreation: Swift.Bool?
+  public let passkeyEmbeddedWalletRecoveryEnabled: Swift.Bool?
+  public let embeddedWalletSecurityMethods: [DynamicSDKSwift.EmbeddedWalletSecurityMethod]?
+  public let embeddedWallets: DynamicSDKSwift.ProjectSettingsSdkEmbeddedWallets?
+  public let waas: DynamicSDKSwift.ProjectSettingsSdkWaas?
+  public let walletConnect: DynamicSDKSwift.ProjectSettingsSdkWalletConnect?
+  public let confirmEmailProviderForVerify: Swift.Bool?
+  public let displayDynamicMessaging: Swift.Bool?
+  public let hideNetworkInDynamicWidget: Swift.Bool?
+  public let preventOrphanedAccounts: Swift.Bool?
+  public let views: [DynamicSDKSwift.SdkView]?
+  public let accountAbstraction: DynamicSDKSwift.ProjectSettingsSdkAccountAbstraction?
+  public let blockEmailSubaddresses: Swift.Bool?
+  public let enableMultiAsset: Swift.Bool?
+  public let showFiat: Swift.Bool?
+  public let disabledWalletConnectors: [Swift.String]?
+  public let funding: DynamicSDKSwift.Funding?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct NameServiceSdkSettings : Swift.Codable {
+  public let evm: DynamicSDKSwift.NameServiceSdkSettingsEvm?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct NameServiceSdkSettingsEvm : Swift.Codable {
+  public let domain: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct FeatureFlags : Swift.Codable {
+  public let connectOnlyMultiAsset: Swift.Bool
+  public let enableExchanges: Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ProjectSettingsSdkEmailSignIn : Swift.Codable {
+  public let signInProvider: DynamicSDKSwift.SignInProviderEnum?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ProjectSettingsSdkSocialSignIn : Swift.Codable {
+  public let signInProvider: DynamicSDKSwift.SignInProviderEnum?
+  public let providers: [DynamicSDKSwift.SocialSignInProvider]?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum SignInProviderEnum : Swift.String, Swift.Codable {
+  case dynamic
+  case magicLink
+  case blocto
+  case turnkey
+  case coinbaseWaas
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct SocialSignInProvider : Swift.Codable {
+  public let provider: DynamicSDKSwift.SocialSignInProviderEnum
+  public let enabled: Swift.Bool?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum SocialSignInProviderEnum : Swift.String, Swift.Codable {
+  case apple
+  case bitbucket
+  case coinbasesocial
+  case discord
+  case epicgames
+  case facebook
+  case farcaster
+  case github
+  case gitlab
+  case google
+  case instagram
+  case linkedin
+  case microsoft
+  case twitch
+  case twitter
+  case telegram
+  case spotify
+  case tiktok
+  case line
+  case steam
+  case shopify
+  case kraken
+  case okta
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct ExchangeOption : Swift.Codable {
+  public let exchange: DynamicSDKSwift.ExchangeKeyEnum
+  public let socialProvider: DynamicSDKSwift.ProviderEnum?
+  public let onRampProvider: DynamicSDKSwift.ProviderEnum?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct MobileSettings : Swift.Codable {
+  public let deeplinkUrlsEnabled: Swift.Bool?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum EmbeddedWalletSecurityMethod : Swift.String, Swift.Codable {
+  case passkey
+  case passphrase
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct ProjectSettingsSdkEmbeddedWallets : Swift.Codable {
+  public let automaticEmbeddedWalletCreation: Swift.Bool?
+  public let automaticEmbeddedWalletCreationForExternal: Swift.Bool?
+  public let showEmbeddedWalletActionsUI: Swift.Bool?
+  public let emailRecoveryEnabled: Swift.Bool?
+  public let forceAuthenticatorAtSignup: Swift.Bool?
+  public let allowSkippingAuthenticatorAtSignup: Swift.Bool?
+  public let sessionKeyDuration: DynamicSDKSwift.Duration?
+  public let supportedSecurityMethods: DynamicSDKSwift.SupportedSecurityMethods?
+  public let chainConfigurations: [DynamicSDKSwift.ChainConfiguration]?
+  public let domainEnabledByProvider: Swift.Bool?
+  public let defaultWalletVersion: DynamicSDKSwift.EmbeddedWalletVersionEnum?
+  public let promptForKeyExport: Swift.Bool?
+  public let transactionSimulation: Swift.Bool?
+  public let svmGasSponsorshipEnabled: Swift.Bool?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SupportedSecurityMethods : Swift.Codable {
+  public let passkey: DynamicSDKSwift.SupportedSecurityMethod?
+  public let email: DynamicSDKSwift.SupportedSecurityMethod?
+  public let password: DynamicSDKSwift.SupportedSecurityMethod?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SupportedSecurityMethod : Swift.Codable {
+  public let enabled: Swift.Bool?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ChainConfiguration : Swift.Codable {
+  public let name: Swift.String
+  public let enabled: Swift.Bool
+  public let primary: Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum EmbeddedWalletVersionEnum : Swift.String, Swift.Codable {
+  case v1
+  case v2
+  case v3
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct Duration : Swift.Codable {
+  public let amount: Swift.Int
+  public let unit: DynamicSDKSwift.TimeUnitEnum
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum TimeUnitEnum : Swift.String, Swift.Codable {
+  case days
+  case hours
+  case minutes
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct ProjectSettingsSdkWaas : Swift.Codable {
+  public let allowMultipleWaasWalletsPerChain: Swift.Bool?
+  public let passcodeRequired: Swift.Bool
+  public let onSignUp: DynamicSDKSwift.ProjectSettingsSdkWaasOnSignUp
+  public let backupOptions: [DynamicSDKSwift.WaasBackupOptionsEnum]
+  public let iCloud: DynamicSDKSwift.ProjectSettingsSdkWaasICloud?
+  public let relayUrl: Swift.String?
+  public let delegatedAccessEndpoint: Swift.String?
+  public let delegatedAccess: DynamicSDKSwift.ProjectSettingsSdkWaasDelegatedAccess?
+  public let enableForwardMPCClient: Swift.Bool?
+  public let customKeyshareRelayBaseUrl: Swift.String?
+  public let exportDisabled: Swift.Bool?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ProjectSettingsSdkWaasOnSignUp : Swift.Codable {
+  public let promptBackupOptions: Swift.Bool
+  public let promptClientShareExport: Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum WaasBackupOptionsEnum : Swift.String, Swift.Codable {
+  case googleDrive
+  case iCloud
+  case dynamic
+  case external
+  case delegated
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct ProjectSettingsSdkWaasICloud : Swift.Codable {
+  public let containerIdentifier: Swift.String?
+  public let apiToken: Swift.String?
+  public let environment: DynamicSDKSwift.ProjectSettingsSdkWaasICloudEnvironmentEnum?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum ProjectSettingsSdkWaasICloudEnvironmentEnum : Swift.String, Swift.Codable {
+  case development
+  case production
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct ProjectSettingsSdkWaasDelegatedAccess : Swift.Codable {
+  public let enabled: Swift.Bool?
+  public let promptUsersOnSignIn: Swift.Bool?
+  public let requiresDelegation: Swift.Bool?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ProjectSettingsSdkWalletConnect : Swift.Codable {
+  public let projectId: Swift.String?
+  public let v2Enabled: Swift.Bool?
+  public let walletProjectId: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ProjectSettingsSdkAccountAbstraction : Swift.Codable {
+  public let allWallets: Swift.Bool?
+  public let allUsers: Swift.Bool?
+  public let separateSmartWalletAndSigner: Swift.Bool?
+  public let enablePasskeys: Swift.Bool?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SdkView : Swift.Codable {
+  public let type: DynamicSDKSwift.SdkViewType
+  public let sections: [DynamicSDKSwift.SdkViewSection]?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum SdkViewType : Swift.String, Swift.Codable {
+  case login
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct SdkViewSection : Swift.Codable {
+  public let type: DynamicSDKSwift.SdkViewSectionType
+  public let label: Swift.String?
+  public let numOfItemsToDisplay: Swift.Int?
+  public let defaultItem: Swift.String?
+  public let alignment: DynamicSDKSwift.SdkViewSectionAlignment?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum SdkViewSectionType : Swift.String, Swift.Codable {
+  case email
+  case emailAndPhone
+  case phone
+  case separator
+  case social
+  case text
+  case wallet
+  case passkey
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum SdkViewSectionAlignment : Swift.String, Swift.Codable {
+  case left
+  case center
+  case right
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct Funding : Swift.Codable {
+  public let onramps: [DynamicSDKSwift.OnrampProviders]
+  public let externalWallets: DynamicSDKSwift.FundingExternalWallets?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum OnrampProviders : Swift.String, Swift.Codable {
+  case banxa
+  case coinbaseOnramp
+  case cryptoDotCom
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct FundingExternalWallets : Swift.Codable {
+  public let enabled: Swift.Bool
+  public let minAmount: AnyCodableSwift.AnyCodable?
+  public let defaultSettings: AnyCodableSwift.AnyCodable?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ProjectSettingsSecurity : Swift.Codable {
+  public let jwtDuration: DynamicSDKSwift.Duration?
+  public let hCaptcha: DynamicSDKSwift.HCaptchaSettings?
+  public let mfa: DynamicSDKSwift.MFASettings?
+  public let auth: DynamicSDKSwift.AuthSettings?
+  public let externalAuth: DynamicSDKSwift.ExternalAuth?
+  public let environmentLocked: Swift.Bool?
+  public let notifications: DynamicSDKSwift.SecurityNotifications?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct HCaptchaSettings : Swift.Codable {
+  public let enabled: Swift.Bool?
+  public let secretKey: Swift.String?
+  public let siteKey: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct MFASettings : Swift.Codable {
+  public let enabled: Swift.Bool?
+  public let required: Swift.Bool?
+  public let availableMethods: [DynamicSDKSwift.MFADeviceType]?
+  public let methods: [DynamicSDKSwift.MFASettingsMethods]?
+  public let actions: [DynamicSDKSwift.MFASettingsActions]?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum MFADeviceType : Swift.String, Swift.Codable {
+  case totp
+  case passkey
+  case email
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct MFASettingsMethods : Swift.Codable {
+  public let type: DynamicSDKSwift.MFADeviceType
+  public let enabled: Swift.Bool
+  public let allowBackupCodes: Swift.Bool?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct MFASettingsActions : Swift.Codable {
+  public let action: Swift.String
+  public let required: Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct AuthSettings : Swift.Codable {
+  public let storage: [DynamicSDKSwift.AuthStorageEnum]
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum AuthStorageEnum : Swift.String, Swift.Codable {
+  case localstorage
+  case cookie
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct ExternalAuth : Swift.Codable {
+  public let enabled: Swift.Bool?
+  public let iss: Swift.String?
+  public let aud: Swift.String?
+  public let jwksUrl: Swift.String?
+  public let cookieName: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SecurityNotifications : Swift.Codable {
+  public let verifiedCredentialLinked: Swift.Bool?
+  public let verifiedCredentialUnlinked: Swift.Bool?
+  public let waasPrivateKeyExport: Swift.Bool?
+  public let waasSignedTransaction: Swift.Bool?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct NetworkConfigurationResponse : Swift.Codable {
+  public let chainName: Swift.String?
+  public let networks: [DynamicSDKSwift.NetworkConfigurationItem]?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct NetworkConfigurationItem : Swift.Codable {
+  public let lcdUrl: Swift.String?
+  public let chainName: Swift.String?
+  public let key: Swift.String?
+  public let name: Swift.String
+  public let shortName: Swift.String
+  public let isTestnet: Swift.Bool?
+  public let chain: Swift.String
+  public let chainId: Swift.String
+  public let nameService: DynamicSDKSwift.NameServiceConfig?
+  public let networkId: Swift.String
+  public let iconUrls: [Swift.String]
+  public let nativeCurrency: DynamicSDKSwift.NetworkCurrencyConfig
+  public let rpcUrls: [Swift.String]
+  public let privateCustomerRpcUrls: [Swift.String]?
+  public let blockExplorerUrls: [Swift.String]
+  public let vanityName: Swift.String?
+  public let bech32Prefix: Swift.String?
+  public let genesisHash: Swift.String?
+  public let cluster: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct NameServiceConfig : Swift.Codable {
+  public let registry: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct NetworkCurrencyConfig : Swift.Codable {
+  public let decimals: Swift.Int
+  public let name: Swift.String
+  public let symbol: Swift.String
+  public let denom: Swift.String?
+  public let iconUrl: Swift.String?
+  public let pricingProviderTokenId: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
 public struct SerializedErrorArgs : Swift.Codable {
   public let message: Swift.String?
   public let name: Swift.String?
@@ -897,6 +1733,9 @@ final public class AuthModule {
   }
   #endif
   final public func logout() async throws
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func getProjectSettings() async throws -> DynamicSDKSwift.ProjectSettings?
+  #endif
   @objc deinit
 }
 public struct UserProfile : Swift.Codable, Swift.Equatable {
@@ -1193,6 +2032,75 @@ extension DynamicSDKSwift.EmbeddedWalletChain : Swift.RawRepresentable {}
 extension DynamicSDKSwift.MfaDeviceType : Swift.Equatable {}
 extension DynamicSDKSwift.MfaDeviceType : Swift.Hashable {}
 extension DynamicSDKSwift.MfaDeviceType : Swift.RawRepresentable {}
+extension DynamicSDKSwift.EnvironmentEnum : Swift.Equatable {}
+extension DynamicSDKSwift.EnvironmentEnum : Swift.Hashable {}
+extension DynamicSDKSwift.EnvironmentEnum : Swift.RawRepresentable {}
+extension DynamicSDKSwift.NetworkTypeEnum : Swift.Equatable {}
+extension DynamicSDKSwift.NetworkTypeEnum : Swift.Hashable {}
+extension DynamicSDKSwift.NetworkTypeEnum : Swift.RawRepresentable {}
+extension DynamicSDKSwift.KycFieldType : Swift.Equatable {}
+extension DynamicSDKSwift.KycFieldType : Swift.Hashable {}
+extension DynamicSDKSwift.KycFieldType : Swift.RawRepresentable {}
+extension DynamicSDKSwift.CustomFieldType : Swift.Equatable {}
+extension DynamicSDKSwift.CustomFieldType : Swift.Hashable {}
+extension DynamicSDKSwift.CustomFieldType : Swift.RawRepresentable {}
+extension DynamicSDKSwift.ProviderEnum : Swift.Equatable {}
+extension DynamicSDKSwift.ProviderEnum : Swift.Hashable {}
+extension DynamicSDKSwift.ProviderEnum : Swift.RawRepresentable {}
+extension DynamicSDKSwift.ProviderEntryPointVersionEnum : Swift.Equatable {}
+extension DynamicSDKSwift.ProviderEntryPointVersionEnum : Swift.Hashable {}
+extension DynamicSDKSwift.ProviderEntryPointVersionEnum : Swift.RawRepresentable {}
+extension DynamicSDKSwift.ProviderKernelVersionEnum : Swift.Equatable {}
+extension DynamicSDKSwift.ProviderKernelVersionEnum : Swift.Hashable {}
+extension DynamicSDKSwift.ProviderKernelVersionEnum : Swift.RawRepresentable {}
+extension DynamicSDKSwift.EcdsaValidatorOptions : Swift.Equatable {}
+extension DynamicSDKSwift.EcdsaValidatorOptions : Swift.Hashable {}
+extension DynamicSDKSwift.EcdsaValidatorOptions : Swift.RawRepresentable {}
+extension DynamicSDKSwift.ZerodevBundlerProvider : Swift.Equatable {}
+extension DynamicSDKSwift.ZerodevBundlerProvider : Swift.Hashable {}
+extension DynamicSDKSwift.ZerodevBundlerProvider : Swift.RawRepresentable {}
+extension DynamicSDKSwift.ExchangeKeyEnum : Swift.Equatable {}
+extension DynamicSDKSwift.ExchangeKeyEnum : Swift.Hashable {}
+extension DynamicSDKSwift.ExchangeKeyEnum : Swift.RawRepresentable {}
+extension DynamicSDKSwift.SignInProviderEnum : Swift.Equatable {}
+extension DynamicSDKSwift.SignInProviderEnum : Swift.Hashable {}
+extension DynamicSDKSwift.SignInProviderEnum : Swift.RawRepresentable {}
+extension DynamicSDKSwift.SocialSignInProviderEnum : Swift.Equatable {}
+extension DynamicSDKSwift.SocialSignInProviderEnum : Swift.Hashable {}
+extension DynamicSDKSwift.SocialSignInProviderEnum : Swift.RawRepresentable {}
+extension DynamicSDKSwift.EmbeddedWalletSecurityMethod : Swift.Equatable {}
+extension DynamicSDKSwift.EmbeddedWalletSecurityMethod : Swift.Hashable {}
+extension DynamicSDKSwift.EmbeddedWalletSecurityMethod : Swift.RawRepresentable {}
+extension DynamicSDKSwift.EmbeddedWalletVersionEnum : Swift.Equatable {}
+extension DynamicSDKSwift.EmbeddedWalletVersionEnum : Swift.Hashable {}
+extension DynamicSDKSwift.EmbeddedWalletVersionEnum : Swift.RawRepresentable {}
+extension DynamicSDKSwift.TimeUnitEnum : Swift.Equatable {}
+extension DynamicSDKSwift.TimeUnitEnum : Swift.Hashable {}
+extension DynamicSDKSwift.TimeUnitEnum : Swift.RawRepresentable {}
+extension DynamicSDKSwift.WaasBackupOptionsEnum : Swift.Equatable {}
+extension DynamicSDKSwift.WaasBackupOptionsEnum : Swift.Hashable {}
+extension DynamicSDKSwift.WaasBackupOptionsEnum : Swift.RawRepresentable {}
+extension DynamicSDKSwift.ProjectSettingsSdkWaasICloudEnvironmentEnum : Swift.Equatable {}
+extension DynamicSDKSwift.ProjectSettingsSdkWaasICloudEnvironmentEnum : Swift.Hashable {}
+extension DynamicSDKSwift.ProjectSettingsSdkWaasICloudEnvironmentEnum : Swift.RawRepresentable {}
+extension DynamicSDKSwift.SdkViewType : Swift.Equatable {}
+extension DynamicSDKSwift.SdkViewType : Swift.Hashable {}
+extension DynamicSDKSwift.SdkViewType : Swift.RawRepresentable {}
+extension DynamicSDKSwift.SdkViewSectionType : Swift.Equatable {}
+extension DynamicSDKSwift.SdkViewSectionType : Swift.Hashable {}
+extension DynamicSDKSwift.SdkViewSectionType : Swift.RawRepresentable {}
+extension DynamicSDKSwift.SdkViewSectionAlignment : Swift.Equatable {}
+extension DynamicSDKSwift.SdkViewSectionAlignment : Swift.Hashable {}
+extension DynamicSDKSwift.SdkViewSectionAlignment : Swift.RawRepresentable {}
+extension DynamicSDKSwift.OnrampProviders : Swift.Equatable {}
+extension DynamicSDKSwift.OnrampProviders : Swift.Hashable {}
+extension DynamicSDKSwift.OnrampProviders : Swift.RawRepresentable {}
+extension DynamicSDKSwift.MFADeviceType : Swift.Equatable {}
+extension DynamicSDKSwift.MFADeviceType : Swift.Hashable {}
+extension DynamicSDKSwift.MFADeviceType : Swift.RawRepresentable {}
+extension DynamicSDKSwift.AuthStorageEnum : Swift.Equatable {}
+extension DynamicSDKSwift.AuthStorageEnum : Swift.Hashable {}
+extension DynamicSDKSwift.AuthStorageEnum : Swift.RawRepresentable {}
 extension DynamicSDKSwift.StorageMessageSource : Swift.Equatable {}
 extension DynamicSDKSwift.StorageMessageSource : Swift.Hashable {}
 extension DynamicSDKSwift.StorageMessageSource : Swift.RawRepresentable {}

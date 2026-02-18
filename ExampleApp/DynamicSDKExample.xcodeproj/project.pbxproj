@@ -16,7 +16,7 @@
 		25AFB8CD2F0000020013666E /* MfaRecoveryCodesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AFB8C82F0000020013666E /* MfaRecoveryCodesScreen.swift */; };
 		25AFB8CE2F0000020013666E /* PasskeysScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AFB8C92F0000020013666E /* PasskeysScreen.swift */; };
 		25AFB8CF2F0000020013666E /* DynamicSDKExample/Components/SecurityComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AFB8CA2F0000020013666E /* DynamicSDKExample/Components/SecurityComponents.swift */; };
-		25CEAA262F3D01FC00B4ACBF /* DynamicSDKSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 25CEAA252F3D01FC00B4ACBF /* DynamicSDKSwift */; };
+		25EF7AF12F45F8BD00AD94FD /* DynamicSDKSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 25EF7AF02F45F8BD00AD94FD /* DynamicSDKSwift */; };
 		2B307B30551580BE806D398B /* WalletDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E20DCE7D3D453D72016B4 /* WalletDetailsViewModel.swift */; };
 		2F7B0B6E9B0F4D3D9F7D0C41 /* SwitchNetworkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7B0B6D9B0F4D3D9F7D0C41 /* SwitchNetworkViewModel.swift */; };
 		404BC9C5B3FEEFF1D1A21C15 /* SwitchNetworkScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31588B8A6C4C6AA4D2E86E36 /* SwitchNetworkScreen.swift */; };
@@ -42,6 +42,8 @@
 		BBF6EE2C54F3261916A52BD5 /* SplashScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA35598A278FA06EBE84A0A8 /* SplashScreenViewModel.swift */; };
 		CUST0001000000000001 /* CustomBalanceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CUST0002000000000001 /* CustomBalanceScreen.swift */; };
 		CUST0001000000000002 /* CustomBalanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CUST0002000000000002 /* CustomBalanceViewModel.swift */; };
+		PRJS0001000000000001 /* ProjectSettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = PRJS0002000000000001 /* ProjectSettingsScreen.swift */; };
+		SPLT0001000000000001 /* SolanaSendSplTokenScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = SPLT0002000000000001 /* SolanaSendSplTokenScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -93,6 +95,8 @@
 		BA35598A278FA06EBE84A0A8 /* SplashScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewModel.swift; sourceTree = "<group>"; };
 		CUST0002000000000001 /* CustomBalanceScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBalanceScreen.swift; sourceTree = "<group>"; };
 		CUST0002000000000002 /* CustomBalanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBalanceViewModel.swift; sourceTree = "<group>"; };
+		PRJS0002000000000001 /* ProjectSettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSettingsScreen.swift; sourceTree = "<group>"; };
+		SPLT0002000000000001 /* SolanaSendSplTokenScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolanaSendSplTokenScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25CEAA262F3D01FC00B4ACBF /* DynamicSDKSwift in Frameworks */,
+				25EF7AF12F45F8BD00AD94FD /* DynamicSDKSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +181,7 @@
 				25AFB8C82F0000020013666E /* MfaRecoveryCodesScreen.swift */,
 				25206D5B2F3B3A5D007740AA /* DelegationScreen.swift */,
 				25AFB8C92F0000020013666E /* PasskeysScreen.swift */,
+				PRJS0002000000000001 /* ProjectSettingsScreen.swift */,
 				9B2C9C792B00000100000020 /* Wallet */,
 			);
 			path = Screens;
@@ -200,6 +205,7 @@
 				9B2C9C7F2B00000100000012 /* EvmSendTransactionScreen.swift */,
 				9B2C9C7F2B00000100000013 /* EvmWriteContractScreen.swift */,
 				41874C723A6DE7A70EE54055 /* EvmSendErc20Screen.swift */,
+				SPLT0002000000000001 /* SolanaSendSplTokenScreen.swift */,
 			);
 			path = Wallet;
 			sourceTree = "<group>";
@@ -222,7 +228,7 @@
 			);
 			name = DynamicSDKExample;
 			packageProductDependencies = (
-				25CEAA252F3D01FC00B4ACBF /* DynamicSDKSwift */,
+				25EF7AF02F45F8BD00AD94FD /* DynamicSDKSwift */,
 			);
 			productName = DynamicSDKExample;
 			productReference = 9B2C9C6A2B00000100000001 /* DynamicSDKExample.app */;
@@ -252,7 +258,7 @@
 			);
 			mainGroup = 9B2C9C612B00000100000001;
 			packageReferences = (
-				25CEAA242F3D01FC00B4ACBF /* XCLocalSwiftPackageReference "../../dynamic_sdk_swift_with_sample_app" */,
+				25EF7AEF2F45F8BD00AD94FD /* XCLocalSwiftPackageReference "../../dynamic_sdk_swift_with_sample_app" */,
 			);
 			productRefGroup = 9B2C9C6B2B00000100000001 /* Products */;
 			projectDirPath = "";
@@ -312,6 +318,8 @@
 				45D32B68DEAED49BBC8AC812 /* EvmSendErc20Screen.swift in Sources */,
 				CUST0001000000000001 /* CustomBalanceScreen.swift in Sources */,
 				CUST0001000000000002 /* CustomBalanceViewModel.swift in Sources */,
+				PRJS0001000000000001 /* ProjectSettingsScreen.swift in Sources */,
+				SPLT0001000000000001 /* SolanaSendSplTokenScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,14 +451,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		25CEAA242F3D01FC00B4ACBF /* XCLocalSwiftPackageReference "../../dynamic_sdk_swift_with_sample_app" */ = {
+		25EF7AEF2F45F8BD00AD94FD /* XCLocalSwiftPackageReference "../../dynamic_sdk_swift_with_sample_app" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../../dynamic_sdk_swift_with_sample_app;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		25CEAA252F3D01FC00B4ACBF /* DynamicSDKSwift */ = {
+		25EF7AF02F45F8BD00AD94FD /* DynamicSDKSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DynamicSDKSwift;
 		};

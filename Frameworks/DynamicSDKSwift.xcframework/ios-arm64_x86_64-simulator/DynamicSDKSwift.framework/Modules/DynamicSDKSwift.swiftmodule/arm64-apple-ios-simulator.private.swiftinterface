@@ -90,7 +90,7 @@ public struct ClientProps : Swift.Equatable {
   public var debug: DynamicSDKSwift.ClientDebugProps?
   public var evmNetworks: [DynamicSDKSwift.GenericNetwork]?
   #if compiler(>=5.3) && $NonescapableTypes
-  public init(environmentId: Swift.String, apiBaseUrl: Swift.String? = nil, appLogoUrl: Swift.String? = nil, appName: Swift.String = "Dynamic", redirectUrl: Swift.String? = nil, appOrigin: Swift.String? = nil, cssOverrides: Swift.String? = nil, debugWebview: Swift.Bool = false, logLevel: DynamicSDKSwift.LoggerLevel = .info, debug: DynamicSDKSwift.ClientDebugProps? = nil, evmNetworks: [DynamicSDKSwift.GenericNetwork]? = nil)
+  public init(environmentId: Swift.String, apiBaseUrl: Swift.String? = "https://app.dynamicauth.com/api/v0", appLogoUrl: Swift.String? = nil, appName: Swift.String = "Dynamic", redirectUrl: Swift.String? = nil, appOrigin: Swift.String? = nil, cssOverrides: Swift.String? = nil, debugWebview: Swift.Bool = false, logLevel: DynamicSDKSwift.LoggerLevel = .info, debug: DynamicSDKSwift.ClientDebugProps? = nil, evmNetworks: [DynamicSDKSwift.GenericNetwork]? = nil)
   #endif
   public static func == (a: DynamicSDKSwift.ClientProps, b: DynamicSDKSwift.ClientProps) -> Swift.Bool
 }

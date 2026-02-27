@@ -49,13 +49,24 @@ extension DynamicSDKSwift.WalletsModule {
   final public func signTypedData(walletId: Swift.String, typedData: DynamicSDKSwift.TypedData) async throws -> Swift.String
   final public func signTypedData(wallet: DynamicSDKSwift.BaseWallet, typedDataJson: Swift.String) async throws -> Swift.String
 }
+public enum SolanaTransactionType : Swift.String {
+  case versioned
+  case legacy
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
 final public class DynamicSolanaSigner {
   public init(requestChannel: DynamicSDKSwift.RequestChannel, wallet: DynamicSDKSwift.BaseWallet)
   final public func signMessage(message: Swift.String) async throws -> Swift.String
-  final public func signAndSendEncodedTransaction(base64Transaction: Swift.String) async throws -> Swift.String
-  final public func signAndSendTransaction(serializedTransaction: Foundation.Data) async throws -> Swift.String
-  final public func signEncodedTransaction(base64Transaction: Swift.String) async throws -> Swift.String
-  final public func signTransaction(serializedTransaction: SolanaWeb3.Transaction) async throws -> Swift.String
+  final public func signAndSendEncodedTransaction(base64Transaction: Swift.String, transactionType: DynamicSDKSwift.SolanaTransactionType = .versioned) async throws -> Swift.String
+  final public func signAndSendTransaction(serializedTransaction: Foundation.Data, transactionType: DynamicSDKSwift.SolanaTransactionType = .versioned) async throws -> Swift.String
+  final public func signEncodedTransaction(base64Transaction: Swift.String, transactionType: DynamicSDKSwift.SolanaTransactionType = .versioned) async throws -> Swift.String
+  final public func signTransaction(serializedTransaction: SolanaWeb3.Transaction, transactionType: DynamicSDKSwift.SolanaTransactionType = .versioned) async throws -> Swift.String
   @objc deinit
 }
 final public class SolanaModule {
@@ -304,8 +315,9 @@ public struct BaseWallet : Swift.Equatable {
   public let publicKey: Swift.String?
   public let walletName: Swift.String?
   public let walletProvider: Swift.String?
+  public let is7702: Swift.Bool
   #if compiler(>=5.3) && $NonescapableTypes
-  public init(id: Swift.String? = nil, address: Swift.String, chain: Swift.String, publicKey: Swift.String? = nil, walletName: Swift.String? = nil, walletProvider: Swift.String? = nil)
+  public init(id: Swift.String? = nil, address: Swift.String, chain: Swift.String, publicKey: Swift.String? = nil, walletName: Swift.String? = nil, walletProvider: Swift.String? = nil, is7702: Swift.Bool = false)
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
   public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.BaseWallet?
@@ -1602,6 +1614,20 @@ public struct WalletDelegatedStatus : Swift.Codable {
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
+public struct WalletRecoveryState {
+  public let walletReadyState: Swift.String
+  public let isPasswordEncrypted: Swift.Bool
+  public var isEncrypted: Swift.Bool {
+    get
+  }
+  public var isReady: Swift.Bool {
+    get
+  }
+  public init(walletReadyState: Swift.String, isPasswordEncrypted: Swift.Bool)
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.WalletRecoveryState?
+  #endif
+}
 public struct WriteContractInput {
   public let address: Swift.String
   public let abi: [[Swift.String : Any]]
@@ -1751,6 +1777,24 @@ public struct UserProfile : Swift.Codable, Swift.Equatable {
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
+final public class DelegationModule {
+  public init(_ transport: DynamicSDKSwift.MessageTransport)
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func initDelegationProcess(walletIds: [Swift.String]? = nil) async throws
+  #endif
+  final public func shouldPromptWalletDelegation() async throws -> Swift.Bool
+  final public func getWalletsDelegatedStatus() async throws -> [DynamicSDKSwift.WalletDelegatedStatus]
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func delegateKeyShares(wallets: [DynamicSDKSwift.DelegationWalletIdentifier]? = nil) async throws
+  #endif
+  final public func revokeDelegation(wallets: [DynamicSDKSwift.DelegationWalletIdentifier]) async throws
+  final public func denyWalletDelegation(walletId: Swift.String) async throws
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func dismissDelegationPrompt(walletId: Swift.String? = nil) async throws
+  #endif
+  final public func clearDelegationSessionState() async throws
+  @objc deinit
+}
 final public class EmbeddedWalletsModule {
   public static let messageType: Swift.String
   public static let prefix: Swift.String
@@ -1899,9 +1943,21 @@ final public class UserInterfaceModule {
   final public func revealEmbeddedWalletPrivateKey() async throws
   @objc deinit
 }
+final public class WaasModule {
+  final public let delegation: DynamicSDKSwift.DelegationModule
+  public init(_ transport: DynamicSDKSwift.MessageTransport)
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func unlockWallet(wallet: DynamicSDKSwift.BaseWallet, password: Swift.String? = nil) async throws
+  #endif
+  final public func updatePassword(wallet: DynamicSDKSwift.BaseWallet, existingPassword: Swift.String, newPassword: Swift.String) async throws
+  final public func setPassword(wallet: DynamicSDKSwift.BaseWallet, newPassword: Swift.String) async throws
+  final public func getWalletRecoveryState(wallet: DynamicSDKSwift.BaseWallet) async throws -> DynamicSDKSwift.WalletRecoveryState
+  @objc deinit
+}
 final public class WalletsModule {
   final public let requestChannel: DynamicSDKSwift.RequestChannel
   final public let embedded: DynamicSDKSwift.EmbeddedWalletsModule
+  final public let waas: DynamicSDKSwift.WaasModule
   public init(_ transport: DynamicSDKSwift.MessageTransport)
   final public var userWallets: [DynamicSDKSwift.BaseWallet] {
     get
@@ -1936,18 +1992,26 @@ final public class WalletsModule {
   final public func switchNetwork(wallet: DynamicSDKSwift.BaseWallet, network: DynamicSDKSwift.Network) async throws
   final public func getMultichainBalances(balanceRequest: DynamicSDKSwift.MultichainBalanceRequest) async throws -> DynamicSDKSwift.MultichainBalancesResponse
   #if compiler(>=5.3) && $NonescapableTypes
+  @available(*, deprecated, message: "Use wallets.waas.delegation.initDelegationProcess instead")
   final public func initDelegationProcess(walletIds: [Swift.String]? = nil) async throws
   #endif
+  @available(*, deprecated, message: "Use wallets.waas.delegation.shouldPromptWalletDelegation instead")
   final public func shouldPromptWalletDelegation() async throws -> Swift.Bool
+  @available(*, deprecated, message: "Use wallets.waas.delegation.getWalletsDelegatedStatus instead")
   final public func getWalletsDelegatedStatus() async throws -> [DynamicSDKSwift.WalletDelegatedStatus]
   #if compiler(>=5.3) && $NonescapableTypes
+  @available(*, deprecated, message: "Use wallets.waas.delegation.delegateKeyShares instead")
   final public func delegateKeyShares(wallets: [DynamicSDKSwift.DelegationWalletIdentifier]? = nil) async throws
   #endif
+  @available(*, deprecated, message: "Use wallets.waas.delegation.revokeDelegation instead")
   final public func revokeDelegation(wallets: [DynamicSDKSwift.DelegationWalletIdentifier]) async throws
+  @available(*, deprecated, message: "Use wallets.waas.delegation.denyWalletDelegation instead")
   final public func denyWalletDelegation(walletId: Swift.String) async throws
   #if compiler(>=5.3) && $NonescapableTypes
+  @available(*, deprecated, message: "Use wallets.waas.delegation.dismissDelegationPrompt instead")
   final public func dismissDelegationPrompt(walletId: Swift.String? = nil) async throws
   #endif
+  @available(*, deprecated, message: "Use wallets.waas.delegation.clearDelegationSessionState instead")
   final public func clearDelegationSessionState() async throws
   @objc deinit
 }
@@ -2017,6 +2081,9 @@ extension DynamicSDKSwift.DynamicWebViewController : WebKit.WKNavigationDelegate
   @_Concurrency.MainActor @preconcurrency @objc final public func webView(_ webView: WebKit.WKWebView, didFailProvisionalNavigation navigation: WebKit.WKNavigation!, withError error: any Swift.Error)
   #endif
 }
+extension DynamicSDKSwift.SolanaTransactionType : Swift.Equatable {}
+extension DynamicSDKSwift.SolanaTransactionType : Swift.Hashable {}
+extension DynamicSDKSwift.SolanaTransactionType : Swift.RawRepresentable {}
 extension DynamicSDKSwift.LoggerLevel : Swift.Equatable {}
 extension DynamicSDKSwift.LoggerLevel : Swift.Hashable {}
 extension DynamicSDKSwift.LoggerLevel : Swift.RawRepresentable {}

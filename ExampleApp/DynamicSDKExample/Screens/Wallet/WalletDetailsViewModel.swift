@@ -97,7 +97,7 @@ final class WalletDetailsViewModel: ObservableObject {
     Task { @MainActor in
       do {
         let chainEnum: ChainEnum = wallet.chain.uppercased() == "EVM" ? .evm : .sol
-        try await sdk.wallets.delegateKeyShares(
+        try await sdk.wallets.waas.delegation.delegateKeyShares(
           wallets: [
             DelegationWalletIdentifier(
               chainName: chainEnum,
@@ -119,7 +119,7 @@ final class WalletDetailsViewModel: ObservableObject {
     Task { @MainActor in
       do {
         let chainEnum: ChainEnum = wallet.chain.uppercased() == "EVM" ? .evm : .sol
-        try await sdk.wallets.revokeDelegation(
+        try await sdk.wallets.waas.delegation.revokeDelegation(
           wallets: [
             DelegationWalletIdentifier(
               chainName: chainEnum,

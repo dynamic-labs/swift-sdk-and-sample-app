@@ -307,7 +307,7 @@ class DelegationViewModel: ObservableObject {
                     }
                     return
                 }
-                try await sdk.wallets.initDelegationProcess()
+                try await sdk.wallets.waas.delegation.initDelegationProcess()
                 await MainActor.run {
                     feedbackMessage = "Delegation modal opened"
                     isLoading = false
@@ -332,7 +332,7 @@ class DelegationViewModel: ObservableObject {
                     }
                     return
                 }
-                let shouldPrompt = try await sdk.wallets.shouldPromptWalletDelegation()
+                let shouldPrompt = try await sdk.wallets.waas.delegation.shouldPromptWalletDelegation()
                 await MainActor.run {
                     feedbackMessage = "Should prompt: \(shouldPrompt)"
                     isLoading = false
@@ -357,7 +357,7 @@ class DelegationViewModel: ObservableObject {
                     }
                     return
                 }
-                let statuses = try await sdk.wallets.getWalletsDelegatedStatus()
+                let statuses = try await sdk.wallets.waas.delegation.getWalletsDelegatedStatus()
                 await MainActor.run {
                     feedbackMessage = "Found \(statuses.count) wallets"
                     loadDelegationState()
@@ -383,7 +383,7 @@ class DelegationViewModel: ObservableObject {
                     }
                     return
                 }
-                try await sdk.wallets.delegateKeyShares()
+                try await sdk.wallets.waas.delegation.delegateKeyShares()
                 await MainActor.run {
                     feedbackMessage = "Delegation started for all wallets"
                     isLoading = false
@@ -412,7 +412,7 @@ class DelegationViewModel: ObservableObject {
                     throw NSError(domain: "Invalid chain", code: -1)
                 }
                 
-                try await sdk.wallets.revokeDelegation(
+                try await sdk.wallets.waas.delegation.revokeDelegation(
                     wallets: [
                         DelegationWalletIdentifier(
                             chainName: chainEnum,
@@ -445,7 +445,7 @@ class DelegationViewModel: ObservableObject {
                     }
                     return
                 }
-                try await sdk.wallets.denyWalletDelegation(walletId: wallet.id)
+                try await sdk.wallets.waas.delegation.denyWalletDelegation(walletId: wallet.id)
                 await MainActor.run {
                     feedbackMessage = "Denied delegation for \(wallet.address)"
                     loadDelegationState()
@@ -471,7 +471,7 @@ class DelegationViewModel: ObservableObject {
                     }
                     return
                 }
-                try await sdk.wallets.dismissDelegationPrompt(walletId: walletId)
+                try await sdk.wallets.waas.delegation.dismissDelegationPrompt(walletId: walletId)
                 await MainActor.run {
                     feedbackMessage = "Dismissed prompt for wallet"
                     isLoading = false
@@ -496,7 +496,7 @@ class DelegationViewModel: ObservableObject {
                     }
                     return
                 }
-                try await sdk.wallets.dismissDelegationPrompt()
+                try await sdk.wallets.waas.delegation.dismissDelegationPrompt()
                 await MainActor.run {
                     feedbackMessage = "Dismissed all prompts"
                     isLoading = false
@@ -521,7 +521,7 @@ class DelegationViewModel: ObservableObject {
                     }
                     return
                 }
-                try await sdk.wallets.clearDelegationSessionState()
+                try await sdk.wallets.waas.delegation.clearDelegationSessionState()
                 await MainActor.run {
                     feedbackMessage = "Session state cleared"
                     isLoading = false

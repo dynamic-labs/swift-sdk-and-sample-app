@@ -83,6 +83,11 @@ struct HomeScreenView: View {
               }
             }
           
+            // Create Password Wallet button (always visible)
+            
+
+            Spacer().frame(height: 12)
+
             // 2) Open Profile button
             Button(action: { vm.showUserProfile() }) {
               HStack {

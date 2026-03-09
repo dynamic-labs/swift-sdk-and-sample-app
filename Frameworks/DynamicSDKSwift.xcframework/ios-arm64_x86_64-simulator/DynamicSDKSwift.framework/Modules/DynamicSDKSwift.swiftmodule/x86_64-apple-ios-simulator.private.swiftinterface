@@ -85,6 +85,21 @@ public struct BlockhashWithExpiryBlockHeight {
   #endif
   @objc deinit
 }
+final public class SuiModule {
+  public init(_ transport: DynamicSDKSwift.MessageTransport)
+  final public func signMessage(walletId: Swift.String, message: Swift.String) async throws -> Swift.String
+  final public func signTransaction(walletId: Swift.String, transaction: Swift.String) async throws -> Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func signTransferTransaction(walletId: Swift.String, to: Swift.String, value: Swift.String, gasPrice: Swift.Int? = nil, gasBudget: Swift.Int? = nil) async throws -> Swift.String
+  #endif
+  final public func sendTransaction(walletId: Swift.String, transaction: Swift.String) async throws -> Swift.String
+  final public func signAndSendTransaction(walletId: Swift.String, transaction: Swift.String) async throws -> Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func signAndSendTransferTransaction(walletId: Swift.String, to: Swift.String, value: Swift.String, gasPrice: Swift.Int? = nil, gasBudget: Swift.Int? = nil) async throws -> Swift.String
+  #endif
+  final public func getNetworkName(walletId: Swift.String) async throws -> Swift.String
+  @objc deinit
+}
 public enum WebViewVersion {
   public static let current: Swift.String
 }
@@ -279,6 +294,7 @@ final public class VisibilityModule {
   final public let passkeys: DynamicSDKSwift.PasskeyModule
   final public let solana: DynamicSDKSwift.SolanaModule
   final public let evm: DynamicSDKSwift.EvmModule
+  final public let sui: DynamicSDKSwift.SuiModule
   final public let webViewController: DynamicSDKSwift.DynamicWebViewController
   final public let overlayWindow: DynamicSDKSwift.DynamicOverlayWindowManager
   final public let props: DynamicSDKSwift.ClientProps
@@ -575,6 +591,7 @@ public struct Network : Swift.Equatable, Swift.Codable {
   public init(_ value: AnyCodableSwift.AnyCodable)
   public static func evm(_ chainId: Swift.Int) -> DynamicSDKSwift.Network
   public static func solana(_ networkId: Swift.String) -> DynamicSDKSwift.Network
+  public static func sui(_ networkId: Swift.String) -> DynamicSDKSwift.Network
   public static func == (a: DynamicSDKSwift.Network, b: DynamicSDKSwift.Network) -> Swift.Bool
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
@@ -1855,6 +1872,7 @@ final public class NetworksModule {
   public static let messageType: Swift.String
   public static let evmPrefix: Swift.String
   public static let solanaPrefix: Swift.String
+  public static let suiPrefix: Swift.String
   public init(_ transport: DynamicSDKSwift.MessageTransport)
   final public var evm: [DynamicSDKSwift.GenericNetwork] {
     get
@@ -1866,6 +1884,12 @@ final public class NetworksModule {
     get
   }
   final public var solanaChanges: Combine.AnyPublisher<[DynamicSDKSwift.GenericNetwork], Swift.Never> {
+    get
+  }
+  final public var sui: [DynamicSDKSwift.GenericNetwork] {
+    get
+  }
+  final public var suiChanges: Combine.AnyPublisher<[DynamicSDKSwift.GenericNetwork], Swift.Never> {
     get
   }
   @objc deinit
@@ -1959,6 +1983,7 @@ final public class WalletsModule {
   final public let embedded: DynamicSDKSwift.EmbeddedWalletsModule
   final public let waas: DynamicSDKSwift.WaasModule
   public init(_ transport: DynamicSDKSwift.MessageTransport)
+  final public func pollWalletsState()
   final public var userWallets: [DynamicSDKSwift.BaseWallet] {
     get
   }

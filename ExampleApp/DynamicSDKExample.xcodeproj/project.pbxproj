@@ -10,7 +10,7 @@
 		069898F3595F822E90304493 /* AppRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DAD545716C3952260F8AC2 /* AppRootView.swift */; };
 		22D16B387EE61062CA2E9523 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DA03555BA55B97B5C0B2BD /* Route.swift */; };
 		25206D5C2F3B3A5D007740AA /* DelegationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25206D5B2F3B3A5D007740AA /* DelegationScreen.swift */; };
-		257EB4AA2F5201B20060BA54 /* DynamicSDKSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 257EB4A92F5201B20060BA54 /* DynamicSDKSwift */; };
+		25543F5F2F5F526A00CBF432 /* DynamicSDKSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 25543F5E2F5F526A00CBF432 /* DynamicSDKSwift */; };
 		25AFB8C32EFEEDB30013666D /* DynamicSDKExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AFB8C22EFEEDB30013666D /* DynamicSDKExampleApp.swift */; };
 		25AFB8CB2F0000020013666E /* MfaDevicesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AFB8C62F0000020013666E /* MfaDevicesScreen.swift */; };
 		25AFB8CC2F0000020013666E /* MfaAddDeviceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AFB8C72F0000020013666E /* MfaAddDeviceScreen.swift */; };
@@ -44,6 +44,9 @@
 		CUST0001000000000002 /* CustomBalanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CUST0002000000000002 /* CustomBalanceViewModel.swift */; };
 		PRJS0001000000000001 /* ProjectSettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = PRJS0002000000000001 /* ProjectSettingsScreen.swift */; };
 		SPLT0001000000000001 /* SolanaSendSplTokenScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = SPLT0002000000000001 /* SolanaSendSplTokenScreen.swift */; };
+		SUI00001000000000001 /* SuiSignMessageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = SUI00002000000000001 /* SuiSignMessageScreen.swift */; };
+		SUI00001000000000002 /* SuiSignTransactionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = SUI00002000000000002 /* SuiSignTransactionScreen.swift */; };
+		SUI00001000000000003 /* SuiSendTransactionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = SUI00002000000000003 /* SuiSendTransactionScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -97,6 +100,9 @@
 		CUST0002000000000002 /* CustomBalanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBalanceViewModel.swift; sourceTree = "<group>"; };
 		PRJS0002000000000001 /* ProjectSettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSettingsScreen.swift; sourceTree = "<group>"; };
 		SPLT0002000000000001 /* SolanaSendSplTokenScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolanaSendSplTokenScreen.swift; sourceTree = "<group>"; };
+		SUI00002000000000001 /* SuiSignMessageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuiSignMessageScreen.swift; sourceTree = "<group>"; };
+		SUI00002000000000002 /* SuiSignTransactionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuiSignTransactionScreen.swift; sourceTree = "<group>"; };
+		SUI00002000000000003 /* SuiSendTransactionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuiSendTransactionScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				257EB4AA2F5201B20060BA54 /* DynamicSDKSwift in Frameworks */,
+				25543F5F2F5F526A00CBF432 /* DynamicSDKSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +212,9 @@
 				9B2C9C7F2B00000100000013 /* EvmWriteContractScreen.swift */,
 				41874C723A6DE7A70EE54055 /* EvmSendErc20Screen.swift */,
 				SPLT0002000000000001 /* SolanaSendSplTokenScreen.swift */,
+				SUI00002000000000001 /* SuiSignMessageScreen.swift */,
+				SUI00002000000000002 /* SuiSignTransactionScreen.swift */,
+				SUI00002000000000003 /* SuiSendTransactionScreen.swift */,
 			);
 			path = Wallet;
 			sourceTree = "<group>";
@@ -228,7 +237,7 @@
 			);
 			name = DynamicSDKExample;
 			packageProductDependencies = (
-				257EB4A92F5201B20060BA54 /* DynamicSDKSwift */,
+				25543F5E2F5F526A00CBF432 /* DynamicSDKSwift */,
 			);
 			productName = DynamicSDKExample;
 			productReference = 9B2C9C6A2B00000100000001 /* DynamicSDKExample.app */;
@@ -258,7 +267,7 @@
 			);
 			mainGroup = 9B2C9C612B00000100000001;
 			packageReferences = (
-				257EB4A82F5201B20060BA54 /* XCLocalSwiftPackageReference "../../dynamic_sdk_swift_with_sample_app" */,
+				25543F5D2F5F526A00CBF432 /* XCLocalSwiftPackageReference "../../dynamic_sdk_swift_with_sample_app" */,
 			);
 			productRefGroup = 9B2C9C6B2B00000100000001 /* Products */;
 			projectDirPath = "";
@@ -320,6 +329,9 @@
 				CUST0001000000000002 /* CustomBalanceViewModel.swift in Sources */,
 				PRJS0001000000000001 /* ProjectSettingsScreen.swift in Sources */,
 				SPLT0001000000000001 /* SolanaSendSplTokenScreen.swift in Sources */,
+				SUI00001000000000001 /* SuiSignMessageScreen.swift in Sources */,
+				SUI00001000000000002 /* SuiSignTransactionScreen.swift in Sources */,
+				SUI00001000000000003 /* SuiSendTransactionScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,14 +463,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		257EB4A82F5201B20060BA54 /* XCLocalSwiftPackageReference "../../dynamic_sdk_swift_with_sample_app" */ = {
+		25543F5D2F5F526A00CBF432 /* XCLocalSwiftPackageReference "../../dynamic_sdk_swift_with_sample_app" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../../dynamic_sdk_swift_with_sample_app;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		257EB4A92F5201B20060BA54 /* DynamicSDKSwift */ = {
+		25543F5E2F5F526A00CBF432 /* DynamicSDKSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DynamicSDKSwift;
 		};

@@ -1432,6 +1432,397 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
+        "kind": "Import",
+        "name": "AnyCodableSwift",
+        "printedName": "AnyCodableSwift",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SuiModule",
+        "printedName": "SuiModule",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SuiModule",
+                "printedName": "DynamicSDKSwift.SuiModule",
+                "usr": "s:15DynamicSDKSwift9SuiModuleC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BroadcastMessageTransport",
+                "printedName": "DynamicSDKSwift.BroadcastMessageTransport",
+                "usr": "s:15DynamicSDKSwift25BroadcastMessageTransportC"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:15DynamicSDKSwift9SuiModuleCyAcA25BroadcastMessageTransportCcfc",
+            "mangledName": "$s15DynamicSDKSwift9SuiModuleCyAcA25BroadcastMessageTransportCcfc",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "signMessage",
+            "printedName": "signMessage(walletId:message:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15DynamicSDKSwift9SuiModuleC11signMessage8walletId7messageS2S_SStYaKF",
+            "mangledName": "$s15DynamicSDKSwift9SuiModuleC11signMessage8walletId7messageS2S_SStYaKF",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "signTransaction",
+            "printedName": "signTransaction(walletId:transaction:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15DynamicSDKSwift9SuiModuleC15signTransaction8walletId11transactionS2S_SStYaKF",
+            "mangledName": "$s15DynamicSDKSwift9SuiModuleC15signTransaction8walletId11transactionS2S_SStYaKF",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "signTransferTransaction",
+            "printedName": "signTransferTransaction(walletId:to:value:gasPrice:gasBudget:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15DynamicSDKSwift9SuiModuleC23signTransferTransaction8walletId2to5value8gasPrice0L6BudgetS2S_S2SSiSgAJtYaKF",
+            "mangledName": "$s15DynamicSDKSwift9SuiModuleC23signTransferTransaction8walletId2to5value8gasPrice0L6BudgetS2S_S2SSiSgAJtYaKF",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "sendTransaction",
+            "printedName": "sendTransaction(walletId:transaction:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15DynamicSDKSwift9SuiModuleC15sendTransaction8walletId11transactionS2S_SStYaKF",
+            "mangledName": "$s15DynamicSDKSwift9SuiModuleC15sendTransaction8walletId11transactionS2S_SStYaKF",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "signAndSendTransaction",
+            "printedName": "signAndSendTransaction(walletId:transaction:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15DynamicSDKSwift9SuiModuleC22signAndSendTransaction8walletId11transactionS2S_SStYaKF",
+            "mangledName": "$s15DynamicSDKSwift9SuiModuleC22signAndSendTransaction8walletId11transactionS2S_SStYaKF",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "signAndSendTransferTransaction",
+            "printedName": "signAndSendTransferTransaction(walletId:to:value:gasPrice:gasBudget:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15DynamicSDKSwift9SuiModuleC30signAndSendTransferTransaction8walletId2to5value8gasPrice0N6BudgetS2S_S2SSiSgAJtYaKF",
+            "mangledName": "$s15DynamicSDKSwift9SuiModuleC30signAndSendTransferTransaction8walletId2to5value8gasPrice0N6BudgetS2S_S2SSiSgAJtYaKF",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getNetworkName",
+            "printedName": "getNetworkName(walletId:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15DynamicSDKSwift9SuiModuleC14getNetworkName8walletIdS2S_tYaKF",
+            "mangledName": "$s15DynamicSDKSwift9SuiModuleC14getNetworkName8walletIdS2S_tYaKF",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:15DynamicSDKSwift9SuiModuleC",
+        "mangledName": "$s15DynamicSDKSwift9SuiModuleC",
+        "moduleName": "DynamicSDKSwift",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "WebViewVersion",
         "printedName": "WebViewVersion",
@@ -7818,6 +8209,54 @@
                 "declKind": "Accessor",
                 "usr": "s:15DynamicSDKSwift0A3SDKC3evmAA9EvmModuleCvg",
                 "mangledName": "$s15DynamicSDKSwift0A3SDKC3evmAA9EvmModuleCvg",
+                "moduleName": "DynamicSDKSwift",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "sui",
+            "printedName": "sui",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SuiModule",
+                "printedName": "DynamicSDKSwift.SuiModule",
+                "usr": "s:15DynamicSDKSwift9SuiModuleC"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15DynamicSDKSwift0A3SDKC3suiAA9SuiModuleCvp",
+            "mangledName": "$s15DynamicSDKSwift0A3SDKC3suiAA9SuiModuleCvp",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SuiModule",
+                    "printedName": "DynamicSDKSwift.SuiModule",
+                    "usr": "s:15DynamicSDKSwift9SuiModuleC"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15DynamicSDKSwift0A3SDKC3suiAA9SuiModuleCvg",
+                "mangledName": "$s15DynamicSDKSwift0A3SDKC3suiAA9SuiModuleCvg",
                 "moduleName": "DynamicSDKSwift",
                 "implicit": true,
                 "declAttributes": [
@@ -17528,6 +17967,34 @@
             "declKind": "Func",
             "usr": "s:15DynamicSDKSwift7NetworkV6solanayACSSFZ",
             "mangledName": "$s15DynamicSDKSwift7NetworkV6solanayACSSFZ",
+            "moduleName": "DynamicSDKSwift",
+            "static": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "sui",
+            "printedName": "sui(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Network",
+                "printedName": "DynamicSDKSwift.Network",
+                "usr": "s:15DynamicSDKSwift7NetworkV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15DynamicSDKSwift7NetworkV3suiyACSSFZ",
+            "mangledName": "$s15DynamicSDKSwift7NetworkV3suiyACSSFZ",
             "moduleName": "DynamicSDKSwift",
             "static": true,
             "declAttributes": [
@@ -61763,6 +62230,57 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "suiPrefix",
+            "printedName": "suiPrefix",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15DynamicSDKSwift14NetworksModuleC9suiPrefixSSvpZ",
+            "mangledName": "$s15DynamicSDKSwift14NetworksModuleC9suiPrefixSSvpZ",
+            "moduleName": "DynamicSDKSwift",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15DynamicSDKSwift14NetworksModuleC9suiPrefixSSvgZ",
+                "mangledName": "$s15DynamicSDKSwift14NetworksModuleC9suiPrefixSSvgZ",
+                "moduleName": "DynamicSDKSwift",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init(_:)",
@@ -62081,6 +62599,156 @@
                 "declKind": "Accessor",
                 "usr": "s:15DynamicSDKSwift14NetworksModuleC13solanaChanges7Combine12AnyPublisherVySayAA14GenericNetworkVGs5NeverOGvg",
                 "mangledName": "$s15DynamicSDKSwift14NetworksModuleC13solanaChanges7Combine12AnyPublisherVySayAA14GenericNetworkVGs5NeverOGvg",
+                "moduleName": "DynamicSDKSwift",
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "sui",
+            "printedName": "sui",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[DynamicSDKSwift.GenericNetwork]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericNetwork",
+                    "printedName": "DynamicSDKSwift.GenericNetwork",
+                    "usr": "s:15DynamicSDKSwift14GenericNetworkV"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15DynamicSDKSwift14NetworksModuleC3suiSayAA14GenericNetworkVGvp",
+            "mangledName": "$s15DynamicSDKSwift14NetworksModuleC3suiSayAA14GenericNetworkVGvp",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[DynamicSDKSwift.GenericNetwork]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericNetwork",
+                        "printedName": "DynamicSDKSwift.GenericNetwork",
+                        "usr": "s:15DynamicSDKSwift14GenericNetworkV"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15DynamicSDKSwift14NetworksModuleC3suiSayAA14GenericNetworkVGvg",
+                "mangledName": "$s15DynamicSDKSwift14NetworksModuleC3suiSayAA14GenericNetworkVGvg",
+                "moduleName": "DynamicSDKSwift",
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "suiChanges",
+            "printedName": "suiChanges",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AnyPublisher",
+                "printedName": "Combine.AnyPublisher<[DynamicSDKSwift.GenericNetwork], Swift.Never>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[DynamicSDKSwift.GenericNetwork]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericNetwork",
+                        "printedName": "DynamicSDKSwift.GenericNetwork",
+                        "usr": "s:15DynamicSDKSwift14GenericNetworkV"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Never",
+                    "printedName": "Swift.Never",
+                    "usr": "s:s5NeverO"
+                  }
+                ],
+                "usr": "s:7Combine12AnyPublisherV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15DynamicSDKSwift14NetworksModuleC10suiChanges7Combine12AnyPublisherVySayAA14GenericNetworkVGs5NeverOGvp",
+            "mangledName": "$s15DynamicSDKSwift14NetworksModuleC10suiChanges7Combine12AnyPublisherVySayAA14GenericNetworkVGs5NeverOGvp",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AnyPublisher",
+                    "printedName": "Combine.AnyPublisher<[DynamicSDKSwift.GenericNetwork], Swift.Never>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[DynamicSDKSwift.GenericNetwork]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "GenericNetwork",
+                            "printedName": "DynamicSDKSwift.GenericNetwork",
+                            "usr": "s:15DynamicSDKSwift14GenericNetworkV"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Never",
+                        "printedName": "Swift.Never",
+                        "usr": "s:s5NeverO"
+                      }
+                    ],
+                    "usr": "s:7Combine12AnyPublisherV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15DynamicSDKSwift14NetworksModuleC10suiChanges7Combine12AnyPublisherVySayAA14GenericNetworkVGs5NeverOGvg",
+                "mangledName": "$s15DynamicSDKSwift14NetworksModuleC10suiChanges7Combine12AnyPublisherVySayAA14GenericNetworkVGs5NeverOGvg",
                 "moduleName": "DynamicSDKSwift",
                 "declAttributes": [
                   "Final"
@@ -64830,6 +65498,28 @@
               "AccessControl"
             ],
             "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "pollWalletsState",
+            "printedName": "pollWalletsState()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15DynamicSDKSwift13WalletsModuleC04pollC5StateyyF",
+            "mangledName": "$s15DynamicSDKSwift13WalletsModuleC04pollC5StateyyF",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
           },
           {
             "kind": "Var",
@@ -70578,7 +71268,14 @@
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Module\/NetworksModule.swift",
       "kind": "StringLiteral",
-      "offset": 6847,
+      "offset": 447,
+      "length": 12,
+      "value": "\"suiChanged\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/flutter-sdk\/dynamic_sdk_swift\/Packages\/DynamicSDKSwift\/Sources\/Module\/NetworksModule.swift",
+      "kind": "StringLiteral",
+      "offset": 7586,
       "length": 10,
       "value": "\"registry\""
     },

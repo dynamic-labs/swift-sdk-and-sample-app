@@ -61,7 +61,40 @@ struct WalletDetailsScreen: View {
           .cornerRadius(8)
         }
         .padding(.horizontal)
-        
+
+        // Copy Wallet Details Button
+        Button(action: {
+          var details = ""
+          if let id = wallet.id, !id.isEmpty {
+            details += "ID: \(id)\n"
+          }
+          details += "Address: \(wallet.address)\n"
+          details += "Chain: \(wallet.chain)"
+          if let publicKey = wallet.publicKey, !publicKey.isEmpty {
+            details += "\nPublic Key: \(publicKey)"
+          }
+          if let name = wallet.walletName, !name.isEmpty {
+            details += "\nWallet Name: \(name)"
+          }
+          if let provider = wallet.walletProvider, !provider.isEmpty {
+            details += "\nWallet Provider: \(provider)"
+          }
+          UIPasteboard.general.string = details
+          showCopiedAlert = true
+        }) {
+          HStack {
+            Image(systemName: "doc.on.clipboard")
+            Text("Copy Wallet Details")
+            Spacer()
+          }
+          .padding()
+          .frame(maxWidth: .infinity)
+          .background(Color.blue.opacity(0.1))
+          .foregroundColor(.blue)
+          .cornerRadius(8)
+        }
+        .padding(.horizontal)
+
         // Sign Message Button (for all chains)
         NavigationLink(destination: SignMessageScreen(wallet: wallet)) {
           HStack {
@@ -143,11 +176,15 @@ struct WalletDetailsScreen: View {
         }
         .padding(.horizontal)
 
+       
+
         // Chain-specific actions
         if wallet.chain.uppercased() == "EVM" {
           EVMActionsView(wallet: wallet)
         } else if wallet.chain.uppercased() == "SOL" {
           SolanaActionsView(wallet: wallet)
+        } else if wallet.chain.uppercased() == "SUI" {
+          SuiActionsView(wallet: wallet)
         }
         
         Spacer()
@@ -191,10 +228,22 @@ struct WalletDetailCard: View {
         Spacer()
       }
       
+      if let walletId = wallet.id, !walletId.isEmpty {
+        Text("Wallet ID")
+          .font(.caption)
+          .foregroundColor(.secondary)
+        Text(walletId)
+          .font(.system(.caption, design: .monospaced))
+          .foregroundColor(colorScheme == .dark ? .white : .black)
+          .lineLimit(2)
+          .truncationMode(.middle)
+        Divider().opacity(0.3)
+      }
+
       Text("Address")
         .font(.caption)
         .foregroundColor(.secondary)
-      
+
       Text(wallet.address)
         .font(.system(.caption, design: .monospaced))
         .foregroundColor(colorScheme == .dark ? .white : .black)
@@ -359,6 +408,47 @@ struct SolanaActionsView: View {
               WalletActionButton(
           icon: "arrow.right.arrow.left",
           title: "Send SPL Token"
+        )
+      }
+      .padding(.horizontal)
+    }
+    .padding(.vertical)
+  }
+}
+
+struct SuiActionsView: View {
+  let wallet: BaseWallet
+
+  var body: some View {
+    VStack(alignment: .leading, spacing: 12) {
+      Text("SUI Actions")
+        .font(.title2)
+        .fontWeight(.bold)
+        .padding(.horizontal)
+
+      // Sign Message
+      NavigationLink(destination: SuiSignMessageScreen(wallet: wallet)) {
+              WalletActionButton(
+          icon: "pencil.circle",
+          title: "Sign Message"
+        )
+      }
+      .padding(.horizontal)
+
+      // Sign Transaction
+      NavigationLink(destination: SuiSignTransactionScreen(wallet: wallet)) {
+              WalletActionButton(
+          icon: "signature",
+          title: "Sign Transaction"
+        )
+      }
+      .padding(.horizontal)
+
+      // Send Transaction
+      NavigationLink(destination: SuiSendTransactionScreen(wallet: wallet)) {
+              WalletActionButton(
+          icon: "paperplane.fill",
+          title: "Send Transaction"
         )
       }
       .padding(.horizontal)

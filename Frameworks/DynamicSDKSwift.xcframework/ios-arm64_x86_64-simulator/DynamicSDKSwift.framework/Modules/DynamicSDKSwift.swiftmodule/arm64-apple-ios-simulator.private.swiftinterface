@@ -2011,6 +2011,9 @@ final public class WalletsModule {
   #endif
   final public func isWalletEligibleForDelegation(_ wallet: DynamicSDKSwift.BaseWallet) -> Swift.Bool
   final public func signMessage(wallet: DynamicSDKSwift.BaseWallet, message: Swift.String) async throws -> Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func signRawMessage(walletId: Swift.String, accountAddress: Swift.String, message: Swift.String, password: Swift.String? = nil) async throws -> Swift.String
+  #endif
   final public func getBalance(wallet: DynamicSDKSwift.BaseWallet) async throws -> Swift.String
   final public func getNetwork(wallet: DynamicSDKSwift.BaseWallet) async throws -> DynamicSDKSwift.Network
   final public func setPrimary(walletId: Swift.String) async throws

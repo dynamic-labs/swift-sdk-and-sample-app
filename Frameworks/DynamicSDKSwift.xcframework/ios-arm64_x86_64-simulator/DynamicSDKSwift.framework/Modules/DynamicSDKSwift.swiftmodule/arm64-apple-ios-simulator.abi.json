@@ -66043,6 +66043,63 @@
           },
           {
             "kind": "Function",
+            "name": "signRawMessage",
+            "printedName": "signRawMessage(walletId:accountAddress:message:password:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15DynamicSDKSwift13WalletsModuleC14signRawMessage8walletId14accountAddress7message8passwordS2S_S3SSgtYaKF",
+            "mangledName": "$s15DynamicSDKSwift13WalletsModuleC14signRawMessage8walletId14accountAddress7message8passwordS2S_S3SSgtYaKF",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "getBalance",
             "printedName": "getBalance(wallet:)",
             "children": [

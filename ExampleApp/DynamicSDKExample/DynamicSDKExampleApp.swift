@@ -40,14 +40,17 @@ struct DynamicSDKExampleApp: App {
         appOrigin: "https://demo.dynamic.xyz",
         logLevel: .debug,
         debug: ClientDebugProps(webview: true),
-        evmNetworks: [b3SepoliaNetwork]
+        evmNetworks: [b3SepoliaNetwork],
+        reownProjectId: "7569c63c696a4e8aeb3217c1b1332bd7"
       )
     )
   }
 
   var body: some Scene {
     WindowGroup {
-      AppRootView()
+      WcGlobalListener {
+        AppRootView()
+      }
     }
   }
 }

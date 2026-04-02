@@ -5,6 +5,7 @@
 import AnyCodableSwift
 import AuthenticationServices
 import Combine
+import CryptoKit
 import Foundation
 import Security
 import SolanaWeb3
@@ -115,8 +116,9 @@ public struct ClientProps : Swift.Equatable {
   public var logLevel: DynamicSDKSwift.LoggerLevel
   public var debug: DynamicSDKSwift.ClientDebugProps?
   public var evmNetworks: [DynamicSDKSwift.GenericNetwork]?
+  public var reownProjectId: Swift.String?
   #if compiler(>=5.3) && $NonescapableTypes
-  public init(environmentId: Swift.String, apiBaseUrl: Swift.String? = "https://app.dynamicauth.com/api/v0", appLogoUrl: Swift.String? = nil, appName: Swift.String = "Dynamic", redirectUrl: Swift.String? = nil, appOrigin: Swift.String? = nil, cssOverrides: Swift.String? = nil, debugWebview: Swift.Bool = false, logLevel: DynamicSDKSwift.LoggerLevel = .info, debug: DynamicSDKSwift.ClientDebugProps? = nil, evmNetworks: [DynamicSDKSwift.GenericNetwork]? = nil)
+  public init(environmentId: Swift.String, apiBaseUrl: Swift.String? = "https://app.dynamicauth.com/api/v0", appLogoUrl: Swift.String? = nil, appName: Swift.String = "Dynamic", redirectUrl: Swift.String? = nil, appOrigin: Swift.String? = nil, cssOverrides: Swift.String? = nil, debugWebview: Swift.Bool = false, logLevel: DynamicSDKSwift.LoggerLevel = .info, debug: DynamicSDKSwift.ClientDebugProps? = nil, evmNetworks: [DynamicSDKSwift.GenericNetwork]? = nil, reownProjectId: Swift.String? = nil)
   #endif
   public static func == (a: DynamicSDKSwift.ClientProps, b: DynamicSDKSwift.ClientProps) -> Swift.Bool
 }
@@ -257,6 +259,31 @@ final public class SdkModule {
   }
   @objc deinit
 }
+public enum SecureEnclaveKeyManagerError : Swift.Error, Foundation.LocalizedError {
+  case generateFailed(Swift.String)
+  case exportFailed(Swift.String)
+  case keyNotFound(Swift.String)
+  case signFailed(Swift.String)
+  case invalidBase64Input
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var errorDescription: Swift.String? {
+    get
+  }
+  #endif
+}
+public class SecureEnclaveKeyManager {
+  public init()
+  public func isAvailable() -> Swift.Bool
+  public func hasKey(tag: Swift.String) -> Swift.Bool
+  public func generateKeyPair(tag: Swift.String) throws -> Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getPublicKey(tag: Swift.String) throws -> Swift.String?
+  #endif
+  public func sign(tag: Swift.String, payload: Foundation.Data) throws -> Swift.String
+  public func deleteKey(tag: Swift.String)
+  @objc deinit
+}
+public func base64urlDecode(_ string: Swift.String) throws -> Foundation.Data
 final public class Store<T> {
   final public var value: T {
     get
@@ -291,10 +318,13 @@ final public class VisibilityModule {
   final public let wallets: DynamicSDKSwift.WalletsModule
   final public let networks: DynamicSDKSwift.NetworksModule
   final public let mfa: DynamicSDKSwift.MfaModule
+  final public let stepUpAuth: DynamicSDKSwift.StepUpAuthModule
   final public let passkeys: DynamicSDKSwift.PasskeyModule
   final public let solana: DynamicSDKSwift.SolanaModule
   final public let evm: DynamicSDKSwift.EvmModule
   final public let sui: DynamicSDKSwift.SuiModule
+  final public let deviceRegistration: DynamicSDKSwift.DeviceRegistrationModule
+  final public let walletConnect: DynamicSDKSwift.WalletConnectModule
   final public let webViewController: DynamicSDKSwift.DynamicWebViewController
   final public let overlayWindow: DynamicSDKSwift.DynamicOverlayWindowManager
   final public let props: DynamicSDKSwift.ClientProps
@@ -313,6 +343,7 @@ public enum Handlers {
   public static func setupDownloadFileHandler(transport: DynamicSDKSwift.MessageTransport)
   public static func setupWalletConnectedHandler(transport: DynamicSDKSwift.MessageTransport)
   public static func setupPlatformHandler(transport: DynamicSDKSwift.MessageTransport)
+  public static func setupKeychainHandler(transport: DynamicSDKSwift.MessageTransport)
 }
 public struct BalanceRequestItem {
   public let address: Swift.String
@@ -1521,6 +1552,15 @@ public struct NetworkCurrencyConfig : Swift.Codable {
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
+public struct RegisteredDevice : Swift.Codable {
+  public let id: Swift.String
+  public let createdAt: Swift.String
+  public let displayText: Swift.String?
+  public let type: Swift.String?
+  public let isCurrentDevice: Swift.Bool?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
 public struct SerializedErrorArgs : Swift.Codable {
   public let message: Swift.String?
   public let name: Swift.String?
@@ -1644,6 +1684,58 @@ public struct WalletRecoveryState {
   #if compiler(>=5.3) && $NonescapableTypes
   public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.WalletRecoveryState?
   #endif
+}
+public struct WcNamespace {
+  public let chains: [Swift.String]
+  public let methods: [Swift.String]
+  public let events: [Swift.String]
+  public let accounts: [Swift.String]?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(chains: [Swift.String], methods: [Swift.String], events: [Swift.String], accounts: [Swift.String]? = nil)
+  #endif
+  public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.WcNamespace
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func parseNamespaces(_ data: Any?) -> [Swift.String : DynamicSDKSwift.WcNamespace]?
+  #endif
+}
+public struct WcPeerMetadata {
+  public let name: Swift.String
+  public let description: Swift.String
+  public let url: Swift.String
+  public let icons: [Swift.String]
+  public init(name: Swift.String, description: Swift.String, url: Swift.String, icons: [Swift.String])
+  public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.WcPeerMetadata
+}
+public struct WcSession {
+  public let topic: Swift.String
+  public let peer: DynamicSDKSwift.WcPeerMetadata
+  public let namespaces: [Swift.String : DynamicSDKSwift.WcNamespace]
+  public let expiry: Swift.Int?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(topic: Swift.String, peer: DynamicSDKSwift.WcPeerMetadata, namespaces: [Swift.String : DynamicSDKSwift.WcNamespace], expiry: Swift.Int? = nil)
+  #endif
+  public static func fromDict(topic: Swift.String, _ dict: [Swift.String : Any]) -> DynamicSDKSwift.WcSession
+}
+public struct WcSessionProposal {
+  public let id: Swift.Int
+  public let proposer: DynamicSDKSwift.WcPeerMetadata
+  public let requiredNamespaces: [Swift.String : DynamicSDKSwift.WcNamespace]?
+  public let optionalNamespaces: [Swift.String : DynamicSDKSwift.WcNamespace]?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(id: Swift.Int, proposer: DynamicSDKSwift.WcPeerMetadata, requiredNamespaces: [Swift.String : DynamicSDKSwift.WcNamespace]? = nil, optionalNamespaces: [Swift.String : DynamicSDKSwift.WcNamespace]? = nil)
+  #endif
+  public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.WcSessionProposal
+}
+public struct WcSessionRequest {
+  public let id: Swift.Int
+  public let topic: Swift.String
+  public let method: Swift.String
+  public let chainId: Swift.String
+  public let params: Any?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(id: Swift.Int, topic: Swift.String, method: Swift.String, chainId: Swift.String, params: Any? = nil)
+  #endif
+  public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.WcSessionRequest
 }
 public struct WriteContractInput {
   public let address: Swift.String
@@ -1812,6 +1904,19 @@ final public class DelegationModule {
   final public func clearDelegationSessionState() async throws
   @objc deinit
 }
+final public class DeviceRegistrationModule {
+  public init(_ transport: DynamicSDKSwift.MessageTransport)
+  final public var isDeviceRegistrationRequired: Swift.Bool {
+    get
+  }
+  final public var isDeviceRegistrationRequiredChanges: Combine.AnyPublisher<Swift.Bool, Swift.Never> {
+    get
+  }
+  final public func getRegisteredDevices() async throws -> [DynamicSDKSwift.RegisteredDevice]
+  final public func revokeRegisteredDevice(deviceRegistrationId: Swift.String) async throws
+  final public func revokeAllRegisteredDevices() async throws
+  @objc deinit
+}
 final public class EmbeddedWalletsModule {
   public static let messageType: Swift.String
   public static let prefix: Swift.String
@@ -1959,6 +2064,39 @@ final public class PasskeyModule {
   #endif
   @objc deinit
 }
+final public class StepUpAuthModule {
+  public init(_ transport: DynamicSDKSwift.MessageTransport)
+  final public func isStepUpRequired(scope: Swift.String) async throws -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func promptStepUpAuth(createMfaToken: Swift.Bool? = nil, requestedScopes: [Swift.String]? = nil) async throws -> Swift.String?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func promptMfa(createMfaToken: Swift.Bool? = nil, requestedScopes: [Swift.String]? = nil) async throws -> Swift.String?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func promptReauthenticate(createMfaToken: Swift.Bool? = nil, requestedScopes: [Swift.String]? = nil) async throws -> Swift.String?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func sendOtp() async throws -> [Swift.String : Any]?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func verifyOtp(verificationToken: Swift.String, requestedScopes: [Swift.String]? = nil) async throws -> [Swift.String : Any]?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func verifyWallet(requestedScopes: [Swift.String]? = nil) async throws
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func verifyPasskeyMfa(requestedScopes: [Swift.String]? = nil) async throws -> [Swift.String : Any]?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func verifyTotpMfa(code: Swift.String, deviceId: Swift.String? = nil, requestedScopes: [Swift.String]? = nil) async throws -> [Swift.String : Any]?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func verifyRecoveryCode(code: Swift.String, requestedScopes: [Swift.String]? = nil) async throws -> [Swift.String : Any]?
+  #endif
+  final public func resetState() async throws
+  @objc deinit
+}
 final public class UserInterfaceModule {
   public init(_ transport: DynamicSDKSwift.MessageTransport)
   final public func setOnShowAuth(_ callback: @escaping () -> Swift.Void)
@@ -1976,6 +2114,45 @@ final public class WaasModule {
   final public func updatePassword(wallet: DynamicSDKSwift.BaseWallet, existingPassword: Swift.String, newPassword: Swift.String) async throws
   final public func setPassword(wallet: DynamicSDKSwift.BaseWallet, newPassword: Swift.String) async throws
   final public func getWalletRecoveryState(wallet: DynamicSDKSwift.BaseWallet) async throws -> DynamicSDKSwift.WalletRecoveryState
+  @objc deinit
+}
+public struct WalletConnectState {
+  public let initialized: Swift.Bool
+  public let sessions: [Swift.String : DynamicSDKSwift.WcSession]
+}
+final public class WalletConnectModule {
+  public init(_ transport: DynamicSDKSwift.MessageTransport)
+  final public var initialized: Swift.Bool {
+    get
+  }
+  final public var initializedChanges: Combine.AnyPublisher<Swift.Bool, Swift.Never> {
+    get
+  }
+  final public var sessions: [Swift.String : DynamicSDKSwift.WcSession] {
+    get
+  }
+  final public var sessionsChanges: Combine.AnyPublisher<[Swift.String : DynamicSDKSwift.WcSession], Swift.Never> {
+    get
+  }
+  final public var onSessionProposal: Combine.AnyPublisher<DynamicSDKSwift.WcSessionProposal, Swift.Never> {
+    get
+  }
+  final public var onSessionRequest: Combine.AnyPublisher<DynamicSDKSwift.WcSessionRequest, Swift.Never> {
+    get
+  }
+  final public var onSessionDelete: Combine.AnyPublisher<Swift.String, Swift.Never> {
+    get
+  }
+  final public func initialize() async throws
+  final public func pair(uri: Swift.String) async throws
+  final public func confirmPairing(confirm: Swift.Bool) async throws
+  final public func disconnectSession(topic: Swift.String) async throws
+  final public func getConnectedSessions() async throws -> [Swift.String : DynamicSDKSwift.WcSession]
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func getPendingPairing() async throws -> DynamicSDKSwift.WcSessionProposal?
+  #endif
+  final public func respondSessionRequest(id: Swift.Int, topic: Swift.String, approved: Swift.Bool) async throws
+  final public func disconnectAll() async
   @objc deinit
 }
 final public class WalletsModule {

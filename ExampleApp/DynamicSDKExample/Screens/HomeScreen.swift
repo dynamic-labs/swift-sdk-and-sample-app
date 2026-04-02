@@ -140,7 +140,39 @@ struct HomeScreenView: View {
             }
             .padding(.horizontal)
 
-            // 5) Project Settings (separate screen)
+            // 5) Step-Up Auth (separate screen)
+            NavigationLink(destination: StepUpAuthScreen()) {
+              HStack {
+                Image(systemName: "lock.shield")
+                Text("Step-Up Auth")
+                Spacer()
+                Image(systemName: "chevron.right")
+              }
+              .foregroundColor(colorScheme == .dark ? .white : .blue)
+              .padding()
+              .frame(maxWidth: .infinity)
+              .background(Color.blue.opacity(0.1))
+              .cornerRadius(8)
+            }
+            .padding(.horizontal)
+
+            // 6) Trusted Devices (separate screen)
+            NavigationLink(destination: TrustedDevicesScreen()) {
+              HStack {
+                Image(systemName: "desktopcomputer")
+                Text("Trusted Devices")
+                Spacer()
+                Image(systemName: "chevron.right")
+              }
+              .foregroundColor(colorScheme == .dark ? .white : .blue)
+              .padding()
+              .frame(maxWidth: .infinity)
+              .background(Color.blue.opacity(0.1))
+              .cornerRadius(8)
+            }
+            .padding(.horizontal)
+
+            // 7) Project Settings (separate screen)
             NavigationLink(destination: ProjectSettingsScreen()) {
               HStack {
                 Image(systemName: "gearshape.fill")
@@ -156,7 +188,24 @@ struct HomeScreenView: View {
             }
             .padding(.horizontal)
 
-            // 5) User JSON
+            // 8) User JSON
+            // 6) WalletConnect
+            NavigationLink(destination: WalletConnectScreen()) {
+              HStack {
+                Image(systemName: "link")
+                Text("WalletConnect")
+                Spacer()
+                Image(systemName: "chevron.right")
+              }
+              .foregroundColor(colorScheme == .dark ? .white : .blue)
+              .padding()
+              .frame(maxWidth: .infinity)
+              .background(Color.blue.opacity(0.1))
+              .cornerRadius(8)
+            }
+            .padding(.horizontal)
+
+            // 7) User JSON
             if let user = vm.user {
               let json = user.toJsonString()
               ValueCard(
@@ -166,7 +215,7 @@ struct HomeScreenView: View {
               )
             }
 
-            // 6) Token
+            // 9) Token
             if let token = vm.token {
               ValueCard(
                 title: "Token:",
@@ -176,7 +225,7 @@ struct HomeScreenView: View {
               )
             }
 
-            // 7) Logout (must be last)
+            // 10) Logout (must be last)
             Button(action: { vm.logout() }) {
               HStack {
                 Image(systemName: "arrow.left.circle.fill")

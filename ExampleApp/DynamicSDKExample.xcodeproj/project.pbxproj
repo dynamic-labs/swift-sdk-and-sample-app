@@ -10,7 +10,6 @@
 		069898F3595F822E90304493 /* AppRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DAD545716C3952260F8AC2 /* AppRootView.swift */; };
 		22D16B387EE61062CA2E9523 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DA03555BA55B97B5C0B2BD /* Route.swift */; };
 		25206D5C2F3B3A5D007740AA /* DelegationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25206D5B2F3B3A5D007740AA /* DelegationScreen.swift */; };
-		2585064C2F7F21A800FAF43D /* DynamicSDKSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2585064B2F7F21A800FAF43D /* DynamicSDKSwift */; };
 		25AFB8C32EFEEDB30013666D /* DynamicSDKExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AFB8C22EFEEDB30013666D /* DynamicSDKExampleApp.swift */; };
 		25AFB8CB2F0000020013666E /* MfaDevicesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AFB8C62F0000020013666E /* MfaDevicesScreen.swift */; };
 		25AFB8CC2F0000020013666E /* MfaAddDeviceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AFB8C72F0000020013666E /* MfaAddDeviceScreen.swift */; };
@@ -21,6 +20,7 @@
 		2F7B0B6E9B0F4D3D9F7D0C41 /* SwitchNetworkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7B0B6D9B0F4D3D9F7D0C41 /* SwitchNetworkViewModel.swift */; };
 		404BC9C5B3FEEFF1D1A21C15 /* SwitchNetworkScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31588B8A6C4C6AA4D2E86E36 /* SwitchNetworkScreen.swift */; };
 		45D32B68DEAED49BBC8AC812 /* EvmSendErc20Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41874C723A6DE7A70EE54055 /* EvmSendErc20Screen.swift */; };
+		4B9D962B063CBCF479AFF863 /* DynamicSDKSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7806C38A7DA6B13016BBC7D4 /* DynamicSDKSwift */; };
 		4CE62D012682B8019FA5004B /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB21CB71A347F6991D4ED28 /* HomeScreenViewModel.swift */; };
 		547499A0086DA622DD2132C0 /* DynamicSDKExample/Components/ValueCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503886089E26496E302940DC /* DynamicSDKExample/Components/ValueCard.swift */; };
 		6F99C6888B6E9C6FFDB06364 /* DynamicSDKExample/Components/WalletCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF61F281A294CF554BA4BFF /* DynamicSDKExample/Components/WalletCard.swift */; };
@@ -45,27 +45,20 @@
 		PRJS0001000000000001 /* ProjectSettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = PRJS0002000000000001 /* ProjectSettingsScreen.swift */; };
 		SPLT0001000000000001 /* SolanaSendSplTokenScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = SPLT0002000000000001 /* SolanaSendSplTokenScreen.swift */; };
 		STUP0001000000000001 /* StepUpAuthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = STUP0002000000000001 /* StepUpAuthScreen.swift */; };
+		TDEV0001000000000001 /* TrustedDevicesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = TDEV0002000000000001 /* TrustedDevicesScreen.swift */; };
 		SUI00001000000000001 /* SuiSignMessageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = SUI00002000000000001 /* SuiSignMessageScreen.swift */; };
 		SUI00001000000000002 /* SuiSignTransactionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = SUI00002000000000002 /* SuiSignTransactionScreen.swift */; };
 		SUI00001000000000003 /* SuiSendTransactionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = SUI00002000000000003 /* SuiSendTransactionScreen.swift */; };
-		TDEV0001000000000001 /* TrustedDevicesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = TDEV0002000000000001 /* TrustedDevicesScreen.swift */; };
+		TON00001000000000001 /* TonSignMessageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = TON00002000000000001 /* TonSignMessageScreen.swift */; };
+		TON00001000000000002 /* TonSendTonScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = TON00002000000000002 /* TonSendTonScreen.swift */; };
+		TON00001000000000003 /* TonSendJettonScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = TON00002000000000003 /* TonSendJettonScreen.swift */; };
+		BTC00001000000000001 /* BitcoinSignMessageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BTC00002000000000001 /* BitcoinSignMessageScreen.swift */; };
+		BTC00001000000000002 /* BitcoinSendScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BTC00002000000000002 /* BitcoinSendScreen.swift */; };
+		BTC00001000000000003 /* BitcoinSignPsbtScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BTC00002000000000003 /* BitcoinSignPsbtScreen.swift */; };
 		WC000001000000000001 /* WalletConnectScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = WC000002000000000001 /* WalletConnectScreen.swift */; };
 		WC000001000000000002 /* WcGlobalListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = WC000002000000000002 /* WcGlobalListener.swift */; };
 		WC000001000000000003 /* QrScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = WC000002000000000003 /* QrScannerView.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		251444B32F1ABDCC00BED54E /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		01DAD545716C3952260F8AC2 /* AppRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootView.swift; sourceTree = "<group>"; };
@@ -106,10 +99,16 @@
 		PRJS0002000000000001 /* ProjectSettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSettingsScreen.swift; sourceTree = "<group>"; };
 		SPLT0002000000000001 /* SolanaSendSplTokenScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolanaSendSplTokenScreen.swift; sourceTree = "<group>"; };
 		STUP0002000000000001 /* StepUpAuthScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepUpAuthScreen.swift; sourceTree = "<group>"; };
+		TDEV0002000000000001 /* TrustedDevicesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustedDevicesScreen.swift; sourceTree = "<group>"; };
 		SUI00002000000000001 /* SuiSignMessageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuiSignMessageScreen.swift; sourceTree = "<group>"; };
 		SUI00002000000000002 /* SuiSignTransactionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuiSignTransactionScreen.swift; sourceTree = "<group>"; };
 		SUI00002000000000003 /* SuiSendTransactionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuiSendTransactionScreen.swift; sourceTree = "<group>"; };
-		TDEV0002000000000001 /* TrustedDevicesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustedDevicesScreen.swift; sourceTree = "<group>"; };
+		TON00002000000000001 /* TonSignMessageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TonSignMessageScreen.swift; sourceTree = "<group>"; };
+		TON00002000000000002 /* TonSendTonScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TonSendTonScreen.swift; sourceTree = "<group>"; };
+		TON00002000000000003 /* TonSendJettonScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TonSendJettonScreen.swift; sourceTree = "<group>"; };
+		BTC00002000000000001 /* BitcoinSignMessageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinSignMessageScreen.swift; sourceTree = "<group>"; };
+		BTC00002000000000002 /* BitcoinSendScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinSendScreen.swift; sourceTree = "<group>"; };
+		BTC00002000000000003 /* BitcoinSignPsbtScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinSignPsbtScreen.swift; sourceTree = "<group>"; };
 		WC000002000000000001 /* WalletConnectScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletConnectScreen.swift; sourceTree = "<group>"; };
 		WC000002000000000002 /* WcGlobalListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WcGlobalListener.swift; sourceTree = "<group>"; };
 		WC000002000000000003 /* QrScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrScannerView.swift; sourceTree = "<group>"; };
@@ -121,7 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2585064C2F7F21A800FAF43D /* DynamicSDKSwift in Frameworks */,
+				4B9D962B063CBCF479AFF863 /* DynamicSDKSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +229,12 @@
 				SUI00002000000000001 /* SuiSignMessageScreen.swift */,
 				SUI00002000000000002 /* SuiSignTransactionScreen.swift */,
 				SUI00002000000000003 /* SuiSendTransactionScreen.swift */,
+				TON00002000000000001 /* TonSignMessageScreen.swift */,
+				TON00002000000000002 /* TonSendTonScreen.swift */,
+				TON00002000000000003 /* TonSendJettonScreen.swift */,
+				BTC00002000000000001 /* BitcoinSignMessageScreen.swift */,
+				BTC00002000000000002 /* BitcoinSendScreen.swift */,
+				BTC00002000000000003 /* BitcoinSignPsbtScreen.swift */,
 			);
 			path = Wallet;
 			sourceTree = "<group>";
@@ -254,7 +259,6 @@
 				9B2C9C6E2B00000100000001 /* Sources */,
 				9B2C9C6F2B00000100000001 /* Frameworks */,
 				9B2C9C702B00000100000001 /* Resources */,
-				251444B32F1ABDCC00BED54E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -262,7 +266,7 @@
 			);
 			name = DynamicSDKExample;
 			packageProductDependencies = (
-				2585064B2F7F21A800FAF43D /* DynamicSDKSwift */,
+				7806C38A7DA6B13016BBC7D4 /* DynamicSDKSwift */,
 			);
 			productName = DynamicSDKExample;
 			productReference = 9B2C9C6A2B00000100000001 /* DynamicSDKExample.app */;
@@ -292,7 +296,7 @@
 			);
 			mainGroup = 9B2C9C612B00000100000001;
 			packageReferences = (
-				2585064A2F7F21A800FAF43D /* XCLocalSwiftPackageReference "../../swift-sdk-and-sample-app" */,
+				1AD751841505733BA3A023CC /* XCLocalSwiftPackageReference "../Packages/DynamicSDKSwift" */,
 			);
 			productRefGroup = 9B2C9C6B2B00000100000001 /* Products */;
 			projectDirPath = "";
@@ -359,6 +363,12 @@
 				SUI00001000000000001 /* SuiSignMessageScreen.swift in Sources */,
 				SUI00001000000000002 /* SuiSignTransactionScreen.swift in Sources */,
 				SUI00001000000000003 /* SuiSendTransactionScreen.swift in Sources */,
+				TON00001000000000001 /* TonSignMessageScreen.swift in Sources */,
+				TON00001000000000002 /* TonSendTonScreen.swift in Sources */,
+				TON00001000000000003 /* TonSendJettonScreen.swift in Sources */,
+				BTC00001000000000001 /* BitcoinSignMessageScreen.swift in Sources */,
+				BTC00001000000000002 /* BitcoinSendScreen.swift in Sources */,
+				BTC00001000000000003 /* BitcoinSignPsbtScreen.swift in Sources */,
 				WC000001000000000001 /* WalletConnectScreen.swift in Sources */,
 				WC000001000000000002 /* WcGlobalListener.swift in Sources */,
 				WC000001000000000003 /* QrScannerView.swift in Sources */,
@@ -495,15 +505,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		2585064A2F7F21A800FAF43D /* XCLocalSwiftPackageReference "../../swift-sdk-and-sample-app" */ = {
+		1AD751841505733BA3A023CC /* XCLocalSwiftPackageReference "../Packages/DynamicSDKSwift" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../swift-sdk-and-sample-app";
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		2585064B2F7F21A800FAF43D /* DynamicSDKSwift */ = {
+		7806C38A7DA6B13016BBC7D4 /* DynamicSDKSwift */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = 1AD751841505733BA3A023CC /* XCLocalSwiftPackageReference "../Packages/DynamicSDKSwift" */;
 			productName = DynamicSDKSwift;
 		};
 /* End XCSwiftPackageProductDependency section */

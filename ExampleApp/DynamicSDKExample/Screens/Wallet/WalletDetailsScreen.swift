@@ -185,6 +185,10 @@ struct WalletDetailsScreen: View {
           SolanaActionsView(wallet: wallet)
         } else if wallet.chain.uppercased() == "SUI" {
           SuiActionsView(wallet: wallet)
+        } else if wallet.chain.uppercased() == "TON" {
+          TonActionsView(wallet: wallet)
+        } else if wallet.chain.uppercased() == "BTC" {
+          BitcoinActionsView(wallet: wallet)
         }
         
         Spacer()
@@ -449,6 +453,82 @@ struct SuiActionsView: View {
               WalletActionButton(
           icon: "paperplane.fill",
           title: "Send Transaction"
+        )
+      }
+      .padding(.horizontal)
+    }
+    .padding(.vertical)
+  }
+}
+
+struct TonActionsView: View {
+  let wallet: BaseWallet
+
+  var body: some View {
+    VStack(alignment: .leading, spacing: 12) {
+      Text("TON Actions")
+        .font(.title2)
+        .fontWeight(.bold)
+        .padding(.horizontal)
+
+      NavigationLink(destination: TonSignMessageScreen(wallet: wallet)) {
+        WalletActionButton(
+          icon: "pencil.circle",
+          title: "Sign Message"
+        )
+      }
+      .padding(.horizontal)
+
+      NavigationLink(destination: TonSendTonScreen(wallet: wallet)) {
+        WalletActionButton(
+          icon: "paperplane.fill",
+          title: "Send TON"
+        )
+      }
+      .padding(.horizontal)
+
+      NavigationLink(destination: TonSendJettonScreen(wallet: wallet)) {
+        WalletActionButton(
+          icon: "arrow.right.arrow.left",
+          title: "Send Jetton"
+        )
+      }
+      .padding(.horizontal)
+    }
+    .padding(.vertical)
+  }
+}
+
+struct BitcoinActionsView: View {
+  let wallet: BaseWallet
+
+  var body: some View {
+    VStack(alignment: .leading, spacing: 12) {
+      Text("Bitcoin Actions")
+        .font(.title2)
+        .fontWeight(.bold)
+        .padding(.horizontal)
+
+      NavigationLink(destination: BitcoinSignMessageScreen(wallet: wallet)) {
+        WalletActionButton(
+          icon: "pencil.circle",
+          title: "Sign Message"
+        )
+      }
+      .padding(.horizontal)
+
+      NavigationLink(destination: BitcoinSendScreen(wallet: wallet)) {
+        WalletActionButton(
+          icon: "paperplane.fill",
+          title: "Send Bitcoin"
+        )
+      }
+      .padding(.horizontal)
+
+      NavigationLink(destination: BitcoinSignPsbtScreen(wallet: wallet)) {
+        WalletActionButton(
+          icon: "signature",
+          title: "Sign PSBT"
         )
       }
       .padding(.horizontal)

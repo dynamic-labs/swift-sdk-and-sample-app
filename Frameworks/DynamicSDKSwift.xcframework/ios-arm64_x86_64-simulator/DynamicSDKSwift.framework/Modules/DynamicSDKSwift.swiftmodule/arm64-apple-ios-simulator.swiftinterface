@@ -20,6 +20,23 @@ import _SwiftConcurrencyShims
 import _WebKit_SwiftUI
 import os.log
 import os
+final public class BitcoinModule {
+  public init(_ transport: DynamicSDKSwift.MessageTransport)
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func signMessage(walletId: Swift.String, message: Swift.String, protocol signingProtocol: Swift.String? = nil, addressType: Swift.String? = nil) async throws -> Swift.String
+  #endif
+  final public func signPsbt(walletId: Swift.String, request psbtRequest: [Swift.String : Any]) async throws -> Swift.String
+  final public func signPsbts(walletId: Swift.String, requests: [[Swift.String : Any]]) async throws -> [Swift.String]
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func sendBitcoin(walletId: Swift.String, recipientAddress: Swift.String, amount: Swift.String, feePriority: Swift.String? = nil) async throws -> Swift.String
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func buildPsbt(walletId: Swift.String, recipientAddress: Swift.String, amount: Swift.String, feePriority: Swift.String? = nil) async throws -> Swift.String
+  #endif
+  final public func sendRawTransaction(walletId: Swift.String, rawTransaction: Swift.String) async throws -> Swift.String
+  final public func getBalance(walletId: Swift.String) async throws -> Swift.String
+  @objc deinit
+}
 public enum Erc20 {
   public static let abi: Swift.String
 }
@@ -101,6 +118,29 @@ final public class SuiModule {
   final public func getNetworkName(walletId: Swift.String) async throws -> Swift.String
   @objc deinit
 }
+final public class TonModule {
+  public init(_ transport: DynamicSDKSwift.MessageTransport)
+  final public func signMessage(walletId: Swift.String, message: Swift.String) async throws -> Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func sendTon(walletId: Swift.String, to: Swift.String, amount: Swift.String, comment: Swift.String? = nil) async throws -> DynamicSDKSwift.TonTransactionResult
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func sendJetton(walletId: Swift.String, recipientAddress: Swift.String, jettonAmount: Swift.String, jettonMasterAddress: Swift.String, comment: Swift.String? = nil) async throws -> DynamicSDKSwift.TonTransactionResult
+  #endif
+  final public func getBalance(walletId: Swift.String) async throws -> Swift.String
+  final public func getNetworkDetails(walletId: Swift.String) async throws -> DynamicSDKSwift.TonNetworkDetails
+  @objc deinit
+}
+public struct TonTransactionResult {
+  public let boc: Swift.String
+  public let hash: Swift.String
+  public init(boc: Swift.String, hash: Swift.String)
+}
+public struct TonNetworkDetails {
+  public let chainId: Swift.Int
+  public let name: Swift.String
+  public init(chainId: Swift.Int, name: Swift.String)
+}
 public enum WebViewVersion {
   public static let current: Swift.String
 }
@@ -117,10 +157,18 @@ public struct ClientProps : Swift.Equatable {
   public var debug: DynamicSDKSwift.ClientDebugProps?
   public var evmNetworks: [DynamicSDKSwift.GenericNetwork]?
   public var reownProjectId: Swift.String?
+  public var deviceRegistrationModal: DynamicSDKSwift.DeviceRegistrationModal?
   #if compiler(>=5.3) && $NonescapableTypes
-  public init(environmentId: Swift.String, apiBaseUrl: Swift.String? = "https://app.dynamicauth.com/api/v0", appLogoUrl: Swift.String? = nil, appName: Swift.String = "Dynamic", redirectUrl: Swift.String? = nil, appOrigin: Swift.String? = nil, cssOverrides: Swift.String? = nil, debugWebview: Swift.Bool = false, logLevel: DynamicSDKSwift.LoggerLevel = .info, debug: DynamicSDKSwift.ClientDebugProps? = nil, evmNetworks: [DynamicSDKSwift.GenericNetwork]? = nil, reownProjectId: Swift.String? = nil)
+  public init(environmentId: Swift.String, apiBaseUrl: Swift.String? = "https://app.dynamicauth.com/api/v0", appLogoUrl: Swift.String? = nil, appName: Swift.String = "Dynamic", redirectUrl: Swift.String? = nil, appOrigin: Swift.String? = nil, cssOverrides: Swift.String? = nil, debugWebview: Swift.Bool = false, logLevel: DynamicSDKSwift.LoggerLevel = .info, debug: DynamicSDKSwift.ClientDebugProps? = nil, evmNetworks: [DynamicSDKSwift.GenericNetwork]? = nil, reownProjectId: Swift.String? = nil, deviceRegistrationModal: DynamicSDKSwift.DeviceRegistrationModal? = nil)
   #endif
   public static func == (a: DynamicSDKSwift.ClientProps, b: DynamicSDKSwift.ClientProps) -> Swift.Bool
+}
+public struct DeviceRegistrationModal : Swift.Equatable, Swift.Codable {
+  public var enabled: Swift.Bool
+  public init(enabled: Swift.Bool = true)
+  public static func == (a: DynamicSDKSwift.DeviceRegistrationModal, b: DynamicSDKSwift.DeviceRegistrationModal) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 public struct ClientDebugProps : Swift.Equatable, Swift.Codable {
   public var webview: Swift.Bool
@@ -323,6 +371,8 @@ final public class VisibilityModule {
   final public let solana: DynamicSDKSwift.SolanaModule
   final public let evm: DynamicSDKSwift.EvmModule
   final public let sui: DynamicSDKSwift.SuiModule
+  final public let bitcoin: DynamicSDKSwift.BitcoinModule
+  final public let ton: DynamicSDKSwift.TonModule
   final public let deviceRegistration: DynamicSDKSwift.DeviceRegistrationModule
   final public let walletConnect: DynamicSDKSwift.WalletConnectModule
   final public let webViewController: DynamicSDKSwift.DynamicWebViewController

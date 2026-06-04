@@ -71614,7 +71614,7 @@
           {
             "kind": "Function",
             "name": "importPrivateKey",
-            "printedName": "importPrivateKey(chain:privateKey:thresholdSignatureScheme:publicAddressCheck:addressType:password:legacyWalletId:isRawScalarImport:)",
+            "printedName": "importPrivateKey(chain:privateKey:thresholdSignatureScheme:publicAddressCheck:addressType:password:legacyWalletId:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -71707,26 +71707,11 @@
                 ],
                 "hasDefaultArg": true,
                 "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.Bool?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "hasDefaultArg": true,
-                "usr": "s:Sq"
               }
             ],
             "declKind": "Func",
-            "usr": "s:15DynamicSDKSwift10WaasModuleC16importPrivateKey5chain07privateG024thresholdSignatureScheme18publicAddressCheck11addressType8password14legacyWalletId17isRawScalarImportyAA0C5ChainO_SSAA09ThresholdkL0OSgSSSgA3RSbSgtYaKF",
-            "mangledName": "$s15DynamicSDKSwift10WaasModuleC16importPrivateKey5chain07privateG024thresholdSignatureScheme18publicAddressCheck11addressType8password14legacyWalletId17isRawScalarImportyAA0C5ChainO_SSAA09ThresholdkL0OSgSSSgA3RSbSgtYaKF",
+            "usr": "s:15DynamicSDKSwift10WaasModuleC16importPrivateKey5chain07privateG024thresholdSignatureScheme18publicAddressCheck11addressType8password14legacyWalletIdyAA0C5ChainO_SSAA09ThresholdkL0OSgSSSgA3QtYaKF",
+            "mangledName": "$s15DynamicSDKSwift10WaasModuleC16importPrivateKey5chain07privateG024thresholdSignatureScheme18publicAddressCheck11addressType8password14legacyWalletIdyAA0C5ChainO_SSAA09ThresholdkL0OSgSSSgA3QtYaKF",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "Final",
@@ -77606,7 +77591,7 @@
       "kind": "StringLiteral",
       "offset": 90,
       "length": 8,
-      "value": "\"4.90.0\""
+      "value": "\"4.87.1\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Core\/ClientProps.swift",
@@ -77642,34 +77627,6 @@
       "offset": 1913,
       "length": 5,
       "value": "false"
-    },
-    {
-      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Core\/JSONDecoder+DynamicSDK.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1478,
-      "length": 17,
-      "value": "1000000000000"
-    },
-    {
-      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Core\/JSONDecoder+DynamicSDK.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1507,
-      "length": 4,
-      "value": "1000"
-    },
-    {
-      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Core\/JSONDecoder+DynamicSDK.swift",
-      "kind": "StringLiteral",
-      "offset": 1801,
-      "length": 36,
-      "value": "\"Unsupported date format: \""
-    },
-    {
-      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Core\/JSONDecoder+DynamicSDK.swift",
-      "kind": "StringLiteral",
-      "offset": 1836,
-      "length": 1,
-      "value": "\"\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Core\/KeychainHelper.swift",
@@ -79142,62 +79099,6 @@
       "value": "false"
     },
     {
-      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/UIKit\/GestureGraphCrashWorkaround.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1435,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/UIKit\/GestureGraphCrashWorkaround.swift",
-      "kind": "StringLiteral",
-      "offset": 1812,
-      "length": 16,
-      "value": "\"UIGestureGraph\""
-    },
-    {
-      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/UIKit\/GestureGraphCrashWorkaround.swift",
-      "kind": "StringLiteral",
-      "offset": 1856,
-      "length": 60,
-      "value": "\"[GestureFix] UIGestureGraph not found; skipping workaround\""
-    },
-    {
-      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/UIKit\/GestureGraphCrashWorkaround.swift",
-      "kind": "StringLiteral",
-      "offset": 1977,
-      "length": 67,
-      "value": "\"addUniqueEdgeWithLabel:sourceNode:targetNode:directed:properties:\""
-    },
-    {
-      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/UIKit\/GestureGraphCrashWorkaround.swift",
-      "kind": "StringLiteral",
-      "offset": 2134,
-      "length": 59,
-      "value": "\"[GestureFix] target method not found; skipping workaround\""
-    },
-    {
-      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/UIKit\/GestureGraphCrashWorkaround.swift",
-      "kind": "BooleanLiteral",
-      "offset": 2231,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/UIKit\/GestureGraphCrashWorkaround.swift",
-      "kind": "StringLiteral",
-      "offset": 2908,
-      "length": 76,
-      "value": "\"[GestureFix] skipped gesture-graph edge with nil node (iOS <26 workaround)\""
-    },
-    {
-      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/UIKit\/GestureGraphCrashWorkaround.swift",
-      "kind": "StringLiteral",
-      "offset": 3211,
-      "length": 69,
-      "value": "\"[GestureFix] installed UIGestureGraph nil-edge workaround (iOS <26)\""
-    },
-    {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/WebView\/DynamicWebViewController.swift",
       "kind": "StringLiteral",
       "offset": 151,
@@ -79214,14 +79115,14 @@
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/WebView\/DynamicWebViewController.swift",
       "kind": "Array",
-      "offset": 5361,
+      "offset": 5217,
       "length": 33,
       "value": "[\"localhost\", \"127.0.0.1\", \"::1\"]"
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/WebView\/DynamicWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 5811,
+      "offset": 5667,
       "length": 5,
       "value": "false"
     }

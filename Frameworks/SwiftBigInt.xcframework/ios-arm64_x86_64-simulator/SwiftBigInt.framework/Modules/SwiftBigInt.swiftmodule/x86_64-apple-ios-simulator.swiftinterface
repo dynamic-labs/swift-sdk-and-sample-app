@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
-// swift-module-flags: -target x86_64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -module-name SwiftBigInt -package-name bigint
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
+// swift-compiler-version: Apple Swift version 6.3.2 effective-5.10 (swiftlang-6.3.2.1.108 clang-2100.1.1.101)
+// swift-module-flags: -target x86_64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -O -enable-experimental-feature DebugDescriptionMacro -module-name SwiftBigInt -package-name bigint
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.2
 import Foundation
 import Swift
 import _Concurrency
@@ -123,28 +123,16 @@ extension SwiftBigInt.BigInt {
   public func power(_ exponent: SwiftBigInt.BigInt, modulus: SwiftBigInt.BigInt) -> SwiftBigInt.BigInt
 }
 extension SwiftBigInt.BigUInt {
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?<T>(exactly source: T) where T : Swift.BinaryFloatingPoint
-  #endif
   public init<T>(_ source: T) where T : Swift.BinaryFloatingPoint
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(exactly source: Foundation.Decimal)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(truncating source: Foundation.Decimal)
-  #endif
 }
 extension SwiftBigInt.BigInt {
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?<T>(exactly source: T) where T : Swift.BinaryFloatingPoint
-  #endif
   public init<T>(_ source: T) where T : Swift.BinaryFloatingPoint
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(exactly source: Foundation.Decimal)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(truncating source: Foundation.Decimal)
-  #endif
 }
 extension Swift.BinaryFloatingPoint where Self.RawExponent : Swift.FixedWidthInteger, Self.RawSignificand : Swift.FixedWidthInteger {
   public init(_ value: SwiftBigInt.BigInt)
@@ -159,15 +147,11 @@ extension Foundation.Decimal {
 }
 extension SwiftBigInt.BigUInt {
   public func greatestCommonDivisor(with b: SwiftBigInt.BigUInt) -> SwiftBigInt.BigUInt
-  #if compiler(>=5.3) && $NonescapableTypes
   public func inverse(_ modulus: SwiftBigInt.BigUInt) -> SwiftBigInt.BigUInt?
-  #endif
 }
 extension SwiftBigInt.BigInt {
   public func greatestCommonDivisor(with b: SwiftBigInt.BigInt) -> SwiftBigInt.BigInt
-  #if compiler(>=5.3) && $NonescapableTypes
   public func inverse(_ modulus: SwiftBigInt.BigInt) -> SwiftBigInt.BigInt?
-  #endif
 }
 extension SwiftBigInt.BigUInt : Swift.Hashable {
   public func hash(into hasher: inout Swift.Hasher)
@@ -182,9 +166,7 @@ extension SwiftBigInt.BigInt : Swift.Hashable {
   }
 }
 extension SwiftBigInt.BigUInt {
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?<T>(exactly source: T) where T : Swift.BinaryInteger
-  #endif
   public init<T>(_ source: T) where T : Swift.BinaryInteger
   public init<T>(truncatingIfNeeded source: T) where T : Swift.BinaryInteger
   public init<T>(clamping source: T) where T : Swift.BinaryInteger
@@ -193,9 +175,7 @@ extension SwiftBigInt.BigInt {
   public init()
   public init(_ integer: SwiftBigInt.BigUInt)
   public init<T>(_ source: T) where T : Swift.BinaryInteger
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?<T>(exactly source: T) where T : Swift.BinaryInteger
-  #endif
   public init<T>(clamping source: T) where T : Swift.BinaryInteger
   public init<T>(truncatingIfNeeded source: T) where T : Swift.BinaryInteger
 }
@@ -269,14 +249,10 @@ extension SwiftBigInt.BigInt : Swift.Strideable {
   public func distance(to other: SwiftBigInt.BigInt) -> SwiftBigInt.BigInt.Stride
 }
 extension SwiftBigInt.BigUInt {
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?<S>(_ text: S, radix: Swift.Int = 10) where S : Swift.StringProtocol
-  #endif
 }
 extension SwiftBigInt.BigInt {
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?<S>(_ text: S, radix: Swift.Int = 10) where S : Swift.StringProtocol
-  #endif
 }
 extension Swift.String {
   public init(_ v: SwiftBigInt.BigUInt)

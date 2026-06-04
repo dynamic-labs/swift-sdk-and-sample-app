@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
-// swift-module-flags: -target x86_64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -module-name SolanaWeb3 -package-name solanaweb3
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
+// swift-compiler-version: Apple Swift version 6.3.2 effective-5.10 (swiftlang-6.3.2.1.108 clang-2100.1.1.101)
+// swift-module-flags: -target x86_64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -O -enable-experimental-feature DebugDescriptionMacro -module-name SolanaWeb3 -package-name solanaweb3
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.2
 import CryptoKit
 import Foundation
 import Swift
@@ -62,17 +62,11 @@ public struct PublicKey : Swift.Hashable, Swift.Codable, Swift.CustomStringConve
   public static func zero() -> SolanaWeb3.PublicKey
   public static func fromString(_ pubkey: Swift.String) throws -> SolanaWeb3.PublicKey
   public static func fromBase58(_ pubkey: Swift.String) throws -> SolanaWeb3.PublicKey
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func tryFromBase58(_ pubkey: Swift.String?) -> SolanaWeb3.PublicKey?
-  #endif
   public static func fromBase64(_ pubkey: Swift.String) throws -> SolanaWeb3.PublicKey
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func tryFromBase64(_ pubkey: Swift.String?) -> SolanaWeb3.PublicKey?
-  #endif
   public static func fromBytes(_ pubkey: Foundation.Data) throws -> SolanaWeb3.PublicKey
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func tryFromBytes(_ pubkey: Foundation.Data?) -> SolanaWeb3.PublicKey?
-  #endif
   public func toBase58() -> Swift.String
   public func toBase64() -> Swift.String
   public func toBytes() -> Foundation.Data
@@ -108,9 +102,7 @@ public enum AccountEncoding : Swift.String, Swift.Codable {
   public var isJson: Swift.Bool {
     get
   }
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
-  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
@@ -120,48 +112,36 @@ public let lamportsPerSol: Swift.UInt64
 public func solToLamports(_ sol: Swift.Double) -> Swift.UInt64
 public func solToLamports(_ sol: Swift.Int) -> Swift.UInt64
 public func lamportsToSol(_ lamports: Swift.UInt64) -> Swift.Double
-#if compiler(>=5.3) && $NonescapableTypes
 public func decodeLength(_ buffer: inout SolanaWeb3.Buffer) -> Swift.Int?
-#endif
 public func encodeLength(_ length: Swift.Int) -> Foundation.Data
 public enum TransactionEncoding : Swift.String, Swift.Codable {
   case base58
   case base64
   case json
   case jsonParsed
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
-  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
 }
 @_inheritsConvenienceInitializers public class ED25519Exception : SolanaWeb3.SolanaException {
-  #if compiler(>=5.3) && $NonescapableTypes
   override public init(_ message: Swift.String, code: Swift.Int? = nil)
-  #endif
   @objc deinit
 }
 @_inheritsConvenienceInitializers public class KeypairException : SolanaWeb3.SolanaException {
-  #if compiler(>=5.3) && $NonescapableTypes
   override public init(_ message: Swift.String, code: Swift.Int? = nil)
-  #endif
   @objc deinit
 }
 @_inheritsConvenienceInitializers public class PublicKeyException : SolanaWeb3.SolanaException {
-  #if compiler(>=5.3) && $NonescapableTypes
   override public init(_ message: Swift.String, code: Swift.Int? = nil)
-  #endif
   public static func invalidLength(_ length: Swift.Int, maxLength: Swift.Int = 32) -> SolanaWeb3.PublicKeyException
   @objc deinit
 }
 public class SolanaException : Swift.Error, Swift.CustomStringConvertible {
   final public let message: Swift.String
   final public let code: Swift.Int?
-  #if compiler(>=5.3) && $NonescapableTypes
   public init(_ message: Swift.String, code: Swift.Int? = nil)
-  #endif
   public var description: Swift.String {
     get
   }
@@ -171,15 +151,11 @@ public class SolanaException : Swift.Error, Swift.CustomStringConvertible {
   @objc deinit
 }
 @_inheritsConvenienceInitializers public class TransactionException : SolanaWeb3.SolanaException {
-  #if compiler(>=5.3) && $NonescapableTypes
   override public init(_ message: Swift.String, code: Swift.Int? = nil)
-  #endif
   @objc deinit
 }
 @_inheritsConvenienceInitializers public class TransactionSignatureException : SolanaWeb3.SolanaException {
-  #if compiler(>=5.3) && $NonescapableTypes
   override public init(_ message: Swift.String, code: Swift.Int? = nil)
-  #endif
   @objc deinit
 }
 public struct Message : Swift.Codable, Swift.Equatable {
@@ -189,16 +165,10 @@ public struct Message : Swift.Codable, Swift.Equatable {
   public let recentBlockhash: SolanaWeb3.Blockhash
   public let instructions: [SolanaWeb3.MessageInstruction]
   public let addressTableLookups: [SolanaWeb3.MessageAddressTableLookup]
-  #if compiler(>=5.3) && $NonescapableTypes
   public init(version: Swift.Int?, header: SolanaWeb3.MessageHeader, accountKeys: [SolanaWeb3.PublicKey], recentBlockhash: SolanaWeb3.Blockhash, instructions: [SolanaWeb3.MessageInstruction], addressTableLookups: [SolanaWeb3.MessageAddressTableLookup] = [])
-  #endif
   public static func legacy(payer: SolanaWeb3.PublicKey, instructions: [SolanaWeb3.TransactionInstruction], recentBlockhash: SolanaWeb3.Blockhash) -> SolanaWeb3.Message
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func v0(payer: SolanaWeb3.PublicKey, instructions: [SolanaWeb3.TransactionInstruction], recentBlockhash: SolanaWeb3.Blockhash, addressLookupTableAccounts: [SolanaWeb3.AddressLookupTableAccount]? = nil) -> SolanaWeb3.Message
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func compile(version: Swift.Int?, payer: SolanaWeb3.PublicKey, instructions: [SolanaWeb3.TransactionInstruction], recentBlockhash: SolanaWeb3.Blockhash, addressLookupTableAccounts: [SolanaWeb3.AddressLookupTableAccount]?) -> SolanaWeb3.Message
-  #endif
   public var numAccountKeysFromLookups: Swift.Int {
     get
   }
@@ -245,9 +215,7 @@ public struct AddressLookupTableState : Swift.Codable, Swift.Equatable {
   public let lastExtendedSlotStartIndex: Swift.UInt8
   public let authority: SolanaWeb3.PublicKey?
   public let addresses: [SolanaWeb3.PublicKey]
-  #if compiler(>=5.3) && $NonescapableTypes
   public init(typeIndex: Swift.Int = 1, deactivationSlot: Swift.UInt64, lastExtendedSlot: Swift.UInt64, lastExtendedSlotStartIndex: Swift.UInt8, authority: SolanaWeb3.PublicKey?, addresses: [SolanaWeb3.PublicKey])
-  #endif
   public var isActive: Swift.Bool {
     get
   }
@@ -270,9 +238,7 @@ public enum AssociatedTokenInstruction : Swift.Int {
   case create
   case createIdempotent
   case recoverNested
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -307,9 +273,7 @@ public enum SystemInstruction : Swift.Int {
   case assignWithSeed
   case transferWithSeed
   case upgradeNonceAccount
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -359,9 +323,7 @@ public enum TokenInstruction : Swift.Int {
   case initializeImmutableOwner
   case amountToUiAmount
   case uiAmountToAmount
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -374,9 +336,7 @@ public struct TokenProgram : SolanaWeb3.Program {
   }
   public static let minSigners: Swift.Int
   public static let maxSigners: Swift.Int
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func initializeMint(mint: SolanaWeb3.PublicKey, decimals: Swift.UInt8, mintAuthority: SolanaWeb3.PublicKey, freezeAuthority: SolanaWeb3.PublicKey? = nil) -> SolanaWeb3.TransactionInstruction
-  #endif
   public static func initializeAccount(account: SolanaWeb3.PublicKey, mint: SolanaWeb3.PublicKey, owner: SolanaWeb3.PublicKey) -> SolanaWeb3.TransactionInstruction
   public static func transfer(source: SolanaWeb3.PublicKey, destination: SolanaWeb3.PublicKey, owner: SolanaWeb3.PublicKey, signers: [SolanaWeb3.PublicKey] = [], amount: Swift.UInt64) -> SolanaWeb3.TransactionInstruction
   public static func mintTo(mint: SolanaWeb3.PublicKey, account: SolanaWeb3.PublicKey, mintAuthority: SolanaWeb3.PublicKey, signers: [SolanaWeb3.PublicKey] = [], amount: Swift.UInt64) -> SolanaWeb3.TransactionInstruction
@@ -386,9 +346,7 @@ public struct TokenProgram : SolanaWeb3.Program {
 public struct CommitmentAndMinContextSlotConfig : Swift.Codable, Swift.Equatable {
   public let commitment: SolanaWeb3.Commitment?
   public let minContextSlot: Swift.UInt64?
-  #if compiler(>=5.3) && $NonescapableTypes
   public init(commitment: SolanaWeb3.Commitment? = nil, minContextSlot: Swift.UInt64? = nil)
-  #endif
   public static func == (a: SolanaWeb3.CommitmentAndMinContextSlotConfig, b: SolanaWeb3.CommitmentAndMinContextSlotConfig) -> Swift.Bool
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
@@ -400,9 +358,7 @@ public struct GetAccountInfoConfig : Swift.Codable, Swift.Equatable {
   public let encoding: SolanaWeb3.AccountEncoding?
   public let dataSlice: SolanaWeb3.DataSlice?
   public let minContextSlot: Swift.UInt64?
-  #if compiler(>=5.3) && $NonescapableTypes
   public init(commitment: SolanaWeb3.Commitment? = nil, encoding: SolanaWeb3.AccountEncoding? = nil, dataSlice: SolanaWeb3.DataSlice? = nil, minContextSlot: Swift.UInt64? = nil)
-  #endif
   public static func == (a: SolanaWeb3.GetAccountInfoConfig, b: SolanaWeb3.GetAccountInfoConfig) -> Swift.Bool
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
@@ -420,9 +376,7 @@ public struct SendTransactionConfig : Swift.Codable, Swift.Equatable {
   public let preflightCommitment: SolanaWeb3.Commitment?
   public let maxRetries: Swift.UInt?
   public let minContextSlot: Swift.UInt64?
-  #if compiler(>=5.3) && $NonescapableTypes
   public init(skipPreflight: Swift.Bool? = nil, preflightCommitment: SolanaWeb3.Commitment? = nil, maxRetries: Swift.UInt? = nil, minContextSlot: Swift.UInt64? = nil)
-  #endif
   public static func == (a: SolanaWeb3.SendTransactionConfig, b: SolanaWeb3.SendTransactionConfig) -> Swift.Bool
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
@@ -434,21 +388,11 @@ public class Connection {
   public init(_ cluster: SolanaWeb3.Cluster, commitment: SolanaWeb3.Commitment = .confirmed)
   convenience public init(customRpcUrl: Swift.String, commitment: SolanaWeb3.Commitment = .confirmed) throws
   public func health() async throws -> SolanaWeb3.HealthStatus
-  #if compiler(>=5.3) && $NonescapableTypes
   public func getLatestBlockhash(config: SolanaWeb3.GetLatestBlockhashConfig? = nil) async throws -> SolanaWeb3.BlockhashWithExpiryBlockHeight
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public func getBalance(_ pubkey: SolanaWeb3.PublicKey, config: SolanaWeb3.GetBalanceConfig? = nil) async throws -> Swift.UInt64
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public func getAccountInfo(_ pubkey: SolanaWeb3.PublicKey, config: SolanaWeb3.GetAccountInfoConfig? = nil) async throws -> SolanaWeb3.AccountInfo?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public func getBlockHeight(config: SolanaWeb3.GetBlockHeightConfig? = nil) async throws -> Swift.UInt64
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public func sendTransaction(_ transaction: SolanaWeb3.Transaction, config: SolanaWeb3.SendTransactionConfig? = nil) async throws -> SolanaWeb3.TransactionSignature
-  #endif
   public func requestAirdrop(_ pubkey: SolanaWeb3.PublicKey, lamports: Swift.UInt64) async throws -> SolanaWeb3.TransactionSignature
   public func requestAndConfirmAirdrop(_ pubkey: SolanaWeb3.PublicKey, lamports: Swift.UInt64) async throws -> SolanaWeb3.TransactionSignature
   @objc deinit
@@ -473,16 +417,12 @@ public struct AccountInfo : Swift.Codable, Swift.Equatable {
   public let executable: Swift.Bool
   public let rentEpoch: Swift.UInt64
   public init(lamports: Swift.UInt64, owner: Swift.String, data: SolanaWeb3.AnyCodable, executable: Swift.Bool, rentEpoch: Swift.UInt64)
-  #if compiler(>=5.3) && $NonescapableTypes
   public var binaryData: Swift.String? {
     get
   }
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public var parsedData: [Swift.String : SolanaWeb3.AnyCodable]? {
     get
   }
-  #endif
   public var isBinary: Swift.Bool {
     get
   }
@@ -501,9 +441,7 @@ public struct BlockhashWithExpiryBlockHeight : Swift.Codable, Swift.Equatable {
 public struct RPCContextResponse<T> : Swift.Codable where T : Swift.Decodable, T : Swift.Encodable {
   public let context: SolanaWeb3.RPCContext
   public let value: T?
-  #if compiler(>=5.3) && $NonescapableTypes
   public init(context: SolanaWeb3.RPCContext, value: T?)
-  #endif
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -515,9 +453,7 @@ public struct RPCContext : Swift.Codable {
 }
 public struct RPCSuccessResponse<T> : Swift.Codable where T : Swift.Decodable, T : Swift.Encodable {
   public let result: T?
-  #if compiler(>=5.3) && $NonescapableTypes
   public init(result: T?)
-  #endif
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -525,9 +461,7 @@ public struct RPCErrorResponse : Swift.Codable, Swift.Error {
   public let code: Swift.Int
   public let message: Swift.String
   public let data: SolanaWeb3.AnyCodable?
-  #if compiler(>=5.3) && $NonescapableTypes
   public init(code: Swift.Int, message: Swift.String, data: SolanaWeb3.AnyCodable? = nil)
-  #endif
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -549,9 +483,7 @@ public struct AccountMeta : Swift.Codable, Swift.Equatable {
   public static func signer(_ pubkey: SolanaWeb3.PublicKey, isWritable: Swift.Bool = false) -> SolanaWeb3.AccountMeta
   public static func writable(_ pubkey: SolanaWeb3.PublicKey, isSigner: Swift.Bool = false) -> SolanaWeb3.AccountMeta
   public static func signerAndWritable(_ pubkey: SolanaWeb3.PublicKey) -> SolanaWeb3.AccountMeta
-  #if compiler(>=5.3) && $NonescapableTypes
   public func copyWith(pubkey: SolanaWeb3.PublicKey? = nil, isSigner: Swift.Bool? = nil, isWritable: Swift.Bool? = nil) -> SolanaWeb3.AccountMeta
-  #endif
   public static func == (a: SolanaWeb3.AccountMeta, b: SolanaWeb3.AccountMeta) -> Swift.Bool
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
@@ -560,35 +492,23 @@ public let packetDataSize: Swift.Int
 public let versionPrefixFlag: Swift.UInt8
 public let versionPrefixMask: Swift.UInt8
 public enum SolanaTransactionBuilder {
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func createVersionedTransferTransaction(from: Swift.String, to: Swift.String, lamports: Swift.UInt64, recentBlockhash: SolanaWeb3.Blockhash, addressLookupTableAccounts: [SolanaWeb3.AddressLookupTableAccount]? = nil) throws -> SolanaWeb3.Transaction
-  #endif
 }
 public struct Transaction : Swift.Codable, Swift.Equatable {
   public var signatures: [Foundation.Data]
   public let message: SolanaWeb3.Message
-  #if compiler(>=5.3) && $NonescapableTypes
   public init(signatures: [Foundation.Data]? = nil, message: SolanaWeb3.Message)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public var signature: Foundation.Data? {
     get
   }
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public var version: Swift.Int? {
     get
   }
-  #endif
   public var blockhash: SolanaWeb3.Blockhash {
     get
   }
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func legacy(signatures: [Foundation.Data]? = nil, payer: SolanaWeb3.PublicKey, instructions: [SolanaWeb3.TransactionInstruction], recentBlockhash: SolanaWeb3.Blockhash) -> SolanaWeb3.Transaction
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func v0(signatures: [Foundation.Data]? = nil, payer: SolanaWeb3.PublicKey, instructions: [SolanaWeb3.TransactionInstruction], recentBlockhash: SolanaWeb3.Blockhash, addressLookupTableAccounts: [SolanaWeb3.AddressLookupTableAccount]? = nil) -> SolanaWeb3.Transaction
-  #endif
   public mutating func sign(_ signers: [any SolanaWeb3.Signer]) throws
   public func serialize() -> Foundation.Data
   public func serializeToBase64() -> Swift.String
@@ -614,9 +534,7 @@ public enum Commitment : Swift.String, Swift.Codable {
   case processed
   case confirmed
   case finalized
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
-  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
@@ -635,18 +553,14 @@ public struct AnyCodable : Swift.Codable, Swift.Equatable {
   public var value: Any {
     get
   }
-  #if compiler(>=5.3) && $NonescapableTypes
   public init(_ value: Any?)
-  #endif
   public init(from decoder: any Swift.Decoder) throws
   public func encode(to encoder: any Swift.Encoder) throws
   public static func == (a: SolanaWeb3.AnyCodable, b: SolanaWeb3.AnyCodable) -> Swift.Bool
 }
 public struct Base58 {
   public static func encode(_ data: Foundation.Data) -> Swift.String
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func decode(_ string: Swift.String) -> Foundation.Data?
-  #endif
 }
 public struct Borsh {
   public static let shared: SolanaWeb3.Borsh
@@ -654,9 +568,7 @@ public struct Borsh {
   public func encodeU8(_ value: Swift.UInt8) -> Foundation.Data
   public func encodePubkey(_ pubkey: Swift.String) -> Foundation.Data
   public func encodeRustString(_ string: Swift.String) -> Foundation.Data
-  #if compiler(>=5.3) && $NonescapableTypes
   public func encodeOptionalPubkey(_ pubkey: Swift.String?) -> Foundation.Data
-  #endif
 }
 public class Buffer {
   public init(_ data: Foundation.Data = Data())
@@ -666,21 +578,11 @@ public class Buffer {
   public var remaining: Swift.Int {
     get
   }
-  #if compiler(>=5.3) && $NonescapableTypes
   public func read(_ length: Swift.Int) -> Foundation.Data?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public func readUInt8() -> Swift.UInt8?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public func readUInt16() -> Swift.UInt16?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public func readUInt32() -> Swift.UInt32?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public func readUInt64() -> Swift.UInt64?
-  #endif
   public func write(_ data: Foundation.Data)
   public func writeUInt8(_ value: Swift.UInt8)
   public func writeUInt16(_ value: Swift.UInt16)

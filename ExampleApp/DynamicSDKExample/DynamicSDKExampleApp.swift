@@ -33,15 +33,13 @@ struct DynamicSDKExampleApp: App {
       
     _ = DynamicSDK.initialize(
       props: ClientProps(
-        environmentId: "3e219b76-dcf1-40ab-aad6-652c4dfab4cc",
+        environmentId: "f25b5211-a37a-445f-ba53-c3a75783a869",
         appLogoUrl: "https://demo.dynamic.xyz/favicon-32x32.png",
         appName: "Dynamic Swift Demo",
         redirectUrl: "flutterdemo://",
         appOrigin: "https://demo.dynamic.xyz",
         logLevel: .debug,
-        debug: ClientDebugProps(webview: true),
-        evmNetworks: [b3SepoliaNetwork],
-        reownProjectId: "7569c63c696a4e8aeb3217c1b1332bd7"
+        debug: ClientDebugProps(webview: true, messageTransport: true)
       )
     )
   }

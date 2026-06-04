@@ -79,8 +79,8 @@ struct TonSendJettonScreen: View {
       do {
         let tx = try await DynamicSDK.instance().ton.sendJetton(
           walletId: walletId,
-          recipientAddress: recipientAddress.trimmingCharacters(in: .whitespacesAndNewlines),
-          jettonAmount: amount.trimmingCharacters(in: .whitespacesAndNewlines),
+          to: recipientAddress.trimmingCharacters(in: .whitespacesAndNewlines),
+          amount: amount.trimmingCharacters(in: .whitespacesAndNewlines),
           jettonMasterAddress: jettonMasterAddress.trimmingCharacters(in: .whitespacesAndNewlines)
         )
 

@@ -84,7 +84,36 @@ struct HomeScreenView: View {
             }
           
             // Create Password Wallet button (always visible)
-            
+            NavigationLink(destination: CreatePasswordWalletScreen()) {
+              HStack {
+                Image(systemName: "lock.fill")
+                Text("Create Password Wallet")
+                Spacer()
+                Image(systemName: "chevron.right")
+              }
+              .foregroundColor(colorScheme == .dark ? .white : .blue)
+              .padding()
+              .frame(maxWidth: .infinity)
+              .background(Color.blue.opacity(0.1))
+              .cornerRadius(8)
+            }
+            .padding(.horizontal)
+
+            // Import Private Key button (always visible)
+            NavigationLink(destination: ImportPrivateKeyScreen()) {
+              HStack {
+                Image(systemName: "square.and.arrow.down")
+                Text("Import Private Key")
+                Spacer()
+                Image(systemName: "chevron.right")
+              }
+              .foregroundColor(colorScheme == .dark ? .white : .blue)
+              .padding()
+              .frame(maxWidth: .infinity)
+              .background(Color.blue.opacity(0.1))
+              .cornerRadius(8)
+            }
+            .padding(.horizontal)
 
             Spacer().frame(height: 12)
 

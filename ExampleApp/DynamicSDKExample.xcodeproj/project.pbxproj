@@ -10,6 +10,7 @@
 		069898F3595F822E90304493 /* AppRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DAD545716C3952260F8AC2 /* AppRootView.swift */; };
 		22D16B387EE61062CA2E9523 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DA03555BA55B97B5C0B2BD /* Route.swift */; };
 		25206D5C2F3B3A5D007740AA /* DelegationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25206D5B2F3B3A5D007740AA /* DelegationScreen.swift */; };
+		253C7F5D2F45F32E003F3EBD /* DynamicSDKSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 7806C38A7DA6B13016BBC7D4 /* DynamicSDKSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		25AFB8C32EFEEDB30013666D /* DynamicSDKExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AFB8C22EFEEDB30013666D /* DynamicSDKExampleApp.swift */; };
 		25AFB8CB2F0000020013666E /* MfaDevicesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AFB8C62F0000020013666E /* MfaDevicesScreen.swift */; };
 		25AFB8CC2F0000020013666E /* MfaAddDeviceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AFB8C72F0000020013666E /* MfaAddDeviceScreen.swift */; };
@@ -45,6 +46,8 @@
 		PRJS0001000000000001 /* ProjectSettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = PRJS0002000000000001 /* ProjectSettingsScreen.swift */; };
 		SPLT0001000000000001 /* SolanaSendSplTokenScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = SPLT0002000000000001 /* SolanaSendSplTokenScreen.swift */; };
 		STUP0001000000000001 /* StepUpAuthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = STUP0002000000000001 /* StepUpAuthScreen.swift */; };
+		CPWS0001000000000001 /* CreatePasswordWalletScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CPWS0002000000000001 /* CreatePasswordWalletScreen.swift */; };
+		IPKS0001000000000001 /* ImportPrivateKeyScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = IPKS0002000000000001 /* ImportPrivateKeyScreen.swift */; };
 		TDEV0001000000000001 /* TrustedDevicesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = TDEV0002000000000001 /* TrustedDevicesScreen.swift */; };
 		SUI00001000000000001 /* SuiSignMessageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = SUI00002000000000001 /* SuiSignMessageScreen.swift */; };
 		SUI00001000000000002 /* SuiSignTransactionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = SUI00002000000000002 /* SuiSignTransactionScreen.swift */; };
@@ -99,6 +102,8 @@
 		PRJS0002000000000001 /* ProjectSettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSettingsScreen.swift; sourceTree = "<group>"; };
 		SPLT0002000000000001 /* SolanaSendSplTokenScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolanaSendSplTokenScreen.swift; sourceTree = "<group>"; };
 		STUP0002000000000001 /* StepUpAuthScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepUpAuthScreen.swift; sourceTree = "<group>"; };
+		CPWS0002000000000001 /* CreatePasswordWalletScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePasswordWalletScreen.swift; sourceTree = "<group>"; };
+		IPKS0002000000000001 /* ImportPrivateKeyScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportPrivateKeyScreen.swift; sourceTree = "<group>"; };
 		TDEV0002000000000001 /* TrustedDevicesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustedDevicesScreen.swift; sourceTree = "<group>"; };
 		SUI00002000000000001 /* SuiSignMessageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuiSignMessageScreen.swift; sourceTree = "<group>"; };
 		SUI00002000000000002 /* SuiSignTransactionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuiSignTransactionScreen.swift; sourceTree = "<group>"; };
@@ -200,6 +205,8 @@
 				25AFB8C92F0000020013666E /* PasskeysScreen.swift */,
 				PRJS0002000000000001 /* ProjectSettingsScreen.swift */,
 				STUP0002000000000001 /* StepUpAuthScreen.swift */,
+				CPWS0002000000000001 /* CreatePasswordWalletScreen.swift */,
+				IPKS0002000000000001 /* ImportPrivateKeyScreen.swift */,
 				TDEV0002000000000001 /* TrustedDevicesScreen.swift */,
 				9B2C9C792B00000100000020 /* Wallet */,
 				WC000003000000000001 /* WalletConnect */,
@@ -359,6 +366,8 @@
 				PRJS0001000000000001 /* ProjectSettingsScreen.swift in Sources */,
 				SPLT0001000000000001 /* SolanaSendSplTokenScreen.swift in Sources */,
 				STUP0001000000000001 /* StepUpAuthScreen.swift in Sources */,
+				CPWS0001000000000001 /* CreatePasswordWalletScreen.swift in Sources */,
+				IPKS0001000000000001 /* ImportPrivateKeyScreen.swift in Sources */,
 				TDEV0001000000000001 /* TrustedDevicesScreen.swift in Sources */,
 				SUI00001000000000001 /* SuiSignMessageScreen.swift in Sources */,
 				SUI00001000000000002 /* SuiSignTransactionScreen.swift in Sources */,

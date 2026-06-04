@@ -28,6 +28,35 @@ struct TextFieldWithLabel: View {
   }
 }
 
+/// Secure (masked) text field with a label. Mirrors `TextFieldWithLabel`
+/// but uses `SecureField` for sensitive input like passwords / private keys.
+struct SecureFieldWithLabel: View {
+  let label: String
+  let placeholder: String
+  @Binding var text: String
+
+  var body: some View {
+    VStack(alignment: .leading, spacing: 8) {
+      Text(label)
+        .font(.subheadline)
+        .fontWeight(.medium)
+        .foregroundColor(.primary)
+
+      SecureField(placeholder, text: $text)
+        .textFieldStyle(.plain)
+        .autocorrectionDisabled(true)
+        .textInputAutocapitalization(.never)
+        .padding()
+        .background(Color(.systemBackground))
+        .cornerRadius(8)
+        .overlay(
+          RoundedRectangle(cornerRadius: 8)
+            .stroke(Color(.systemGray4), lineWidth: 1)
+        )
+    }
+  }
+}
+
 /// Reusable button component.
 struct PrimaryButton: View {
   let title: String

@@ -7,6 +7,7 @@ import AuthenticationServices
 import Combine
 import CryptoKit
 import Foundation
+import ObjectiveC
 import Security
 import SolanaWeb3
 import Swift
@@ -20,6 +21,7 @@ import _SwiftConcurrencyShims
 import _WebKit_SwiftUI
 import os.log
 import os
+import ObjectiveC.runtime
 final public class BitcoinModule {
   public init(_ transport: DynamicSDKSwift.MessageTransport)
   final public func signMessage(walletId: Swift.String, message: Swift.String, protocol signingProtocol: Swift.String? = nil, addressType: Swift.String? = nil) async throws -> Swift.String

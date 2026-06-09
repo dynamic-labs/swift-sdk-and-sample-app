@@ -77591,7 +77591,7 @@
       "kind": "StringLiteral",
       "offset": 90,
       "length": 8,
-      "value": "\"4.87.1\""
+      "value": "\"4.88.3\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Core\/ClientProps.swift",
@@ -77627,6 +77627,34 @@
       "offset": 1913,
       "length": 5,
       "value": "false"
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Core\/JSONDecoder+DynamicSDK.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1478,
+      "length": 17,
+      "value": "1000000000000"
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Core\/JSONDecoder+DynamicSDK.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1507,
+      "length": 4,
+      "value": "1000"
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Core\/JSONDecoder+DynamicSDK.swift",
+      "kind": "StringLiteral",
+      "offset": 1801,
+      "length": 36,
+      "value": "\"Unsupported date format: \""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Core\/JSONDecoder+DynamicSDK.swift",
+      "kind": "StringLiteral",
+      "offset": 1836,
+      "length": 1,
+      "value": "\"\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Core\/KeychainHelper.swift",

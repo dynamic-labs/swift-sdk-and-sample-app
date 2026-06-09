@@ -7,6 +7,7 @@ final class HomeScreenViewModel: ObservableObject {
   @Published var wallets: [BaseWallet] = []
   @Published var user: UserProfile?
   @Published var token: String?
+  @Published var minAuthToken: String?
   @Published var errorMessage: String?
   @Published var isCreatingWallets: Bool = false
 
@@ -22,7 +23,8 @@ final class HomeScreenViewModel: ObservableObject {
     wallets = sdk.wallets.userWallets
     user = sdk.auth.authenticatedUser
     token = sdk.auth.token
-    
+    minAuthToken = sdk.auth.minAuthToken
+
     // Check if wallets are being created on initial load
     checkIfCreatingWallets()
 
@@ -66,6 +68,14 @@ final class HomeScreenViewModel: ObservableObject {
       .receive(on: DispatchQueue.main)
       .sink { [weak self] token in
         self?.token = token
+      }
+      .store(in: &cancellables)
+
+    // Minified auth token updates
+    sdk.auth.minAuthTokenChanges
+      .receive(on: DispatchQueue.main)
+      .sink { [weak self] minAuthToken in
+        self?.minAuthToken = minAuthToken
       }
       .store(in: &cancellables)
   }

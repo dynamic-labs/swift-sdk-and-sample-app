@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
-// swift-module-flags: -target x86_64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -module-name AnyCodableSwift
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
+// swift-compiler-version: Apple Swift version 6.3.2 effective-5.10 (swiftlang-6.3.2.1.108 clang-2100.1.1.101)
+// swift-module-flags: -target x86_64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -O -enable-experimental-feature DebugDescriptionMacro -module-name AnyCodableSwift
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.2
 import Foundation
 import Swift
 import _Concurrency
@@ -9,9 +9,7 @@ import _StringProcessing
 import _SwiftConcurrencyShims
 @frozen public struct AnyCodable : Swift.Codable {
   public let value: Any
-  #if compiler(>=5.3) && $NonescapableTypes
   public init<T>(_ value: T?)
-  #endif
 }
 extension AnyCodableSwift.AnyCodable : AnyCodableSwift._AnyEncodable, AnyCodableSwift._AnyDecodable {
 }
@@ -62,16 +60,12 @@ extension AnyCodableSwift.AnyCodable : Swift.Hashable {
 }
 @frozen public struct AnyDecodable : Swift.Decodable {
   public let value: Any
-  #if compiler(>=5.3) && $NonescapableTypes
   public init<T>(_ value: T?)
-  #endif
 }
 @usableFromInline
 internal protocol _AnyDecodable {
   var value: Any { get }
-  #if compiler(>=5.3) && $NonescapableTypes
   init<T>(_ value: T?)
-  #endif
 }
 extension AnyCodableSwift.AnyDecodable : AnyCodableSwift._AnyDecodable {
 }
@@ -99,16 +93,12 @@ extension AnyCodableSwift.AnyDecodable : Swift.Hashable {
 }
 @frozen public struct AnyEncodable : Swift.Encodable {
   public let value: Any
-  #if compiler(>=5.3) && $NonescapableTypes
   public init<T>(_ value: T?)
-  #endif
 }
 @usableFromInline
 internal protocol _AnyEncodable {
   var value: Any { get }
-  #if compiler(>=5.3) && $NonescapableTypes
   init<T>(_ value: T?)
-  #endif
 }
 extension AnyCodableSwift.AnyEncodable : AnyCodableSwift._AnyEncodable {
 }

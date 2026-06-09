@@ -4,5 +4,13 @@
 <dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Camera access is needed to scan WalletConnect QR codes</string>
+	<!-- Allow plain http to localhost / *.local for development webViewUrl
+	     (e.g. http://localhost:3000). This does NOT disable ATS for other
+	     hosts; remote traffic still requires https. -->
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsLocalNetworking</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

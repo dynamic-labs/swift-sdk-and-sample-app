@@ -568,8 +568,8 @@ public struct MfaDevice : Swift.Codable {
   public let isDefault: Swift.Bool?
   public let alias: Swift.String?
   public init(type: DynamicSDKSwift.MfaDeviceType? = nil, verified: Swift.Bool? = nil, id: Swift.String? = nil, createdAt: Foundation.Date? = nil, verifiedAt: Foundation.Date? = nil, isDefault: Swift.Bool? = nil, alias: Swift.String? = nil)
-  public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
 }
 public struct MultichainBalanceRequest {
   public let balanceRequests: [DynamicSDKSwift.BalanceRequestItem]
@@ -1742,6 +1742,7 @@ final public class AuthModule {
   public static let messageType: Swift.String
   public static let userPrefix: Swift.String
   public static let tokenPrefix: Swift.String
+  public static let minAuthTokenPrefix: Swift.String
   final public let sms: DynamicSDKSwift.SmsAuthModule
   final public let email: DynamicSDKSwift.EmailAuthModule
   final public let externalAuth: DynamicSDKSwift.ExternalAuthModule
@@ -1752,6 +1753,12 @@ final public class AuthModule {
     get
   }
   final public var tokenChanges: Combine.AnyPublisher<Swift.String?, Swift.Never> {
+    get
+  }
+  final public var minAuthToken: Swift.String? {
+    get
+  }
+  final public var minAuthTokenChanges: Combine.AnyPublisher<Swift.String?, Swift.Never> {
     get
   }
   final public var authenticatedUser: DynamicSDKSwift.UserProfile? {

@@ -254,7 +254,17 @@ struct HomeScreenView: View {
               )
             }
 
-            // 10) Logout (must be last)
+            // 10) Minified Auth Token
+            if let minAuthToken = vm.minAuthToken {
+              ValueCard(
+                title: "Min Auth Token:",
+                value: minAuthToken,
+                displayValue: truncateMiddle(minAuthToken),
+                copyValue: minAuthToken
+              )
+            }
+
+            // 11) Logout (must be last)
             Button(action: { vm.logout() }) {
               HStack {
                 Image(systemName: "arrow.left.circle.fill")

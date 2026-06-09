@@ -5508,6 +5508,13 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
+        "kind": "Import",
         "name": "Security",
         "printedName": "Security",
         "declKind": "Import",
@@ -19533,7 +19540,9 @@
             "usr": "s:15DynamicSDKSwift9MfaDeviceV4fromACs7Decoder_p_tKcfc",
             "mangledName": "$s15DynamicSDKSwift9MfaDeviceV4fromACs7Decoder_p_tKcfc",
             "moduleName": "DynamicSDKSwift",
-            "implicit": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
             "throwing": true,
             "init_kind": "Designated"
           },
@@ -64709,6 +64718,57 @@
           },
           {
             "kind": "Var",
+            "name": "minAuthTokenPrefix",
+            "printedName": "minAuthTokenPrefix",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15DynamicSDKSwift10AuthModuleC03minC11TokenPrefixSSvpZ",
+            "mangledName": "$s15DynamicSDKSwift10AuthModuleC03minC11TokenPrefixSSvpZ",
+            "moduleName": "DynamicSDKSwift",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15DynamicSDKSwift10AuthModuleC03minC11TokenPrefixSSvgZ",
+                "mangledName": "$s15DynamicSDKSwift10AuthModuleC03minC11TokenPrefixSSvgZ",
+                "moduleName": "DynamicSDKSwift",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "sms",
             "printedName": "sms",
             "children": [
@@ -65121,6 +65181,156 @@
                 "declKind": "Accessor",
                 "usr": "s:15DynamicSDKSwift10AuthModuleC12tokenChanges7Combine12AnyPublisherVySSSgs5NeverOGvg",
                 "mangledName": "$s15DynamicSDKSwift10AuthModuleC12tokenChanges7Combine12AnyPublisherVySSSgs5NeverOGvg",
+                "moduleName": "DynamicSDKSwift",
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "minAuthToken",
+            "printedName": "minAuthToken",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15DynamicSDKSwift10AuthModuleC03minC5TokenSSSgvp",
+            "mangledName": "$s15DynamicSDKSwift10AuthModuleC03minC5TokenSSSgvp",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15DynamicSDKSwift10AuthModuleC03minC5TokenSSSgvg",
+                "mangledName": "$s15DynamicSDKSwift10AuthModuleC03minC5TokenSSSgvg",
+                "moduleName": "DynamicSDKSwift",
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "minAuthTokenChanges",
+            "printedName": "minAuthTokenChanges",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AnyPublisher",
+                "printedName": "Combine.AnyPublisher<Swift.String?, Swift.Never>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Never",
+                    "printedName": "Swift.Never",
+                    "usr": "s:s5NeverO"
+                  }
+                ],
+                "usr": "s:7Combine12AnyPublisherV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15DynamicSDKSwift10AuthModuleC03minC12TokenChanges7Combine12AnyPublisherVySSSgs5NeverOGvp",
+            "mangledName": "$s15DynamicSDKSwift10AuthModuleC03minC12TokenChanges7Combine12AnyPublisherVySSSgs5NeverOGvp",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AnyPublisher",
+                    "printedName": "Combine.AnyPublisher<Swift.String?, Swift.Never>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Swift.String?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Never",
+                        "printedName": "Swift.Never",
+                        "usr": "s:s5NeverO"
+                      }
+                    ],
+                    "usr": "s:7Combine12AnyPublisherV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15DynamicSDKSwift10AuthModuleC03minC12TokenChanges7Combine12AnyPublisherVySSSgs5NeverOGvg",
+                "mangledName": "$s15DynamicSDKSwift10AuthModuleC03minC12TokenChanges7Combine12AnyPublisherVySSSgs5NeverOGvg",
                 "moduleName": "DynamicSDKSwift",
                 "declAttributes": [
                   "Final"
@@ -77381,7 +77591,7 @@
       "kind": "StringLiteral",
       "offset": 90,
       "length": 8,
-      "value": "\"4.87.1\""
+      "value": "\"4.88.3\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Core\/ClientProps.swift",
@@ -77417,6 +77627,34 @@
       "offset": 1913,
       "length": 5,
       "value": "false"
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Core\/JSONDecoder+DynamicSDK.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1478,
+      "length": 17,
+      "value": "1000000000000"
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Core\/JSONDecoder+DynamicSDK.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1507,
+      "length": 4,
+      "value": "1000"
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Core\/JSONDecoder+DynamicSDK.swift",
+      "kind": "StringLiteral",
+      "offset": 1801,
+      "length": 36,
+      "value": "\"Unsupported date format: \""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Core\/JSONDecoder+DynamicSDK.swift",
+      "kind": "StringLiteral",
+      "offset": 1836,
+      "length": 1,
+      "value": "\"\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Core\/KeychainHelper.swift",
@@ -78789,6 +79027,13 @@
       "offset": 512,
       "length": 14,
       "value": "\"tokenChanged\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Module\/AuthModule.swift",
+      "kind": "StringLiteral",
+      "offset": 568,
+      "length": 22,
+      "value": "\"minifiedTokenChanged\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Module\/EmbeddedWalletsModule.swift",

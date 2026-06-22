@@ -77591,7 +77591,7 @@
       "kind": "StringLiteral",
       "offset": 90,
       "length": 8,
-      "value": "\"4.88.3\""
+      "value": "\"4.90.0\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Core\/ClientProps.swift",

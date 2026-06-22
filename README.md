@@ -30,7 +30,7 @@ Add the SDK to your project using one of the following methods:
    ```
    https://github.com/dynamic-labs/swift-sdk-and-sample-app
    ```
-4. Select the version rule (e.g., **Up to Next Major Version** from `1.0.13`)
+4. Select the version rule (e.g., **Up to Next Major Version** from `1.1.0`)
 5. Click **Add Package**
 6. Select `DynamicSDKSwift` library and add it to your target
 
@@ -40,7 +40,7 @@ Add the dependency to your `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/dynamic-labs/swift-sdk-and-sample-app.git", from: "1.0.13")
+    .package(url: "https://github.com/dynamic-labs/swift-sdk-and-sample-app.git", from: "1.1.0")
 ]
 ```
 

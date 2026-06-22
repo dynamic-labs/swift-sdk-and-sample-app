@@ -11,9 +11,12 @@ struct ImportPrivateKeyScreen: View {
   @State private var publicAddressCheck: String = ""
   @State private var addressType: String = ""
   @State private var password: String = ""
+  @State private var isRawScalarImport = false
   @State private var isImporting = false
   @State private var errorMessage: String?
   @State private var successMessage: String?
+
+  private let ed25519Chains: Set<WaasChain> = [.svm, .sui, .ton]
 
   private let sdk = DynamicSDK.instance()
 
@@ -97,6 +100,22 @@ struct ImportPrivateKeyScreen: View {
             .disabled(isImporting)
         }
         .padding(.horizontal)
+
+        // Raw scalar toggle (ed25519 chains only)
+        if ed25519Chains.contains(selectedChain) {
+          Toggle(isOn: $isRawScalarImport) {
+            VStack(alignment: .leading, spacing: 2) {
+              Text("Raw scalar import")
+                .font(.subheadline)
+                .fontWeight(.semibold)
+              Text("Use when importing a raw 32-byte signing scalar (hex) from an external MPC system.")
+                .font(.caption)
+                .foregroundColor(.secondary)
+            }
+          }
+          .disabled(isImporting)
+          .padding(.horizontal)
+        }
 
         // Address type (Bitcoin)
         if selectedChain == .btc {
@@ -183,7 +202,8 @@ struct ImportPrivateKeyScreen: View {
         thresholdSignatureScheme: selectedScheme,
         publicAddressCheck: check.isEmpty ? nil : check,
         addressType: addr.isEmpty ? nil : addr,
-        password: pwd.isEmpty ? nil : pwd
+        password: pwd.isEmpty ? nil : pwd,
+        isRawScalarImport: ed25519Chains.contains(selectedChain) ? isRawScalarImport : nil
       )
       successMessage = "Private key imported"
       privateKey = ""

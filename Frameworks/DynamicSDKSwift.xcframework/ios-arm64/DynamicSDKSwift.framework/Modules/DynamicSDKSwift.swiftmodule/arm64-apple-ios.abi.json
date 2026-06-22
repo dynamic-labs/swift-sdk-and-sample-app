@@ -71614,7 +71614,7 @@
           {
             "kind": "Function",
             "name": "importPrivateKey",
-            "printedName": "importPrivateKey(chain:privateKey:thresholdSignatureScheme:publicAddressCheck:addressType:password:legacyWalletId:)",
+            "printedName": "importPrivateKey(chain:privateKey:thresholdSignatureScheme:publicAddressCheck:addressType:password:legacyWalletId:isRawScalarImport:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -71707,11 +71707,26 @@
                 ],
                 "hasDefaultArg": true,
                 "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Bool?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Func",
-            "usr": "s:15DynamicSDKSwift10WaasModuleC16importPrivateKey5chain07privateG024thresholdSignatureScheme18publicAddressCheck11addressType8password14legacyWalletIdyAA0C5ChainO_SSAA09ThresholdkL0OSgSSSgA3QtYaKF",
-            "mangledName": "$s15DynamicSDKSwift10WaasModuleC16importPrivateKey5chain07privateG024thresholdSignatureScheme18publicAddressCheck11addressType8password14legacyWalletIdyAA0C5ChainO_SSAA09ThresholdkL0OSgSSSgA3QtYaKF",
+            "usr": "s:15DynamicSDKSwift10WaasModuleC16importPrivateKey5chain07privateG024thresholdSignatureScheme18publicAddressCheck11addressType8password14legacyWalletId17isRawScalarImportyAA0C5ChainO_SSAA09ThresholdkL0OSgSSSgA3RSbSgtYaKF",
+            "mangledName": "$s15DynamicSDKSwift10WaasModuleC16importPrivateKey5chain07privateG024thresholdSignatureScheme18publicAddressCheck11addressType8password14legacyWalletId17isRawScalarImportyAA0C5ChainO_SSAA09ThresholdkL0OSgSSSgA3RSbSgtYaKF",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "Final",

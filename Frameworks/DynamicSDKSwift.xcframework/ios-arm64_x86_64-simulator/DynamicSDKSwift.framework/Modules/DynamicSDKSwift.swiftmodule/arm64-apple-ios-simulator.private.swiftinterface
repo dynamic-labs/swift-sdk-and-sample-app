@@ -1952,7 +1952,7 @@ final public class UserInterfaceModule {
 final public class WaasModule {
   final public let delegation: DynamicSDKSwift.DelegationModule
   public init(_ transport: DynamicSDKSwift.MessageTransport)
-  final public func importPrivateKey(chain: DynamicSDKSwift.WaasChain, privateKey: Swift.String, thresholdSignatureScheme: DynamicSDKSwift.ThresholdSignatureScheme? = nil, publicAddressCheck: Swift.String? = nil, addressType: Swift.String? = nil, password: Swift.String? = nil, legacyWalletId: Swift.String? = nil) async throws
+  final public func importPrivateKey(chain: DynamicSDKSwift.WaasChain, privateKey: Swift.String, thresholdSignatureScheme: DynamicSDKSwift.ThresholdSignatureScheme? = nil, publicAddressCheck: Swift.String? = nil, addressType: Swift.String? = nil, password: Swift.String? = nil, legacyWalletId: Swift.String? = nil, isRawScalarImport: Swift.Bool? = nil) async throws
   final public func unlockWallet(wallet: DynamicSDKSwift.BaseWallet, password: Swift.String? = nil) async throws
   final public func updatePassword(wallet: DynamicSDKSwift.BaseWallet, existingPassword: Swift.String, newPassword: Swift.String) async throws
   final public func setPassword(wallet: DynamicSDKSwift.BaseWallet, newPassword: Swift.String) async throws

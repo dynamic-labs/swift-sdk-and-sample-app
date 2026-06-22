@@ -3,6 +3,15 @@
 All notable changes to the `DynamicSDKSwift` package are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.1.0]
+
+### Added
+- **`importPrivateKey` — raw scalar import support.** `WaasModule.importPrivateKey()` now accepts an optional `isRawScalarImport: Bool` parameter. When `true`, the private key is treated as a raw 32-byte ed25519 signing scalar (hex) exported from an external MPC system (e.g. Fireblocks Embedded Wallets) rather than a standard seed/secret key. Applies to ed25519 chains (`.svm`, `.sui`, `.ton`) only; ignored for other chains.
+- **Raw scalar toggle in sample app.** `ImportPrivateKeyScreen` shows a toggle for "Raw scalar import" when an ed25519 chain is selected.
+
+### Changed
+- Bumped bundled WebView to `4.90.0`.
+
 ## [1.0.13]
 
 ### Fixed

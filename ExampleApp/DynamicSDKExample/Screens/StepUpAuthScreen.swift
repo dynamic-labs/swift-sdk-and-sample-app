@@ -79,12 +79,16 @@ final class StepUpAuthViewModel: ObservableObject {
   func checkStepUpRequired() async {
     let trimmed = scope.trimmingCharacters(in: .whitespacesAndNewlines)
     guard !trimmed.isEmpty else { return }
+    guard let tokenScope = TokenScope(rawValue: trimmed) else {
+      errorMessage = "Unknown scope \"\(trimmed)\". Valid values: \(TokenScope.allCases.map(\.rawValue).joined(separator: ", "))"
+      return
+    }
     isCheckingRequired = true
     resultMessage = nil
     errorMessage = nil
     defer { isCheckingRequired = false }
     do {
-      let required = try await sdk.stepUpAuth.isStepUpRequired(scope: trimmed)
+      let required = try await sdk.stepUpAuth.isStepUpRequired(scope: tokenScope)
       resultMessage = "Step-up required for \"\(trimmed)\": \(required)"
     } catch {
       errorMessage = "Failed to check step-up: \(error)"
@@ -144,9 +148,11 @@ final class StepUpAuthViewModel: ObservableObject {
     }
   }
 
-  private func scopesArray() -> [String]? {
+  private func scopesArray() -> [TokenScope]? {
     let trimmed = scope.trimmingCharacters(in: .whitespacesAndNewlines)
     guard !trimmed.isEmpty else { return nil }
-    return trimmed.components(separatedBy: ",").map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+    let parsed = trimmed.components(separatedBy: ",")
+      .compactMap { TokenScope(rawValue: $0.trimmingCharacters(in: .whitespacesAndNewlines)) }
+    return parsed.isEmpty ? nil : parsed
   }
 }

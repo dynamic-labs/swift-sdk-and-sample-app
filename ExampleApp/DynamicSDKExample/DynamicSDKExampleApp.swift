@@ -34,12 +34,10 @@ struct DynamicSDKExampleApp: App {
     _ = DynamicSDK.initialize(
       props: ClientProps(
         environmentId: "f25b5211-a37a-445f-ba53-c3a75783a869",
-        webViewUrl: "http://localhost:4202",
         appLogoUrl: "https://demo.dynamic.xyz/favicon-32x32.png",
         appName: "Dynamic Swift Demo",
         redirectUrl: "flutterdemo://",
         appOrigin: "https://demo.dynamic.xyz",
-        debugWebview: true, // required so http://localhost webViewUrl is accepted (not falling back to hosted)
         logLevel: .debug,
         debug: ClientDebugProps(webview: true, messageTransport: true)
       )

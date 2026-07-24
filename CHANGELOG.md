@@ -3,6 +3,12 @@
 All notable changes to the `DynamicSDKSwift` package are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.2.0]
+
+### Added
+- **`TokenScope` enum.** Strongly-typed `TokenScope` replaces `[String]?` across `StepUpAuthModule` (`isStepUpRequired(scope:)`, `promptStepUpAuth(requestedScopes:)`, `promptMfa(requestedScopes:)`, `promptReauthenticate(requestedScopes:)`, `verifyTotpMfa(code:deviceId:requestedScopes:)`, `verifyPasskeyMfa(requestedScopes:)`, `verifyRecoveryCode(code:requestedScopes:)`, `verifyOtp(verificationToken:requestedScopes:)`, `verifyWallet(requestedScopes:)`).
+- **`requestedScopes` on `MfaAuthenticateDevice`.** `MfaModule.authenticateDevice(_:)` now accepts `requestedScopes: [TokenScope]?`, enabling the backend to mint an elevated access token during login-time MFA — eliminating the second TOTP code previously required for passkey enrollment in headless/custom UI flows.
+
 ## [1.1.0]
 
 ### Added

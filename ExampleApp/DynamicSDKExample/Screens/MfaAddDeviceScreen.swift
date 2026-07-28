@@ -160,34 +160,10 @@ struct MfaAddDeviceScreen: View {
     }
   }
 
-  /// TEMP diagnostic: decode and log the JWT `sid` claim to check whether the
-  /// session rotates between addDevice and verifyDevice (backend deletes the
-  /// pending MFA device on sid mismatch -> "MFA Device does not exist").
-  private func logJwtSid(_ label: String) {
-    guard let token = sdk.auth.token else { NSLog("[MFA-SID] %@: no token", label); return }
-    let parts = token.split(separator: ".")
-    guard parts.count >= 2 else { NSLog("[MFA-SID] %@: malformed jwt", label); return }
-    var b64 = String(parts[1])
-      .replacingOccurrences(of: "-", with: "+")
-      .replacingOccurrences(of: "_", with: "/")
-    while b64.count % 4 != 0 { b64 += "=" }
-    guard let data = Data(base64Encoded: b64),
-          let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else {
-      NSLog("[MFA-SID] %@: decode failed", label); return
-    }
-    NSLog("[MFA-SID] %@: sid=%@", label, (json["sid"] as? String) ?? "nil")
-  }
-
   private func generateSecret() async {
     isLoading = true
     do {
-      logJwtSid("initial")
-      
-      logJwtSid("before step-up")
-      _ = try await sdk.stepUpAuth.promptStepUpAuth()
-      logJwtSid("after step-up")
       deviceInfo = try await sdk.mfa.addDevice(type: "totp")
-      logJwtSid("after addDevice")
       step = .verify
     } catch {
       alertTitle = "Error"
@@ -201,8 +177,7 @@ struct MfaAddDeviceScreen: View {
     isLoading = true
     defer { isLoading = false }
     do {
-      logJwtSid("before verifyDevice")
-      let x = try await sdk.mfa.verifyDevice(code.trimmingCharacters(in: .whitespacesAndNewlines), type: "totp")
+      try await sdk.mfa.verifyDevice(code.trimmingCharacters(in: .whitespacesAndNewlines), type: "totp")
       alertTitle = "Success"
       alertMessage = "MFA device added successfully"
     } catch {

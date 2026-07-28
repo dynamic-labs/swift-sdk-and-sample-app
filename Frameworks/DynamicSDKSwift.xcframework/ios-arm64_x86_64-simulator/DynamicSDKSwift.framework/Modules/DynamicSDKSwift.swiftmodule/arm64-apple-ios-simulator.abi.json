@@ -17748,9 +17748,85 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "requestedScopes",
+            "printedName": "requestedScopes",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[DynamicSDKSwift.TokenScope]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[DynamicSDKSwift.TokenScope]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TokenScope",
+                        "printedName": "DynamicSDKSwift.TokenScope",
+                        "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15DynamicSDKSwift21MfaAuthenticateDeviceV15requestedScopesSayAA10TokenScopeOGSgvp",
+            "mangledName": "$s15DynamicSDKSwift21MfaAuthenticateDeviceV15requestedScopesSayAA10TokenScopeOGSgvp",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[DynamicSDKSwift.TokenScope]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[DynamicSDKSwift.TokenScope]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "TokenScope",
+                            "printedName": "DynamicSDKSwift.TokenScope",
+                            "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15DynamicSDKSwift21MfaAuthenticateDeviceV15requestedScopesSayAA10TokenScopeOGSgvg",
+                "mangledName": "$s15DynamicSDKSwift21MfaAuthenticateDeviceV15requestedScopesSayAA10TokenScopeOGSgvg",
+                "moduleName": "DynamicSDKSwift",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(code:type:deviceId:createMfaToken:)",
+            "printedName": "init(code:type:deviceId:createMfaToken:requestedScopes:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -17808,16 +17884,66 @@
                 ],
                 "hasDefaultArg": true,
                 "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[DynamicSDKSwift.TokenScope]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[DynamicSDKSwift.TokenScope]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TokenScope",
+                        "printedName": "DynamicSDKSwift.TokenScope",
+                        "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:15DynamicSDKSwift21MfaAuthenticateDeviceV4code4type8deviceId06createC5TokenACSS_SSSgAhA0c6CreateK0VSgtcfc",
-            "mangledName": "$s15DynamicSDKSwift21MfaAuthenticateDeviceV4code4type8deviceId06createC5TokenACSS_SSSgAhA0c6CreateK0VSgtcfc",
+            "usr": "s:15DynamicSDKSwift21MfaAuthenticateDeviceV4code4type8deviceId06createC5Token15requestedScopesACSS_SSSgAiA0c6CreateK0VSgSayAA0K5ScopeOGSgtcfc",
+            "mangledName": "$s15DynamicSDKSwift21MfaAuthenticateDeviceV4code4type8deviceId06createC5Token15requestedScopesACSS_SSSgAiA0c6CreateK0VSgSayAA0K5ScopeOGSgtcfc",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "AccessControl"
             ],
             "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "any Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15DynamicSDKSwift21MfaAuthenticateDeviceV6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s15DynamicSDKSwift21MfaAuthenticateDeviceV6encode2toys7Encoder_p_tKF",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
           },
           {
             "kind": "Constructor",
@@ -17844,31 +17970,6 @@
             "implicit": true,
             "throwing": true,
             "init_kind": "Designated"
-          },
-          {
-            "kind": "Function",
-            "name": "encode",
-            "printedName": "encode(to:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Encoder",
-                "printedName": "any Swift.Encoder",
-                "usr": "s:s7EncoderP"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:15DynamicSDKSwift21MfaAuthenticateDeviceV6encode2toys7Encoder_p_tKF",
-            "mangledName": "$s15DynamicSDKSwift21MfaAuthenticateDeviceV6encode2toys7Encoder_p_tKF",
-            "moduleName": "DynamicSDKSwift",
-            "implicit": true,
-            "throwing": true,
-            "funcSelfKind": "NonMutating"
           },
           {
             "kind": "Function",
@@ -56157,6 +56258,923 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "TokenScope",
+        "printedName": "TokenScope",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "credentialLink",
+            "printedName": "credentialLink",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicSDKSwift.TokenScope.Type) -> DynamicSDKSwift.TokenScope",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TokenScope",
+                    "printedName": "DynamicSDKSwift.TokenScope",
+                    "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicSDKSwift.TokenScope.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TokenScope",
+                        "printedName": "DynamicSDKSwift.TokenScope",
+                        "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15DynamicSDKSwift10TokenScopeO14credentialLinkyA2CmF",
+            "mangledName": "$s15DynamicSDKSwift10TokenScopeO14credentialLinkyA2CmF",
+            "moduleName": "DynamicSDKSwift"
+          },
+          {
+            "kind": "Var",
+            "name": "credentialUpdate",
+            "printedName": "credentialUpdate",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicSDKSwift.TokenScope.Type) -> DynamicSDKSwift.TokenScope",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TokenScope",
+                    "printedName": "DynamicSDKSwift.TokenScope",
+                    "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicSDKSwift.TokenScope.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TokenScope",
+                        "printedName": "DynamicSDKSwift.TokenScope",
+                        "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15DynamicSDKSwift10TokenScopeO16credentialUpdateyA2CmF",
+            "mangledName": "$s15DynamicSDKSwift10TokenScopeO16credentialUpdateyA2CmF",
+            "moduleName": "DynamicSDKSwift"
+          },
+          {
+            "kind": "Var",
+            "name": "credentialUnlink",
+            "printedName": "credentialUnlink",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicSDKSwift.TokenScope.Type) -> DynamicSDKSwift.TokenScope",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TokenScope",
+                    "printedName": "DynamicSDKSwift.TokenScope",
+                    "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicSDKSwift.TokenScope.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TokenScope",
+                        "printedName": "DynamicSDKSwift.TokenScope",
+                        "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15DynamicSDKSwift10TokenScopeO16credentialUnlinkyA2CmF",
+            "mangledName": "$s15DynamicSDKSwift10TokenScopeO16credentialUnlinkyA2CmF",
+            "moduleName": "DynamicSDKSwift"
+          },
+          {
+            "kind": "Var",
+            "name": "walletExport",
+            "printedName": "walletExport",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicSDKSwift.TokenScope.Type) -> DynamicSDKSwift.TokenScope",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TokenScope",
+                    "printedName": "DynamicSDKSwift.TokenScope",
+                    "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicSDKSwift.TokenScope.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TokenScope",
+                        "printedName": "DynamicSDKSwift.TokenScope",
+                        "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15DynamicSDKSwift10TokenScopeO12walletExportyA2CmF",
+            "mangledName": "$s15DynamicSDKSwift10TokenScopeO12walletExportyA2CmF",
+            "moduleName": "DynamicSDKSwift"
+          },
+          {
+            "kind": "Var",
+            "name": "walletSign",
+            "printedName": "walletSign",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicSDKSwift.TokenScope.Type) -> DynamicSDKSwift.TokenScope",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TokenScope",
+                    "printedName": "DynamicSDKSwift.TokenScope",
+                    "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicSDKSwift.TokenScope.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TokenScope",
+                        "printedName": "DynamicSDKSwift.TokenScope",
+                        "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15DynamicSDKSwift10TokenScopeO10walletSignyA2CmF",
+            "mangledName": "$s15DynamicSDKSwift10TokenScopeO10walletSignyA2CmF",
+            "moduleName": "DynamicSDKSwift"
+          },
+          {
+            "kind": "Var",
+            "name": "walletDelete",
+            "printedName": "walletDelete",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicSDKSwift.TokenScope.Type) -> DynamicSDKSwift.TokenScope",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TokenScope",
+                    "printedName": "DynamicSDKSwift.TokenScope",
+                    "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicSDKSwift.TokenScope.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TokenScope",
+                        "printedName": "DynamicSDKSwift.TokenScope",
+                        "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15DynamicSDKSwift10TokenScopeO12walletDeleteyA2CmF",
+            "mangledName": "$s15DynamicSDKSwift10TokenScopeO12walletDeleteyA2CmF",
+            "moduleName": "DynamicSDKSwift"
+          },
+          {
+            "kind": "Var",
+            "name": "walletDelegate",
+            "printedName": "walletDelegate",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicSDKSwift.TokenScope.Type) -> DynamicSDKSwift.TokenScope",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TokenScope",
+                    "printedName": "DynamicSDKSwift.TokenScope",
+                    "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicSDKSwift.TokenScope.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TokenScope",
+                        "printedName": "DynamicSDKSwift.TokenScope",
+                        "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15DynamicSDKSwift10TokenScopeO14walletDelegateyA2CmF",
+            "mangledName": "$s15DynamicSDKSwift10TokenScopeO14walletDelegateyA2CmF",
+            "moduleName": "DynamicSDKSwift"
+          },
+          {
+            "kind": "Var",
+            "name": "walletRestore",
+            "printedName": "walletRestore",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicSDKSwift.TokenScope.Type) -> DynamicSDKSwift.TokenScope",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TokenScope",
+                    "printedName": "DynamicSDKSwift.TokenScope",
+                    "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicSDKSwift.TokenScope.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TokenScope",
+                        "printedName": "DynamicSDKSwift.TokenScope",
+                        "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15DynamicSDKSwift10TokenScopeO13walletRestoreyA2CmF",
+            "mangledName": "$s15DynamicSDKSwift10TokenScopeO13walletRestoreyA2CmF",
+            "moduleName": "DynamicSDKSwift"
+          },
+          {
+            "kind": "Var",
+            "name": "userUpdate",
+            "printedName": "userUpdate",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicSDKSwift.TokenScope.Type) -> DynamicSDKSwift.TokenScope",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TokenScope",
+                    "printedName": "DynamicSDKSwift.TokenScope",
+                    "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicSDKSwift.TokenScope.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TokenScope",
+                        "printedName": "DynamicSDKSwift.TokenScope",
+                        "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15DynamicSDKSwift10TokenScopeO10userUpdateyA2CmF",
+            "mangledName": "$s15DynamicSDKSwift10TokenScopeO10userUpdateyA2CmF",
+            "moduleName": "DynamicSDKSwift"
+          },
+          {
+            "kind": "Var",
+            "name": "userDelete",
+            "printedName": "userDelete",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicSDKSwift.TokenScope.Type) -> DynamicSDKSwift.TokenScope",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TokenScope",
+                    "printedName": "DynamicSDKSwift.TokenScope",
+                    "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicSDKSwift.TokenScope.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TokenScope",
+                        "printedName": "DynamicSDKSwift.TokenScope",
+                        "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15DynamicSDKSwift10TokenScopeO10userDeleteyA2CmF",
+            "mangledName": "$s15DynamicSDKSwift10TokenScopeO10userDeleteyA2CmF",
+            "moduleName": "DynamicSDKSwift"
+          },
+          {
+            "kind": "Var",
+            "name": "consoleMfaReset",
+            "printedName": "consoleMfaReset",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicSDKSwift.TokenScope.Type) -> DynamicSDKSwift.TokenScope",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TokenScope",
+                    "printedName": "DynamicSDKSwift.TokenScope",
+                    "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicSDKSwift.TokenScope.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TokenScope",
+                        "printedName": "DynamicSDKSwift.TokenScope",
+                        "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15DynamicSDKSwift10TokenScopeO15consoleMfaResetyA2CmF",
+            "mangledName": "$s15DynamicSDKSwift10TokenScopeO15consoleMfaResetyA2CmF",
+            "moduleName": "DynamicSDKSwift"
+          },
+          {
+            "kind": "Var",
+            "name": "consoleSettingsUpdate",
+            "printedName": "consoleSettingsUpdate",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicSDKSwift.TokenScope.Type) -> DynamicSDKSwift.TokenScope",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TokenScope",
+                    "printedName": "DynamicSDKSwift.TokenScope",
+                    "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicSDKSwift.TokenScope.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TokenScope",
+                        "printedName": "DynamicSDKSwift.TokenScope",
+                        "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15DynamicSDKSwift10TokenScopeO21consoleSettingsUpdateyA2CmF",
+            "mangledName": "$s15DynamicSDKSwift10TokenScopeO21consoleSettingsUpdateyA2CmF",
+            "moduleName": "DynamicSDKSwift"
+          },
+          {
+            "kind": "Var",
+            "name": "consoleMemberInvite",
+            "printedName": "consoleMemberInvite",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicSDKSwift.TokenScope.Type) -> DynamicSDKSwift.TokenScope",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TokenScope",
+                    "printedName": "DynamicSDKSwift.TokenScope",
+                    "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicSDKSwift.TokenScope.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TokenScope",
+                        "printedName": "DynamicSDKSwift.TokenScope",
+                        "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15DynamicSDKSwift10TokenScopeO19consoleMemberInviteyA2CmF",
+            "mangledName": "$s15DynamicSDKSwift10TokenScopeO19consoleMemberInviteyA2CmF",
+            "moduleName": "DynamicSDKSwift"
+          },
+          {
+            "kind": "Var",
+            "name": "consoleSsoUpdate",
+            "printedName": "consoleSsoUpdate",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicSDKSwift.TokenScope.Type) -> DynamicSDKSwift.TokenScope",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TokenScope",
+                    "printedName": "DynamicSDKSwift.TokenScope",
+                    "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicSDKSwift.TokenScope.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TokenScope",
+                        "printedName": "DynamicSDKSwift.TokenScope",
+                        "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15DynamicSDKSwift10TokenScopeO16consoleSsoUpdateyA2CmF",
+            "mangledName": "$s15DynamicSDKSwift10TokenScopeO16consoleSsoUpdateyA2CmF",
+            "moduleName": "DynamicSDKSwift"
+          },
+          {
+            "kind": "Var",
+            "name": "consoleUserDelete",
+            "printedName": "consoleUserDelete",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicSDKSwift.TokenScope.Type) -> DynamicSDKSwift.TokenScope",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TokenScope",
+                    "printedName": "DynamicSDKSwift.TokenScope",
+                    "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicSDKSwift.TokenScope.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TokenScope",
+                        "printedName": "DynamicSDKSwift.TokenScope",
+                        "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15DynamicSDKSwift10TokenScopeO17consoleUserDeleteyA2CmF",
+            "mangledName": "$s15DynamicSDKSwift10TokenScopeO17consoleUserDeleteyA2CmF",
+            "moduleName": "DynamicSDKSwift"
+          },
+          {
+            "kind": "Var",
+            "name": "consoleProjectDelete",
+            "printedName": "consoleProjectDelete",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicSDKSwift.TokenScope.Type) -> DynamicSDKSwift.TokenScope",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TokenScope",
+                    "printedName": "DynamicSDKSwift.TokenScope",
+                    "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicSDKSwift.TokenScope.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TokenScope",
+                        "printedName": "DynamicSDKSwift.TokenScope",
+                        "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15DynamicSDKSwift10TokenScopeO20consoleProjectDeleteyA2CmF",
+            "mangledName": "$s15DynamicSDKSwift10TokenScopeO20consoleProjectDeleteyA2CmF",
+            "moduleName": "DynamicSDKSwift"
+          },
+          {
+            "kind": "Var",
+            "name": "consoleAdminActionReview",
+            "printedName": "consoleAdminActionReview",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicSDKSwift.TokenScope.Type) -> DynamicSDKSwift.TokenScope",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TokenScope",
+                    "printedName": "DynamicSDKSwift.TokenScope",
+                    "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicSDKSwift.TokenScope.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TokenScope",
+                        "printedName": "DynamicSDKSwift.TokenScope",
+                        "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15DynamicSDKSwift10TokenScopeO24consoleAdminActionReviewyA2CmF",
+            "mangledName": "$s15DynamicSDKSwift10TokenScopeO24consoleAdminActionReviewyA2CmF",
+            "moduleName": "DynamicSDKSwift"
+          },
+          {
+            "kind": "Var",
+            "name": "consoleApprovalWorkflowUpdate",
+            "printedName": "consoleApprovalWorkflowUpdate",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(DynamicSDKSwift.TokenScope.Type) -> DynamicSDKSwift.TokenScope",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TokenScope",
+                    "printedName": "DynamicSDKSwift.TokenScope",
+                    "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "DynamicSDKSwift.TokenScope.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TokenScope",
+                        "printedName": "DynamicSDKSwift.TokenScope",
+                        "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15DynamicSDKSwift10TokenScopeO29consoleApprovalWorkflowUpdateyA2CmF",
+            "mangledName": "$s15DynamicSDKSwift10TokenScopeO29consoleApprovalWorkflowUpdateyA2CmF",
+            "moduleName": "DynamicSDKSwift"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "DynamicSDKSwift.TokenScope?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TokenScope",
+                    "printedName": "DynamicSDKSwift.TokenScope",
+                    "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:15DynamicSDKSwift10TokenScopeO8rawValueACSgSS_tcfc",
+            "mangledName": "$s15DynamicSDKSwift10TokenScopeO8rawValueACSgSS_tcfc",
+            "moduleName": "DynamicSDKSwift",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15DynamicSDKSwift10TokenScopeO8rawValueSSvp",
+            "mangledName": "$s15DynamicSDKSwift10TokenScopeO8rawValueSSvp",
+            "moduleName": "DynamicSDKSwift",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15DynamicSDKSwift10TokenScopeO8rawValueSSvg",
+                "mangledName": "$s15DynamicSDKSwift10TokenScopeO8rawValueSSvg",
+                "moduleName": "DynamicSDKSwift",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "allCases",
+            "printedName": "allCases",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[DynamicSDKSwift.TokenScope]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TokenScope",
+                    "printedName": "DynamicSDKSwift.TokenScope",
+                    "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15DynamicSDKSwift10TokenScopeO8allCasesSayACGvpZ",
+            "mangledName": "$s15DynamicSDKSwift10TokenScopeO8allCasesSayACGvpZ",
+            "moduleName": "DynamicSDKSwift",
+            "static": true,
+            "implicit": true,
+            "declAttributes": [
+              "Nonisolated"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[DynamicSDKSwift.TokenScope]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TokenScope",
+                        "printedName": "DynamicSDKSwift.TokenScope",
+                        "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15DynamicSDKSwift10TokenScopeO8allCasesSayACGvgZ",
+                "mangledName": "$s15DynamicSDKSwift10TokenScopeO8allCasesSayACGvgZ",
+                "moduleName": "DynamicSDKSwift",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:15DynamicSDKSwift10TokenScopeO",
+        "mangledName": "$s15DynamicSDKSwift10TokenScopeO",
+        "moduleName": "DynamicSDKSwift",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "enumRawTypeName": "String",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "CaseIterable",
+            "printedName": "CaseIterable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "AllCases",
+                "printedName": "AllCases",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[DynamicSDKSwift.TokenScope]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TokenScope",
+                        "printedName": "DynamicSDKSwift.TokenScope",
+                        "usr": "s:15DynamicSDKSwift10TokenScopeO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12CaseIterableP",
+            "mangledName": "$ss12CaseIterableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "DynamicSDKSwift"
+      },
+      {
+        "kind": "TypeDecl",
         "name": "TypedData",
         "printedName": "TypedData",
         "children": [
@@ -70666,14 +71684,14 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
+                "name": "TokenScope",
+                "printedName": "DynamicSDKSwift.TokenScope",
+                "usr": "s:15DynamicSDKSwift10TokenScopeO"
               }
             ],
             "declKind": "Func",
-            "usr": "s:15DynamicSDKSwift16StepUpAuthModuleC02iscD8Required5scopeSbSS_tYaKF",
-            "mangledName": "$s15DynamicSDKSwift16StepUpAuthModuleC02iscD8Required5scopeSbSS_tYaKF",
+            "usr": "s:15DynamicSDKSwift16StepUpAuthModuleC02iscD8Required5scopeSbAA10TokenScopeO_tYaKF",
+            "mangledName": "$s15DynamicSDKSwift16StepUpAuthModuleC02iscD8Required5scopeSbAA10TokenScopeO_tYaKF",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "Final",
@@ -70720,18 +71738,18 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "[Swift.String]?",
+                "printedName": "[DynamicSDKSwift.TokenScope]?",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "Array",
-                    "printedName": "[Swift.String]",
+                    "printedName": "[DynamicSDKSwift.TokenScope]",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
+                        "name": "TokenScope",
+                        "printedName": "DynamicSDKSwift.TokenScope",
+                        "usr": "s:15DynamicSDKSwift10TokenScopeO"
                       }
                     ],
                     "usr": "s:Sa"
@@ -70742,8 +71760,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:15DynamicSDKSwift16StepUpAuthModuleC06promptcdE014createMfaToken15requestedScopesSSSgSbSg_SaySSGSgtYaKF",
-            "mangledName": "$s15DynamicSDKSwift16StepUpAuthModuleC06promptcdE014createMfaToken15requestedScopesSSSgSbSg_SaySSGSgtYaKF",
+            "usr": "s:15DynamicSDKSwift16StepUpAuthModuleC06promptcdE014createMfaToken15requestedScopesSSSgSbSg_SayAA0J5ScopeOGSgtYaKF",
+            "mangledName": "$s15DynamicSDKSwift16StepUpAuthModuleC06promptcdE014createMfaToken15requestedScopesSSSgSbSg_SayAA0J5ScopeOGSgtYaKF",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "Final",
@@ -70790,18 +71808,18 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "[Swift.String]?",
+                "printedName": "[DynamicSDKSwift.TokenScope]?",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "Array",
-                    "printedName": "[Swift.String]",
+                    "printedName": "[DynamicSDKSwift.TokenScope]",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
+                        "name": "TokenScope",
+                        "printedName": "DynamicSDKSwift.TokenScope",
+                        "usr": "s:15DynamicSDKSwift10TokenScopeO"
                       }
                     ],
                     "usr": "s:Sa"
@@ -70812,8 +71830,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:15DynamicSDKSwift16StepUpAuthModuleC9promptMfa06createH5Token15requestedScopesSSSgSbSg_SaySSGSgtYaKF",
-            "mangledName": "$s15DynamicSDKSwift16StepUpAuthModuleC9promptMfa06createH5Token15requestedScopesSSSgSbSg_SaySSGSgtYaKF",
+            "usr": "s:15DynamicSDKSwift16StepUpAuthModuleC9promptMfa06createH5Token15requestedScopesSSSgSbSg_SayAA0J5ScopeOGSgtYaKF",
+            "mangledName": "$s15DynamicSDKSwift16StepUpAuthModuleC9promptMfa06createH5Token15requestedScopesSSSgSbSg_SayAA0J5ScopeOGSgtYaKF",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "Final",
@@ -70860,18 +71878,18 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "[Swift.String]?",
+                "printedName": "[DynamicSDKSwift.TokenScope]?",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "Array",
-                    "printedName": "[Swift.String]",
+                    "printedName": "[DynamicSDKSwift.TokenScope]",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
+                        "name": "TokenScope",
+                        "printedName": "DynamicSDKSwift.TokenScope",
+                        "usr": "s:15DynamicSDKSwift10TokenScopeO"
                       }
                     ],
                     "usr": "s:Sa"
@@ -70882,8 +71900,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:15DynamicSDKSwift16StepUpAuthModuleC20promptReauthenticate14createMfaToken15requestedScopesSSSgSbSg_SaySSGSgtYaKF",
-            "mangledName": "$s15DynamicSDKSwift16StepUpAuthModuleC20promptReauthenticate14createMfaToken15requestedScopesSSSgSbSg_SaySSGSgtYaKF",
+            "usr": "s:15DynamicSDKSwift16StepUpAuthModuleC20promptReauthenticate14createMfaToken15requestedScopesSSSgSbSg_SayAA0K5ScopeOGSgtYaKF",
+            "mangledName": "$s15DynamicSDKSwift16StepUpAuthModuleC20promptReauthenticate14createMfaToken15requestedScopesSSSgSbSg_SayAA0K5ScopeOGSgtYaKF",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "Final",
@@ -70979,18 +71997,18 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "[Swift.String]?",
+                "printedName": "[DynamicSDKSwift.TokenScope]?",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "Array",
-                    "printedName": "[Swift.String]",
+                    "printedName": "[DynamicSDKSwift.TokenScope]",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
+                        "name": "TokenScope",
+                        "printedName": "DynamicSDKSwift.TokenScope",
+                        "usr": "s:15DynamicSDKSwift10TokenScopeO"
                       }
                     ],
                     "usr": "s:Sa"
@@ -71001,8 +72019,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:15DynamicSDKSwift16StepUpAuthModuleC9verifyOtp17verificationToken15requestedScopesSDySSypGSgSS_SaySSGSgtYaKF",
-            "mangledName": "$s15DynamicSDKSwift16StepUpAuthModuleC9verifyOtp17verificationToken15requestedScopesSDySSypGSgSS_SaySSGSgtYaKF",
+            "usr": "s:15DynamicSDKSwift16StepUpAuthModuleC9verifyOtp17verificationToken15requestedScopesSDySSypGSgSS_SayAA0J5ScopeOGSgtYaKF",
+            "mangledName": "$s15DynamicSDKSwift16StepUpAuthModuleC9verifyOtp17verificationToken15requestedScopesSDySSypGSgSS_SayAA0J5ScopeOGSgtYaKF",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "Final",
@@ -71025,18 +72043,18 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "[Swift.String]?",
+                "printedName": "[DynamicSDKSwift.TokenScope]?",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "Array",
-                    "printedName": "[Swift.String]",
+                    "printedName": "[DynamicSDKSwift.TokenScope]",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
+                        "name": "TokenScope",
+                        "printedName": "DynamicSDKSwift.TokenScope",
+                        "usr": "s:15DynamicSDKSwift10TokenScopeO"
                       }
                     ],
                     "usr": "s:Sa"
@@ -71047,8 +72065,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:15DynamicSDKSwift16StepUpAuthModuleC12verifyWallet15requestedScopesySaySSGSg_tYaKF",
-            "mangledName": "$s15DynamicSDKSwift16StepUpAuthModuleC12verifyWallet15requestedScopesySaySSGSg_tYaKF",
+            "usr": "s:15DynamicSDKSwift16StepUpAuthModuleC12verifyWallet15requestedScopesySayAA10TokenScopeOGSg_tYaKF",
+            "mangledName": "$s15DynamicSDKSwift16StepUpAuthModuleC12verifyWallet15requestedScopesySayAA10TokenScopeOGSg_tYaKF",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "Final",
@@ -71093,18 +72111,18 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "[Swift.String]?",
+                "printedName": "[DynamicSDKSwift.TokenScope]?",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "Array",
-                    "printedName": "[Swift.String]",
+                    "printedName": "[DynamicSDKSwift.TokenScope]",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
+                        "name": "TokenScope",
+                        "printedName": "DynamicSDKSwift.TokenScope",
+                        "usr": "s:15DynamicSDKSwift10TokenScopeO"
                       }
                     ],
                     "usr": "s:Sa"
@@ -71115,8 +72133,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:15DynamicSDKSwift16StepUpAuthModuleC16verifyPasskeyMfa15requestedScopesSDySSypGSgSaySSGSg_tYaKF",
-            "mangledName": "$s15DynamicSDKSwift16StepUpAuthModuleC16verifyPasskeyMfa15requestedScopesSDySSypGSgSaySSGSg_tYaKF",
+            "usr": "s:15DynamicSDKSwift16StepUpAuthModuleC16verifyPasskeyMfa15requestedScopesSDySSypGSgSayAA10TokenScopeOGSg_tYaKF",
+            "mangledName": "$s15DynamicSDKSwift16StepUpAuthModuleC16verifyPasskeyMfa15requestedScopesSDySSypGSgSayAA10TokenScopeOGSg_tYaKF",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "Final",
@@ -71182,18 +72200,18 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "[Swift.String]?",
+                "printedName": "[DynamicSDKSwift.TokenScope]?",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "Array",
-                    "printedName": "[Swift.String]",
+                    "printedName": "[DynamicSDKSwift.TokenScope]",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
+                        "name": "TokenScope",
+                        "printedName": "DynamicSDKSwift.TokenScope",
+                        "usr": "s:15DynamicSDKSwift10TokenScopeO"
                       }
                     ],
                     "usr": "s:Sa"
@@ -71204,8 +72222,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:15DynamicSDKSwift16StepUpAuthModuleC13verifyTotpMfa4code8deviceId15requestedScopesSDySSypGSgSS_SSSgSaySSGSgtYaKF",
-            "mangledName": "$s15DynamicSDKSwift16StepUpAuthModuleC13verifyTotpMfa4code8deviceId15requestedScopesSDySSypGSgSS_SSSgSaySSGSgtYaKF",
+            "usr": "s:15DynamicSDKSwift16StepUpAuthModuleC13verifyTotpMfa4code8deviceId15requestedScopesSDySSypGSgSS_SSSgSayAA10TokenScopeOGSgtYaKF",
+            "mangledName": "$s15DynamicSDKSwift16StepUpAuthModuleC13verifyTotpMfa4code8deviceId15requestedScopesSDySSypGSgSS_SSSgSayAA10TokenScopeOGSgtYaKF",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "Final",
@@ -71256,18 +72274,18 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "[Swift.String]?",
+                "printedName": "[DynamicSDKSwift.TokenScope]?",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "Array",
-                    "printedName": "[Swift.String]",
+                    "printedName": "[DynamicSDKSwift.TokenScope]",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
+                        "name": "TokenScope",
+                        "printedName": "DynamicSDKSwift.TokenScope",
+                        "usr": "s:15DynamicSDKSwift10TokenScopeO"
                       }
                     ],
                     "usr": "s:Sa"
@@ -71278,8 +72296,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:15DynamicSDKSwift16StepUpAuthModuleC18verifyRecoveryCode4code15requestedScopesSDySSypGSgSS_SaySSGSgtYaKF",
-            "mangledName": "$s15DynamicSDKSwift16StepUpAuthModuleC18verifyRecoveryCode4code15requestedScopesSDySSypGSgSS_SaySSGSgtYaKF",
+            "usr": "s:15DynamicSDKSwift16StepUpAuthModuleC18verifyRecoveryCode4code15requestedScopesSDySSypGSgSS_SayAA10TokenScopeOGSgtYaKF",
+            "mangledName": "$s15DynamicSDKSwift16StepUpAuthModuleC18verifyRecoveryCode4code15requestedScopesSDySSypGSgSS_SayAA10TokenScopeOGSgtYaKF",
             "moduleName": "DynamicSDKSwift",
             "declAttributes": [
               "Final",
@@ -77606,7 +78624,7 @@
       "kind": "StringLiteral",
       "offset": 90,
       "length": 8,
-      "value": "\"4.90.0\""
+      "value": "\"4.94.0\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Core\/ClientProps.swift",
@@ -78981,6 +79999,132 @@
       "value": "\"THREE_OF_FIVE\""
     },
     {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/TokenScope.swift",
+      "kind": "StringLiteral",
+      "offset": 176,
+      "length": 17,
+      "value": "\"credential:link\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/TokenScope.swift",
+      "kind": "StringLiteral",
+      "offset": 221,
+      "length": 19,
+      "value": "\"credential:update\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/TokenScope.swift",
+      "kind": "StringLiteral",
+      "offset": 268,
+      "length": 19,
+      "value": "\"credential:unlink\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/TokenScope.swift",
+      "kind": "StringLiteral",
+      "offset": 313,
+      "length": 15,
+      "value": "\"wallet:export\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/TokenScope.swift",
+      "kind": "StringLiteral",
+      "offset": 353,
+      "length": 13,
+      "value": "\"wallet:sign\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/TokenScope.swift",
+      "kind": "StringLiteral",
+      "offset": 391,
+      "length": 15,
+      "value": "\"wallet:delete\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/TokenScope.swift",
+      "kind": "StringLiteral",
+      "offset": 431,
+      "length": 17,
+      "value": "\"wallet:delegate\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/TokenScope.swift",
+      "kind": "StringLiteral",
+      "offset": 473,
+      "length": 16,
+      "value": "\"wallet:restore\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/TokenScope.swift",
+      "kind": "StringLiteral",
+      "offset": 511,
+      "length": 13,
+      "value": "\"user:update\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/TokenScope.swift",
+      "kind": "StringLiteral",
+      "offset": 545,
+      "length": 13,
+      "value": "\"user:delete\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/TokenScope.swift",
+      "kind": "StringLiteral",
+      "offset": 598,
+      "length": 19,
+      "value": "\"console:mfa:reset\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/TokenScope.swift",
+      "kind": "StringLiteral",
+      "offset": 656,
+      "length": 25,
+      "value": "\"console:settings:update\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/TokenScope.swift",
+      "kind": "StringLiteral",
+      "offset": 720,
+      "length": 23,
+      "value": "\"console:member:invite\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/TokenScope.swift",
+      "kind": "StringLiteral",
+      "offset": 782,
+      "length": 20,
+      "value": "\"console:sso:update\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/TokenScope.swift",
+      "kind": "StringLiteral",
+      "offset": 841,
+      "length": 21,
+      "value": "\"console:user:delete\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/TokenScope.swift",
+      "kind": "StringLiteral",
+      "offset": 901,
+      "length": 24,
+      "value": "\"console:project:delete\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/TokenScope.swift",
+      "kind": "StringLiteral",
+      "offset": 964,
+      "length": 29,
+      "value": "\"console:admin_action:review\""
+    },
+    {
+      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/TokenScope.swift",
+      "kind": "StringLiteral",
+      "offset": 1033,
+      "length": 34,
+      "value": "\"console:approval_workflow:update\""
+    },
+    {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/WaasChain.swift",
       "kind": "StringLiteral",
       "offset": 440,
@@ -79105,13 +80249,6 @@
       "offset": 7586,
       "length": 10,
       "value": "\"registry\""
-    },
-    {
-      "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Module\/UserInterfaceModule.swift",
-      "kind": "StringLiteral",
-      "offset": 265,
-      "length": 15,
-      "value": "\"wallet:export\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Module\/WalletConnectModule.swift",

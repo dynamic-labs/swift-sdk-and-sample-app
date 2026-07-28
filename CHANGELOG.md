@@ -3,16 +3,21 @@
 All notable changes to the `DynamicSDKSwift` package are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.2.0]
+
+### Added
+- **`TokenScope` enum.** Strongly-typed `TokenScope` replaces `[String]?` across `StepUpAuthModule` (`isStepUpRequired(scope:)`, `promptStepUpAuth(requestedScopes:)`, `promptMfa(requestedScopes:)`, `promptReauthenticate(requestedScopes:)`, `verifyTotpMfa(code:deviceId:requestedScopes:)`, `verifyPasskeyMfa(requestedScopes:)`, `verifyRecoveryCode(code:requestedScopes:)`, `verifyOtp(verificationToken:requestedScopes:)`, `verifyWallet(requestedScopes:)`).
+- **`requestedScopes` on `MfaAuthenticateDevice`.** `MfaModule.authenticateDevice(_:)` now accepts `requestedScopes: [TokenScope]?`, enabling the backend to mint an elevated access token during login-time MFA — eliminating the second TOTP code previously required for passkey enrollment in headless/custom UI flows.
+
 ## [1.1.0]
 
 ### Added
 - **`importPrivateKey` — raw scalar import support.** `WaasModule.importPrivateKey()` now accepts an optional `isRawScalarImport: Bool` parameter. When `true`, the private key is treated as a raw 32-byte ed25519 signing scalar (hex) exported from an external MPC system (e.g. Fireblocks Embedded Wallets) rather than a standard seed/secret key. Applies to ed25519 chains (`.svm`, `.sui`, `.ton`) only; ignored for other chains.
 - **Raw scalar toggle in sample app.** `ImportPrivateKeyScreen` shows a toggle for "Raw scalar import" when an ed25519 chain is selected.
-- **Sample app: Import Private Key screen.** Full `ImportPrivateKeyScreen` with chain selector, private key input, threshold signature scheme, public address check, BTC address type, and raw scalar toggle.
-- **Sample app: Create Password Wallet screen.** `CreatePasswordWalletScreen` for creating wallets secured by a password.
 
 ### Changed
 - Bumped bundled WebView to `4.90.0`.
+
 ## [1.0.13]
 
 ### Fixed

@@ -522,9 +522,10 @@ public struct MfaAuthenticateDevice : Swift.Codable, Swift.Equatable {
   public let type: Swift.String?
   public let deviceId: Swift.String?
   public let createMfaToken: DynamicSDKSwift.MfaCreateToken?
-  public init(code: Swift.String, type: Swift.String? = nil, deviceId: Swift.String? = nil, createMfaToken: DynamicSDKSwift.MfaCreateToken? = nil)
-  public static func == (a: DynamicSDKSwift.MfaAuthenticateDevice, b: DynamicSDKSwift.MfaAuthenticateDevice) -> Swift.Bool
+  public let requestedScopes: [DynamicSDKSwift.TokenScope]?
+  public init(code: Swift.String, type: Swift.String? = nil, deviceId: Swift.String? = nil, createMfaToken: DynamicSDKSwift.MfaCreateToken? = nil, requestedScopes: [DynamicSDKSwift.TokenScope]? = nil)
   public func encode(to encoder: any Swift.Encoder) throws
+  public static func == (a: DynamicSDKSwift.MfaAuthenticateDevice, b: DynamicSDKSwift.MfaAuthenticateDevice) -> Swift.Bool
   public init(from decoder: any Swift.Decoder) throws
 }
 public struct MfaAuthenticateRecoveryCode : Swift.Codable, Swift.Equatable {
@@ -1523,6 +1524,35 @@ public struct TokenBalance {
   public init(contractAddress: Swift.String? = nil, balance: Swift.String, balanceDecimal: Swift.String? = nil, symbol: Swift.String? = nil, name: Swift.String? = nil, decimals: Swift.Int? = nil, networkId: Swift.Int? = nil, chain: Swift.String? = nil, logoUrl: Swift.String? = nil, isNative: Swift.Bool? = nil, isSpam: Swift.Bool? = nil)
   public static func fromDict(_ json: [Swift.String : Any], parentChain: Swift.String?, parentNetworkId: Swift.Int?) -> DynamicSDKSwift.TokenBalance
 }
+public enum TokenScope : Swift.String, Swift.Codable, Swift.Equatable, Swift.CaseIterable {
+  case credentialLink
+  case credentialUpdate
+  case credentialUnlink
+  case walletExport
+  case walletSign
+  case walletDelete
+  case walletDelegate
+  case walletRestore
+  case userUpdate
+  case userDelete
+  case consoleMfaReset
+  case consoleSettingsUpdate
+  case consoleMemberInvite
+  case consoleSsoUpdate
+  case consoleUserDelete
+  case consoleProjectDelete
+  case consoleAdminActionReview
+  case consoleApprovalWorkflowUpdate
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [DynamicSDKSwift.TokenScope]
+  public typealias RawValue = Swift.String
+  nonisolated public static var allCases: [DynamicSDKSwift.TokenScope] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
 public struct TypedData {
   public let types: [Swift.String : [DynamicSDKSwift.TypedDataField]]
   public let primaryType: Swift.String
@@ -1928,16 +1958,16 @@ final public class PasskeyModule {
 }
 final public class StepUpAuthModule {
   public init(_ transport: DynamicSDKSwift.MessageTransport)
-  final public func isStepUpRequired(scope: Swift.String) async throws -> Swift.Bool
-  final public func promptStepUpAuth(createMfaToken: Swift.Bool? = nil, requestedScopes: [Swift.String]? = nil) async throws -> Swift.String?
-  final public func promptMfa(createMfaToken: Swift.Bool? = nil, requestedScopes: [Swift.String]? = nil) async throws -> Swift.String?
-  final public func promptReauthenticate(createMfaToken: Swift.Bool? = nil, requestedScopes: [Swift.String]? = nil) async throws -> Swift.String?
+  final public func isStepUpRequired(scope: DynamicSDKSwift.TokenScope) async throws -> Swift.Bool
+  final public func promptStepUpAuth(createMfaToken: Swift.Bool? = nil, requestedScopes: [DynamicSDKSwift.TokenScope]? = nil) async throws -> Swift.String?
+  final public func promptMfa(createMfaToken: Swift.Bool? = nil, requestedScopes: [DynamicSDKSwift.TokenScope]? = nil) async throws -> Swift.String?
+  final public func promptReauthenticate(createMfaToken: Swift.Bool? = nil, requestedScopes: [DynamicSDKSwift.TokenScope]? = nil) async throws -> Swift.String?
   final public func sendOtp() async throws -> [Swift.String : Any]?
-  final public func verifyOtp(verificationToken: Swift.String, requestedScopes: [Swift.String]? = nil) async throws -> [Swift.String : Any]?
-  final public func verifyWallet(requestedScopes: [Swift.String]? = nil) async throws
-  final public func verifyPasskeyMfa(requestedScopes: [Swift.String]? = nil) async throws -> [Swift.String : Any]?
-  final public func verifyTotpMfa(code: Swift.String, deviceId: Swift.String? = nil, requestedScopes: [Swift.String]? = nil) async throws -> [Swift.String : Any]?
-  final public func verifyRecoveryCode(code: Swift.String, requestedScopes: [Swift.String]? = nil) async throws -> [Swift.String : Any]?
+  final public func verifyOtp(verificationToken: Swift.String, requestedScopes: [DynamicSDKSwift.TokenScope]? = nil) async throws -> [Swift.String : Any]?
+  final public func verifyWallet(requestedScopes: [DynamicSDKSwift.TokenScope]? = nil) async throws
+  final public func verifyPasskeyMfa(requestedScopes: [DynamicSDKSwift.TokenScope]? = nil) async throws -> [Swift.String : Any]?
+  final public func verifyTotpMfa(code: Swift.String, deviceId: Swift.String? = nil, requestedScopes: [DynamicSDKSwift.TokenScope]? = nil) async throws -> [Swift.String : Any]?
+  final public func verifyRecoveryCode(code: Swift.String, requestedScopes: [DynamicSDKSwift.TokenScope]? = nil) async throws -> [Swift.String : Any]?
   final public func resetState() async throws
   @objc deinit
 }
@@ -2196,6 +2226,8 @@ extension DynamicSDKSwift.StorageMessageSource : Swift.RawRepresentable {}
 extension DynamicSDKSwift.ThresholdSignatureScheme : Swift.Equatable {}
 extension DynamicSDKSwift.ThresholdSignatureScheme : Swift.Hashable {}
 extension DynamicSDKSwift.ThresholdSignatureScheme : Swift.RawRepresentable {}
+extension DynamicSDKSwift.TokenScope : Swift.Hashable {}
+extension DynamicSDKSwift.TokenScope : Swift.RawRepresentable {}
 extension DynamicSDKSwift.WaasChain : Swift.Equatable {}
 extension DynamicSDKSwift.WaasChain : Swift.Hashable {}
 extension DynamicSDKSwift.WaasChain : Swift.RawRepresentable {}

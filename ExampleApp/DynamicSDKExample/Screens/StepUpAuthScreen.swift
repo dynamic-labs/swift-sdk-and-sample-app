@@ -8,18 +8,30 @@ struct StepUpAuthScreen: View {
   var body: some View {
     ScrollView {
       VStack(alignment: .leading, spacing: 16) {
-        TextFieldWithLabel(
-          label: "Scope",
-          placeholder: "e.g. wallet:send",
-          text: $vm.scope
-        )
+        VStack(alignment: .leading, spacing: 8) {
+          Text("Scope")
+            .font(.subheadline)
+            .fontWeight(.medium)
+
+          Picker("Scope", selection: $vm.scope) {
+            Text("None").tag(TokenScope?.none)
+            ForEach(TokenScope.allCases, id: \.rawValue) { scope in
+              Text(scope.rawValue).tag(TokenScope?.some(scope))
+            }
+          }
+          .pickerStyle(.menu)
+        }
 
         PrimaryButton(
           title: "Check Step-Up Required",
           action: { Task { await vm.checkStepUpRequired() } },
           isLoading: vm.isCheckingRequired,
-          isDisabled: vm.scope.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+          isDisabled: vm.scope == nil
         )
+
+        Divider()
+
+        ScopeMultiSelect(selection: $vm.requestedScopes)
 
         PrimaryButton(
           title: "Prompt Step-Up Auth",
@@ -64,9 +76,70 @@ struct StepUpAuthScreen: View {
   }
 }
 
+/// Multi-select list of scopes for the `requestedScopes` parameter that the
+/// prompt APIs accept. Selecting nothing omits the parameter entirely.
+private struct ScopeMultiSelect: View {
+  @Binding var selection: Set<TokenScope>
+  @State private var isExpanded: Bool = false
+
+  var body: some View {
+    VStack(alignment: .leading, spacing: 8) {
+      Text("Requested Scopes")
+        .font(.subheadline)
+        .fontWeight(.medium)
+
+      DisclosureGroup(isExpanded: $isExpanded) {
+        VStack(alignment: .leading, spacing: 0) {
+          ForEach(TokenScope.allCases, id: \.rawValue) { scope in
+            Toggle(scope.rawValue, isOn: binding(for: scope))
+              .font(.caption)
+              .padding(.vertical, 6)
+          }
+        }
+      } label: {
+        Text(summary)
+          .font(.caption)
+          .foregroundColor(selection.isEmpty ? .secondary : .primary)
+      }
+      .padding()
+      .background(Color(.systemBackground))
+      .cornerRadius(8)
+      .overlay(
+        RoundedRectangle(cornerRadius: 8)
+          .stroke(Color(.systemGray4), lineWidth: 1)
+      )
+    }
+  }
+
+  private var summary: String {
+    guard !selection.isEmpty else { return "None — parameter omitted" }
+    return orderedSelection(selection).map(\.rawValue).joined(separator: ", ")
+  }
+
+  private func binding(for scope: TokenScope) -> Binding<Bool> {
+    Binding(
+      get: { selection.contains(scope) },
+      set: { isOn in
+        if isOn {
+          selection.insert(scope)
+        } else {
+          selection.remove(scope)
+        }
+      }
+    )
+  }
+}
+
+/// Sorts a scope selection into declaration order so the value sent over the
+/// bridge does not depend on `Set` iteration order.
+private func orderedSelection(_ selection: Set<TokenScope>) -> [TokenScope] {
+  TokenScope.allCases.filter { selection.contains($0) }
+}
+
 @MainActor
 final class StepUpAuthViewModel: ObservableObject {
-  @Published var scope: String = ""
+  @Published var scope: TokenScope?
+  @Published var requestedScopes: Set<TokenScope> = []
   @Published var isCheckingRequired: Bool = false
   @Published var isPrompting: Bool = false
   @Published var isPromptingMfa: Bool = false
@@ -77,19 +150,14 @@ final class StepUpAuthViewModel: ObservableObject {
   private let sdk = DynamicSDK.instance()
 
   func checkStepUpRequired() async {
-    let trimmed = scope.trimmingCharacters(in: .whitespacesAndNewlines)
-    guard !trimmed.isEmpty else { return }
-    guard let tokenScope = TokenScope(rawValue: trimmed) else {
-      errorMessage = "Unknown scope \"\(trimmed)\". Valid values: \(TokenScope.allCases.map(\.rawValue).joined(separator: ", "))"
-      return
-    }
+    guard let scope else { return }
     isCheckingRequired = true
     resultMessage = nil
     errorMessage = nil
     defer { isCheckingRequired = false }
     do {
-      let required = try await sdk.stepUpAuth.isStepUpRequired(scope: tokenScope)
-      resultMessage = "Step-up required for \"\(trimmed)\": \(required)"
+      let required = try await sdk.stepUpAuth.isStepUpRequired(scope: scope)
+      resultMessage = "Step-up required for \"\(scope.rawValue)\": \(required)"
     } catch {
       errorMessage = "Failed to check step-up: \(error)"
     }
@@ -149,10 +217,7 @@ final class StepUpAuthViewModel: ObservableObject {
   }
 
   private func scopesArray() -> [TokenScope]? {
-    let trimmed = scope.trimmingCharacters(in: .whitespacesAndNewlines)
-    guard !trimmed.isEmpty else { return nil }
-    let parsed = trimmed.components(separatedBy: ",")
-      .compactMap { TokenScope(rawValue: $0.trimmingCharacters(in: .whitespacesAndNewlines)) }
-    return parsed.isEmpty ? nil : parsed
+    guard !requestedScopes.isEmpty else { return nil }
+    return orderedSelection(requestedScopes)
   }
 }

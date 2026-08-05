@@ -328,6 +328,7 @@ final public class VisibilityModule {
   final public let ton: DynamicSDKSwift.TonModule
   final public let deviceRegistration: DynamicSDKSwift.DeviceRegistrationModule
   final public let walletConnect: DynamicSDKSwift.WalletConnectModule
+  final public let businessAccounts: DynamicSDKSwift.BusinessAccountsModule
   final public let webViewController: DynamicSDKSwift.DynamicWebViewController
   final public let overlayWindow: DynamicSDKSwift.DynamicOverlayWindowManager
   final public let props: DynamicSDKSwift.ClientProps
@@ -347,6 +348,13 @@ public enum Handlers {
   public static func setupWalletConnectedHandler(transport: DynamicSDKSwift.MessageTransport)
   public static func setupPlatformHandler(transport: DynamicSDKSwift.MessageTransport)
   public static func setupKeychainHandler(transport: DynamicSDKSwift.MessageTransport)
+}
+public struct AddBusinessAccountSignerResponse : Swift.Equatable {
+  public let shareSetId: Swift.String
+  public init(shareSetId: Swift.String)
+  public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.AddBusinessAccountSignerResponse?
+  public func toDict() -> [Swift.String : Any]
+  public static func == (a: DynamicSDKSwift.AddBusinessAccountSignerResponse, b: DynamicSDKSwift.AddBusinessAccountSignerResponse) -> Swift.Bool
 }
 public struct BalanceRequestItem {
   public let address: Swift.String
@@ -368,6 +376,121 @@ public struct BaseWallet : Swift.Equatable {
   public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.BaseWallet?
   public func toDict() -> [Swift.String : Any]
   public static func == (a: DynamicSDKSwift.BaseWallet, b: DynamicSDKSwift.BaseWallet) -> Swift.Bool
+}
+public struct BusinessAccount {
+  public let id: Swift.String
+  public let name: Swift.String?
+  public let externalRef: Swift.String?
+  public let metadata: [Swift.String : Any]?
+  public let projectEnvironmentId: Swift.String
+  public let createdAt: Foundation.Date?
+  public let updatedAt: Foundation.Date?
+  public init(id: Swift.String, name: Swift.String? = nil, externalRef: Swift.String? = nil, metadata: [Swift.String : Any]? = nil, projectEnvironmentId: Swift.String, createdAt: Foundation.Date? = nil, updatedAt: Foundation.Date? = nil)
+  public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.BusinessAccount?
+  public func toDict() -> [Swift.String : Any]
+}
+public struct BusinessAccountDetail {
+  public let id: Swift.String
+  public let name: Swift.String?
+  public let externalRef: Swift.String?
+  public let metadata: [Swift.String : Any]?
+  public let projectEnvironmentId: Swift.String
+  public let createdAt: Foundation.Date?
+  public let updatedAt: Foundation.Date?
+  public let members: [DynamicSDKSwift.BusinessAccountMember]
+  public let signers: [DynamicSDKSwift.BusinessAccountSigner]
+  public let wallets: [DynamicSDKSwift.BusinessAccountWalletSummary]?
+  public init(id: Swift.String, name: Swift.String? = nil, externalRef: Swift.String? = nil, metadata: [Swift.String : Any]? = nil, projectEnvironmentId: Swift.String, createdAt: Foundation.Date? = nil, updatedAt: Foundation.Date? = nil, members: [DynamicSDKSwift.BusinessAccountMember] = [], signers: [DynamicSDKSwift.BusinessAccountSigner] = [], wallets: [DynamicSDKSwift.BusinessAccountWalletSummary]? = nil)
+  public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.BusinessAccountDetail?
+  public func toDict() -> [Swift.String : Any]
+}
+public struct BusinessAccountList {
+  public let items: [DynamicSDKSwift.BusinessAccount]?
+  public let nextCursor: Swift.String?
+  public init(items: [DynamicSDKSwift.BusinessAccount]? = nil, nextCursor: Swift.String? = nil)
+  public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.BusinessAccountList?
+  public func toDict() -> [Swift.String : Any]
+}
+public struct BusinessAccountMember : Swift.Equatable {
+  public let id: Swift.String
+  public let businessAccountId: Swift.String
+  public let userId: Swift.String
+  public let role: DynamicSDKSwift.BusinessAccountMemberRole
+  public let addedByUserId: Swift.String?
+  public let createdAt: Foundation.Date?
+  public init(id: Swift.String, businessAccountId: Swift.String, userId: Swift.String, role: DynamicSDKSwift.BusinessAccountMemberRole, addedByUserId: Swift.String? = nil, createdAt: Foundation.Date? = nil)
+  public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.BusinessAccountMember?
+  public func toDict() -> [Swift.String : Any]
+  public static func == (a: DynamicSDKSwift.BusinessAccountMember, b: DynamicSDKSwift.BusinessAccountMember) -> Swift.Bool
+}
+public enum BusinessAccountMemberRole : Swift.String, Swift.Equatable, Swift.CaseIterable {
+  case owner
+  case admin
+  case viewer
+  public static func fromString(_ value: Swift.String) -> DynamicSDKSwift.BusinessAccountMemberRole?
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [DynamicSDKSwift.BusinessAccountMemberRole]
+  public typealias RawValue = Swift.String
+  nonisolated public static var allCases: [DynamicSDKSwift.BusinessAccountMemberRole] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct BusinessAccountSigner : Swift.Equatable {
+  public let id: Swift.String
+  public let businessAccountId: Swift.String
+  public let walletId: Swift.String
+  public let type: Swift.String
+  public let userId: Swift.String?
+  public let shareSetId: Swift.String?
+  public let createdAt: Foundation.Date?
+  public init(id: Swift.String, businessAccountId: Swift.String, walletId: Swift.String, type: Swift.String, userId: Swift.String? = nil, shareSetId: Swift.String? = nil, createdAt: Foundation.Date? = nil)
+  public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.BusinessAccountSigner?
+  public func toDict() -> [Swift.String : Any]
+  public static func == (a: DynamicSDKSwift.BusinessAccountSigner, b: DynamicSDKSwift.BusinessAccountSigner) -> Swift.Bool
+}
+public enum BusinessAccountSignerIdentifierType : Swift.String, Swift.Equatable, Swift.CaseIterable {
+  case email
+  case phoneNumber
+  case externalUserId
+  case socialUsername
+  case socialAccountId
+  case id
+  public static func fromString(_ value: Swift.String) -> DynamicSDKSwift.BusinessAccountSignerIdentifierType?
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [DynamicSDKSwift.BusinessAccountSignerIdentifierType]
+  public typealias RawValue = Swift.String
+  nonisolated public static var allCases: [DynamicSDKSwift.BusinessAccountSignerIdentifierType] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum BusinessAccountSignerType : Swift.String, Swift.Equatable, Swift.CaseIterable {
+  case endUser
+  case server
+  public static func fromString(_ value: Swift.String) -> DynamicSDKSwift.BusinessAccountSignerType?
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [DynamicSDKSwift.BusinessAccountSignerType]
+  public typealias RawValue = Swift.String
+  nonisolated public static var allCases: [DynamicSDKSwift.BusinessAccountSignerType] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct BusinessAccountWalletSummary : Swift.Equatable {
+  public let id: Swift.String
+  public let chain: Swift.String
+  public let publicKey: Swift.String
+  public init(id: Swift.String, chain: Swift.String, publicKey: Swift.String)
+  public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.BusinessAccountWalletSummary?
+  public func toDict() -> [Swift.String : Any]
+  public static func == (a: DynamicSDKSwift.BusinessAccountWalletSummary, b: DynamicSDKSwift.BusinessAccountWalletSummary) -> Swift.Bool
 }
 public enum ChainEnum : Swift.String, Swift.CaseIterable, Swift.Codable {
   case evm
@@ -1495,6 +1618,16 @@ public enum StorageMessageSource : Swift.String, Swift.Codable {
     get
   }
 }
+public struct TargetIdentity {
+  public let identifier: Swift.String?
+  public let identifierType: DynamicSDKSwift.BusinessAccountSignerIdentifierType?
+  public let smsCountryCode: DynamicSDKSwift.SmsCountryCode?
+  public let socialProvider: Swift.String?
+  public let userId: Swift.String?
+  public init(identifier: Swift.String? = nil, identifierType: DynamicSDKSwift.BusinessAccountSignerIdentifierType? = nil, smsCountryCode: DynamicSDKSwift.SmsCountryCode? = nil, socialProvider: Swift.String? = nil, userId: Swift.String? = nil)
+  public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.TargetIdentity?
+  public func toDict() -> [Swift.String : Any]
+}
 public enum ThresholdSignatureScheme : Swift.String, Swift.CaseIterable, Swift.Codable {
   case twoOfTwo
   case twoOfThree
@@ -1813,6 +1946,22 @@ public struct UserProfile : Swift.Codable, Swift.Equatable {
   public static func == (a: DynamicSDKSwift.UserProfile, b: DynamicSDKSwift.UserProfile) -> Swift.Bool
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
+}
+final public class BusinessAccountsModule {
+  public init(_ transport: DynamicSDKSwift.MessageTransport)
+  final public func create(name: Swift.String? = nil, externalRef: Swift.String? = nil, metadata: [Swift.String : Any]? = nil) async throws -> DynamicSDKSwift.BusinessAccount
+  final public func list(externalRefs: [Swift.String]? = nil) async throws -> DynamicSDKSwift.BusinessAccountList
+  final public func get(businessAccountId: Swift.String) async throws -> DynamicSDKSwift.BusinessAccountDetail
+  final public func addWallet(businessAccountId: Swift.String? = nil, walletId: Swift.String) async throws -> DynamicSDKSwift.BusinessAccountDetail
+  final public func addSigner(accountAddress: Swift.String, chainName: Swift.String, targetSignerIdentity: DynamicSDKSwift.TargetIdentity, businessAccountId: Swift.String? = nil, walletId: Swift.String? = nil, signerType: DynamicSDKSwift.BusinessAccountSignerType? = nil, password: Swift.String? = nil) async throws -> DynamicSDKSwift.AddBusinessAccountSignerResponse
+  final public func addMember(businessAccountId: Swift.String, userId: Swift.String? = nil, identifier: Swift.String? = nil, identifierType: DynamicSDKSwift.BusinessAccountSignerIdentifierType? = nil, role: DynamicSDKSwift.BusinessAccountMemberRole? = nil) async throws -> DynamicSDKSwift.BusinessAccountMember
+  final public func removeSigner(businessAccountId: Swift.String, walletId: Swift.String, signerId: Swift.String) async throws -> DynamicSDKSwift.BusinessAccountSigner
+  final public func removeMember(businessAccountId: Swift.String, userId: Swift.String) async throws -> DynamicSDKSwift.BusinessAccountMember
+  final public func updateMemberRole(businessAccountId: Swift.String, userId: Swift.String, role: DynamicSDKSwift.BusinessAccountMemberRole) async throws -> DynamicSDKSwift.BusinessAccountMember
+  final public func transferOwnership(businessAccountId: Swift.String, newOwnerUserId: Swift.String) async throws -> DynamicSDKSwift.BusinessAccountDetail
+  final public func removeWallet(businessAccountId: Swift.String, walletId: Swift.String) async throws -> DynamicSDKSwift.BusinessAccountDetail
+  final public func update(businessAccountId: Swift.String, name: Swift.String) async throws -> DynamicSDKSwift.BusinessAccount
+  @objc deinit
 }
 final public class DelegationModule {
   public init(_ transport: DynamicSDKSwift.MessageTransport)
@@ -2139,6 +2288,12 @@ extension DynamicSDKSwift.SolanaTransactionType : Swift.RawRepresentable {}
 extension DynamicSDKSwift.LoggerLevel : Swift.Equatable {}
 extension DynamicSDKSwift.LoggerLevel : Swift.Hashable {}
 extension DynamicSDKSwift.LoggerLevel : Swift.RawRepresentable {}
+extension DynamicSDKSwift.BusinessAccountMemberRole : Swift.Hashable {}
+extension DynamicSDKSwift.BusinessAccountMemberRole : Swift.RawRepresentable {}
+extension DynamicSDKSwift.BusinessAccountSignerIdentifierType : Swift.Hashable {}
+extension DynamicSDKSwift.BusinessAccountSignerIdentifierType : Swift.RawRepresentable {}
+extension DynamicSDKSwift.BusinessAccountSignerType : Swift.Hashable {}
+extension DynamicSDKSwift.BusinessAccountSignerType : Swift.RawRepresentable {}
 extension DynamicSDKSwift.ChainEnum : Swift.Equatable {}
 extension DynamicSDKSwift.ChainEnum : Swift.Hashable {}
 extension DynamicSDKSwift.ChainEnum : Swift.RawRepresentable {}

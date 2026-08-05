@@ -40232,6 +40232,39 @@
           {
             "kind": "Constructor",
             "name": "init",
+            "printedName": "init(isoCountryCode:phoneCountryCode:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SmsCountryCode",
+                "printedName": "DynamicSDKSwift.SmsCountryCode",
+                "usr": "s:15DynamicSDKSwift14SmsCountryCodeV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:15DynamicSDKSwift14SmsCountryCodeV03isodE005phonedE0ACSS_SStcfc",
+            "mangledName": "$s15DynamicSDKSwift14SmsCountryCodeV03isodE005phonedE0ACSS_SStcfc",
+            "moduleName": "DynamicSDKSwift",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
             "printedName": "init(from:)",
             "children": [
               {
@@ -85593,497 +85626,497 @@
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 7769,
+      "offset": 7926,
       "length": 25,
       "value": "\"zerodev_signer_to_ecdsa\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 7815,
+      "offset": 7972,
       "length": 21,
       "value": "\"zerodev_multi_chain\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 7911,
+      "offset": 8068,
       "length": 9,
       "value": "\"STACKUP\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 7938,
+      "offset": 8095,
       "length": 9,
       "value": "\"PIMLICO\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 7965,
+      "offset": 8122,
       "length": 9,
       "value": "\"ALCHEMY\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 7991,
+      "offset": 8148,
       "length": 8,
       "value": "\"GELATO\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 8308,
+      "offset": 8465,
       "length": 10,
       "value": "\"coinbase\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 8335,
+      "offset": 8492,
       "length": 8,
       "value": "\"kraken\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 10371,
+      "offset": 10528,
       "length": 9,
       "value": "\"dynamic\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 10400,
+      "offset": 10557,
       "length": 11,
       "value": "\"magicLink\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 10428,
+      "offset": 10585,
       "length": 8,
       "value": "\"blocto\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 10454,
+      "offset": 10611,
       "length": 9,
       "value": "\"turnkey\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 10486,
+      "offset": 10643,
       "length": 14,
       "value": "\"coinbaseWaas\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 10700,
+      "offset": 10857,
       "length": 7,
       "value": "\"apple\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 10727,
+      "offset": 10884,
       "length": 11,
       "value": "\"bitbucket\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 10763,
+      "offset": 10920,
       "length": 16,
       "value": "\"coinbasesocial\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 10797,
+      "offset": 10954,
       "length": 9,
       "value": "\"discord\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 10826,
+      "offset": 10983,
       "length": 11,
       "value": "\"epicgames\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 10856,
+      "offset": 11013,
       "length": 10,
       "value": "\"facebook\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 10886,
+      "offset": 11043,
       "length": 11,
       "value": "\"farcaster\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 10914,
+      "offset": 11071,
       "length": 8,
       "value": "\"github\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 10939,
+      "offset": 11096,
       "length": 8,
       "value": "\"gitlab\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 10964,
+      "offset": 11121,
       "length": 8,
       "value": "\"google\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 10992,
+      "offset": 11149,
       "length": 11,
       "value": "\"instagram\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 11022,
+      "offset": 11179,
       "length": 10,
       "value": "\"linkedin\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 11052,
+      "offset": 11209,
       "length": 11,
       "value": "\"microsoft\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 11080,
+      "offset": 11237,
       "length": 8,
       "value": "\"twitch\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 11106,
+      "offset": 11263,
       "length": 9,
       "value": "\"twitter\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 11134,
+      "offset": 11291,
       "length": 10,
       "value": "\"telegram\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 11162,
+      "offset": 11319,
       "length": 9,
       "value": "\"spotify\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 11188,
+      "offset": 11345,
       "length": 8,
       "value": "\"tiktok\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 11211,
+      "offset": 11368,
       "length": 6,
       "value": "\"line\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 11233,
+      "offset": 11390,
       "length": 7,
       "value": "\"steam\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 11258,
+      "offset": 11415,
       "length": 9,
       "value": "\"shopify\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 11284,
+      "offset": 11441,
       "length": 8,
       "value": "\"kraken\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 11307,
+      "offset": 11464,
       "length": 6,
       "value": "\"okta\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 11645,
+      "offset": 11802,
       "length": 9,
       "value": "\"passkey\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 11675,
+      "offset": 11832,
       "length": 12,
       "value": "\"passphrase\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 12924,
+      "offset": 13081,
       "length": 4,
       "value": "\"V1\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 12941,
+      "offset": 13098,
       "length": 4,
       "value": "\"V2\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 12958,
+      "offset": 13115,
       "length": 4,
       "value": "\"V3\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 13118,
+      "offset": 13275,
       "length": 6,
       "value": "\"days\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 13140,
+      "offset": 13297,
       "length": 7,
       "value": "\"hours\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 13165,
+      "offset": 13322,
       "length": 9,
       "value": "\"minutes\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 13963,
+      "offset": 14120,
       "length": 13,
       "value": "\"googleDrive\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 13993,
+      "offset": 14150,
       "length": 8,
       "value": "\"iCloud\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 14019,
+      "offset": 14176,
       "length": 9,
       "value": "\"dynamic\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 14047,
+      "offset": 14204,
       "length": 10,
       "value": "\"external\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 14077,
+      "offset": 14234,
       "length": 11,
       "value": "\"delegated\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 14389,
+      "offset": 14546,
       "length": 13,
       "value": "\"development\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 14423,
+      "offset": 14580,
       "length": 12,
       "value": "\"production\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 15147,
+      "offset": 15304,
       "length": 7,
       "value": "\"login\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 15454,
+      "offset": 15611,
       "length": 7,
       "value": "\"email\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 15485,
+      "offset": 15642,
       "length": 15,
       "value": "\"emailAndPhone\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 15516,
+      "offset": 15673,
       "length": 7,
       "value": "\"phone\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 15543,
+      "offset": 15700,
       "length": 11,
       "value": "\"separator\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 15571,
+      "offset": 15728,
       "length": 8,
       "value": "\"social\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 15594,
+      "offset": 15751,
       "length": 6,
       "value": "\"text\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 15617,
+      "offset": 15774,
       "length": 8,
       "value": "\"wallet\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 15643,
+      "offset": 15800,
       "length": 9,
       "value": "\"passkey\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 15725,
+      "offset": 15882,
       "length": 6,
       "value": "\"left\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 15748,
+      "offset": 15905,
       "length": 8,
       "value": "\"center\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 15772,
+      "offset": 15929,
       "length": 7,
       "value": "\"right\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 15975,
+      "offset": 16132,
       "length": 7,
       "value": "\"banxa\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 16007,
+      "offset": 16164,
       "length": 16,
       "value": "\"coinbaseOnramp\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 16046,
+      "offset": 16203,
       "length": 14,
       "value": "\"cryptoDotCom\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 16991,
+      "offset": 17148,
       "length": 6,
       "value": "\"totp\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 17015,
+      "offset": 17172,
       "length": 9,
       "value": "\"passkey\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 17040,
+      "offset": 17197,
       "length": 7,
       "value": "\"email\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 17448,
+      "offset": 17605,
       "length": 14,
       "value": "\"localstorage\""
     },
     {
       "filePath": "\/Users\/ngarabandic\/Documents\/Programiranje\/Dynamic\/mobile-sdks\/sdk-swift-with-webview\/Packages\/DynamicSDKSwift\/Sources\/Models\/ProjectSettings.swift",
       "kind": "StringLiteral",
-      "offset": 17479,
+      "offset": 17636,
       "length": 8,
       "value": "\"cookie\""
     },

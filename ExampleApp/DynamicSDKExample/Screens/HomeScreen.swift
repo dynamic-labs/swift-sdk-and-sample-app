@@ -185,7 +185,23 @@ struct HomeScreenView: View {
             }
             .padding(.horizontal)
 
-            // 6) Trusted Devices (separate screen)
+            // 6) Business Accounts (separate screen)
+            NavigationLink(destination: BusinessAccountsScreen()) {
+              HStack {
+                Image(systemName: "building.2")
+                Text("Business Accounts")
+                Spacer()
+                Image(systemName: "chevron.right")
+              }
+              .foregroundColor(colorScheme == .dark ? .white : .blue)
+              .padding()
+              .frame(maxWidth: .infinity)
+              .background(Color.blue.opacity(0.1))
+              .cornerRadius(8)
+            }
+            .padding(.horizontal)
+
+            // 7) Trusted Devices (separate screen)
             NavigationLink(destination: TrustedDevicesScreen()) {
               HStack {
                 Image(systemName: "desktopcomputer")
@@ -201,7 +217,7 @@ struct HomeScreenView: View {
             }
             .padding(.horizontal)
 
-            // 7) Project Settings (separate screen)
+            // 8) Project Settings (separate screen)
             NavigationLink(destination: ProjectSettingsScreen()) {
               HStack {
                 Image(systemName: "gearshape.fill")
@@ -217,8 +233,7 @@ struct HomeScreenView: View {
             }
             .padding(.horizontal)
 
-            // 8) User JSON
-            // 6) WalletConnect
+            // 9) WalletConnect
             NavigationLink(destination: WalletConnectScreen()) {
               HStack {
                 Image(systemName: "link")
@@ -234,7 +249,7 @@ struct HomeScreenView: View {
             }
             .padding(.horizontal)
 
-            // 7) User JSON
+            // 10) User JSON
             if let user = vm.user {
               let json = user.toJsonString()
               ValueCard(
@@ -244,7 +259,7 @@ struct HomeScreenView: View {
               )
             }
 
-            // 9) Token
+            // 11) Token
             if let token = vm.token {
               ValueCard(
                 title: "Token:",
@@ -254,7 +269,7 @@ struct HomeScreenView: View {
               )
             }
 
-            // 10) Minified Auth Token
+            // 12) Minified Auth Token
             if let minAuthToken = vm.minAuthToken {
               ValueCard(
                 title: "Min Auth Token:",
@@ -264,7 +279,7 @@ struct HomeScreenView: View {
               )
             }
 
-            // 11) Logout (must be last)
+            // 13) Logout (must be last)
             Button(action: { vm.logout() }) {
               HStack {
                 Image(systemName: "arrow.left.circle.fill")

@@ -1084,6 +1084,7 @@ public struct ProviderMultichainAccountAbstractionProviders : Swift.Codable {
 public struct SmsCountryCode : Swift.Codable {
   public let isoCountryCode: Swift.String
   public let phoneCountryCode: Swift.String
+  public init(isoCountryCode: Swift.String, phoneCountryCode: Swift.String)
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }

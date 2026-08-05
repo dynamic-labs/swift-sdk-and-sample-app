@@ -16,6 +16,7 @@
 		25AFB8CC2F0000020013666E /* MfaAddDeviceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AFB8C72F0000020013666E /* MfaAddDeviceScreen.swift */; };
 		25AFB8CD2F0000020013666E /* MfaRecoveryCodesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AFB8C82F0000020013666E /* MfaRecoveryCodesScreen.swift */; };
 		25AFB8CE2F0000020013666E /* PasskeysScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AFB8C92F0000020013666E /* PasskeysScreen.swift */; };
+		BCCA969181C0667D67F26106 /* BusinessAccountsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE9C5584A183415F7AB023C /* BusinessAccountsScreen.swift */; };
 		25AFB8CF2F0000020013666E /* DynamicSDKExample/Components/SecurityComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AFB8CA2F0000020013666E /* DynamicSDKExample/Components/SecurityComponents.swift */; };
 		2B307B30551580BE806D398B /* WalletDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E20DCE7D3D453D72016B4 /* WalletDetailsViewModel.swift */; };
 		2F7B0B6E9B0F4D3D9F7D0C41 /* SwitchNetworkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7B0B6D9B0F4D3D9F7D0C41 /* SwitchNetworkViewModel.swift */; };
@@ -72,6 +73,7 @@
 		25AFB8C72F0000020013666E /* MfaAddDeviceScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MfaAddDeviceScreen.swift; sourceTree = "<group>"; };
 		25AFB8C82F0000020013666E /* MfaRecoveryCodesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MfaRecoveryCodesScreen.swift; sourceTree = "<group>"; };
 		25AFB8C92F0000020013666E /* PasskeysScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasskeysScreen.swift; sourceTree = "<group>"; };
+		9EE9C5584A183415F7AB023C /* BusinessAccountsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessAccountsScreen.swift; sourceTree = "<group>"; };
 		25AFB8CA2F0000020013666E /* DynamicSDKExample/Components/SecurityComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicSDKExample/Components/SecurityComponents.swift; sourceTree = "<group>"; };
 		25AFB8D02F1000000013666F /* DynamicSDKExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DynamicSDKExample.entitlements; sourceTree = "<group>"; };
 		279E20DCE7D3D453D72016B4 /* WalletDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				25AFB8C82F0000020013666E /* MfaRecoveryCodesScreen.swift */,
 				25206D5B2F3B3A5D007740AA /* DelegationScreen.swift */,
 				25AFB8C92F0000020013666E /* PasskeysScreen.swift */,
+				9EE9C5584A183415F7AB023C /* BusinessAccountsScreen.swift */,
 				PRJS0002000000000001 /* ProjectSettingsScreen.swift */,
 				STUP0002000000000001 /* StepUpAuthScreen.swift */,
 				CPWS0002000000000001 /* CreatePasswordWalletScreen.swift */,
@@ -348,6 +351,7 @@
 				25AFB8CC2F0000020013666E /* MfaAddDeviceScreen.swift in Sources */,
 				25AFB8CD2F0000020013666E /* MfaRecoveryCodesScreen.swift in Sources */,
 				25AFB8CE2F0000020013666E /* PasskeysScreen.swift in Sources */,
+				BCCA969181C0667D67F26106 /* BusinessAccountsScreen.swift in Sources */,
 				9B2C9C842B00000100000006 /* WalletDetailsScreen.swift in Sources */,
 				404BC9C5B3FEEFF1D1A21C15 /* SwitchNetworkScreen.swift in Sources */,
 				2F7B0B6E9B0F4D3D9F7D0C41 /* SwitchNetworkViewModel.swift in Sources */,

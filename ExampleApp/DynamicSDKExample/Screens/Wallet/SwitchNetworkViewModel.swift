@@ -6,6 +6,7 @@ final class SwitchNetworkViewModel: ObservableObject {
   @Published var networks: [GenericNetwork] = []
   @Published var isLoading: Bool = true
   @Published var errorMessage: String?
+  @Published var noNetworksMessage: String?
 
   @Published var isSuccessAlertPresented: Bool = false
   @Published var successTitle: String = "Success"
@@ -22,9 +23,16 @@ final class SwitchNetworkViewModel: ObservableObject {
   func load() async {
     isLoading = true
     errorMessage = nil
+    noNetworksMessage = nil
     do {
       let chain = wallet.chain.uppercased()
-      networks = (chain == "EVM") ? sdk.networks.evm : sdk.networks.solana
+      networks = sdk.networks.networksForChain(chain)
+      if networks.isEmpty {
+        noNetworksMessage =
+          "No \(chain) networks configured on the dashboard."
+        isLoading = false
+        return
+      }
       let current = try await sdk.wallets.getNetwork(wallet: wallet)
       activeId = normalizeAny(current.value.value)
     } catch {
@@ -35,7 +43,12 @@ final class SwitchNetworkViewModel: ObservableObject {
 
   func isActive(_ network: GenericNetwork) -> Bool {
     let chain = wallet.chain.uppercased()
-    let id = chain == "EVM" ? normalizeAny(network.chainId.value) : normalizeAny(network.networkId.value)
+    let id: String
+    if chain == "EVM" {
+      id = normalizeAny(network.chainId.value)
+    } else {
+      id = normalizeAny(network.networkId.value)
+    }
     return activeId == id
   }
 
@@ -51,7 +64,12 @@ final class SwitchNetworkViewModel: ObservableObject {
     guard !isActive(network) else { return }
     do {
       let chain = wallet.chain.uppercased()
-      let targetId = chain == "EVM" ? normalizeAny(network.chainId.value) : normalizeAny(network.networkId.value)
+      let targetId: String
+      if chain == "EVM" {
+        targetId = normalizeAny(network.chainId.value)
+      } else {
+        targetId = normalizeAny(network.networkId.value)
+      }
       try await sdk.wallets.switchNetwork(wallet: wallet, network: Network(network.chainId))
       activeId = targetId
       successMessage = "Switched to \(network.name)"
@@ -68,5 +86,4 @@ final class SwitchNetworkViewModel: ObservableObject {
     return String(describing: value)
   }
 }
-
 

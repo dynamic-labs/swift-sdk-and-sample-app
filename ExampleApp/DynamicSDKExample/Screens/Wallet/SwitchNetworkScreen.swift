@@ -20,6 +20,11 @@ struct SwitchNetworkScreen: View {
           Text(error).foregroundColor(.red)
           Button("Retry") { Task { await vm.load() } }
         }
+      } else if let message = vm.noNetworksMessage {
+        VStack(alignment: .leading, spacing: 12) {
+          Text(message).foregroundColor(.secondary)
+          Button("Retry") { Task { await vm.load() } }
+        }
       } else {
         ForEach(vm.networks, id: \.name) { net in
           Button {

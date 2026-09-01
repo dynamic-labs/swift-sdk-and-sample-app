@@ -58,8 +58,7 @@ final class WalletDetailsViewModel: ObservableObject {
         networkDescription = Self.resolveNetworkDisplay(
           walletChain: wallet.chain,
           rawId: rawId,
-          evmNetworks: sdk.networks.evm,
-          solanaNetworks: sdk.networks.solana
+          networks: sdk.networks.networksForChain(wallet.chain)
         )
       } catch {
         Logger.debug("[WalletDetails] getNetwork error: \(error)")
@@ -145,27 +144,28 @@ final class WalletDetailsViewModel: ObservableObject {
   private static func resolveNetworkDisplay(
     walletChain: String,
     rawId: String,
-    evmNetworks: [GenericNetwork],
-    solanaNetworks: [GenericNetwork]
+    networks: [GenericNetwork]
   ) -> String {
     let chain = walletChain.uppercased()
 
-    if chain == "EVM" {
-      if let match = evmNetworks.first(where: { normalizeAny($0.chainId.value) == rawId }) {
-        return "\(match.name) (chainId: \(normalizeAny(match.chainId.value)))"
-      }
-      return "chainId: \(rawId)"
-    }
-
-    if chain == "SOL" || chain == "SOLANA" {
-      if let match = solanaNetworks.first(where: { normalizeAny($0.networkId.value) == rawId || normalizeAny($0.chainId.value) == rawId }) {
-        return "\(match.name) (\(rawId))"
-      }
+    if networks.isEmpty {
       return rawId
     }
 
-    return rawId
+    for network in networks {
+      if chain == "EVM" {
+        if normalizeAny(network.chainId.value) == rawId {
+          return "\(network.name) (\(rawId))"
+        }
+      } else {
+        let matchesNetworkId = normalizeAny(network.networkId.value) == rawId
+        let matchesChainId = normalizeAny(network.chainId.value) == rawId
+        if matchesNetworkId || matchesChainId {
+          return "\(network.name) (\(rawId))"
+        }
+      }
+    }
+
+    return "unresolved (\(rawId))"
   }
 }
-
-

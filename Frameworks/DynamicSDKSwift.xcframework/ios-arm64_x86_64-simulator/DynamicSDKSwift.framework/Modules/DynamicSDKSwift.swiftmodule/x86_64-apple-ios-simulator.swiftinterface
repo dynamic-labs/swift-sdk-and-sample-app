@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.3.2 effective-5.10 (swiftlang-6.3.2.1.108 clang-2100.1.1.101)
+// swift-compiler-version: Apple Swift version 6.3.3 effective-5.10 (swiftlang-6.3.3.1.3 clang-2100.1.1.101)
 // swift-module-flags: -target x86_64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -O -enable-experimental-feature DebugDescriptionMacro -module-name DynamicSDKSwift -package-name dynamicsdkswift
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.2
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.3
 import AnyCodableSwift
 import AuthenticationServices
 import Combine
@@ -137,8 +137,13 @@ public struct ClientProps : Swift.Equatable {
   public var logLevel: DynamicSDKSwift.LoggerLevel
   public var debug: DynamicSDKSwift.ClientDebugProps?
   public var evmNetworks: [DynamicSDKSwift.GenericNetwork]?
+  public var solNetworks: [DynamicSDKSwift.GenericNetwork]?
+  public var bitcoinNetworks: [DynamicSDKSwift.GenericNetwork]?
+  public var tonNetworks: [DynamicSDKSwift.GenericNetwork]?
   public var reownProjectId: Swift.String?
-  public init(environmentId: Swift.String, apiBaseUrl: Swift.String? = "https://app.dynamicauth.com/api/v0", webViewUrl: Swift.String? = nil, appLogoUrl: Swift.String? = nil, appName: Swift.String = "Dynamic", redirectUrl: Swift.String? = nil, appOrigin: Swift.String? = nil, cssOverrides: Swift.String? = nil, debugWebview: Swift.Bool = false, logLevel: DynamicSDKSwift.LoggerLevel = .info, debug: DynamicSDKSwift.ClientDebugProps? = nil, evmNetworks: [DynamicSDKSwift.GenericNetwork]? = nil, reownProjectId: Swift.String? = nil)
+  public var webviewLoad: DynamicSDKSwift.WebviewLoadOptions?
+  public var locale: AnyCodableSwift.AnyCodable?
+  public init(environmentId: Swift.String, apiBaseUrl: Swift.String? = "https://app.dynamicauth.com/api/v0", webViewUrl: Swift.String? = nil, appLogoUrl: Swift.String? = nil, appName: Swift.String = "Dynamic", redirectUrl: Swift.String? = nil, appOrigin: Swift.String? = nil, cssOverrides: Swift.String? = nil, debugWebview: Swift.Bool = false, logLevel: DynamicSDKSwift.LoggerLevel = .info, debug: DynamicSDKSwift.ClientDebugProps? = nil, evmNetworks: [DynamicSDKSwift.GenericNetwork]? = nil, solNetworks: [DynamicSDKSwift.GenericNetwork]? = nil, bitcoinNetworks: [DynamicSDKSwift.GenericNetwork]? = nil, tonNetworks: [DynamicSDKSwift.GenericNetwork]? = nil, reownProjectId: Swift.String? = nil, locale: AnyCodableSwift.AnyCodable? = nil, webviewLoad: DynamicSDKSwift.WebviewLoadOptions? = nil)
   public static func == (a: DynamicSDKSwift.ClientProps, b: DynamicSDKSwift.ClientProps) -> Swift.Bool
 }
 public struct ClientDebugProps : Swift.Equatable, Swift.Codable {
@@ -264,6 +269,14 @@ final public class SdkModule {
   final public var readyChanges: Combine.AnyPublisher<Swift.Bool, Swift.Never> {
     get
   }
+  final public var loadState: DynamicSDKSwift.DynamicWebviewLoadState? {
+    get
+  }
+  final public var loadStateChanges: Combine.AnyPublisher<DynamicSDKSwift.DynamicWebviewLoadState, Swift.Never>? {
+    get
+  }
+  final public func retryLoad() async -> DynamicSDKSwift.DynamicWebviewLoadState?
+  final public func attachLoadController(_ controller: DynamicSDKSwift.WebviewLoadController)
   @objc deinit
 }
 public enum SecureEnclaveKeyManagerError : Swift.Error, Foundation.LocalizedError {
@@ -284,6 +297,7 @@ public class SecureEnclaveKeyManager {
   public func getPublicKey(tag: Swift.String) throws -> Swift.String?
   public func sign(tag: Swift.String, payload: Foundation.Data) throws -> Swift.String
   public func deleteKey(tag: Swift.String)
+  public func pruneToPublicKey(tag: Swift.String, expectedPublicKey: Swift.String) -> Swift.Bool
   @objc deinit
 }
 public func base64urlDecode(_ string: Swift.String) throws -> Foundation.Data
@@ -315,6 +329,7 @@ final public class VisibilityModule {
   final public let transport: DynamicSDKSwift.MessageTransport
   final public let sdk: DynamicSDKSwift.SdkModule
   final public let ui: DynamicSDKSwift.UserInterfaceModule
+  final public let locale: DynamicSDKSwift.LocaleModule
   final public let auth: DynamicSDKSwift.AuthModule
   final public let wallets: DynamicSDKSwift.WalletsModule
   final public let networks: DynamicSDKSwift.NetworksModule
@@ -329,6 +344,7 @@ final public class VisibilityModule {
   final public let deviceRegistration: DynamicSDKSwift.DeviceRegistrationModule
   final public let walletConnect: DynamicSDKSwift.WalletConnectModule
   final public let businessAccounts: DynamicSDKSwift.BusinessAccountsModule
+  final public let policies: DynamicSDKSwift.PoliciesModule
   final public let webViewController: DynamicSDKSwift.DynamicWebViewController
   final public let overlayWindow: DynamicSDKSwift.DynamicOverlayWindowManager
   final public let props: DynamicSDKSwift.ClientProps
@@ -631,6 +647,36 @@ public struct GetStorageItemArgs : Swift.Codable {
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
+public enum LocaleLanguage : Swift.String, Swift.CaseIterable, Swift.Sendable {
+  case ar
+  case da
+  case de
+  case en
+  case es
+  case fi
+  case fr
+  case he
+  case it
+  case ja
+  case nl
+  case pl
+  case pt
+  case ru
+  case uk
+  case zh
+  public var code: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [DynamicSDKSwift.LocaleLanguage]
+  public typealias RawValue = Swift.String
+  nonisolated public static var allCases: [DynamicSDKSwift.LocaleLanguage] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
 public struct MfaAddDevice : Swift.Codable, Swift.Equatable {
   public let id: Swift.String
   public let secret: Swift.String
@@ -792,6 +838,156 @@ public struct PasskeyPubKeyCredParam : Swift.Codable {
   public init(type: Swift.String, alg: Swift.Int)
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
+}
+public enum PolicyDesugarEntry {
+  case rule(DynamicSDKSwift.PolicyRule)
+  case deletionMarker(DynamicSDKSwift.PolicyRuleDeletionMarker)
+  public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.PolicyDesugarEntry?
+  public func toDict() -> [Swift.String : Any]
+}
+public struct PolicyDesugarResult {
+  public let rules: DynamicSDKSwift.PolicyRules
+  public let unmapped: [DynamicSDKSwift.PolicyRule]
+  public init(rules: DynamicSDKSwift.PolicyRules, unmapped: [DynamicSDKSwift.PolicyRule] = [])
+  public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.PolicyDesugarResult?
+  public func toDict() -> [Swift.String : Any]
+}
+public struct PolicyGetResponse {
+  public let layerId: Swift.String
+  public let rules: DynamicSDKSwift.PolicyRules?
+  public let unmapped: [DynamicSDKSwift.PolicyRule]?
+  public let updatedAt: Foundation.Date?
+  public init(layerId: Swift.String, rules: DynamicSDKSwift.PolicyRules? = nil, unmapped: [DynamicSDKSwift.PolicyRule]? = nil, updatedAt: Foundation.Date? = nil)
+  public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.PolicyGetResponse?
+  public func toDict() -> [Swift.String : Any]
+}
+public struct PolicyLayerContent {
+  public let rules: [DynamicSDKSwift.PolicyRule]?
+  public init(rules: [DynamicSDKSwift.PolicyRule]? = nil)
+  public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.PolicyLayerContent?
+  public func toDict() -> [Swift.String : Any]
+}
+public struct PolicyLayerResponse {
+  public let message: Swift.String?
+  public let layerId: Swift.String
+  public let layerContent: DynamicSDKSwift.PolicyLayerContent
+  public let updatedAt: Foundation.Date?
+  public init(message: Swift.String? = nil, layerId: Swift.String, layerContent: DynamicSDKSwift.PolicyLayerContent, updatedAt: Foundation.Date? = nil)
+  public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.PolicyLayerResponse?
+  public func toDict() -> [Swift.String : Any]
+}
+public struct PolicyMaxAmountPerTransaction : Swift.Equatable {
+  public let amount: Swift.String
+  public let asset: Swift.String?
+  public init(amount: Swift.String, asset: Swift.String? = nil)
+  public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.PolicyMaxAmountPerTransaction?
+  public func toDict() -> [Swift.String : Any]
+  public static func == (a: DynamicSDKSwift.PolicyMaxAmountPerTransaction, b: DynamicSDKSwift.PolicyMaxAmountPerTransaction) -> Swift.Bool
+}
+public struct PolicyRule {
+  public let ruleId: Swift.String?
+  public let name: Swift.String
+  public let ruleType: DynamicSDKSwift.PolicyRuleType
+  public let chain: DynamicSDKSwift.WaasChain
+  public let chainId: Swift.Int?
+  public let chainIds: [Swift.Int]?
+  public let address: Swift.String?
+  public let addresses: [Swift.String]?
+  public let contractAbi: [[Swift.String : Any]]?
+  public let functionName: Swift.String?
+  public let argumentConstraints: [[Swift.String : Any]]?
+  public let valueLimit: DynamicSDKSwift.PolicyValueLimit?
+  public let operationRestrictions: [Swift.String : Any]?
+  public let disableBlockaidSecurityChecks: Swift.Bool?
+  public let modifiableBySigner: Swift.Bool?
+  public init(ruleId: Swift.String? = nil, name: Swift.String, ruleType: DynamicSDKSwift.PolicyRuleType, chain: DynamicSDKSwift.WaasChain, chainId: Swift.Int? = nil, chainIds: [Swift.Int]? = nil, address: Swift.String? = nil, addresses: [Swift.String]? = nil, contractAbi: [[Swift.String : Any]]? = nil, functionName: Swift.String? = nil, argumentConstraints: [[Swift.String : Any]]? = nil, valueLimit: DynamicSDKSwift.PolicyValueLimit? = nil, operationRestrictions: [Swift.String : Any]? = nil, disableBlockaidSecurityChecks: Swift.Bool? = nil, modifiableBySigner: Swift.Bool? = nil)
+  public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.PolicyRule?
+  public func toDict() -> [Swift.String : Any]
+}
+public struct PolicyRuleDeletionMarker : Swift.Equatable {
+  public let deletedById: Swift.String
+  public let deletedByType: Swift.String
+  public let ruleId: Swift.String
+  public init(deletedById: Swift.String, deletedByType: Swift.String, ruleId: Swift.String)
+  public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.PolicyRuleDeletionMarker?
+  public func toDict() -> [Swift.String : Any]
+  public static func == (a: DynamicSDKSwift.PolicyRuleDeletionMarker, b: DynamicSDKSwift.PolicyRuleDeletionMarker) -> Swift.Bool
+}
+public struct PolicyRuleInput {
+  public let ruleId: Swift.String?
+  public let name: Swift.String
+  public let chain: DynamicSDKSwift.WaasChain
+  public let chainId: Swift.Int?
+  public let chainIds: [Swift.Int]?
+  public let address: Swift.String?
+  public let addresses: [Swift.String]?
+  public let contractAbi: [[Swift.String : Any]]?
+  public let functionName: Swift.String?
+  public let argumentConstraints: [[Swift.String : Any]]?
+  public let valueLimit: DynamicSDKSwift.PolicyValueLimit?
+  public let operationRestrictions: [Swift.String : Any]?
+  public let disableBlockaidSecurityChecks: Swift.Bool?
+  public let modifiableBySigner: Swift.Bool?
+  public init(ruleId: Swift.String? = nil, name: Swift.String, chain: DynamicSDKSwift.WaasChain, chainId: Swift.Int? = nil, chainIds: [Swift.Int]? = nil, address: Swift.String? = nil, addresses: [Swift.String]? = nil, contractAbi: [[Swift.String : Any]]? = nil, functionName: Swift.String? = nil, argumentConstraints: [[Swift.String : Any]]? = nil, valueLimit: DynamicSDKSwift.PolicyValueLimit? = nil, operationRestrictions: [Swift.String : Any]? = nil, disableBlockaidSecurityChecks: Swift.Bool? = nil, modifiableBySigner: Swift.Bool? = nil)
+  public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.PolicyRuleInput?
+  public func toDict() -> [Swift.String : Any]
+}
+public enum PolicyRuleKind : Swift.String, Swift.Equatable, Swift.CaseIterable {
+  case blockExport
+  case allowAddresses
+  case denyAddresses
+  case maxAmountPerTransaction
+  public static func fromString(_ value: Swift.String) -> DynamicSDKSwift.PolicyRuleKind?
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [DynamicSDKSwift.PolicyRuleKind]
+  public typealias RawValue = Swift.String
+  nonisolated public static var allCases: [DynamicSDKSwift.PolicyRuleKind] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum PolicyRuleType : Swift.String, Swift.Equatable, Swift.CaseIterable {
+  case allow
+  case deny
+  public static func fromString(_ value: Swift.String) -> DynamicSDKSwift.PolicyRuleType?
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [DynamicSDKSwift.PolicyRuleType]
+  public typealias RawValue = Swift.String
+  nonisolated public static var allCases: [DynamicSDKSwift.PolicyRuleType] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct PolicyRules : Swift.Equatable {
+  public let allowAddresses: [Swift.String]?
+  public let denyAddresses: [Swift.String]?
+  public let blockExport: Swift.Bool?
+  public let maxAmountPerTransaction: DynamicSDKSwift.PolicyMaxAmountPerTransaction?
+  public let names: [DynamicSDKSwift.PolicyRuleKind : Swift.String]?
+  public init(allowAddresses: [Swift.String]? = nil, denyAddresses: [Swift.String]? = nil, blockExport: Swift.Bool? = nil, maxAmountPerTransaction: DynamicSDKSwift.PolicyMaxAmountPerTransaction? = nil, names: [DynamicSDKSwift.PolicyRuleKind : Swift.String]? = nil)
+  public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.PolicyRules?
+  public func toDict() -> [Swift.String : Any]
+  public static func == (a: DynamicSDKSwift.PolicyRules, b: DynamicSDKSwift.PolicyRules) -> Swift.Bool
+}
+public enum PolicyScope : Swift.Equatable {
+  case account(businessAccountId: Swift.String)
+  case wallet(walletId: Swift.String, shareSetId: Swift.String?)
+  case signer(shareSetId: Swift.String)
+  public func toDict() -> [Swift.String : Any]
+  public static func == (a: DynamicSDKSwift.PolicyScope, b: DynamicSDKSwift.PolicyScope) -> Swift.Bool
+}
+public struct PolicyValueLimit : Swift.Equatable {
+  public let asset: Swift.String?
+  public let maxPerCall: Swift.String?
+  public let totalLimit: Swift.String?
+  public init(asset: Swift.String? = nil, maxPerCall: Swift.String? = nil, totalLimit: Swift.String? = nil)
+  public static func fromDict(_ dict: [Swift.String : Any]) -> DynamicSDKSwift.PolicyValueLimit
+  public func toDict() -> [Swift.String : Any]
+  public static func == (a: DynamicSDKSwift.PolicyValueLimit, b: DynamicSDKSwift.PolicyValueLimit) -> Swift.Bool
 }
 public struct ProjectSettings : Swift.Codable {
   public let environmentName: DynamicSDKSwift.EnvironmentEnum?
@@ -1732,6 +1928,11 @@ public enum WaasChain : Swift.String, Swift.CaseIterable, Swift.Codable {
   case btc
   case sui
   case ton
+  case midnight
+  case stellar
+  case tempo
+  case aleo
+  case tron
   public init?(rawValue: Swift.String)
   public typealias AllCases = [DynamicSDKSwift.WaasChain]
   public typealias RawValue = Swift.String
@@ -1954,7 +2155,7 @@ final public class BusinessAccountsModule {
   final public func list(externalRefs: [Swift.String]? = nil) async throws -> DynamicSDKSwift.BusinessAccountList
   final public func get(businessAccountId: Swift.String) async throws -> DynamicSDKSwift.BusinessAccountDetail
   final public func addWallet(businessAccountId: Swift.String? = nil, walletId: Swift.String) async throws -> DynamicSDKSwift.BusinessAccountDetail
-  final public func addSigner(accountAddress: Swift.String, chainName: Swift.String, targetSignerIdentity: DynamicSDKSwift.TargetIdentity, businessAccountId: Swift.String? = nil, walletId: Swift.String? = nil, signerType: DynamicSDKSwift.BusinessAccountSignerType? = nil, password: Swift.String? = nil) async throws -> DynamicSDKSwift.AddBusinessAccountSignerResponse
+  final public func addSigner(accountAddress: Swift.String, chainName: Swift.String, targetSignerIdentity: DynamicSDKSwift.TargetIdentity, businessAccountId: Swift.String? = nil, walletId: Swift.String? = nil, signerType: DynamicSDKSwift.BusinessAccountSignerType? = nil, password: Swift.String? = nil, targetSignerPassword: Swift.String? = nil) async throws -> DynamicSDKSwift.AddBusinessAccountSignerResponse
   final public func addMember(businessAccountId: Swift.String, userId: Swift.String? = nil, identifier: Swift.String? = nil, identifierType: DynamicSDKSwift.BusinessAccountSignerIdentifierType? = nil, role: DynamicSDKSwift.BusinessAccountMemberRole? = nil) async throws -> DynamicSDKSwift.BusinessAccountMember
   final public func removeSigner(businessAccountId: Swift.String, walletId: Swift.String, signerId: Swift.String) async throws -> DynamicSDKSwift.BusinessAccountSigner
   final public func removeMember(businessAccountId: Swift.String, userId: Swift.String) async throws -> DynamicSDKSwift.BusinessAccountMember
@@ -2003,6 +2204,11 @@ final public class EmbeddedWalletsModule {
   }
   @objc deinit
 }
+final public class LocaleModule {
+  public init(_ transport: DynamicSDKSwift.MessageTransport)
+  final public func changeLanguage(_ language: DynamicSDKSwift.LocaleLanguage) async throws
+  @objc deinit
+}
 final public class MfaModule {
   public init(_ transport: DynamicSDKSwift.MessageTransport)
   final public func addDevice(type: Swift.String? = nil) async throws -> DynamicSDKSwift.MfaAddDevice
@@ -2034,6 +2240,7 @@ final public class NetworksModule {
   public static let evmPrefix: Swift.String
   public static let solanaPrefix: Swift.String
   public static let suiPrefix: Swift.String
+  public static let bitcoinPrefix: Swift.String
   public init(_ transport: DynamicSDKSwift.MessageTransport)
   final public var evm: [DynamicSDKSwift.GenericNetwork] {
     get
@@ -2053,6 +2260,13 @@ final public class NetworksModule {
   final public var suiChanges: Combine.AnyPublisher<[DynamicSDKSwift.GenericNetwork], Swift.Never> {
     get
   }
+  final public var bitcoin: [DynamicSDKSwift.GenericNetwork] {
+    get
+  }
+  final public var bitcoinChanges: Combine.AnyPublisher<[DynamicSDKSwift.GenericNetwork], Swift.Never> {
+    get
+  }
+  final public func networksForChain(_ chain: Swift.String?) -> [DynamicSDKSwift.GenericNetwork]
   @objc deinit
 }
 public protocol ChainOrNetworkIdValue : Swift.Encodable, Swift.Equatable {
@@ -2106,6 +2320,26 @@ final public class PasskeyModule {
   final public func signInWithPasskey(relatedOriginRpId: Swift.String? = nil) async throws -> DynamicSDKSwift.VerifyResponse
   @objc deinit
 }
+final public class PoliciesModule {
+  public init(_ transport: DynamicSDKSwift.MessageTransport)
+  final public func create(chain: DynamicSDKSwift.WaasChain, chainIds: [Swift.Int]? = nil, rules: DynamicSDKSwift.PolicyRules, scope: DynamicSDKSwift.PolicyScope) async throws -> DynamicSDKSwift.PolicyLayerResponse
+  final public func get(chain: DynamicSDKSwift.WaasChain, chainIds: [Swift.Int]? = nil, scope: DynamicSDKSwift.PolicyScope) async throws -> DynamicSDKSwift.PolicyGetResponse
+  final public func removeRules(chain: DynamicSDKSwift.WaasChain, chainIds: [Swift.Int]? = nil, rules: [DynamicSDKSwift.PolicyRuleKind], scope: DynamicSDKSwift.PolicyScope) async throws -> DynamicSDKSwift.PolicyLayerResponse
+  final public func getWalletLayer(walletId: Swift.String) async throws -> DynamicSDKSwift.PolicyLayerResponse
+  final public func getSignerLayer(walletId: Swift.String, shareSetId: Swift.String? = nil) async throws -> DynamicSDKSwift.PolicyLayerResponse
+  final public func getAccountLayer(businessAccountId: Swift.String) async throws -> DynamicSDKSwift.PolicyLayerResponse
+  final public func upsertWalletRule(walletId: Swift.String, rule: DynamicSDKSwift.PolicyRule) async throws -> DynamicSDKSwift.PolicyLayerResponse
+  final public func upsertSignerRule(walletId: Swift.String, shareSetId: Swift.String? = nil, rule: DynamicSDKSwift.PolicyRule) async throws -> DynamicSDKSwift.PolicyLayerResponse
+  final public func upsertAccountRule(businessAccountId: Swift.String, rule: DynamicSDKSwift.PolicyRule) async throws -> DynamicSDKSwift.PolicyLayerResponse
+  final public func removeWalletRule(walletId: Swift.String, ruleId: Swift.String) async throws -> DynamicSDKSwift.PolicyLayerResponse
+  final public func removeSignerRule(walletId: Swift.String, shareSetId: Swift.String? = nil, ruleId: Swift.String) async throws -> DynamicSDKSwift.PolicyLayerResponse
+  final public func removeAccountRule(businessAccountId: Swift.String, ruleId: Swift.String) async throws -> DynamicSDKSwift.PolicyLayerResponse
+  final public func buildAllowRule(input: DynamicSDKSwift.PolicyRuleInput) async throws -> DynamicSDKSwift.PolicyRule
+  final public func buildDenyRule(input: DynamicSDKSwift.PolicyRuleInput) async throws -> DynamicSDKSwift.PolicyRule
+  final public func expandRules(chain: DynamicSDKSwift.WaasChain, chainIds: [Swift.Int]? = nil, rules: DynamicSDKSwift.PolicyRules) async throws -> [DynamicSDKSwift.PolicyRule]
+  final public func desugarRules(entries: [DynamicSDKSwift.PolicyDesugarEntry]) async throws -> DynamicSDKSwift.PolicyDesugarResult
+  @objc deinit
+}
 final public class StepUpAuthModule {
   public init(_ transport: DynamicSDKSwift.MessageTransport)
   final public func isStepUpRequired(scope: DynamicSDKSwift.TokenScope) async throws -> Swift.Bool
@@ -2137,6 +2371,7 @@ final public class WaasModule {
   final public func updatePassword(wallet: DynamicSDKSwift.BaseWallet, existingPassword: Swift.String, newPassword: Swift.String) async throws
   final public func setPassword(wallet: DynamicSDKSwift.BaseWallet, newPassword: Swift.String) async throws
   final public func getWalletRecoveryState(wallet: DynamicSDKSwift.BaseWallet) async throws -> DynamicSDKSwift.WalletRecoveryState
+  final public func createOfflineRecoveryShares(wallet: DynamicSDKSwift.BaseWallet, password: Swift.String? = nil, cloudProviderAccessToken: Swift.String? = nil, mfaToken: Swift.String? = nil) async throws
   @objc deinit
 }
 public struct WalletConnectState {
@@ -2269,6 +2504,9 @@ final public class WalletsModule {
   @_Concurrency.MainActor public static let jsChannelName: Swift.String
   @_Concurrency.MainActor final public let webView: WebKit.WKWebView
   @_Concurrency.MainActor final public let visibility: DynamicSDKSwift.VisibilityModule
+  @_Concurrency.MainActor final public var loadController: DynamicSDKSwift.WebviewLoadController? {
+    get
+  }
   @_Concurrency.MainActor public init(transport: DynamicSDKSwift.MessageTransport, props: DynamicSDKSwift.ClientProps)
   @_Concurrency.MainActor final public func setOnLoaded(_ onLoaded: @escaping () -> Swift.Void)
   @objc deinit
@@ -2282,6 +2520,69 @@ extension DynamicSDKSwift.DynamicWebViewController : WebKit.WKNavigationDelegate
   @_Concurrency.MainActor @preconcurrency @objc final public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
   @_Concurrency.MainActor @preconcurrency @objc final public func webView(_ webView: WebKit.WKWebView, didFail navigation: WebKit.WKNavigation!, withError error: any Swift.Error)
   @_Concurrency.MainActor @preconcurrency @objc final public func webView(_ webView: WebKit.WKWebView, didFailProvisionalNavigation navigation: WebKit.WKNavigation!, withError error: any Swift.Error)
+}
+public protocol WebviewLoadScheduler {
+  @discardableResult
+  func schedule(after delay: Foundation.TimeInterval, _ action: @escaping () -> Swift.Void) -> any DynamicSDKSwift.WebviewLoadScheduledTask
+}
+public protocol WebviewLoadScheduledTask {
+  func cancel()
+}
+final public class DispatchQueueWebviewLoadScheduler : DynamicSDKSwift.WebviewLoadScheduler {
+  public init()
+  final public func schedule(after delay: Foundation.TimeInterval, _ action: @escaping () -> Swift.Void) -> any DynamicSDKSwift.WebviewLoadScheduledTask
+  @objc deinit
+}
+public struct WebviewLoadOptions : Swift.Equatable {
+  public var maxAttempts: Swift.Int?
+  public var sdkReadyTimeoutMs: Swift.Int?
+  public init(maxAttempts: Swift.Int? = nil, sdkReadyTimeoutMs: Swift.Int? = nil)
+  public static func == (a: DynamicSDKSwift.WebviewLoadOptions, b: DynamicSDKSwift.WebviewLoadOptions) -> Swift.Bool
+}
+public enum WebviewLoadStatus : Swift.Equatable {
+  case idle
+  case loading
+  case ready
+  case failed
+  public static func == (a: DynamicSDKSwift.WebviewLoadStatus, b: DynamicSDKSwift.WebviewLoadStatus) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct WebviewFailedToLoadError : Swift.Error, Swift.Equatable, Foundation.LocalizedError {
+  public let attempts: Swift.Int
+  public let timeoutPerAttempt: Foundation.TimeInterval
+  public var errorDescription: Swift.String? {
+    get
+  }
+  public static func == (a: DynamicSDKSwift.WebviewFailedToLoadError, b: DynamicSDKSwift.WebviewFailedToLoadError) -> Swift.Bool
+}
+public struct DynamicWebviewLoadState : Swift.Equatable {
+  public let status: DynamicSDKSwift.WebviewLoadStatus
+  public let attempt: Swift.Int
+  public let maxAttempts: Swift.Int
+  public let error: DynamicSDKSwift.WebviewFailedToLoadError?
+  public static func == (a: DynamicSDKSwift.DynamicWebviewLoadState, b: DynamicSDKSwift.DynamicWebviewLoadState) -> Swift.Bool
+}
+final public class WebviewLoadController {
+  public static let defaultMaxAttempts: Swift.Int
+  public static let defaultSdkReadyTimeoutMs: Swift.Int
+  public static let minMaxAttempts: Swift.Int
+  public static let maxMaxAttempts: Swift.Int
+  public static let minSdkReadyTimeoutMs: Swift.Int
+  public static let sdkLoadedChangedMessageType: Swift.String
+  public init(messageTransport: DynamicSDKSwift.MessageTransport, onLoadUrl: @escaping (Foundation.URL) -> Swift.Void, baseUrl: Foundation.URL, options: DynamicSDKSwift.WebviewLoadOptions? = nil, scheduler: any DynamicSDKSwift.WebviewLoadScheduler = DispatchQueueWebviewLoadScheduler())
+  @objc deinit
+  final public var loadState: DynamicSDKSwift.DynamicWebviewLoadState {
+    get
+  }
+  final public var loadStateChanges: Combine.AnyPublisher<DynamicSDKSwift.DynamicWebviewLoadState, Swift.Never> {
+    get
+  }
+  final public func start()
+  final public func retry() async -> DynamicSDKSwift.DynamicWebviewLoadState
+  final public func teardown()
 }
 extension DynamicSDKSwift.SolanaTransactionType : Swift.Equatable {}
 extension DynamicSDKSwift.SolanaTransactionType : Swift.Hashable {}
@@ -2304,9 +2605,16 @@ extension DynamicSDKSwift.DelegationStatus : Swift.RawRepresentable {}
 extension DynamicSDKSwift.EmbeddedWalletChain : Swift.Equatable {}
 extension DynamicSDKSwift.EmbeddedWalletChain : Swift.Hashable {}
 extension DynamicSDKSwift.EmbeddedWalletChain : Swift.RawRepresentable {}
+extension DynamicSDKSwift.LocaleLanguage : Swift.Equatable {}
+extension DynamicSDKSwift.LocaleLanguage : Swift.Hashable {}
+extension DynamicSDKSwift.LocaleLanguage : Swift.RawRepresentable {}
 extension DynamicSDKSwift.MfaDeviceType : Swift.Equatable {}
 extension DynamicSDKSwift.MfaDeviceType : Swift.Hashable {}
 extension DynamicSDKSwift.MfaDeviceType : Swift.RawRepresentable {}
+extension DynamicSDKSwift.PolicyRuleKind : Swift.Hashable {}
+extension DynamicSDKSwift.PolicyRuleKind : Swift.RawRepresentable {}
+extension DynamicSDKSwift.PolicyRuleType : Swift.Hashable {}
+extension DynamicSDKSwift.PolicyRuleType : Swift.RawRepresentable {}
 extension DynamicSDKSwift.EnvironmentEnum : Swift.Equatable {}
 extension DynamicSDKSwift.EnvironmentEnum : Swift.Hashable {}
 extension DynamicSDKSwift.EnvironmentEnum : Swift.RawRepresentable {}
@@ -2394,3 +2702,4 @@ extension DynamicSDKSwift.DynamicUI : Swift.Sendable {}
 extension DynamicSDKSwift.DynamicWebViewContainer : Swift.Sendable {}
 extension DynamicSDKSwift.DynamicOverlayWindowManager : Swift.Sendable {}
 extension DynamicSDKSwift.DynamicWebViewController : Swift.Sendable {}
+extension DynamicSDKSwift.WebviewLoadStatus : Swift.Hashable {}
